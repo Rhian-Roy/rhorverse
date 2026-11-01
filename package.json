@@ -1,0 +1,19 @@
+{
+  "name": "rhorverse",
+  "private": true,
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "tokens": "pnpm --filter @rhorverse/tokens build",
+    "dev:web": "pnpm --filter web dev",
+    "build": "pnpm tokens && pnpm --filter web build",
+    "lint": "pnpm --filter web lint",
+    "typecheck": "pnpm --filter web typecheck",
+    "test:e2e": "pnpm --filter web test:e2e"
+  },
+  "devDependencies": {
+    "concurrently": "10.0.6"
+  }
+}

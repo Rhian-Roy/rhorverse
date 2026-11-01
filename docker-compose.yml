@@ -1,0 +1,24 @@
+# Mirrors the local `docker run` that created canopy-pg:
+#   docker run -d --name canopy-pg -e POSTGRES_PASSWORD=... -e POSTGRES_DB=canopy \
+#     -p 5432:5432 -v canopy-pgdata:/var/lib/postgresql/data pgvector/pgvector:pg17
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: canopy-pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: canopy
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    ports:
+      - "5432:5432"
+    volumes:
+      - canopy-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d canopy"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  canopy-pgdata:
+    external: true

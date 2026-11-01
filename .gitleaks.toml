@@ -1,0 +1,13 @@
+title = "rhorverse gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Template and lock files contain no secrets"
+paths = [
+  '''\.env\.example$''',
+  '''(^|/)uv\.lock$''',
+  '''(^|/)pnpm-lock\.yaml$''',
+  '''apps/web/public/snapshots/.*\.json$''',
+]

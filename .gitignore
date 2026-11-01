@@ -1,0 +1,43 @@
+# deps
+node_modules/
+.pnpm-store/
+.venv/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# data (raw caches, exports, user imports)
+data/
+
+# build / caches
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.turbo/
+.cache/
+
+# test output
+apps/web/test-results/
+apps/web/playwright-report/
+apps/web/blob-report/
+coverage/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log
+
+# local claude settings
+.claude/settings.local.json
