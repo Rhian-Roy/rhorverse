@@ -1,0 +1,38 @@
+[
+  {
+    "id": "music-trending",
+    "title": "Trending music",
+    "variant": "square",
+    "ranked": false,
+    "items": [
+      {
+        "id": "u1",
+        "media": "music",
+        "title": "Sample Album: Tidal Hours",
+        "year": 2020,
+        "overview": null,
+        "tags": [
+          "ambient"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "u1"
+      },
+      {
+        "id": "u2",
+        "media": "music",
+        "title": "Sample Album: Raga Circuit",
+        "year": 2024,
+        "overview": null,
+        "tags": [
+          "electronic",
+          "indian-classical"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "u2"
+      }
+    ],
+    "explanation": null
+  }
+]

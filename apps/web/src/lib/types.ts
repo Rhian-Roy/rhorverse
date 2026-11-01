@@ -1,0 +1,78 @@
+// Mirrors services/api/src/rhorverse/schemas.py. Keep in sync.
+
+export type MediaType = "movie" | "tv" | "anime" | "music" | "game";
+
+export type TileVariant = "poster" | "landscape" | "square" | "capsule";
+
+export interface ImageSet {
+  poster?: string | null;
+  backdrop?: string | null;
+  square?: string | null;
+  capsule?: string | null;
+}
+
+export interface Work {
+  id: string;
+  media: MediaType;
+  title: string;
+  year?: number | null;
+  overview?: string | null;
+  tags: string[];
+  images: ImageSet;
+  source: string;
+  source_id: string;
+}
+
+export interface Provider {
+  name: string;
+  kind: "flatrate" | "rent" | "buy" | "free" | "ads";
+  logo?: string | null;
+  link?: string | null;
+}
+
+export interface WorkDetail extends Work {
+  facets: Record<string, string[]>;
+  availability: Provider[];
+}
+
+export interface Explanation {
+  because_id: string;
+  because_title: string;
+  reason: string;
+}
+
+export interface Rail {
+  id: string;
+  title: string;
+  variant: TileVariant;
+  ranked?: boolean;
+  items: Work[];
+  explanation?: Explanation | null;
+}
+
+export interface HomeFeed {
+  hero: Work[];
+  rails: Rail[];
+}
+
+export interface SearchResult {
+  query: string;
+  media?: MediaType | null;
+  items: Work[];
+}
+
+export interface Track {
+  id: string;
+  title: string;
+  artist: string;
+  duration_s: number;
+  preview_url?: string | null;
+}
+
+export interface TasteProfile {
+  profile_id: string;
+  top_tags: string[];
+  counts: Partial<Record<MediaType, number>>;
+}
+
+export type ImportSource = "netflix" | "letterboxd" | "anilist" | "steam";

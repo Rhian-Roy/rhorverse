@@ -1,0 +1,38 @@
+[
+  {
+    "id": "anime-trending",
+    "title": "Trending anime",
+    "variant": "poster",
+    "ranked": false,
+    "items": [
+      {
+        "id": "a1",
+        "media": "anime",
+        "title": "Sample Anime: Skyward Club",
+        "year": 2021,
+        "overview": null,
+        "tags": [
+          "slice-of-life"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "a1"
+      },
+      {
+        "id": "a2",
+        "media": "anime",
+        "title": "Sample Anime: Iron Lantern",
+        "year": 2023,
+        "overview": null,
+        "tags": [
+          "mecha",
+          "action"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "a2"
+      }
+    ],
+    "explanation": null
+  }
+]

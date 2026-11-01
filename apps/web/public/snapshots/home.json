@@ -1,0 +1,370 @@
+{
+  "hero": [
+    {
+      "id": "m1",
+      "media": "movie",
+      "title": "Sample Film: Low Orbit",
+      "year": 2024,
+      "overview": "Placeholder entry for snapshot mode.",
+      "tags": [
+        "sci-fi",
+        "slow-burn"
+      ],
+      "images": {},
+      "source": "sample",
+      "source_id": "m1"
+    },
+    {
+      "id": "a2",
+      "media": "anime",
+      "title": "Sample Anime: Iron Lantern",
+      "year": 2023,
+      "overview": null,
+      "tags": [
+        "mecha",
+        "action"
+      ],
+      "images": {},
+      "source": "sample",
+      "source_id": "a2"
+    },
+    {
+      "id": "g1",
+      "media": "game",
+      "title": "Sample Game: Drift Ruins",
+      "year": 2023,
+      "overview": null,
+      "tags": [
+        "roguelike"
+      ],
+      "images": {},
+      "source": "sample",
+      "source_id": "g1"
+    }
+  ],
+  "rails": [
+    {
+      "id": "top10",
+      "title": "Top 10 across the Rhorverse",
+      "variant": "poster",
+      "ranked": true,
+      "items": [
+        {
+          "id": "m1",
+          "media": "movie",
+          "title": "Sample Film: Low Orbit",
+          "year": 2024,
+          "overview": "Placeholder entry for snapshot mode.",
+          "tags": [
+            "sci-fi",
+            "slow-burn"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "m1"
+        },
+        {
+          "id": "t1",
+          "media": "tv",
+          "title": "Sample Series: The Relay",
+          "year": 2022,
+          "overview": null,
+          "tags": [
+            "mystery"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "t1"
+        },
+        {
+          "id": "a1",
+          "media": "anime",
+          "title": "Sample Anime: Skyward Club",
+          "year": 2021,
+          "overview": null,
+          "tags": [
+            "slice-of-life"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "a1"
+        },
+        {
+          "id": "g1",
+          "media": "game",
+          "title": "Sample Game: Drift Ruins",
+          "year": 2023,
+          "overview": null,
+          "tags": [
+            "roguelike"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "g1"
+        },
+        {
+          "id": "u1",
+          "media": "music",
+          "title": "Sample Album: Tidal Hours",
+          "year": 2020,
+          "overview": null,
+          "tags": [
+            "ambient"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "u1"
+        }
+      ],
+      "explanation": null
+    },
+    {
+      "id": "because-m1",
+      "title": "More like Low Orbit",
+      "variant": "landscape",
+      "ranked": false,
+      "items": [
+        {
+          "id": "m3",
+          "media": "movie",
+          "title": "Sample Film: Night Market",
+          "year": 2025,
+          "overview": null,
+          "tags": [
+            "thriller",
+            "neon"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "m3"
+        },
+        {
+          "id": "t1",
+          "media": "tv",
+          "title": "Sample Series: The Relay",
+          "year": 2022,
+          "overview": null,
+          "tags": [
+            "mystery"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "t1"
+        },
+        {
+          "id": "a2",
+          "media": "anime",
+          "title": "Sample Anime: Iron Lantern",
+          "year": 2023,
+          "overview": null,
+          "tags": [
+            "mecha",
+            "action"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "a2"
+        }
+      ],
+      "explanation": {
+        "because_id": "m1",
+        "because_title": "Sample Film: Low Orbit",
+        "reason": "Shares sci-fi and slow-burn moods."
+      }
+    },
+    {
+      "id": "movies",
+      "title": "Movies",
+      "variant": "poster",
+      "ranked": false,
+      "items": [
+        {
+          "id": "m1",
+          "media": "movie",
+          "title": "Sample Film: Low Orbit",
+          "year": 2024,
+          "overview": "Placeholder entry for snapshot mode.",
+          "tags": [
+            "sci-fi",
+            "slow-burn"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "m1"
+        },
+        {
+          "id": "m2",
+          "media": "movie",
+          "title": "Sample Film: Monsoon Signal",
+          "year": 2023,
+          "overview": null,
+          "tags": [
+            "drama",
+            "india"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "m2"
+        },
+        {
+          "id": "m3",
+          "media": "movie",
+          "title": "Sample Film: Night Market",
+          "year": 2025,
+          "overview": null,
+          "tags": [
+            "thriller",
+            "neon"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "m3"
+        }
+      ],
+      "explanation": null
+    },
+    {
+      "id": "shows",
+      "title": "TV",
+      "variant": "poster",
+      "ranked": false,
+      "items": [
+        {
+          "id": "t1",
+          "media": "tv",
+          "title": "Sample Series: The Relay",
+          "year": 2022,
+          "overview": null,
+          "tags": [
+            "mystery"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "t1"
+        },
+        {
+          "id": "t2",
+          "media": "tv",
+          "title": "Sample Series: Second Draft",
+          "year": 2024,
+          "overview": null,
+          "tags": [
+            "comedy"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "t2"
+        }
+      ],
+      "explanation": null
+    },
+    {
+      "id": "anime",
+      "title": "Anime",
+      "variant": "poster",
+      "ranked": false,
+      "items": [
+        {
+          "id": "a1",
+          "media": "anime",
+          "title": "Sample Anime: Skyward Club",
+          "year": 2021,
+          "overview": null,
+          "tags": [
+            "slice-of-life"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "a1"
+        },
+        {
+          "id": "a2",
+          "media": "anime",
+          "title": "Sample Anime: Iron Lantern",
+          "year": 2023,
+          "overview": null,
+          "tags": [
+            "mecha",
+            "action"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "a2"
+        }
+      ],
+      "explanation": null
+    },
+    {
+      "id": "music",
+      "title": "Music",
+      "variant": "square",
+      "ranked": false,
+      "items": [
+        {
+          "id": "u1",
+          "media": "music",
+          "title": "Sample Album: Tidal Hours",
+          "year": 2020,
+          "overview": null,
+          "tags": [
+            "ambient"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "u1"
+        },
+        {
+          "id": "u2",
+          "media": "music",
+          "title": "Sample Album: Raga Circuit",
+          "year": 2024,
+          "overview": null,
+          "tags": [
+            "electronic",
+            "indian-classical"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "u2"
+        }
+      ],
+      "explanation": null
+    },
+    {
+      "id": "games",
+      "title": "Games",
+      "variant": "capsule",
+      "ranked": false,
+      "items": [
+        {
+          "id": "g1",
+          "media": "game",
+          "title": "Sample Game: Drift Ruins",
+          "year": 2023,
+          "overview": null,
+          "tags": [
+            "roguelike"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "g1"
+        },
+        {
+          "id": "g2",
+          "media": "game",
+          "title": "Sample Game: Quiet Harbor",
+          "year": 2025,
+          "overview": null,
+          "tags": [
+            "cozy",
+            "sim"
+          ],
+          "images": {},
+          "source": "sample",
+          "source_id": "g2"
+        }
+      ],
+      "explanation": null
+    }
+  ]
+}

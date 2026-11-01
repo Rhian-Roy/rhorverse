@@ -1,0 +1,53 @@
+[
+  {
+    "id": "movies-trending",
+    "title": "Trending movies",
+    "variant": "poster",
+    "ranked": false,
+    "items": [
+      {
+        "id": "m1",
+        "media": "movie",
+        "title": "Sample Film: Low Orbit",
+        "year": 2024,
+        "overview": "Placeholder entry for snapshot mode.",
+        "tags": [
+          "sci-fi",
+          "slow-burn"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "m1"
+      },
+      {
+        "id": "m2",
+        "media": "movie",
+        "title": "Sample Film: Monsoon Signal",
+        "year": 2023,
+        "overview": null,
+        "tags": [
+          "drama",
+          "india"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "m2"
+      },
+      {
+        "id": "m3",
+        "media": "movie",
+        "title": "Sample Film: Night Market",
+        "year": 2025,
+        "overview": null,
+        "tags": [
+          "thriller",
+          "neon"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "m3"
+      }
+    ],
+    "explanation": null
+  }
+]

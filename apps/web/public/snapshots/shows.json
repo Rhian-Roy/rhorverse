@@ -1,0 +1,37 @@
+[
+  {
+    "id": "shows-trending",
+    "title": "Trending shows",
+    "variant": "poster",
+    "ranked": false,
+    "items": [
+      {
+        "id": "t1",
+        "media": "tv",
+        "title": "Sample Series: The Relay",
+        "year": 2022,
+        "overview": null,
+        "tags": [
+          "mystery"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "t1"
+      },
+      {
+        "id": "t2",
+        "media": "tv",
+        "title": "Sample Series: Second Draft",
+        "year": 2024,
+        "overview": null,
+        "tags": [
+          "comedy"
+        ],
+        "images": {},
+        "source": "sample",
+        "source_id": "t2"
+      }
+    ],
+    "explanation": null
+  }
+]
