@@ -1,0 +1,44 @@
+"""App factory: CORS, routers, health."""
+
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from rhorverse import __version__, db
+from rhorverse.api import imports, profile, recs, search, works
+from rhorverse.config import get_settings
+from rhorverse.schemas import Health
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    yield
+    db.close_pool()
+
+
+def create_app() -> FastAPI:
+    settings = get_settings()
+    app = FastAPI(title="Rhorverse API", version=__version__, lifespan=lifespan)
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.cors_origins,
+        allow_methods=["GET", "POST"],
+        allow_headers=["*"],
+    )
+
+    @app.get("/health", response_model=Health, tags=["meta"])
+    def health(deep: bool = False) -> Health:
+        """Liveness. `?deep=true` also pings Postgres."""
+        if not deep:
+            return Health(status="ok", version=__version__)
+        ok = db.ping()
+        return Health(status="ok" if ok else "degraded", version=__version__, db="ok" if ok else "down")
+
+    for module in (works, search, recs, profile, imports):
+        app.include_router(module.router)
+    return app
+
+
+app = create_app()
