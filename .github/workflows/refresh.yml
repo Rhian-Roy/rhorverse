@@ -1,0 +1,20 @@
+name: refresh
+
+# Weekly trending refresh. Enabled later, once ingesters are real.
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    if: ${{ vars.REFRESH_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
+      - name: Ingest trending (TODO)
+        env:
+          DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
+          TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
+        run: echo "TODO: uv run --project services/api python -m rhorverse.ingest.tmdb --cap 200"

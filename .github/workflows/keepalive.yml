@@ -1,0 +1,17 @@
+name: keepalive
+
+# Supabase free tier pauses after a week idle; ping it daily.
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Ping database
+        env:
+          DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: psql "$DATABASE_URL" -XtA -c "select 1"
