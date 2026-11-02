@@ -29,7 +29,7 @@ def because(
     if row is None:
         raise HTTPException(status_code=404, detail="work not found")
     if row["embedding"] is None:  # not embedded yet (run `just embed`)
-        return Rail(id=f"because-{work_id}", title=f"Because you liked {row['title']}", items=[])
+        return Rail(id=f"because-{work_id}", title=f"More like {row['title']}", items=[])
     signals = load_signals(conn, profile_id)
     exclude = excluded_ids(((s.work_id, s.kind) for s in signals), HOME_EXCLUDING)
     anchor = Anchor(row["id"], row["title"], list(row["tags"] or []), parse_pgvector(row["embedding"]))

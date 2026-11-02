@@ -147,7 +147,7 @@ def because_rail(
     items = rank_rail(candidates(conn, anchor.embedding, exclude | {anchor.work_id}), k)
     rail = Rail(
         id=f"because-{anchor.work_id}",
-        title=f"Because you liked {anchor.title}",
+        title=f"More like {anchor.title}",
         variant="landscape",
         items=[row_to_work(c.row) for c in items],
         explanation=explain.because(anchor.work_id, anchor.title, shared_tags(anchor.tags, items)),
