@@ -4,7 +4,6 @@ from collections import Counter
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from typing import Any
-from uuid import UUID
 
 import numpy as np
 from psycopg import Connection
@@ -15,7 +14,7 @@ from rhorverse.rec.mmr import mmr
 from rhorverse.rec.profile import EVENT_WEIGHTS, decay, taste_vector
 from rhorverse.rec.rank import score
 from rhorverse.rec.vec import parse_pgvector, to_pgvector
-from rhorverse.repo import row_to_work
+from rhorverse.repo import parse_profile_id, row_to_work
 from rhorverse.schemas import HomeFeed, Rail, Work
 
 # Re-showing what you just liked looks broken, so the home feed drops likes too.
@@ -62,16 +61,9 @@ class Candidate:
         return self.row["id"]
 
 
-def _profile_uuid(profile_id: str | None) -> UUID | None:
-    try:
-        return UUID(profile_id) if profile_id else None
-    except ValueError:
-        return None
-
-
 def load_signals(conn: Connection, profile_id: str | None) -> list[Signal]:
     """Latest event per (work, kind), newest first. Unknown or malformed ids → no signals."""
-    pid = _profile_uuid(profile_id)
+    pid = parse_profile_id(profile_id)
     if pid is None:
         return []
     rows = conn.execute(

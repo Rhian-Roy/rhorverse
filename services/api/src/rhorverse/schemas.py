@@ -89,6 +89,8 @@ class ImportResult(BaseModel):
     status: Literal["queued", "done", "failed"]
     matched: int = 0
     unmatched: int = 0
+    fetched: int = 0  # films that were missing and got pulled in from TMDB during the import
+    unmatched_titles: list[str] = Field(default_factory=list)  # first few, for the UI
 
 
 class Health(BaseModel):

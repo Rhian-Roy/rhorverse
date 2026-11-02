@@ -4,26 +4,27 @@ from fastapi import APIRouter, Depends, HTTPException
 from psycopg import Connection
 
 from rhorverse.db import get_conn
+from rhorverse.repo import ensure_profile, parse_profile_id
 from rhorverse.schemas import EventAck, EventIn, TasteProfile
 
 router = APIRouter(tags=["profile"])
 
 
-def _profile_uuid(raw: str) -> UUID:
-    try:
-        return UUID(raw)
-    except ValueError as e:
-        raise HTTPException(status_code=422, detail=f"profile_id must be a UUID: {raw!r}") from e
+def require_profile_id(raw: str) -> UUID:
+    pid = parse_profile_id(raw)
+    if pid is None:
+        raise HTTPException(status_code=422, detail=f"profile_id must be a UUID: {raw!r}")
+    return pid
 
 
 @router.post("/events", response_model=EventAck, status_code=202)
 def post_events(events: list[EventIn], conn: Connection = Depends(get_conn)) -> EventAck:  # noqa: B008
     """Store events for anonymous profiles (created on first sight). Unknown work ids are skipped."""
-    rows = [(_profile_uuid(e.profile_id), e.work_id, e.kind, e.weight) for e in events]
+    rows = [(require_profile_id(e.profile_id), e.work_id, e.kind, e.weight) for e in events]
     accepted = 0
     with conn.transaction():
         for pid in {r[0] for r in rows}:
-            conn.execute("insert into profiles (id) values (%s) on conflict (id) do nothing", (pid,))
+            ensure_profile(conn, pid)
         for pid, work_id, kind, weight in rows:
             cur = conn.execute(
                 "insert into events (profile_id, work_id, kind, weight) "
