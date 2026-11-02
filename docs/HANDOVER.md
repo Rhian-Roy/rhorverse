@@ -3,8 +3,8 @@
 ## Current state (2026-11-02)
 - Monorepo skeleton in place: web (Next.js 16.4), api (FastAPI, uv), tokens, db migrations, scripts, docs, CI.
 - Web runs fully in `API_MODE=snapshot` from placeholder JSON in `apps/web/public/snapshots/`.
-- API endpoints exist with correct response shapes but return stub data. `/health` is real (`?deep=true` pings the DB).
-- Real logic so far: `ingest/http.py`, `rec/rank.py`, `rec/mmr.py`, `rec/exclude.py`, `imports/match.py`, `eval/metrics.py`, `ingest/store.py` (upserts) and `ingest/tmdb.py` (movies + TV + IN providers).
+- `/search` is real (title search over `works`). Other endpoints (`/works`, `/recs`, `/profile`, `/imports`) still return stub data with correct shapes. `/health` is real (`?deep=true` pings the DB).
+- Real logic so far: `ingest/http.py`, `rec/rank.py`, `rec/mmr.py`, `rec/exclude.py`, `imports/match.py`, `eval/metrics.py`, `ingest/store.py` (upserts) and `ingest/tmdb.py` (movies + TV + IN providers), `rec/fuse.py` (RRF) and `api/search.py` (trigram + prefix + popularity).
 - Migrations 0001–0003 are applied to `canopy-pg`. `works` holds 200 TMDB titles (100 movies, 100 TV; 119 with IN providers) from `just ingest tmdb --cap 200`.
 
 ## How to run
@@ -17,7 +17,11 @@ See README → "Run it". In short: `.env` → `docker compose up -d db` → `jus
 - `apps/web/AGENTS.md` is written by `next dev` itself. Keep it committed.
 - Starlette warns that `httpx` in `TestClient` is deprecated. Harmless for now.
 
+- Search is lexical only for now: the vector half (`search_works(query_vec=...)`) is built and fused with RRF but dormant. It needs embeddings (`just embed`, still a stub) and a way to embed the query without torch in the API.
+- `/works/{id}` is still sample data and ids like `tmdb:movie/603` contain a slash, so tile links to detail pages 404 in live mode. Next small task.
+
 ## Changelog
 - **2026-11-01**: Initial scaffold: root config + agent rules, Understory tokens, web shell, API skeleton, DB schema, docs, CI.
 
 - **2026-11-02**: Migrations applied to canopy-pg. Added `ingest/store.py` and a real `ingest/tmdb.py` with fixtures and tests.
+- **2026-11-02**: Search endpoint (trigram + prefix + popularity, optional vector fusion), search e2e in snapshot mode.
