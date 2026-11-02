@@ -1,12 +1,7 @@
 """Upsert helpers against a real Postgres, inside a transaction that is always rolled back."""
 
-from collections.abc import Iterator
-
 import psycopg
-import pytest
-from psycopg.rows import dict_row
 
-from rhorverse.config import get_settings
 from rhorverse.ingest.normalize import WorkRow
 from rhorverse.ingest.store import (
     AvailabilityItem,
@@ -14,22 +9,6 @@ from rhorverse.ingest.store import (
     replace_availability,
     upsert_works,
 )
-
-
-@pytest.fixture
-def conn() -> Iterator[psycopg.Connection]:
-    url = get_settings().database_url
-    if not url:
-        pytest.skip("DATABASE_URL not set")
-    try:
-        c = psycopg.connect(url, row_factory=dict_row, connect_timeout=3)
-    except psycopg.OperationalError:
-        pytest.skip("database not reachable")
-    try:
-        yield c
-    finally:
-        c.rollback()
-        c.close()
 
 
 def row(**kw: object) -> WorkRow:

@@ -1,33 +1,13 @@
 """Search against a real Postgres inside a rolled-back transaction (skipped if unreachable)."""
 
-from collections.abc import Iterator
-
 import psycopg
 import pytest
 from fastapi.testclient import TestClient
-from psycopg.rows import dict_row
 
-from rhorverse.config import get_settings
 from rhorverse.db import get_conn
 from rhorverse.ingest.normalize import WorkRow
 from rhorverse.ingest.store import upsert_works
 from rhorverse.main import create_app
-
-
-@pytest.fixture
-def conn() -> Iterator[psycopg.Connection]:
-    url = get_settings().database_url
-    if not url:
-        pytest.skip("DATABASE_URL not set")
-    try:
-        c = psycopg.connect(url, row_factory=dict_row, connect_timeout=3)
-    except psycopg.OperationalError:
-        pytest.skip("database not reachable")
-    try:
-        yield c
-    finally:
-        c.rollback()
-        c.close()
 
 
 @pytest.fixture

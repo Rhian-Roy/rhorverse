@@ -10,13 +10,14 @@ export const ASPECT: Record<TileVariant, string> = {
 };
 
 export function hrefFor(work: Pick<Work, "id" | "media">): string {
+  const id = encodeURIComponent(work.id); // ids like "tmdb:movie/603" contain a slash
   switch (work.media) {
     case "music":
-      return `/album/${work.id}`;
+      return `/album/${id}`;
     case "game":
-      return `/game/${work.id}`;
+      return `/game/${id}`;
     default:
-      return `/title/${work.id}`;
+      return `/title/${id}`;
   }
 }
 

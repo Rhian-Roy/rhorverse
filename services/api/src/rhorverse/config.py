@@ -16,6 +16,9 @@ def _find_repo_root() -> Path:
 REPO_ROOT = _find_repo_root()
 
 
+DEFAULT_CORS_ORIGINS = ("http://localhost:3000",)
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=REPO_ROOT / ".env", extra="ignore")
 
@@ -28,14 +31,15 @@ class Settings(BaseSettings):
     steam_web_api_key: str | None = None
     gemini_api_key: str | None = None
     musicbrainz_user_agent: str = "Rhorverse/0.1 ( https://github.com/Rhian-Roy )"
-    cors_origins: Annotated[list[str], NoDecode] = Field(default_factory=lambda: ["http://localhost:3000"])
+    cors_origins: Annotated[list[str], NoDecode] = Field(default_factory=lambda: list(DEFAULT_CORS_ORIGINS))
     data_dir: Path = REPO_ROOT / "data"
 
     @field_validator("cors_origins", mode="before")
     @classmethod
     def _split_origins(cls, v: object) -> object:
         if isinstance(v, str):
-            return [o.strip() for o in v.split(",") if o.strip()]
+            # An empty CORS_ORIGINS= (as in .env.example) means "unset", not "allow nothing".
+            return [o.strip() for o in v.split(",") if o.strip()] or list(DEFAULT_CORS_ORIGINS)
         return v
 
 

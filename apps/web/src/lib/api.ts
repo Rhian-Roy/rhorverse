@@ -35,6 +35,15 @@ async function snapshot<T>(name: string): Promise<T> {
   return (await res.json()) as T;
 }
 
+// Route params may arrive still percent-encoded ("tmdb%3Amovie%2F603"); ids never contain "%".
+function pathId(id: string): string {
+  try {
+    return encodeURIComponent(decodeURIComponent(id));
+  } catch {
+    return encodeURIComponent(id);
+  }
+}
+
 const MEDIA_SNAPSHOT: Record<MediaType, string> = {
   movie: "movies",
   tv: "shows",
@@ -64,7 +73,7 @@ export const api = {
   async work(id: string): Promise<WorkDetail | null> {
     if (API_MODE === "live") {
       try {
-        return await live<WorkDetail>(`/works/${encodeURIComponent(id)}`);
+        return await live<WorkDetail>(`/works/${pathId(id)}`);
       } catch (e) {
         if (e instanceof ApiError && e.status === 404) return null;
         throw e;
@@ -88,6 +97,6 @@ export const api = {
   },
 
   because(id: string): Promise<Rail> {
-    return live(`/recs/because/${encodeURIComponent(id)}`);
+    return live(`/recs/because/${pathId(id)}`);
   },
 };

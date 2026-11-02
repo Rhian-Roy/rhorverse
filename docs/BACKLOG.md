@@ -14,10 +14,6 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 - **Do:** trigram similarity on `title` ∪ cosine on `embedding` (when the query embeds), filtered by `media`.
 - **Accept:** `GET /search?q=dune` returns Dune first. The web search page works in `API_MODE=live`.
 
-## 2b. Real `/works/{id}` (small)
-- **Do:** query `works` (+ `availability`, `work_links`), use a `{work_id:path}` route since ids contain `/`, reuse `repo.row_to_work`.
-- **Accept:** a search tile opens its detail page in `API_MODE=live` with IN providers and the JustWatch credit.
-
 ## 3. Recs v1 on home
 - **Context:** `rec/rank.py`, `rec/mmr.py` and `rec/exclude.py` are tested. `api/recs.py` is a stub.
 - **Do:** taste vector from events → candidate ANN (k=200) → score → MMR (λ=0.7) → exclude → explain → rails.
