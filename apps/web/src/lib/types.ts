@@ -69,6 +69,19 @@ export interface Track {
   preview_url?: string | null;
 }
 
+export type EventKind = "view" | "like" | "dislike" | "save" | "consumed" | "skip";
+
+export interface EventIn {
+  profile_id: string;
+  work_id: string;
+  kind: EventKind;
+  weight: number;
+}
+
+export interface EventAck {
+  accepted: number;
+}
+
 export interface TasteProfile {
   profile_id: string;
   top_tags: string[];

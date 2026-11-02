@@ -1,12 +1,7 @@
-import { BookmarkSimple, ThumbsDown, ThumbsUp } from "@phosphor-icons/react/ssr";
 import Image from "next/image";
+import { api } from "@/lib/api";
 import type { WorkDetail } from "@/lib/types";
-
-const ACTIONS = [
-  { label: "Loved it", Icon: ThumbsUp },
-  { label: "Not for me", Icon: ThumbsDown },
-  { label: "Save for later", Icon: BookmarkSimple },
-] as const;
+import { FeedbackActions } from "./FeedbackActions";
 
 export function DetailHeader({ work }: { work: WorkDetail }) {
   const backdrop = work.images.backdrop ?? work.images.capsule;
@@ -25,18 +20,8 @@ export function DetailHeader({ work }: { work: WorkDetail }) {
           ))}
         </ul>
         {work.overview ? <p className="max-w-2xl text-ink-muted">{work.overview}</p> : null}
-        <div className="flex gap-2">
-          {ACTIONS.map(({ label, Icon }) => (
-            <button
-              key={label}
-              type="button"
-              className="flex items-center gap-2 rounded-pill bg-surface-overlay px-4 py-2 text-sm text-ink hover:bg-line"
-            >
-              <Icon weight="regular" size={20} />
-              {label}
-            </button>
-          ))}
-        </div>
+        {/* Feedback needs the API; the snapshot build has nowhere to send it. */}
+        {api.mode === "live" ? <FeedbackActions workId={work.id} /> : null}
       </div>
     </header>
   );

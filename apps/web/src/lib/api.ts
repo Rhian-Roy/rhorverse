@@ -1,6 +1,6 @@
 // Typed client. API_MODE=live calls the FastAPI service; API_MODE=snapshot reads
 // precomputed JSON from /snapshots/*.json so the web app runs with no backend.
-import type { HomeFeed, MediaType, Rail, SearchResult, Work, WorkDetail } from "./types";
+import type { EventAck, EventIn, HomeFeed, MediaType, Rail, SearchResult, Work, WorkDetail } from "./types";
 
 export type ApiMode = "live" | "snapshot";
 
@@ -16,8 +16,8 @@ export class ApiError extends Error {
   }
 }
 
-async function live<T>(path: string): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, { next: { revalidate: 300 } });
+async function live<T>(path: string, init: RequestInit = { next: { revalidate: 300 } }): Promise<T> {
+  const res = await fetch(`${API_BASE}${path}`, init);
   if (!res.ok) throw new ApiError(res.status, `${path} → ${res.status}`);
   return (await res.json()) as T;
 }
@@ -61,8 +61,12 @@ function allSnapshotWorks(feed: HomeFeed): Work[] {
 export const api = {
   mode: API_MODE,
 
-  home(): Promise<HomeFeed> {
-    return API_MODE === "live" ? live("/recs/home") : snapshot("home");
+  /** With a profile id the feed is personal, so it is never cached. */
+  home(profileId?: string | null): Promise<HomeFeed> {
+    if (API_MODE !== "live") return snapshot("home");
+    return profileId
+      ? live(`/recs/home?${new URLSearchParams({ profile_id: profileId })}`, { cache: "no-store" })
+      : live("/recs/home");
   },
 
   async media(media: MediaType): Promise<Rail[]> {
@@ -98,5 +102,14 @@ export const api = {
 
   because(id: string): Promise<Rail> {
     return live(`/recs/because/${pathId(id)}`);
+  },
+
+  /** Browser only (live mode). */
+  sendEvents(events: EventIn[]): Promise<EventAck> {
+    return live("/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(events),
+    });
   },
 };
