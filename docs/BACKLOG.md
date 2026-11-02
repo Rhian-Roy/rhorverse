@@ -9,12 +9,13 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 - **Accept:** `just ingest tmdb --cap 200` writes ≥200 rows. Re-run is idempotent. pytest with a recorded fixture in `tests/fixtures/tmdb/`.
 
 ## 2. Hybrid search endpoint: lexical half done
-- **Left:** implement `rec/embed.py`, run `just embed`, and pass a real `query_vec` from the route (needs a query-embedding approach that keeps torch out of the API runtime).
+- **Left:** pass a real `query_vec` from the route. Works are embedded (`just embed`); the query needs an embedding approach that keeps torch out of the API runtime.
 - **Context:** `api/search.py` returns `[]`.
 - **Do:** trigram similarity on `title` ∪ cosine on `embedding` (when the query embeds), filtered by `media`.
 - **Accept:** `GET /search?q=dune` returns Dune first. The web search page works in `API_MODE=live`.
 
-## 3. Recs v1 on home
+## 3. Recs v1 on home: done
+- **Left:** store un-likes and load button state back; cache `profiles.taste`; offline eval with `eval/metrics.py`.
 - **Context:** `rec/rank.py`, `rec/mmr.py` and `rec/exclude.py` are tested. `api/recs.py` is a stub.
 - **Do:** taste vector from events → candidate ANN (k=200) → score → MMR (λ=0.7) → exclude → explain → rails.
 - **Accept:** A profile with 3 likes gets a home feed with ≥3 rails, none containing consumed items.
