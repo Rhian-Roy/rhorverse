@@ -2,8 +2,8 @@
 
 Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 
-## 1. TMDB ingest (movies + TV + IN providers): code done, live run pending
-- **Left:** set `TMDB_READ_TOKEN` in `.env`, run `just ingest tmdb --cap 200` twice (count unchanged, `availability` rows for IN exist), then swap fixtures for real captures.
+## 1. TMDB ingest (movies + TV + IN providers): done
+- **Left:** swap the hand-trimmed fixtures for real captures; raise `--cap` when more data is needed.
 - **Context:** `services/api/src/rhorverse/ingest/tmdb.py` is a stub. Use `ingest/http.py` (rate ≤ 20/s, Bearer `TMDB_READ_TOKEN`).
 - **Do:** trending + popular + top_rated for movie/tv (cap N), details with `append_to_response=keywords,watch/providers`, normalise via `normalize.py`, upsert `works`, `work_links` (imdb), `availability` (region IN).
 - **Accept:** `just ingest tmdb --cap 200` writes ≥200 rows. Re-run is idempotent. pytest with a recorded fixture in `tests/fixtures/tmdb/`.

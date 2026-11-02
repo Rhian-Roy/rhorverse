@@ -41,9 +41,9 @@ lint:
 migrate:
     db/migrate.sh
 
-# Run one ingester, e.g. `just ingest tmdb`
-ingest source:
-    uv run --project {{api}} python -m rhorverse.ingest.{{source}}
+# Run one ingester, e.g. `just ingest tmdb --cap 200`
+ingest source *args:
+    uv run --project {{api}} python -m rhorverse.ingest.{{source}} {{args}}
 
 # Compute embeddings locally (installs the optional ml group)
 embed:
