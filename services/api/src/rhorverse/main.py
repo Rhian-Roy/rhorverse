@@ -3,8 +3,9 @@
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from rhorverse import __version__, db
 from rhorverse.api import imports, profile, recs, search, works
@@ -27,6 +28,10 @@ def create_app() -> FastAPI:
         allow_methods=["GET", "POST"],
         allow_headers=["*"],
     )
+
+    @app.exception_handler(db.DatabaseNotConfigured)
+    def _no_database(_: Request, exc: db.DatabaseNotConfigured) -> JSONResponse:
+        return JSONResponse(status_code=503, content={"detail": str(exc)})
 
     @app.get("/health", response_model=Health, tags=["meta"])
     def health(deep: bool = False) -> Health:

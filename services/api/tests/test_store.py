@@ -59,12 +59,18 @@ def test_upsert_is_idempotent(conn: psycopg.Connection) -> None:
 
 def test_embedding_kept_unless_vibe_text_changes(conn: psycopg.Connection) -> None:
     upsert_works(conn, [row()])
-    conn.execute("update works set embedding = array_fill(0.1::real, array[384])::vector")
+    conn.execute(
+        "update works set embedding = array_fill(0.1::real, array[384])::vector where id = 'test:movie/1'"
+    )
     upsert_works(conn, [row()])
-    kept = conn.execute("select embedding is not null as ok from works").fetchone()["ok"]
+    kept = conn.execute("select embedding is not null as ok from works where id = 'test:movie/1'").fetchone()[
+        "ok"
+    ]
     assert kept
     upsert_works(conn, [row(overview="A different overview.")])
-    gone = conn.execute("select embedding is null as ok from works").fetchone()["ok"]
+    gone = conn.execute("select embedding is null as ok from works where id = 'test:movie/1'").fetchone()[
+        "ok"
+    ]
     assert gone
 
 
@@ -81,5 +87,5 @@ def test_links_are_deduplicated(conn: psycopg.Connection) -> None:
     upsert_works(conn, [row()])
     add_links(conn, "test:movie/1", [("imdb", "tt1")])
     add_links(conn, "test:movie/1", [("imdb", "tt1")])
-    n = conn.execute("select count(*) as n from work_links").fetchone()["n"]
+    n = conn.execute("select count(*) as n from work_links where work_id = 'test:movie/1'").fetchone()["n"]
     assert n == 1
