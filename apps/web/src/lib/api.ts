@@ -1,6 +1,17 @@
 // Typed client. API_MODE=live calls the FastAPI service; API_MODE=snapshot reads
 // precomputed JSON from /snapshots/*.json so the web app runs with no backend.
-import type { EventAck, EventIn, HomeFeed, MediaType, Rail, SearchResult, Work, WorkDetail } from "./types";
+import type {
+  EventAck,
+  EventIn,
+  HomeFeed,
+  ImportResult,
+  ImportSource,
+  MediaType,
+  Rail,
+  SearchResult,
+  Work,
+  WorkDetail,
+} from "./types";
 
 export type ApiMode = "live" | "snapshot";
 
@@ -102,6 +113,15 @@ export const api = {
 
   because(id: string): Promise<Rail> {
     return live(`/recs/because/${pathId(id)}`);
+  },
+
+  /** Browser only (live mode). The CSV goes as the raw body; matching may take a while. */
+  importCsv(source: ImportSource, profileId: string, csv: string): Promise<ImportResult> {
+    return live(`/imports/${source}?${new URLSearchParams({ profile_id: profileId })}`, {
+      method: "POST",
+      headers: { "Content-Type": "text/csv" },
+      body: csv,
+    });
   },
 
   /** Browser only (live mode). */

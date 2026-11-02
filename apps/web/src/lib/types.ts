@@ -89,3 +89,12 @@ export interface TasteProfile {
 }
 
 export type ImportSource = "netflix" | "letterboxd" | "anilist" | "steam";
+
+export interface ImportResult {
+  source: ImportSource;
+  status: "queued" | "done" | "failed";
+  matched: number;
+  unmatched: number;
+  fetched: number;
+  unmatched_titles: string[];
+}
