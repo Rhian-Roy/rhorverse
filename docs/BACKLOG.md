@@ -20,6 +20,7 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 - **Do:** taste vector from events → candidate ANN (k=200) → score → MMR (λ=0.7) → exclude → explain → rails.
 - **Accept:** A profile with 3 likes gets a home feed with ≥3 rails, none containing consumed items.
 
-## 4. Letterboxd import
+## 4. Letterboxd import: done
+- **Left:** background job + `GET /imports/{id}` for exports over 150 missing films; an option to count imported history as recent; Netflix / AniList / Steam importers.
 - **Do:** parse `watched.csv`/`ratings.csv` → `imports/match.py` → `events(kind='consumed', source='letterboxd')`.
 - **Accept:** fixture CSV → ≥90% matched. `POST /imports/letterboxd` returns counts.
