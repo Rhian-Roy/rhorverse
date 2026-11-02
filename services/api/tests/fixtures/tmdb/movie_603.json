@@ -1,0 +1,27 @@
+{
+  "id": 603,
+  "title": "The Matrix",
+  "release_date": "1999-03-30",
+  "overview": "A hacker discovers the world is a simulation.",
+  "popularity": 85.5,
+  "original_language": "en",
+  "runtime": 136,
+  "poster_path": "/matrix-poster.jpg",
+  "backdrop_path": "/matrix-backdrop.jpg",
+  "imdb_id": "tt0133093",
+  "genres": [{"id": 28, "name": "Action"}, {"id": 878, "name": "Science Fiction"}],
+  "keywords": {"keywords": [{"id": 1, "name": "simulation"}, {"id": 2, "name": "dystopia"}]},
+  "watch/providers": {
+    "results": {
+      "IN": {
+        "link": "https://www.themoviedb.org/movie/603/watch?locale=IN",
+        "flatrate": [{"provider_id": 8, "provider_name": "Netflix", "logo_path": "/netflix.jpg"}],
+        "rent": [{"provider_id": 3, "provider_name": "Google Play Movies", "logo_path": "/gplay.jpg"}]
+      },
+      "US": {
+        "link": "https://www.themoviedb.org/movie/603/watch?locale=US",
+        "flatrate": [{"provider_id": 384, "provider_name": "Max", "logo_path": "/max.jpg"}]
+      }
+    }
+  }
+}

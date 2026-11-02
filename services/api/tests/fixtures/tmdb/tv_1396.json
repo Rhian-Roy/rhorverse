@@ -1,0 +1,15 @@
+{
+  "id": 1396,
+  "name": "Breaking Bad",
+  "first_air_date": "2008-01-20",
+  "overview": "A chemistry teacher turns to crime.",
+  "popularity": 120.0,
+  "original_language": "en",
+  "episode_run_time": [47],
+  "poster_path": "/bb-poster.jpg",
+  "backdrop_path": null,
+  "genres": [{"id": 18, "name": "Drama"}],
+  "keywords": {"results": [{"id": 3, "name": "drug dealer"}]},
+  "external_ids": {"imdb_id": "tt0903747"},
+  "watch/providers": {"results": {}}
+}
