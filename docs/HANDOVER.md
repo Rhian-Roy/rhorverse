@@ -1,19 +1,23 @@
 # Handover
 
-## Current state (2026-11-01)
+## Current state (2026-11-02)
 - Monorepo skeleton in place: web (Next.js 16.4), api (FastAPI, uv), tokens, db migrations, scripts, docs, CI.
 - Web runs fully in `API_MODE=snapshot` from placeholder JSON in `apps/web/public/snapshots/`.
 - API endpoints exist with correct response shapes but return stub data. `/health` is real (`?deep=true` pings the DB).
-- Real logic so far: `ingest/http.py`, `rec/rank.py`, `rec/mmr.py`, `rec/exclude.py`, `imports/match.py`, `eval/metrics.py`.
+- Real logic so far: `ingest/http.py`, `rec/rank.py`, `rec/mmr.py`, `rec/exclude.py`, `imports/match.py`, `eval/metrics.py`, `ingest/store.py` (upserts) and `ingest/tmdb.py` (movies + TV + IN providers).
+- Migrations 0001–0003 are applied to `canopy-pg`. `works` is still empty until `just ingest tmdb` has run live.
 
 ## How to run
 See README → "Run it". In short: `.env` → `docker compose up -d db` → `just setup` → `just migrate` → `just dev`.
 
 ## Known issues
 - Provider logos in `apps/web/public/attribution/` must be downloaded manually (see its README).
-- All ingesters and importers except `http.py`/`match.py` are stubs.
+- All ingesters and importers except `http.py`, `tmdb.py` and `match.py` are stubs.
+- TMDB ingest is unit-tested on hand-trimmed fixtures only; it hasn't run against the live API or DB yet (needs `TMDB_READ_TOKEN`). `tests/test_store.py` skips when the DB is unreachable (OrbStack stopped).
 - `apps/web/AGENTS.md` is written by `next dev` itself. Keep it committed.
 - Starlette warns that `httpx` in `TestClient` is deprecated. Harmless for now.
 
 ## Changelog
 - **2026-11-01**: Initial scaffold: root config + agent rules, Understory tokens, web shell, API skeleton, DB schema, docs, CI.
+
+- **2026-11-02**: Migrations applied to canopy-pg. Added `ingest/store.py` and a real `ingest/tmdb.py` with fixtures and tests.
