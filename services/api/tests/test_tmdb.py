@@ -63,3 +63,47 @@ def test_candidates_dedupe_and_cap(tmp_path: Path):
     assert tmdb.candidates(http, "movie", 5) == [603, 604]
     assert tmdb.candidates(http, "movie", 1) == [603]
     assert all(r.headers["Authorization"] == "Bearer test-token" for r in seen)
+
+
+def route_http(tmp_path: Path, seen: list[httpx.Request]) -> Http:
+    """Search → search_matrix.json (empty for unknown titles); /movie/603 → movie_603.json."""
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        if request.url.path.endswith("/search/movie"):
+            if "matrix" in request.url.params["query"].lower():
+                return httpx.Response(200, json=load("search_matrix.json"))
+            return httpx.Response(200, json={"results": []})
+        if request.url.path.endswith("/movie/603"):
+            return httpx.Response(200, json=load("movie_603.json"))
+        return httpx.Response(404, json={})
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    return Http("tmdb", rate=1000, cache_root=tmp_path, client=client)
+
+
+def test_search_movie_picks_the_title_match_not_the_top_hit(tmp_path: Path):
+    http = route_http(tmp_path, [])
+    assert tmdb.search_movie(http, "The Matrix", 1999) == 603
+    assert tmdb.search_movie(http, "Nothing Like It", 2001) is None
+
+
+def test_search_retries_without_year(tmp_path: Path):
+    seen: list[httpx.Request] = []
+    assert tmdb.search_movie(route_http(tmp_path, seen), "Unknown", 1990) is None
+    assert [("primary_release_year" in r.url.params) for r in seen] == [True, False]
+
+
+def test_fetch_movies_ingests_found_films(tmp_path: Path, conn):
+    added = tmdb.fetch_movies(conn, route_http(tmp_path, []), [("The Matrix", 1999), ("Nope", None)])
+    assert added == 1
+    row = conn.execute("select title from works where id = 'tmdb:movie/603'").fetchone()
+    assert row["title"] == "The Matrix"
+
+
+def test_fetch_movies_respects_lookup_cap(tmp_path: Path, conn):
+    seen: list[httpx.Request] = []
+    tmdb.fetch_movies(
+        conn, route_http(tmp_path, seen), [("A", None), ("B", None), ("C", None)], max_lookups=2
+    )
+    assert len(seen) == 2

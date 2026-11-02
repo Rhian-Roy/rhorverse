@@ -1,11 +1,14 @@
 """TMDB: movies + TV, with IN watch providers (data by JustWatch). ~40 req/s allowed; we use 20."""
 
 import argparse
-from collections.abc import Iterator
+from collections.abc import Iterable, Iterator
 from typing import Any, Literal
+
+from psycopg import Connection
 
 from rhorverse.config import get_settings
 from rhorverse.db import connection
+from rhorverse.imports.match import Candidate, best_match
 from rhorverse.ingest.http import Http
 from rhorverse.ingest.normalize import WorkRow
 from rhorverse.ingest.store import AvailabilityItem, add_links, replace_availability, upsert_works, work_id
@@ -121,6 +124,52 @@ def _batches(items: list[tuple[Kind, int]], size: int) -> Iterator[list[tuple[Ki
         yield items[i : i + size]
 
 
+def store_payloads(conn: Connection, payloads: list[tuple[Kind, dict[str, Any]]]) -> list[str]:
+    """Upsert detail payloads with their IN availability and IMDb links. Returns the work ids."""
+    rows = [to_work_row(k, p) for k, p in payloads]
+    upsert_works(conn, rows)
+    ids = []
+    for row, (_, p) in zip(rows, payloads, strict=True):
+        wid = work_id(row)
+        replace_availability(conn, wid, REGION, providers_in(p))
+        add_links(conn, wid, imdb_links(p))
+        ids.append(wid)
+    return ids
+
+
+def search_movie(http: Http, title: str, year: int | None) -> int | None:
+    """TMDB id of the film matching title (+ year), or None. Only accepts a fuzzy-title match."""
+    attempts = [{"primary_release_year": year}, {}] if year else [{}]
+    for extra in attempts:
+        data = http.get_json(
+            f"{BASE}/search/movie", params={"query": title, "include_adult": "false", **extra}
+        )
+        cands = [
+            Candidate(str(r["id"]), r.get("title") or "", _year(r.get("release_date")))
+            for r in data.get("results", [])[:5]
+        ]
+        hit = best_match(title, year, cands)
+        if hit:
+            return int(hit.id)
+    return None
+
+
+def fetch_movies(
+    conn: Connection, http: Http, items: Iterable[tuple[str, int | None]], max_lookups: int = 150
+) -> int:
+    """Search TMDB for films missing from `works` and ingest them. Returns how many were added."""
+    found: list[int] = []
+    for n, (title, year) in enumerate(items):
+        if n >= max_lookups:
+            break
+        tmdb_id = search_movie(http, title, year)
+        if tmdb_id is not None and tmdb_id not in found:
+            found.append(tmdb_id)
+    for start in range(0, len(found), BATCH):
+        store_payloads(conn, [("movie", details(http, "movie", i)) for i in found[start : start + BATCH]])
+    return len(found)
+
+
 def run(cap: int = 100, http: Http | None = None) -> int:
     """Fetch up to `cap` titles (split across movies and TV) and upsert them. Returns rows written."""
     http = http or client()
@@ -129,15 +178,9 @@ def run(cap: int = 100, http: Http | None = None) -> int:
     written = with_providers = 0
     for batch in _batches(ids, BATCH):
         payloads = [(k, details(http, k, i)) for k, i in batch]
-        rows = [to_work_row(k, p) for k, p in payloads]
         with connection() as conn:
-            written += upsert_works(conn, rows)
-            for row, (_, p) in zip(rows, payloads, strict=True):
-                wid = work_id(row)
-                avail = providers_in(p)
-                with_providers += bool(avail)
-                replace_availability(conn, wid, REGION, avail)
-                add_links(conn, wid, imdb_links(p))
+            written += len(store_payloads(conn, payloads))
+            with_providers += sum(bool(providers_in(p)) for _, p in payloads)
             conn.commit()
         print(f"[{SOURCE}] {written}/{len(ids)} written")
     print(f"[{SOURCE}] done: {written} works, {with_providers} with {REGION} providers")
