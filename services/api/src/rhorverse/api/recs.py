@@ -4,8 +4,9 @@ from psycopg import Connection
 from rhorverse.db import get_conn
 from rhorverse.rec.exclude import excluded_ids
 from rhorverse.rec.feed import HOME_EXCLUDING, Anchor, because_rail, build_home, load_signals
+from rhorverse.rec.tabs import build_media
 from rhorverse.rec.vec import parse_pgvector
-from rhorverse.schemas import HomeFeed, Rail
+from rhorverse.schemas import HomeFeed, MediaType, Rail
 
 router = APIRouter(prefix="/recs", tags=["recs"])
 
@@ -34,3 +35,13 @@ def because(
     exclude = excluded_ids(((s.work_id, s.kind) for s in signals), HOME_EXCLUDING)
     anchor = Anchor(row["id"], row["title"], list(row["tags"] or []), parse_pgvector(row["embedding"]))
     return because_rail(conn, anchor, exclude)[0]
+
+
+@router.get("/media/{media}", response_model=list[Rail])
+def media_tab(
+    media: MediaType,
+    profile_id: str | None = None,
+    conn: Connection = Depends(get_conn),  # noqa: B008
+) -> list[Rail]:
+    """Rails for one media tab: personal (with a profile), popular, new releases, top genres."""
+    return build_media(conn, media, profile_id)
