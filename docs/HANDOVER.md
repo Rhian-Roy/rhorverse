@@ -14,6 +14,8 @@
 - Web (live mode): "Loved it" / "Not for me" / "Save for later" on detail pages post `like` / `dislike` / `save` events for the `rhorverse_pid` cookie profile; the home page sends that id and skips the fetch cache. Snapshot mode hides the buttons.
 - Migrations 0001–0003 are applied to `canopy-pg`. `works` holds 1,214 titles, all embedded: 200 TMDB from `just ingest tmdb --cap 200` (100 movies, 100 TV; 119 with IN providers), 14 movies fetched by a Letterboxd test import, 1,000 anime from `just ingest anilist --cap 1000` (28 s, no 429s; MAL ids in `work_links`), and 1,500 music albums from `just ingest itunes --cap 1500` (135 s; 492 artists, India chart first). 2,714 works in all.
 
+- **Deployed (2026-11-04):** web https://rhorverse-web.vercel.app, API https://rhorverse-api.vercel.app (Vercel, Mumbai), DB Supabase `rhorverse` (ap-south-1, a full copy of the local data, 28 MB). Code is public at https://github.com/Rhian-Roy/rhorverse with CI (lint, tests, gitleaks) green and a daily keepalive. See `docs/DEPLOY.md`.
+
 ## How to run
 See README → "Run it". In short: `.env` → `docker compose up -d db` → `just setup` → `just migrate` → `just dev`.
 
@@ -24,6 +26,8 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - **Games aren't in the DB yet.** Add `RAWG_API_KEY` to `.env`, then `just ingest rawg --cap 1000` (about 1,025 requests, ~9 min at 2/s; cached after) and `just embed`. The Popular games rail appears once rows exist.
 - Music seed list (`services/api/src/rhorverse/ingest/seeds/music_artists.txt`) is consumed in order until the cap; at 1,500 the last few global artists (Pink Floyd, Queen, The Beatles) don't make it. Raise `--cap` or reorder the list.
 - Album detail headers have no artwork (DetailHeader uses backdrop/capsule; albums only have square art).
+- The first web deployment (`dpl_Eryv9PWevHnm7SPVVQ25eeBUCfcZ`) uploaded the root `.env` and `.env.rtf` as source, because `.vercelignore` didn't list them yet. They're only visible to the Vercel account owner and weren't served. Fixed for every later deployment; that one deployment should be deleted, and rotating the DB password and TMDB token is optional extra caution.
+- Supabase `mildred-job-search` was paused to free a free-tier slot; restore it from the dashboard within 90 days if needed.
 - Ingesters still stubbed: IGDB, Deezer (unavailable from India, ADR-007), iTunes, Last.fm, MusicBrainz. Importers still stubbed: Netflix, AniList user lists, Steam.
 - Same show from two sources: TMDB TV includes some anime (e.g. One Piece, Bleach), so search and rails can show both the TMDB and the AniList entry. Needs a TMDB ↔ AniList id map to dedupe.
 - Search matches the stored title only (English when AniList has one). Romaji/native titles sit in `facets` but aren't searched.
@@ -53,3 +57,4 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - **2026-11-04**: RAWG games ingester (adult-tagged games skipped, English tags only, platforms / playtime / metacritic facets), `source_url` backlinks, site-wide credit footer, landscape tile fallback, Popular games rail. Real run pending the RAWG key.
 - **2026-11-04**: Music via Apple iTunes (ADR-007): 1,500 albums, album tracks with live 30-s previews, artist-aware search, whole-title search bonus, karaoke/tribute records skipped, Popular music rail, Apple credits.
 - **2026-11-04**: Live media tabs (per-media rails, shared MediaTab, tab e2e). Fixed HNSW capping candidates at 40.
+- **2026-11-04**: Deployed: Supabase (all tables, row counts match), API and web on Vercel in Mumbai, public GitHub repo with CI and keepalive green. Snapshot fallback on API timeout/errors, real snapshots, pooler-safe DB connections, fixed the invalid refresh workflow.

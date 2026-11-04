@@ -2,6 +2,12 @@
 
 Everything runs on free tiers. Ingestion and embeddings stay on your Mac; the cloud only serves.
 
+**Live (since 2026-11-04):**
+- Web: https://rhorverse-web.vercel.app
+- API: https://rhorverse-api.vercel.app (`/health?deep=true` checks the DB)
+- Code: https://github.com/Rhian-Roy/rhorverse
+- Supabase project ref `tnrrtkymgrjjcqtlxxcn` (`rhorverse`, ap-south-1); Vercel team `rhians-projects-30e77129`
+
 | Piece | Where | Notes |
 |---|---|---|
 | Web (Next.js) | Vercel project `rhorverse-web`, built from the repo root (pnpm workspace, root dir `apps/web`) | `API_MODE=live`, `NEXT_PUBLIC_API_BASE` = the API URL. Falls back to snapshot JSON if the API is slow (>8 s) or down. |
@@ -18,6 +24,10 @@ Everything runs on free tiers. Ingestion and embeddings stay on your Mac; the cl
 - **New data** (after an ingest + `just embed` locally): `just push-supabase`, then `just snapshot` and commit the snapshots.
 - **New code**: push to GitHub, then `vercel deploy --prod` in `services/api` and at the repo root.
 - **Roll back**: `vercel rollback` in the project's directory, or promote an earlier deployment in the Vercel dashboard.
+
+## Watch out
+- **`.vercelignore` replaces `.gitignore` for uploads.** Anything not listed there (including `.env`) is uploaded as deployment source. Both `.vercelignore` files list `.env` / `.env.*`; keep it that way. Deployment source is only visible to the Vercel account owner (`/_src` redirects to login), but secrets shouldn't be there at all.
+- `vercel link` appends `.env*` to `.gitignore`; that line re-ignores `.env.example`, so remove it if it reappears (`.env` and `.env.*` are already ignored above it).
 
 ## Limits to remember
 - Vercel Hobby is non-commercial only. Functions are pinned to Mumbai to sit next to the DB.
