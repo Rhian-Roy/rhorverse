@@ -30,6 +30,7 @@ POPULAR_RAILS: tuple[tuple[str, str, TileVariant], ...] = (
     ("movie", "Popular movies", "poster"),
     ("tv", "Popular TV", "poster"),
     ("anime", "Popular anime", "poster"),
+    ("music", "Popular music", "square"),
     ("game", "Popular games", "capsule"),  # games only have landscape art
 )
 

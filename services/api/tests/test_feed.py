@@ -88,6 +88,13 @@ def test_cold_start_has_popular_games_as_capsules(conn: psycopg.Connection, pid:
     assert all(w.media == "game" for w in rails["popular-game"].items)
 
 
+def test_cold_start_has_popular_music_as_squares(conn: psycopg.Connection, pid: str) -> None:
+    upsert_works(conn, [WorkRow(media="music", source="test", source_id="album/m1", title="T m1")])  # type: ignore[arg-type]
+    rails = {r.id: r for r in build_home(conn, None).rails}
+    assert rails["popular-music"].variant == "square"
+    assert all(w.media == "music" for w in rails["popular-music"].items)
+
+
 def test_three_likes_give_personal_rails_without_consumed_or_liked(
     conn: psycopg.Connection, pid: str
 ) -> None:
