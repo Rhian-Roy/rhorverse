@@ -39,5 +39,5 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 - **Left:** chip bars on tabs (languages for movies/TV, formats for anime, platforms for games); Profile page (facet bars, consumed counts, "Not interested" list, TV-mode and theme toggles); "Seen it" / "Not interested" actions on tiles; the keyboard-only walkthrough e2e (`keyboard-nav.spec.ts` is still a placeholder); screenshots + design critique.
 
 ## 9. Deploy (Day 8): done
-- **Left:** delete the first web deployment that carried `.env` (owner's OK needed); connect the GitHub repo to both Vercel projects for auto-deploys on push; re-push data after new ingests (`just push-supabase`); Day 9 polish (Lighthouse, keyboard/TV pass on the deployed URL).
+- **Left:** connect the GitHub repo to both Vercel projects for auto-deploys on push; re-push data after new ingests (`just push-supabase`); Day 9 polish (Lighthouse, keyboard/TV pass on the deployed URL).
 
