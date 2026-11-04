@@ -1,0 +1,8 @@
+{"resultCount": 3, "results": [
+  {"wrapperType": "collection", "collectionId": 1193069171, "collectionName": "Best of Arijit Singh"},
+  {"wrapperType": "track", "kind": "song", "trackId": 11, "trackName": "Tum Hi Ho", "artistName": "Arijit Singh",
+   "trackTimeMillis": 262000, "trackNumber": 1, "discNumber": 1,
+   "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview/11.m4a"},
+  {"wrapperType": "track", "kind": "song", "trackId": 12, "trackName": "Channa Mereya", "artistName": "Arijit Singh",
+   "trackTimeMillis": 289000, "trackNumber": 2, "discNumber": 1}
+]}

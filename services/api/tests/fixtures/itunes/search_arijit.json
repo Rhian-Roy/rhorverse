@@ -1,0 +1,16 @@
+{"resultCount": 4, "results": [
+  {"wrapperType": "collection", "collectionId": 1193069171, "collectionName": "Best of Arijit Singh", "artistName": "Arijit Singh",
+   "primaryGenreName": "Bollywood", "releaseDate": "2016-12-22T08:00:00Z", "trackCount": 14,
+   "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/2d/11/b9/x/8903431566911_cover.jpg/100x100bb.jpg",
+   "collectionViewUrl": "https://music.apple.com/in/album/best-of-arijit-singh/1193069171?uo=4"},
+  {"wrapperType": "collection", "collectionId": 2001, "collectionName": "Soulful Arijit", "artistName": "Pritam & Arijit Singh",
+   "primaryGenreName": "Bollywood", "releaseDate": "2019-01-01T08:00:00Z", "trackCount": 10, "collectionExplicitness": "explicit",
+   "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/s/2001.jpg/100x100bb.jpg",
+   "collectionViewUrl": "https://music.apple.com/in/album/soulful/2001?uo=4"},
+  {"wrapperType": "collection", "collectionId": 2002, "collectionName": "Tum Hi Ho - Single", "artistName": "Arijit Singh",
+   "primaryGenreName": "Bollywood", "releaseDate": "2013-01-01T08:00:00Z", "trackCount": 1,
+   "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/s/2002.jpg/100x100bb.jpg"},
+  {"wrapperType": "collection", "collectionId": 2003, "collectionName": "Arijit Covers", "artistName": "Some Cover Band",
+   "primaryGenreName": "Pop", "releaseDate": "2020-01-01T08:00:00Z", "trackCount": 8,
+   "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/s/2003.jpg/100x100bb.jpg"}
+]}

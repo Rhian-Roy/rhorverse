@@ -1,0 +1,67 @@
+# Seed artists for `just ingest itunes`. One per line; order matters (earlier = more popular).
+# Edit freely, then re-run the ingest (the HTTP cache makes re-runs cheap). Lines starting with # are ignored.
+# --- India: Hindi / Bollywood
+Arijit Singh
+Shreya Ghoshal
+A.R. Rahman
+Pritam
+Vishal-Shekhar
+Shankar-Ehsaan-Loy
+Sachin-Jigar
+Amit Trivedi
+Neha Kakkar
+Jubin Nautiyal
+Atif Aslam
+Sonu Nigam
+Lata Mangeshkar
+Kishore Kumar
+Mohammed Rafi
+# --- India: Punjabi
+Diljit Dosanjh
+Karan Aujla
+AP Dhillon
+Sidhu Moose Wala
+Badshah
+# --- India: Tamil / Telugu / Malayalam
+Anirudh Ravichander
+Ilaiyaraaja
+Yuvan Shankar Raja
+Harris Jayaraj
+G. V. Prakash Kumar
+Devi Sri Prasad
+S. Thaman
+M. M. Keeravani
+Sid Sriram
+Sushin Shyam
+# --- India: indie / hip-hop
+Prateek Kuhad
+DIVINE
+KR$NA
+Anuv Jain
+The Local Train
+Seedhe Maut
+# --- Global
+Taylor Swift
+The Weeknd
+Ed Sheeran
+Billie Eilish
+Coldplay
+Drake
+Kendrick Lamar
+Dua Lipa
+Arctic Monkeys
+Radiohead
+Daft Punk
+Beyoncé
+Bad Bunny
+BTS
+Olivia Rodrigo
+Frank Ocean
+SZA
+Hans Zimmer
+Ludovico Einaudi
+Imagine Dragons
+Linkin Park
+The Beatles
+Queen
+Pink Floyd
