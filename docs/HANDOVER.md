@@ -4,11 +4,11 @@
 - Monorepo skeleton in place: web (Next.js 16.4), api (FastAPI, uv), tokens, db migrations, scripts, docs, CI.
 - Web runs fully in `API_MODE=snapshot` from placeholder JSON in `apps/web/public/snapshots/`.
 - `/search`, `/works`, `/works/{id}` (with IN availability), `POST /events`, `/recs/home` and `/recs/because/{id}` are real. `POST /imports/letterboxd` is real. `GET /profile` and the other importers still return stub data with correct shapes. Search tile → detail page works in `API_MODE=live`. `/health` is real (`?deep=true` pings the DB).
-- Real logic so far: `ingest/http.py`, `rec/rank.py`, `rec/mmr.py`, `rec/exclude.py`, `imports/match.py`, `eval/metrics.py`, `ingest/store.py` (upserts) and `ingest/tmdb.py` (movies + TV + IN providers), `rec/fuse.py` (RRF), `api/search.py` (trigram + prefix + popularity), `rec/embed.py` (local MiniLM job), and `rec/feed.py` (home feed).
+- Real logic so far: `ingest/http.py`, `rec/rank.py`, `rec/mmr.py`, `rec/exclude.py`, `imports/match.py`, `eval/metrics.py`, `ingest/store.py` (upserts) and `ingest/tmdb.py` (movies + TV + IN providers), `ingest/anilist.py` (anime, no spoiler tags), `rec/fuse.py` (RRF), `api/search.py` (trigram + prefix + popularity), `rec/embed.py` (local MiniLM job), and `rec/feed.py` (home feed).
 - Home feed (`rec/feed.py`): time-decayed taste vector from events → HNSW candidates (k=200) → `rank.score` → MMR (λ=0.7) → exclude liked/consumed/disliked → "Picked for you", up to 3 "More like X" rails (explained as "Because you liked X"), then "Popular movies" / "Popular TV". With no profile or no signal it is the popular rails only (cold start). Rails never repeat an item; personal rails under 4 items are dropped.
 - Letterboxd import (`imports/run.py`): the CSV (watched, ratings or diary) is the raw request body. Films are matched to `works` (trigram-narrowed, then `match.best_match`); missing ones are fetched from TMDB (`tmdb.search_movie` + `fetch_movies`, capped at 150 lookups per import). Every match → `consumed`, 4★+ → also `like`, ≤1.5★ → also `dislike`, all with `source='letterboxd'` and the watch date as `ts`. Re-importing adds nothing. Each run is logged in `imports`.
 - Web (live mode): "Loved it" / "Not for me" / "Save for later" on detail pages post `like` / `dislike` / `save` events for the `rhorverse_pid` cookie profile; the home page sends that id and skips the fetch cache. Snapshot mode hides the buttons.
-- Migrations 0001–0003 are applied to `canopy-pg`. `works` holds 200 TMDB titles (100 movies, 100 TV; 119 with IN providers) from `just ingest tmdb --cap 200`.
+- Migrations 0001–0003 are applied to `canopy-pg`. `works` holds 1,214 titles, all embedded: 200 TMDB from `just ingest tmdb --cap 200` (100 movies, 100 TV; 119 with IN providers), 14 movies fetched by a Letterboxd test import, and 1,000 anime from `just ingest anilist --cap 1000` (28 s, no 429s; MAL ids in `work_links`).
 
 ## How to run
 See README → "Run it". In short: `.env` → `docker compose up -d db` → `just setup` → `just migrate` → `just dev`.
@@ -17,7 +17,10 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 
 ## Known issues
 - Provider logos in `apps/web/public/attribution/` must be downloaded manually (see its README).
-- All ingesters and importers except `http.py`, `tmdb.py` and `match.py` are stubs.
+- Ingesters still stubbed: IGDB, RAWG, Deezer, iTunes, Last.fm, MusicBrainz. Importers still stubbed: Netflix, AniList user lists, Steam.
+- Same show from two sources: TMDB TV includes some anime (e.g. One Piece, Bleach), so search and rails can show both the TMDB and the AniList entry. Needs a TMDB ↔ AniList id map to dedupe.
+- Search matches the stored title only (English when AniList has one). Romaji/native titles sit in `facets` but aren't searched.
+- AniList popularity is scaled ÷1000 to sit near TMDB's. A per-media percentile would be fairer.
 - TMDB test fixtures are hand-trimmed, not live recordings. `tests/test_store.py` skips when the DB is unreachable.
 - `apps/web/AGENTS.md` is written by `next dev` itself. Keep it committed.
 - Starlette warns that `httpx` in `TestClient` is deprecated. Harmless for now.
@@ -40,3 +43,4 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - **2026-11-02**: Real `/works` and `/works/{id}` (ids contain a slash, so `{work_id:path}`), encoded tile links, empty `CORS_ORIGINS=` now falls back to the default.
 - **2026-11-02**: Recs v1: `just embed` implemented, `POST /events` stores events, home feed and `/recs/because` are real, detail-page feedback buttons in live mode.
 - **2026-11-02**: Letterboxd import: CSV parser, TMDB search/fetch for missing films, `POST /imports/letterboxd`, upload dialog with counts. Checked live: 15-film sample → 14 matched (all fetched from TMDB), 11 likes, 1 dislike; re-import added nothing.
+- **2026-11-04**: AniList anime ingest (1,000 titles, spoiler tags never stored, checked against 1,267 live spoiler tags), Popular anime rail on the home feed, build-plan Markdown committed.

@@ -24,3 +24,11 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 - **Left:** background job + `GET /imports/{id}` for exports over 150 missing films; an option to count imported history as recent; Netflix / AniList / Steam importers.
 - **Do:** parse `watched.csv`/`ratings.csv` → `imports/match.py` → `events(kind='consumed', source='letterboxd')`.
 - **Accept:** fixture CSV → ≥90% matched. `POST /imports/letterboxd` returns counts.
+
+## 5. Anime (AniList): done
+- **Left:** dedupe TMDB TV entries that are also AniList anime (needs an id map); search on romaji/native titles; per-media popularity percentile instead of the ÷1000 scale.
+
+## 6. Games (RAWG first, IGDB later)
+- **Context:** `ingest/rawg.py` and `ingest/igdb.py` are stubs. Needs `RAWG_API_KEY` in `.env`.
+- **Do:** follow the Day 3 RAWG-only fallback in the build plan: ~1000 games via `/api/games?ordering=-added&page_size=40`, a rawg_url for the mandatory backlink, `just embed`, a Popular games rail.
+- **Accept:** ≥1000 games with a cover; game page shows platforms, tags, avg playtime and an active RAWG link.
