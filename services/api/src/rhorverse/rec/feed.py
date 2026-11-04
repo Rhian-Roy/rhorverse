@@ -26,12 +26,24 @@ MAX_ANCHORS = 3
 HERO_SIZE = 5
 LAMBDA = 0.7
 
-POPULAR_RAILS: tuple[tuple[str, str, TileVariant], ...] = (
-    ("movie", "Popular movies", "poster"),
-    ("tv", "Popular TV", "poster"),
-    ("anime", "Popular anime", "poster"),
-    ("music", "Popular music", "square"),
-    ("game", "Popular games", "capsule"),  # games only have landscape art
+# Tile shape per medium: album art is square, RAWG only has landscape art.
+MEDIA_VARIANT: dict[str, TileVariant] = {
+    "movie": "poster",
+    "tv": "poster",
+    "anime": "poster",
+    "music": "square",
+    "game": "capsule",
+}
+
+POPULAR_RAILS: tuple[tuple[str, str, TileVariant], ...] = tuple(
+    (media, f"Popular {label}", MEDIA_VARIANT[media])
+    for media, label in (
+        ("movie", "movies"),
+        ("tv", "TV"),
+        ("anime", "anime"),
+        ("music", "music"),
+        ("game", "games"),
+    )
 )
 
 _COLUMNS = "id, media, source, source_id, title, year, overview, tags, images, popularity"
