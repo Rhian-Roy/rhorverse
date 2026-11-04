@@ -1,9 +1,13 @@
+from functools import cache
+
 from fastapi import APIRouter, Depends, HTTPException, Query
 from psycopg import Connection
 
 from rhorverse.db import get_conn
+from rhorverse.ingest import itunes
+from rhorverse.ingest.http import Http
 from rhorverse.repo import row_to_detail, row_to_work
-from rhorverse.schemas import MediaType, Work, WorkDetail
+from rhorverse.schemas import MediaType, Track, Work, WorkDetail
 
 router = APIRouter(prefix="/works", tags=["works"])
 
@@ -24,6 +28,37 @@ def list_works(
         {"media": media, "limit": limit},
     ).fetchall()
     return [row_to_work(r) for r in rows]
+
+
+@cache
+def itunes_http() -> Http:
+    """One shared, rate-limited Apple client per process (FastAPI dependency; tests swap it)."""
+    return itunes.client()
+
+
+# Registered before the catch-all detail route below, whose `:path` would otherwise swallow "/tracks".
+@router.get("/{work_id:path}/tracks", response_model=list[Track])
+def get_tracks(
+    work_id: str,
+    conn: Connection = Depends(get_conn),  # noqa: B008
+    http: Http = Depends(itunes_http),  # noqa: B008
+) -> list[Track]:
+    """Album tracks with fresh 30-s previews. Only iTunes albums have tracks so far."""
+    row = conn.execute("select source, source_id from works where id = %s", (work_id,)).fetchone()
+    if row is None:
+        raise HTTPException(status_code=404, detail="work not found")
+    if row["source"] != itunes.SOURCE:
+        return []
+    return [
+        Track(
+            id=str(t["trackId"]),
+            title=t.get("trackName") or "",
+            artist=t.get("artistName") or "",
+            duration_s=(t.get("trackTimeMillis") or 0) / 1000,
+            preview_url=t.get("previewUrl"),
+        )
+        for t in itunes.tracks(http, row["source_id"])
+    ]
 
 
 # `:path` because ids look like "tmdb:movie/603" (they contain a slash).

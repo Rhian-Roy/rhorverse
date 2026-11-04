@@ -42,6 +42,16 @@ class WorkDetail(Work):
     source_url: str | None = None  # the work's page on its data source (RAWG requires this backlink)
 
 
+class Track(BaseModel):
+    """An album track. `preview_url` is a 30-s clip fetched at request time, never stored."""
+
+    id: str
+    title: str
+    artist: str
+    duration_s: float
+    preview_url: str | None = None
+
+
 class Explanation(BaseModel):
     because_id: str
     because_title: str

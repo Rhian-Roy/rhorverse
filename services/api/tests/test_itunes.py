@@ -3,9 +3,15 @@ from pathlib import Path
 
 import httpx
 import psycopg
+from fastapi.testclient import TestClient
 
+from rhorverse.api.works import itunes_http
+from rhorverse.db import get_conn
 from rhorverse.ingest import itunes
 from rhorverse.ingest.http import Http
+from rhorverse.ingest.normalize import WorkRow
+from rhorverse.ingest.store import upsert_works
+from rhorverse.main import create_app
 
 FIX = Path(__file__).parent / "fixtures" / "itunes"
 
@@ -84,3 +90,31 @@ def test_store_is_idempotent_and_keeps_embedding(conn: psycopg.Connection, tmp_p
         "bool_and(embedding is not null) filter (where id = 'itunes:2001') as kept from works"
     ).fetchone()
     assert (row["n"], row["kept"]) == (3, True)
+
+
+def api_client(conn: psycopg.Connection, http: Http) -> TestClient:
+    app = create_app()
+    app.dependency_overrides[get_conn] = lambda: conn
+    app.dependency_overrides[itunes_http] = lambda: http
+    return TestClient(app)
+
+
+def test_tracks_route_returns_live_previews(conn: psycopg.Connection, tmp_path: Path):
+    http = fake_http(tmp_path, [])
+    itunes.store(conn, itunes.collect(http, cap=10, artists=[]))
+    client = api_client(conn, http)
+    got = client.get("/works/itunes:1193069171/tracks").json()
+    assert [t["title"] for t in got] == ["Tum Hi Ho", "Channa Mereya"]
+    assert got[0]["preview_url"].endswith("/11.m4a")
+    assert got[0]["duration_s"] == 262.0
+    assert got[1]["preview_url"] is None
+    detail = client.get("/works/itunes:1193069171").json()
+    assert detail["source_url"] == "https://music.apple.com/in/album/best-of-arijit-singh/1193069171"
+
+
+def test_tracks_route_for_other_sources_and_unknown(conn: psycopg.Connection, tmp_path: Path):
+    upsert_works(conn, [WorkRow(media="movie", source="test", source_id="movie/t1", title="Film")])  # type: ignore[arg-type]
+    client = api_client(conn, fake_http(tmp_path, []))
+    assert client.get("/works/test:movie/t1/tracks").json() == []
+    assert client.get("/works/itunes:nope/tracks").status_code == 404
+    assert client.get("/works/test:movie/t1").status_code == 200  # detail route still matches

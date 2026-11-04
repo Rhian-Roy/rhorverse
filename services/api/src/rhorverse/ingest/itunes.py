@@ -66,6 +66,15 @@ def lookup(http: Http, ids: list[int]) -> list[dict[str, Any]]:
     return [found[i] for i in ids if i in found]
 
 
+def tracks(http: Http, collection_id: str, ttl_s: float = 86_400) -> list[dict[str, Any]]:
+    """Songs on an album with their preview URLs, in disc/track order. Cached for a day."""
+    data = http.get_json(
+        LOOKUP, params={"id": collection_id, "entity": "song", "country": COUNTRY}, ttl_s=ttl_s
+    )
+    songs = [r for r in data.get("results", []) if r.get("wrapperType") == "track"]
+    return sorted(songs, key=lambda r: (r.get("discNumber") or 1, r.get("trackNumber") or 0))
+
+
 def is_single(album: dict[str, Any]) -> bool:
     return (album.get("collectionName") or "").endswith(" - Single")
 

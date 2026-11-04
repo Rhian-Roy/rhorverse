@@ -32,6 +32,8 @@ def source_url(row: dict[str, Any], links: dict[str, str]) -> str | None:
             return f"https://anilist.co/anime/{sid}"
         case "rawg":
             return f"https://rawg.io/games/{links['rawg_slug']}" if "rawg_slug" in links else None
+        case "itunes":
+            return links.get("apple_url")
     return None
 
 
