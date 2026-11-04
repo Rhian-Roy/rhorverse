@@ -81,9 +81,12 @@ export const api = {
       : live("/recs/home");
   },
 
-  async media(media: MediaType): Promise<Rail[]> {
-    if (API_MODE === "live") return live(`/works?media=${media}&rails=1`);
-    return snapshot<Rail[]>(MEDIA_SNAPSHOT[media]);
+  /** A media tab's rails. With a profile id they're personal, so never cached. */
+  async media(media: MediaType, profileId?: string | null): Promise<Rail[]> {
+    if (API_MODE !== "live") return snapshot<Rail[]>(MEDIA_SNAPSHOT[media]);
+    return profileId
+      ? live(`/recs/media/${media}?${new URLSearchParams({ profile_id: profileId })}`, { cache: "no-store" })
+      : live(`/recs/media/${media}`);
   },
 
   async work(id: string): Promise<WorkDetail | null> {
