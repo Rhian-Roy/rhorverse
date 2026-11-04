@@ -1,0 +1,47 @@
+{
+  "data": {
+    "Page": {
+      "pageInfo": { "hasNextPage": true },
+      "media": [
+        {
+          "id": 16498,
+          "idMal": 16498,
+          "title": { "romaji": "Shingeki no Kyojin", "english": "Attack on Titan", "native": "進撃の巨人" },
+          "description": "Several hundred years ago, humans were nearly exterminated by Titans.<br><br>\n~!Eren is a Titan.!~ Humanity fights back.<br>\n<br>\n(Source: Kodansha)",
+          "genres": ["Action", "Drama"],
+          "tags": [
+            { "name": "Survival", "rank": 92, "isMediaSpoiler": false, "isGeneralSpoiler": false },
+            { "name": "Shapeshifting", "rank": 88, "isMediaSpoiler": true, "isGeneralSpoiler": false },
+            { "name": "Tragedy", "rank": 80, "isMediaSpoiler": false, "isGeneralSpoiler": true },
+            { "name": "Military", "rank": 75, "isMediaSpoiler": false, "isGeneralSpoiler": false },
+            { "name": "Gore", "rank": 40, "isMediaSpoiler": false, "isGeneralSpoiler": false }
+          ],
+          "coverImage": { "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498.jpg" },
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498.jpg",
+          "seasonYear": 2013,
+          "startDate": { "year": 2013 },
+          "episodes": 25,
+          "format": "TV",
+          "averageScore": 85,
+          "popularity": 3900000
+        },
+        {
+          "id": 20,
+          "idMal": 20,
+          "title": { "romaji": "NARUTO", "english": "Naruto", "native": "ナルト" },
+          "description": "Naruto Uzumaki wants to be the best ninja in the land.",
+          "genres": ["Action", "Adventure"],
+          "tags": [{ "name": "Ninja", "rank": 95, "isMediaSpoiler": false, "isGeneralSpoiler": false }],
+          "coverImage": { "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20.jpg" },
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20.jpg",
+          "seasonYear": 2002,
+          "startDate": { "year": 2002 },
+          "episodes": 220,
+          "format": "TV",
+          "averageScore": 79,
+          "popularity": 2900000
+        }
+      ]
+    }
+  }
+}

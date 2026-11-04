@@ -1,0 +1,25 @@
+{
+  "data": {
+    "Page": {
+      "pageInfo": { "hasNextPage": false },
+      "media": [
+        {
+          "id": 99999,
+          "idMal": null,
+          "title": { "romaji": "Kono Subarashii Sekai", "english": null, "native": null },
+          "description": null,
+          "genres": ["Comedy"],
+          "tags": [],
+          "coverImage": { "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99999.jpg" },
+          "bannerImage": null,
+          "seasonYear": null,
+          "startDate": { "year": 2016 },
+          "episodes": null,
+          "format": "MOVIE",
+          "averageScore": null,
+          "popularity": 1500
+        }
+      ]
+    }
+  }
+}
