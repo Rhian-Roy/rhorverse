@@ -13,16 +13,22 @@ VECTOR_CANDIDATES = 50
 
 _COLUMNS = "id, media, source, source_id, title, year, overview, tags, images, popularity"
 
-# `%%` is a literal % for psycopg. `<%` = word-similarity operator (uses works_title_trgm).
+# `%%` is a literal % for psycopg. `<%` = word-similarity operator (uses works_title_trgm for titles).
+# Albums also match on their artist (facets.artist), scored a touch below an equal title match.
 _LEXICAL = f"""
+with w as (
+  select *, coalesce(facets->'artist'->>0, '') as artist
+  from works
+  where (%(media)s::media_type is null or media = %(media)s::media_type)
+)
 select {_COLUMNS},
-       greatest(word_similarity(%(q)s, title), similarity(%(q)s, title))
-         + case when title ilike %(prefix)s then 0.15 else 0 end
+       greatest(word_similarity(%(q)s, title), similarity(%(q)s, title),
+                0.95 * word_similarity(%(q)s, artist))
+         + case when title ilike %(prefix)s or artist ilike %(prefix)s then 0.15 else 0 end
          + 0.05 * ln(1 + popularity) / ln(1 + greatest((select max(popularity) from works), 1))
          as score
-from works
-where (%(media)s::media_type is null or media = %(media)s::media_type)
-  and (%(q)s <%% title or title ilike %(prefix)s)
+from w
+where %(q)s <%% title or title ilike %(prefix)s or %(q)s <%% artist or artist ilike %(prefix)s
 order by score desc, popularity desc
 limit %(limit)s
 """
@@ -49,7 +55,10 @@ def search_works(
     limit: int = 20,
     query_vec: list[float] | None = None,
 ) -> list[Work]:
-    """Title search (trigram + prefix + popularity). With `query_vec`, fuse in vector similarity via RRF."""
+    """Title (and album-artist) search: trigram + prefix + popularity.
+
+    With `query_vec`, fuse in vector similarity via RRF.
+    """
     q = q.strip()
     if len(q) < MIN_QUERY_LEN:
         return []

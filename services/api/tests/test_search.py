@@ -26,6 +26,11 @@ def client(conn: psycopg.Connection) -> TestClient:
             work("tv/6", "Zzdune Prophecy", 2024, 60, "tv"),
         ],
     )
+    album = WorkRow(
+        media="music", source="test", source_id="album/7", title="Best Of", year=2016, popularity=5
+    )  # type: ignore[arg-type]
+    album.extra = {"artist": ["Qqarijit Singh"]}
+    upsert_works(conn, [album])
     app = create_app()
     app.dependency_overrides[get_conn] = lambda: conn
     return TestClient(app)
@@ -76,3 +81,9 @@ def test_limit(client: TestClient):
 def test_response_shape(client: TestClient):
     item = client.get("/search", params={"q": "zzdune"}).json()["items"][0]
     assert {"id", "media", "title", "year", "images", "source", "source_id"} <= item.keys()
+
+
+def test_album_matches_on_artist_name(client: TestClient):
+    assert ids(client, q="qqarijit")[0] == "test:album/7"
+    assert titles(client, q="qqarijit sing", media="music") == ["Best Of"]
+    assert "Best Of" not in titles(client, q="zzdune")
