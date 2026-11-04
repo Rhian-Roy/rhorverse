@@ -15,7 +15,7 @@ from rhorverse.rec.profile import EVENT_WEIGHTS, decay, taste_vector
 from rhorverse.rec.rank import score
 from rhorverse.rec.vec import parse_pgvector, to_pgvector
 from rhorverse.repo import parse_profile_id, row_to_work
-from rhorverse.schemas import HomeFeed, Rail, Work
+from rhorverse.schemas import HomeFeed, Rail, TileVariant, Work
 
 # Re-showing what you just liked looks broken, so the home feed drops likes too.
 HOME_EXCLUDING = EXCLUDING_KINDS | {"like"}
@@ -25,6 +25,13 @@ MIN_RAIL = 4
 MAX_ANCHORS = 3
 HERO_SIZE = 5
 LAMBDA = 0.7
+
+POPULAR_RAILS: tuple[tuple[str, str, TileVariant], ...] = (
+    ("movie", "Popular movies", "poster"),
+    ("tv", "Popular TV", "poster"),
+    ("anime", "Popular anime", "poster"),
+    ("game", "Popular games", "capsule"),  # games only have landscape art
+)
 
 _COLUMNS = "id, media, source, source_id, title, year, overview, tags, images, popularity"
 
@@ -183,10 +190,10 @@ def build_home(conn: Connection, profile_id: str | None) -> HomeFeed:
             rails.append(rail)
             shown |= {c.id for c in items}
 
-    for media, title in (("movie", "Popular movies"), ("tv", "Popular TV"), ("anime", "Popular anime")):
+    for media, title, variant in POPULAR_RAILS:
         items = popular(conn, media, exclude | shown)
         if items:
-            rails.append(Rail(id=f"popular-{media}", title=title, items=items))
+            rails.append(Rail(id=f"popular-{media}", title=title, variant=variant, items=items))
 
     if not hero:
         hero = _hero(popular(conn, None, exclude, limit=HERO_SIZE * 4))

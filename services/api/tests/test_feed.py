@@ -81,6 +81,13 @@ def test_cold_start_has_popular_anime_when_anime_exists(conn: psycopg.Connection
     assert all(w.media == "anime" for w in rails["popular-anime"].items)
 
 
+def test_cold_start_has_popular_games_as_capsules(conn: psycopg.Connection, pid: str) -> None:
+    upsert_works(conn, [WorkRow(media="game", source="test", source_id="game/g1", title="T g1")])  # type: ignore[arg-type]
+    rails = {r.id: r for r in build_home(conn, None).rails}
+    assert rails["popular-game"].variant == "capsule"
+    assert all(w.media == "game" for w in rails["popular-game"].items)
+
+
 def test_three_likes_give_personal_rails_without_consumed_or_liked(
     conn: psycopg.Connection, pid: str
 ) -> None:
