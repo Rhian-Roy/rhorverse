@@ -17,4 +17,5 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
           TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
-        run: echo "TODO: uv run --project services/api python -m rhorverse.ingest.tmdb --cap 200"
+        run: |
+          echo "TODO: uv run --project services/api python -m rhorverse.ingest.tmdb --cap 200"
