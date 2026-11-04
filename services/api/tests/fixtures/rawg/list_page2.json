@@ -1,0 +1,20 @@
+{
+  "count": 3,
+  "next": null,
+  "results": [
+    {
+      "id": 55555,
+      "slug": "adult-example",
+      "name": "Adult Example",
+      "released": null,
+      "background_image": null,
+      "playtime": 2,
+      "metacritic": null,
+      "added": 30,
+      "esrb_rating": null,
+      "parent_platforms": [],
+      "genres": [],
+      "tags": [{ "id": 1, "name": "NSFW", "slug": "nsfw", "language": "eng" }]
+    }
+  ]
+}
