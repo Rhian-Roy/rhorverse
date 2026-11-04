@@ -75,8 +75,17 @@ def tracks(http: Http, collection_id: str, ttl_s: float = 86_400) -> list[dict[s
     return sorted(songs, key=lambda r: (r.get("discNumber") or 1, r.get("trackNumber") or 0))
 
 
+_NOT_THE_ARTIST = re.compile(r"\b(karaoke|tribute|instrumental versions?|made famous by)\b", re.I)
+
+
 def is_single(album: dict[str, Any]) -> bool:
     return (album.get("collectionName") or "").endswith(" - Single")
+
+
+def is_cover_record(album: dict[str, Any]) -> bool:
+    """Karaoke / tribute records that carry the artist's name but aren't theirs."""
+    text = f"{album.get('collectionName') or ''} {album.get('artistName') or ''}"
+    return bool(_NOT_THE_ARTIST.search(text))
 
 
 def artist_albums(http: Http, artist: str, limit: int = 100) -> list[dict[str, Any]]:
@@ -98,6 +107,7 @@ def artist_albums(http: Http, artist: str, limit: int = 100) -> list[dict[str, A
         if r.get("wrapperType") == "collection"
         and want in _key(r.get("artistName") or "")
         and not is_single(r)
+        and not is_cover_record(r)
     ]
 
 

@@ -25,6 +25,7 @@ select {_COLUMNS},
        greatest(word_similarity(%(q)s, title), similarity(%(q)s, title),
                 0.95 * word_similarity(%(q)s, artist))
          + case when title ilike %(prefix)s or artist ilike %(prefix)s then 0.15 else 0 end
+         + 0.1 * similarity(%(q)s, title)  -- whole-title match beats "Interstellar (Soundtrack)"
          + 0.05 * ln(1 + popularity) / ln(1 + greatest((select max(popularity) from works), 1))
          as score
 from w

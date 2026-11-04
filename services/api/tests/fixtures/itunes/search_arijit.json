@@ -10,6 +10,9 @@
   {"wrapperType": "collection", "collectionId": 2002, "collectionName": "Tum Hi Ho - Single", "artistName": "Arijit Singh",
    "primaryGenreName": "Bollywood", "releaseDate": "2013-01-01T08:00:00Z", "trackCount": 1,
    "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/s/2002.jpg/100x100bb.jpg"},
+  {"wrapperType": "collection", "collectionId": 2004, "collectionName": "Arijit Singh (Karaoke Version)", "artistName": "Arijit Singh",
+   "primaryGenreName": "Bollywood", "releaseDate": "2021-01-01T08:00:00Z", "trackCount": 12,
+   "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/s/2004.jpg/100x100bb.jpg"},
   {"wrapperType": "collection", "collectionId": 2003, "collectionName": "Arijit Covers", "artistName": "Some Cover Band",
    "primaryGenreName": "Pop", "releaseDate": "2020-01-01T08:00:00Z", "trackCount": 8,
    "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/s/2003.jpg/100x100bb.jpg"}

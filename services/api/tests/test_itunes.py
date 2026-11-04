@@ -118,3 +118,11 @@ def test_tracks_route_for_other_sources_and_unknown(conn: psycopg.Connection, tm
     assert client.get("/works/test:movie/t1/tracks").json() == []
     assert client.get("/works/itunes:nope/tracks").status_code == 404
     assert client.get("/works/test:movie/t1").status_code == 200  # detail route still matches
+
+
+def test_karaoke_and_tribute_records_are_dropped():
+    assert itunes.is_cover_record(
+        {"collectionName": "Taylor Swift (Karaoke Version)", "artistName": "Taylor Swift"}
+    )
+    assert itunes.is_cover_record({"collectionName": "Red", "artistName": "Taylor Swift Tribute Band"})
+    assert not itunes.is_cover_record({"collectionName": "1989", "artistName": "Taylor Swift"})

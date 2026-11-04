@@ -26,6 +26,17 @@ def client(conn: psycopg.Connection) -> TestClient:
             work("tv/6", "Zzdune Prophecy", 2024, 60, "tv"),
         ],
     )
+    soundtrack = WorkRow(
+        media="music",
+        source="test",
+        source_id="album/8",
+        title="Zzstellar (Original Soundtrack) [Expanded]",
+        popularity=300,
+    )  # type: ignore[arg-type]
+    film = WorkRow(
+        media="movie", source="test", source_id="movie/9", title="Zzstellar", year=2014, popularity=30
+    )  # type: ignore[arg-type]
+    upsert_works(conn, [soundtrack, film])
     album = WorkRow(
         media="music", source="test", source_id="album/7", title="Best Of", year=2016, popularity=5
     )  # type: ignore[arg-type]
@@ -85,5 +96,9 @@ def test_response_shape(client: TestClient):
 
 def test_album_matches_on_artist_name(client: TestClient):
     assert ids(client, q="qqarijit")[0] == "test:album/7"
-    assert titles(client, q="qqarijit sing", media="music") == ["Best Of"]
+    assert titles(client, q="qqarijit sing", media="music")[0] == "Best Of"
     assert "Best Of" not in titles(client, q="zzdune")
+
+
+def test_whole_title_match_beats_longer_more_popular_title(client: TestClient):
+    assert ids(client, q="zzstellar")[:2] == ["test:movie/9", "test:album/8"]
