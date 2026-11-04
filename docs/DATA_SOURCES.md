@@ -9,8 +9,8 @@ Verify each provider's current terms before going live. Limits change. All reque
 | **AniList** | Anime | `graphql.anilist.co` | none | 0.5 req/s (limit 90/min, sometimes degraded to 30) | Credit AniList. No bulk redistribution. |
 | **IGDB** | Games | `api.igdb.com/v4` (Apicalypse POST bodies) | `TWITCH_CLIENT_ID`, `TWITCH_CLIENT_SECRET` (client-credentials token) | 4 req/s | Twitch Developer Agreement. Credit IGDB. |
 | **RAWG** | Games fallback/enrichment | `api.rawg.io/api` | `RAWG_API_KEY` | 2 req/s, mind the monthly quota | Must link back to RAWG on pages using its data. |
-| **Deezer** | Charts, artists, albums, 30-s previews | `api.deezer.com` | none | 8 req/s (limit 50 / 5 s) | Credit Deezer. Previews only, no full tracks. |
-| **Apple iTunes Search** | India catalogue, previews | `itunes.apple.com/search?country=IN` | none | ~20 req/min | Previews must link to Apple. No caching of audio. |
+| **Deezer** | *(not used; unavailable from India, see ADR-007)* | `api.deezer.com` | none | 8 req/s (limit 50 / 5 s) | Credit Deezer. Previews only, no full tracks. |
+| **Apple iTunes Search** | Music: albums, tracks, 30-s previews (+ India top-albums RSS feed) | `itunes.apple.com/search`, `/lookup`, `rss.marketingtools.apple.com` (`country=IN`) | none | ~20 req/min | Previews must link to Apple ("View on Apple Music"). Preview URLs fetched at request time, never stored; no caching of audio. |
 | **MusicBrainz** | MBIDs, ISRC links | `musicbrainz.org/ws/2` | `MUSICBRAINZ_USER_AGENT` (required, with contact) | **1 req/s** strictly | Data CC0. Descriptive UA is mandatory. |
 | **Last.fm** | Tags, similar artists | `ws.audioscrobbler.com/2.0` | `LASTFM_API_KEY` | 4 req/s | Credit Last.fm and link back. |
 | **Steam Web API** | User library import | `api.steampowered.com/IPlayerService/GetOwnedGames/v1` | `STEAM_WEB_API_KEY` | on-demand | Steam Web API Terms. Public profiles only. |

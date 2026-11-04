@@ -26,3 +26,9 @@ Format: context → decision → consequences. Add new ADRs at the bottom. Never
 ## ADR-006: Snapshot mode for the web app
 - **Decision:** `API_MODE=snapshot` reads precomputed JSON from `/snapshots`.
 - **Consequences:** The web app demos and tests with no backend. Snapshots must be refreshed with `just snapshot`.
+
+## ADR-007: Music from Apple iTunes, not Deezer
+- **Context:** The build plan put Deezer first for music. Checked live from India on 2026-11-04: `/chart/0/albums` returns no albums, and tracks come back `readable: false` with empty previews (Deezer isn't offered in India). Apple's iTunes Search (`country=IN`) returns the Indian catalogue with working 30-s previews, and Apple's India top-albums feed works.
+- **Decision:** Music comes from iTunes: the India top-100 albums chart plus a reviewable seed list of artists (`ingest/seeds/music_artists.txt`). Tracks and preview URLs are fetched at request time (`GET /works/{id}/tracks`, cached a day) and never stored. Deezer stays a stub.
+- **Consequences:** Strong India coverage; ~20 calls/min means ~2 min for 1,500 albums. Apple gives no popularity number, so chart rank / search position stand in. Previews must link to the Apple store page, so album pages show "View on Apple Music" and the footer credits Apple.
+

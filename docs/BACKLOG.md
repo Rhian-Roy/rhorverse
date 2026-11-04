@@ -31,3 +31,7 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 ## 6. Games (RAWG first, IGDB later): code done, real run pending
 - **Left:** add `RAWG_API_KEY`, run `just ingest rawg --cap 1000` + `just embed`, then check search ("hollow knight", "witcher") and a game page live. Later: IGDB (Twitch keys) for time-to-beat.
 - **Accept:** ≥1000 games with a cover; game page shows platforms, tags, avg playtime and an active RAWG link.
+
+## 7. Music (Apple iTunes): done
+- **Left:** album artwork in DetailHeader; artist pages as their own works; Last.fm tags (needs `LASTFM_API_KEY`) to give albums richer vibe text; music in the live Music tab (Day 6).
+
