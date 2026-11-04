@@ -32,3 +32,13 @@ Format: context → decision → consequences. Add new ADRs at the bottom. Never
 - **Decision:** Music comes from iTunes: the India top-100 albums chart plus a reviewable seed list of artists (`ingest/seeds/music_artists.txt`). Tracks and preview URLs are fetched at request time (`GET /works/{id}/tracks`, cached a day) and never stored. Deezer stays a stub.
 - **Consequences:** Strong India coverage; ~20 calls/min means ~2 min for 1,500 albums. Apple gives no popularity number, so chart rank / search position stand in. Previews must link to the Apple store page, so album pages show "View on Apple Music" and the footer credits Apple.
 
+## ADR-008: API on Vercel (Mumbai) instead of Render
+- **Context:** The build plan put the API on Render's free tier, which needs a dashboard sign-up connected to GitHub. Vercel already hosts the web app, runs Python/FastAPI, and lets functions be pinned to `bom1`, next to the Supabase DB in `ap-south-1`.
+- **Decision:** Deploy `services/api` as its own Vercel project (`index.py` exposes `app`). Connections go through Supabase's transaction pooler with prepared statements off. The Dockerfile stays, so Render or any container host remains an option.
+- **Consequences:** One provider and one sign-in for both halves. Serverless cold starts are short, and the web app falls back to snapshots after 8 s anyway. The Apple tracks cache lives in `/tmp` and is lost between instances, which is fine.
+
+## ADR-009: Public GitHub repo; the owner approved pushes
+- **Context:** AGENTS.md rule 5 says agents never add a remote or push. On 2026-11-04 the owner approved creating a **public** repo and asked the agent to handle deployment end to end.
+- **Decision:** Push to a public repo `rhorverse` after a clean gitleaks scan of the full history. Agents may push only when the owner has said so for that piece of work. The AGENTS.md wording is the owner's to update (agents can't edit their own rules file).
+- **Consequences:** CI, the Supabase keepalive and the Antigravity/Jules handover all work. Commit history, including author emails, is public. The snapshot JSON publishes a small, credited sample of TMDB, AniList and Apple data.
+
