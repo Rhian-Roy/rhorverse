@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { MiniPlayer } from "@/components/music/MiniPlayer";
 import { FocusRoot } from "@/components/shell/FocusRoot";
+import { SiteFooter } from "@/components/shell/SiteFooter";
 import { TopNav } from "@/components/shell/TopNav";
 import { fontVariables } from "@/styles/fonts";
 import "./globals.css";
@@ -20,7 +21,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-dvh">
         <FocusRoot>
           <TopNav />
-          <main className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-6 py-8 pb-28">{children}</main>
+          <main className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-6 py-8">{children}</main>
+          <SiteFooter />
           <MiniPlayer />
         </FocusRoot>
       </body>

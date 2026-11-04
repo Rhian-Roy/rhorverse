@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { Credit } from "@/components/attribution/Credit";
+import { SourceLink } from "@/components/attribution/SourceLink";
 import { Availability } from "@/components/detail/Availability";
 import { DetailHeader } from "@/components/detail/DetailHeader";
 import { TagCloud } from "@/components/detail/TagCloud";
@@ -14,7 +15,10 @@ export default async function TitlePage({ params }: { params: Promise<{ id: stri
       <DetailHeader work={work} />
       <TagCloud tags={work.tags} facets={work.facets} />
       {work.media !== "anime" ? <Availability providers={work.availability} /> : null}
-      <Credit source={work.media === "anime" ? "anilist" : "tmdb"} />
+      <div className="flex flex-col gap-1">
+        <SourceLink source={work.source} href={work.source_url} />
+        <Credit source={work.media === "anime" ? "anilist" : "tmdb"} />
+      </div>
     </>
   );
 }

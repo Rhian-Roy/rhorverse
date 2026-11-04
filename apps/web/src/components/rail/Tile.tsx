@@ -23,10 +23,11 @@ export function hrefFor(work: Pick<Work, "id" | "media">): string {
 
 function imageFor(work: Work, variant: TileVariant): string | null | undefined {
   const i = work.images;
-  if (variant === "landscape") return i.backdrop ?? i.poster;
+  // Fall back across shapes (games only have landscape art); object-cover crops the centre.
+  if (variant === "landscape") return i.backdrop ?? i.capsule ?? i.poster;
   if (variant === "square") return i.square ?? i.poster;
   if (variant === "capsule") return i.capsule ?? i.backdrop;
-  return i.poster;
+  return i.poster ?? i.capsule ?? i.backdrop;
 }
 
 export function Tile({ work, variant = "poster" }: { work: Work; variant?: TileVariant }) {
