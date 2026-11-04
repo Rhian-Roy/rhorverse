@@ -9,6 +9,7 @@ import type {
   MediaType,
   Rail,
   SearchResult,
+  Track,
   Work,
   WorkDetail,
 } from "./types";
@@ -109,6 +110,16 @@ export const api = {
       (w) => (!media || w.media === media) && (!needle || w.title.toLowerCase().includes(needle)),
     );
     return { query: q, media: media ?? null, items };
+  },
+
+  /** Album tracks with fresh 30-s previews (live only; snapshot mode has none). */
+  async tracks(id: string): Promise<Track[]> {
+    if (API_MODE !== "live") return [];
+    try {
+      return await live<Track[]>(`/works/${pathId(id)}/tracks`, { next: { revalidate: 3600 } });
+    } catch {
+      return []; // a missing track list shouldn't break the album page
+    }
   },
 
   because(id: string): Promise<Rail> {

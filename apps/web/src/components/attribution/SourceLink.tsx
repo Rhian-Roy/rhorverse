@@ -1,8 +1,8 @@
 import { ArrowSquareOut } from "@phosphor-icons/react/ssr";
 
-const PROVIDER: Record<string, string> = { tmdb: "TMDB", anilist: "AniList", rawg: "RAWG" };
+const PROVIDER: Record<string, string> = { tmdb: "TMDB", anilist: "AniList", rawg: "RAWG", itunes: "Apple Music" };
 
-/** Active link to the work's page on its data source. RAWG's terms require one on game pages. */
+/** Active link to the work's page on its data source. RAWG and Apple require one. */
 export function SourceLink({ source, href }: { source: string; href?: string | null }) {
   if (!href) return null;
   return (

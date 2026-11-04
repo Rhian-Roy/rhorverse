@@ -8,6 +8,7 @@ const SITE_WIDE: { source: CreditSource; label: string }[] = [
   { source: "justwatch", label: "JustWatch" },
   { source: "anilist", label: "AniList" },
   { source: "rawg", label: "RAWG" },
+  { source: "itunes", label: "Apple" },
 ];
 
 export function SiteFooter() {

@@ -2,6 +2,7 @@
 // TMDB: https://image.tmdb.org/t/p/<size>/<path>
 // IGDB: https://images.igdb.com/igdb/image/upload/t_<size>/<id>.jpg
 // RAWG: https://media.rawg.io/media/games/<path> → /media/resize/<w>/-/games/<path>
+// Apple: https://is1-ssl.mzstatic.com/image/thumb/<path>/<w>x<h>bb.jpg
 import type { ImageLoaderProps } from "next/image";
 
 const TMDB_SIZES = [92, 154, 185, 342, 500, 780, 1280] as const;
@@ -15,6 +16,11 @@ const IGDB_SIZES: ReadonlyArray<readonly [number, string]> = [
 ];
 
 const RAWG_WIDTHS = [420, 640, 1280] as const;
+const APPLE_WIDTHS = [300, 600, 1000] as const;
+
+export function appleWidth(width: number): number {
+  return APPLE_WIDTHS.find((w) => w >= width) ?? 1000;
+}
 
 export function rawgWidth(width: number): number {
   return RAWG_WIDTHS.find((w) => w >= width) ?? 1280;
@@ -38,6 +44,10 @@ export default function imageLoader({ src, width }: ImageLoaderProps): string {
   }
   if (src.includes("media.rawg.io/media/games/")) {
     return src.replace("/media/games/", `/media/resize/${rawgWidth(width)}/-/games/`);
+  }
+  if (src.includes(".mzstatic.com/image/thumb/")) {
+    const w = appleWidth(width);
+    return src.replace(/\/\d+x\d+bb\.(jpg|png|webp)$/, `/${w}x${w}bb.$1`);
   }
   // Local or fixed-size sources: pass through, keeping next/image's width hint.
   return src.startsWith("/") ? `${src}${src.includes("?") ? "&" : "?"}w=${width}` : src;

@@ -12,3 +12,11 @@ test("snapshot detail page renders without feedback actions", async ({ page }) =
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 20_000 });
   await expect(page.getByRole("button", { name: "Loved it" })).toHaveCount(0);
 });
+
+// Snapshot mode has no track previews; the album page should still render with its credits.
+test("snapshot album page renders with Apple credit and no tracks", async ({ page }) => {
+  await page.goto("/album/u1");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Sample Album: Tidal Hours", { timeout: 20_000 });
+  await expect(page.getByText("Track list coming soon.")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Music previews courtesy of Apple." })).toBeVisible();
+});
