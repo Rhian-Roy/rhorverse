@@ -16,7 +16,7 @@ from rhorverse.ingest.normalize import WorkRow
 from rhorverse.ingest.store import upsert_works
 from rhorverse.main import create_app
 from rhorverse.rec.embed import DIM
-from rhorverse.rec.feed import Candidate, build_home, rank_rail
+from rhorverse.rec.feed import Candidate, build_home, candidates, rank_rail
 from rhorverse.rec.vec import to_pgvector
 
 LIKED = ["test:movie/a0", "test:movie/a1", "test:tv/b0"]
@@ -134,3 +134,18 @@ def test_rank_rail_diversifies_near_duplicates() -> None:
 
     cands = [cand("a", [1, 0], 0.99), cand("a-dup", [1, 0], 0.98), cand("b", [0, 1], 0.9)]
     assert [c.id for c in rank_rail(cands, k=2, lam=0.5)] == ["a", "b"]
+
+
+def test_candidates_widen_hnsw_search_to_k(conn: psycopg.Connection, pid: str) -> None:
+    # Regression: HNSW's default ef_search (40) silently capped k=200 at 40 candidates.
+    candidates(conn, unit(0, 0), set(), k=200)
+    row = conn.execute(
+        "select current_setting('hnsw.ef_search') as ef, current_setting('hnsw.iterative_scan') as it"
+    ).fetchone()
+    assert (row["ef"], row["it"]) == ("200", "relaxed_order")
+
+
+def test_candidates_media_filter(conn: psycopg.Connection, pid: str) -> None:
+    got = candidates(conn, unit(0, 0), set(), media="tv")
+    assert got
+    assert all(c.row["media"] == "tv" for c in got)

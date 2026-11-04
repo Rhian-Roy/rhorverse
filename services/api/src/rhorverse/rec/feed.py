@@ -107,14 +107,21 @@ def taste_from(signals: list[Signal], now: datetime | None = None) -> np.ndarray
     return taste_vector(np.stack([s.embedding for s in usable]), weights)  # type: ignore[misc]
 
 
-def candidates(conn: Connection, vec: np.ndarray, exclude: set[str], k: int = CANDIDATES) -> list[Candidate]:
-    """Nearest works by cosine distance (HNSW), minus `exclude`."""
+def candidates(
+    conn: Connection, vec: np.ndarray, exclude: set[str], k: int = CANDIDATES, media: str | None = None
+) -> list[Candidate]:
+    """Nearest works by cosine distance (HNSW), minus `exclude`, optionally of one `media`."""
+    # HNSW returns at most ef_search rows (default 40) before filters apply, which silently capped
+    # k=200 at 40. Widen it to k for this transaction, and keep scanning past filtered-out rows.
+    conn.execute("select set_config('hnsw.ef_search', %s, true)", (str(max(k, 40)),))
+    conn.execute("select set_config('hnsw.iterative_scan', 'relaxed_order', true)")
     rows = conn.execute(
         f"select {_COLUMNS}, embedding::text as embedding, "
         "1 - (embedding <=> %(v)s::vector) as similarity "
         "from works where embedding is not null and not (id = any(%(ex)s)) "
+        "and (%(media)s::media_type is null or media = %(media)s::media_type) "
         "order by embedding <=> %(v)s::vector limit %(k)s",
-        {"v": to_pgvector(vec), "ex": list(exclude), "k": k},
+        {"v": to_pgvector(vec), "ex": list(exclude), "k": k, "media": media},
     ).fetchall()
     return [Candidate(r, parse_pgvector(r["embedding"]), float(r["similarity"])) for r in rows]
 
