@@ -35,3 +35,6 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 ## 7. Music (Apple iTunes): done
 - **Left:** album artwork in DetailHeader; artist pages as their own works; Last.fm tags (needs `LASTFM_API_KEY`) to give albums richer vibe text; music in the live Music tab (Day 6).
 
+## 8. Day 6 UI: media tabs done
+- **Left:** chip bars on tabs (languages for movies/TV, formats for anime, platforms for games); Profile page (facet bars, consumed counts, "Not interested" list, TV-mode and theme toggles); "Seen it" / "Not interested" actions on tiles; the keyboard-only walkthrough e2e (`keyboard-nav.spec.ts` is still a placeholder); screenshots + design critique.
+
