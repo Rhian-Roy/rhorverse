@@ -67,12 +67,16 @@ async function snapshot<T>(name: string): Promise<T> {
 }
 
 // Route params may arrive still percent-encoded ("tmdb%3Amovie%2F603"); ids never contain "%".
-function pathId(id: string): string {
+function rawId(id: string): string {
   try {
-    return encodeURIComponent(decodeURIComponent(id));
+    return decodeURIComponent(id);
   } catch {
-    return encodeURIComponent(id);
+    return id;
   }
+}
+
+function pathId(id: string): string {
+  return encodeURIComponent(rawId(id));
 }
 
 const MEDIA_SNAPSHOT: Record<MediaType, string> = {
@@ -90,7 +94,8 @@ function allSnapshotWorks(feed: HomeFeed): Work[] {
 }
 
 async function snapshotWork(id: string): Promise<WorkDetail | null> {
-  const hit = allSnapshotWorks(await snapshot<HomeFeed>("home")).find((w) => w.id === id);
+  const want = rawId(id);
+  const hit = allSnapshotWorks(await snapshot<HomeFeed>("home")).find((w) => w.id === want);
   return hit ? { ...hit, facets: {}, availability: [] } : null;
 }
 
@@ -130,7 +135,7 @@ export const api = {
     try {
       return await liveOr(
         () => live<WorkDetail>(`/works/${pathId(id)}`, undefined, PAGE_TIMEOUT_MS),
-        () => snapshotWork(decodeURIComponent(id)),
+        () => snapshotWork(id),
       );
     } catch (e) {
       if (e instanceof ApiError && e.status === 404) return null;
