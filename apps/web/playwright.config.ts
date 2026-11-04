@@ -13,11 +13,13 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  // A production build, compiled once up front: `next dev` compiles each route on first hit, which
+  // made parallel tests time out on a cold start. It's also what Vercel serves.
   webServer: {
-    command: `pnpm exec next dev -p ${PORT}`,
+    command: `pnpm exec next build && pnpm exec next start -p ${PORT}`,
     url: `http://localhost:${PORT}/api/health`,
     reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
+    timeout: 300_000,
     env: { API_MODE: "snapshot" },
   },
 });
