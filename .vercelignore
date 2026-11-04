@@ -1,4 +1,13 @@
 # Web deploys from the repo root (pnpm workspace); the API deploys from services/api on its own.
+# A .vercelignore replaces .gitignore for uploads, so secrets and local-only files must be listed here.
+.env
+.env.*
+*.rtf
+.claude
+.agents
+supabase
+.ruff_cache
+.github
 data
 services
 db
