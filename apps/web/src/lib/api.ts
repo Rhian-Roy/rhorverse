@@ -28,10 +28,29 @@ export class ApiError extends Error {
   }
 }
 
-async function live<T>(path: string, init: RequestInit = { next: { revalidate: 300 } }): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, init);
+// Page reads give up after this and fall back to snapshot data (a free-tier API may be cold).
+const PAGE_TIMEOUT_MS = 8_000;
+
+async function live<T>(
+  path: string,
+  init: RequestInit = { next: { revalidate: 300 } },
+  timeoutMs?: number,
+): Promise<T> {
+  const signal = timeoutMs ? AbortSignal.timeout(timeoutMs) : undefined;
+  const res = await fetch(`${API_BASE}${path}`, { ...init, signal });
   if (!res.ok) throw new ApiError(res.status, `${path} → ${res.status}`);
   return (await res.json()) as T;
+}
+
+/** Live data, or the snapshot when the API times out, is unreachable or errors (404 still counts). */
+async function liveOr<T>(read: () => Promise<T>, fallback: () => Promise<T>): Promise<T> {
+  try {
+    return await read();
+  } catch (e) {
+    if (e instanceof ApiError && e.status === 404) throw e;
+    console.warn(`[api] falling back to snapshot: ${e instanceof Error ? e.message : String(e)}`);
+    return fallback();
+  }
 }
 
 async function snapshot<T>(name: string): Promise<T> {
@@ -70,49 +89,63 @@ function allSnapshotWorks(feed: HomeFeed): Work[] {
   return [...seen.values()];
 }
 
+async function snapshotWork(id: string): Promise<WorkDetail | null> {
+  const hit = allSnapshotWorks(await snapshot<HomeFeed>("home")).find((w) => w.id === id);
+  return hit ? { ...hit, facets: {}, availability: [] } : null;
+}
+
+async function snapshotSearch(q: string, media?: MediaType): Promise<SearchResult> {
+  const needle = q.trim().toLowerCase();
+  const items = allSnapshotWorks(await snapshot<HomeFeed>("home")).filter(
+    (w) => (!media || w.media === media) && (!needle || w.title.toLowerCase().includes(needle)),
+  );
+  return { query: q, media: media ?? null, items };
+}
+
 export const api = {
   mode: API_MODE,
 
   /** With a profile id the feed is personal, so it is never cached. */
   home(profileId?: string | null): Promise<HomeFeed> {
     if (API_MODE !== "live") return snapshot("home");
-    return profileId
-      ? live(`/recs/home?${new URLSearchParams({ profile_id: profileId })}`, { cache: "no-store" })
-      : live("/recs/home");
+    const path = profileId ? `/recs/home?${new URLSearchParams({ profile_id: profileId })}` : "/recs/home";
+    const init: RequestInit = profileId ? { cache: "no-store" } : { next: { revalidate: 300 } };
+    return liveOr(
+      () => live<HomeFeed>(path, init, PAGE_TIMEOUT_MS),
+      () => snapshot("home"),
+    );
   },
 
   /** A media tab's rails. With a profile id they're personal, so never cached. */
   async media(media: MediaType, profileId?: string | null): Promise<Rail[]> {
-    if (API_MODE !== "live") return snapshot<Rail[]>(MEDIA_SNAPSHOT[media]);
-    return profileId
-      ? live(`/recs/media/${media}?${new URLSearchParams({ profile_id: profileId })}`, { cache: "no-store" })
-      : live(`/recs/media/${media}`);
+    const fromSnapshot = () => snapshot<Rail[]>(MEDIA_SNAPSHOT[media]);
+    if (API_MODE !== "live") return fromSnapshot();
+    const query = profileId ? `?${new URLSearchParams({ profile_id: profileId })}` : "";
+    const init: RequestInit = profileId ? { cache: "no-store" } : { next: { revalidate: 300 } };
+    return liveOr(() => live<Rail[]>(`/recs/media/${media}${query}`, init, PAGE_TIMEOUT_MS), fromSnapshot);
   },
 
   async work(id: string): Promise<WorkDetail | null> {
-    if (API_MODE === "live") {
-      try {
-        return await live<WorkDetail>(`/works/${pathId(id)}`);
-      } catch (e) {
-        if (e instanceof ApiError && e.status === 404) return null;
-        throw e;
-      }
+    if (API_MODE !== "live") return snapshotWork(id);
+    try {
+      return await liveOr(
+        () => live<WorkDetail>(`/works/${pathId(id)}`, undefined, PAGE_TIMEOUT_MS),
+        () => snapshotWork(decodeURIComponent(id)),
+      );
+    } catch (e) {
+      if (e instanceof ApiError && e.status === 404) return null;
+      throw e;
     }
-    const hit = allSnapshotWorks(await snapshot<HomeFeed>("home")).find((w) => w.id === id);
-    return hit ? { ...hit, facets: {}, availability: [] } : null;
   },
 
   async search(q: string, media?: MediaType): Promise<SearchResult> {
-    if (API_MODE === "live") {
-      const params = new URLSearchParams({ q });
-      if (media) params.set("media", media);
-      return live(`/search?${params}`);
-    }
-    const needle = q.trim().toLowerCase();
-    const items = allSnapshotWorks(await snapshot<HomeFeed>("home")).filter(
-      (w) => (!media || w.media === media) && (!needle || w.title.toLowerCase().includes(needle)),
+    if (API_MODE !== "live") return snapshotSearch(q, media);
+    const params = new URLSearchParams({ q });
+    if (media) params.set("media", media);
+    return liveOr(
+      () => live<SearchResult>(`/search?${params}`, undefined, PAGE_TIMEOUT_MS),
+      () => snapshotSearch(q, media),
     );
-    return { query: q, media: media ?? null, items };
   },
 
   /** Album tracks with fresh 30-s previews (live only; snapshot mode has none). */
