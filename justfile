@@ -49,6 +49,10 @@ ingest source *args:
 embed:
     scripts/embed_all.sh
 
+# Copy local data into Supabase (migrations + all app tables); needs SUPABASE_DB_URL in .env
+push-supabase:
+    scripts/push_to_supabase.sh
+
 # Export precomputed JSON into apps/web/public/snapshots
 snapshot:
     uv run --project {{api}} python scripts/export_snapshot.py

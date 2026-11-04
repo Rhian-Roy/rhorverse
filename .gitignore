@@ -44,3 +44,6 @@ coverage/
 
 # local copy of the build plan (the Markdown version is tracked)
 /Canopy- 9-Day Build Plan*.pdf
+
+# vercel cli links
+.vercel
