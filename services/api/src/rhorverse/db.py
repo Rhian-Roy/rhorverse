@@ -16,13 +16,18 @@ class DatabaseNotConfigured(RuntimeError):
     pass
 
 
+# prepare_threshold=None: Supabase's transaction pooler (pgbouncer-style) can't hold the prepared
+# statements psycopg would otherwise create after a few runs of the same query.
+CONNECTION_KWARGS = {"row_factory": dict_row, "prepare_threshold": None, "connect_timeout": 10}
+
+
 def get_pool() -> ConnectionPool:
     global _pool
     if _pool is None:
         url = get_settings().database_url
         if not url:
             raise DatabaseNotConfigured("DATABASE_URL is not set")
-        _pool = ConnectionPool(url, min_size=1, max_size=5, open=False, kwargs={"row_factory": dict_row})
+        _pool = ConnectionPool(url, min_size=1, max_size=5, open=False, kwargs=CONNECTION_KWARGS)
         _pool.open(wait=True, timeout=10)
     return _pool
 
