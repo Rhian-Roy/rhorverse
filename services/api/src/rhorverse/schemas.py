@@ -39,6 +39,7 @@ class Provider(BaseModel):
 class WorkDetail(Work):
     facets: dict[str, list[str]] = Field(default_factory=dict)
     availability: list[Provider] = Field(default_factory=list)
+    source_url: str | None = None  # the work's page on its data source (RAWG requires this backlink)
 
 
 class Explanation(BaseModel):

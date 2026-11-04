@@ -33,6 +33,8 @@ export interface Provider {
 export interface WorkDetail extends Work {
   facets: Record<string, string[]>;
   availability: Provider[];
+  /** The work's page on its data source (RAWG requires this backlink). */
+  source_url?: string | null;
 }
 
 export interface Explanation {

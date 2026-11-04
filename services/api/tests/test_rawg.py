@@ -4,10 +4,13 @@ from pathlib import Path
 import httpx
 import psycopg
 import pytest
+from fastapi.testclient import TestClient
 
 from rhorverse.config import get_settings
+from rhorverse.db import get_conn
 from rhorverse.ingest import rawg
 from rhorverse.ingest.http import Http
+from rhorverse.main import create_app
 
 FIX = Path(__file__).parent / "fixtures" / "rawg"
 
@@ -90,3 +93,11 @@ def test_store_is_idempotent_and_detail_has_rawg_link(conn: psycopg.Connection, 
         "bool_and(embedding is not null) filter (where id = 'rawg:3498') as kept from works"
     ).fetchone()
     assert (row["n"], row["kept"]) == (2, True)
+
+
+def test_work_detail_links_back_to_rawg(conn: psycopg.Connection, tmp_path: Path):
+    rawg.store(conn, [(games()[0], None)])
+    app = create_app()
+    app.dependency_overrides[get_conn] = lambda: conn
+    detail = TestClient(app).get("/works/rawg:3498").json()
+    assert detail["source_url"] == "https://rawg.io/games/grand-theft-auto-v"

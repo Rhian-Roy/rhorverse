@@ -37,4 +37,5 @@ def get_work(work_id: str, conn: Connection = Depends(get_conn)) -> WorkDetail: 
         "order by array_position(array['flatrate','free','ads','rent','buy'], kind), provider",
         (work_id, REGION),
     ).fetchall()
-    return row_to_detail(row, availability)
+    links = conn.execute("select scheme, value from work_links where work_id = %s", (work_id,)).fetchall()
+    return row_to_detail(row, availability, {r["scheme"]: r["value"] for r in links})
