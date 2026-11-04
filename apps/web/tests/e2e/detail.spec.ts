@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { distinctive } from "./snapshot-data";
 
 // TODO: open a tile from home, assert DetailHeader + Availability + credit.
 test.skip("detail page shows header, availability and credit", async () => {});
@@ -15,8 +16,9 @@ test("snapshot detail page renders without feedback actions", async ({ page }) =
 
 // Snapshot mode has no track previews; the album page should still render with its credits.
 test("snapshot album page renders with Apple credit and no tracks", async ({ page }) => {
-  await page.goto("/album/u1");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Sample Album: Tidal Hours", { timeout: 20_000 });
+  const album = distinctive("music");
+  await page.goto(`/album/${encodeURIComponent(album.id)}`);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(album.title, { timeout: 20_000 });
   await expect(page.getByText("Track list coming soon.")).toBeVisible();
   await expect(page.getByRole("link", { name: "Music previews courtesy of Apple." })).toBeVisible();
 });

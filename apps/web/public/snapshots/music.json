@@ -1,36 +1,2334 @@
 [
   {
-    "id": "music-trending",
-    "title": "Trending music",
+    "id": "music-popular",
+    "title": "Popular music",
     "variant": "square",
     "ranked": false,
     "items": [
       {
-        "id": "u1",
+        "id": "itunes:6817733404",
         "media": "music",
-        "title": "Sample Album: Tidal Hours",
-        "year": 2020,
-        "overview": null,
+        "title": "Jailer 2 (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Super Subu, Ritesh G Rao, HEISENBERG, Thamizh Aadhavan, Anirudh Ravichander, Vignesh Shivan & Arunraja Kamaraj.",
         "tags": [
-          "ambient"
+          "Tamil",
+          "Super Subu, Ritesh G Rao, HEISENBERG, Thamizh Aadhavan, Anirudh Ravichander, Vignesh Shivan & Arunraja Kamaraj"
         ],
-        "images": {},
-        "source": "sample",
-        "source_id": "u1"
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/61/88/476188e2-5cd5-2320-8f0b-f9cd978560fd/885288695823.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/61/88/476188e2-5cd5-2320-8f0b-f9cd978560fd/885288695823.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6817733404"
       },
       {
-        "id": "u2",
+        "id": "itunes:6814002539",
         "media": "music",
-        "title": "Sample Album: Raga Circuit",
-        "year": 2024,
-        "overview": null,
+        "title": "AUJLA SZN 1 - EP",
+        "year": 2026,
+        "overview": "Album by Karan Aujla.",
         "tags": [
-          "electronic",
-          "indian-classical"
+          "Hip-Hop/Rap",
+          "Karan Aujla"
         ],
-        "images": {},
-        "source": "sample",
-        "source_id": "u2"
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f7/6d/78/f76d78c5-cc9c-f2d6-8603-ba690eaa5c7d/5064089826918_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f7/6d/78/f76d78c5-cc9c-f2d6-8603-ba690eaa5c7d/5064089826918_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6814002539"
+      },
+      {
+        "id": "itunes:1858961207",
+        "media": "music",
+        "title": "Dhurandhar (Original Motion Picture Soundtrack)",
+        "year": 2025,
+        "overview": "Album by Various Artists.",
+        "tags": [
+          "Bollywood",
+          "Various Artists"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/10/4d/4e/104d4e1d-49f1-b96d-2bb1-c7c9f94845fa/ticket.tgbrrfvz.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/10/4d/4e/104d4e1d-49f1-b96d-2bb1-c7c9f94845fa/ticket.tgbrrfvz.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1858961207"
+      },
+      {
+        "id": "itunes:1887523860",
+        "media": "music",
+        "title": "Dhurandhar The Revenge (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Shashwat Sachdev & Irshad Kamil.",
+        "tags": [
+          "Bollywood",
+          "Shashwat Sachdev & Irshad Kamil"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/dc/a4/dcdca4bf-0e75-d88b-d211-c8c3eca5bfb9/8903431190581_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/dc/a4/dcdca4bf-0e75-d88b-d211-c8c3eca5bfb9/8903431190581_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1887523860"
+      },
+      {
+        "id": "itunes:6815521455",
+        "media": "music",
+        "title": "Known Unknowns",
+        "year": 2026,
+        "overview": "Album by Gur Sidhu & Kaptaan.",
+        "tags": [
+          "Punjabi",
+          "Gur Sidhu & Kaptaan"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/56/ab/3b/56ab3b25-37c6-3da4-6547-4dd19b71657c/885288654424.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/56/ab/3b/56ab3b25-37c6-3da4-6547-4dd19b71657c/885288654424.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6815521455"
+      },
+      {
+        "id": "itunes:6790094079",
+        "media": "music",
+        "title": "Hanuman Ansh (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Shreyas Dharmadhikari, Sadhu Tiwari, Dhirendra Mulkalwar, Rishi Pathak, Suneel Lodhi, Shantanu Sudame, Guru Goraksh Nath, Sant Kavi Samarth Ramdas & Vishal Chaturvedi.",
+        "tags": [
+          "Bollywood",
+          "Shreyas Dharmadhikari, Sadhu Tiwari, Dhirendra Mulkalwar, Rishi Pathak, Suneel Lodhi, Shantanu Sudame, Guru Goraksh Nath, Sant Kavi Samarth Ramdas & Vishal Chaturvedi"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/20/98/472098ba-3557-4af7-42c2-55df4e874fe6/8902633457058.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/20/98/472098ba-3557-4af7-42c2-55df4e874fe6/8902633457058.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6790094079"
+      },
+      {
+        "id": "itunes:6818555484",
+        "media": "music",
+        "title": "Baththa (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Sai Abhyankkar, Karthik Netha, KK Nagar Gana Jeeva & Thamizh Aadhavan.",
+        "tags": [
+          "Tamil",
+          "Sai Abhyankkar, Karthik Netha, KK Nagar Gana Jeeva & Thamizh Aadhavan"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/41/fe/64/41fe6481-258a-3415-0267-460e522d78a7/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/41/fe/64/41fe6481-258a-3415-0267-460e522d78a7/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6818555484"
+      },
+      {
+        "id": "itunes:6794258483",
+        "media": "music",
+        "title": "DC (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Anirudh Ravichander, Heisenberg, Vedan & Ashwin Krishna.",
+        "tags": [
+          "Tamil",
+          "Anirudh Ravichander, Heisenberg, Vedan & Ashwin Krishna"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/25/b4/5525b4ec-5854-7526-a2c9-df9d78fc89ec/885288108606.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/25/b4/5525b4ec-5854-7526-a2c9-df9d78fc89ec/885288108606.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6794258483"
+      },
+      {
+        "id": "itunes:6822181956",
+        "media": "music",
+        "title": "Jailer 2 (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Rambabu Gosala, Srinivasa Mouli, Super Subu, Krishna Kanth, Asura, Heisenberg, Anirudh Ravichander & Bhaskara Bhatla.",
+        "tags": [
+          "Telugu",
+          "Rambabu Gosala, Srinivasa Mouli, Super Subu, Krishna Kanth, Asura, Heisenberg, Anirudh Ravichander & Bhaskara Bhatla"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/73/50/d6/7350d69a-46c6-a863-20c8-6e0b89d22d59/885288865097.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/73/50/d6/7350d69a-46c6-a863-20c8-6e0b89d22d59/885288865097.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6822181956"
+      },
+      {
+        "id": "itunes:1829591921",
+        "media": "music",
+        "title": "P-POP CULTURE",
+        "year": 2025,
+        "overview": "Album by Karan Aujla & Ikky.",
+        "tags": [
+          "Pop",
+          "Karan Aujla & Ikky"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/06/bd/e1/06bde161-335b-87fa-650a-f0d04bd9f55d/5021732889621.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/06/bd/e1/06bde161-335b-87fa-650a-f0d04bd9f55d/5021732889621.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1829591921"
+      },
+      {
+        "id": "itunes:1838877939",
+        "media": "music",
+        "title": "Saiyaara (Extended Album) [Original Motion Picture Soundtrack]",
+        "year": 2025,
+        "overview": "Album by Various Artists.",
+        "tags": [
+          "Bollywood",
+          "Various Artists"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/51/76/c8/5176c863-1b58-7835-5779-d8bbe64d3020/Saiyaara_Extended_Album.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/51/76/c8/5176c863-1b58-7835-5779-d8bbe64d3020/Saiyaara_Extended_Album.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1838877939"
+      },
+      {
+        "id": "itunes:6769093931",
+        "media": "music",
+        "title": "Bermuda Triangle",
+        "year": 2026,
+        "overview": "Album by Cheema Y & Gur Sidhu.",
+        "tags": [
+          "Hip-Hop/Rap",
+          "Cheema Y & Gur Sidhu"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/71/fa/df/71fadf2f-5ead-cca4-157e-91d324e39e2d/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/71/fa/df/71fadf2f-5ead-cca4-157e-91d324e39e2d/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6769093931"
+      },
+      {
+        "id": "itunes:6829129549",
+        "media": "music",
+        "title": "The Takeover - EP",
+        "year": 2026,
+        "overview": "Album by Jass Goraya & Prem Dhillon.",
+        "tags": [
+          "New Age",
+          "Jass Goraya & Prem Dhillon"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d6/4f/a8/d64fa805-62d7-bb81-e5c8-b61bb439f1aa/5064158559730_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d6/4f/a8/d64fa805-62d7-bb81-e5c8-b61bb439f1aa/5064158559730_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6829129549"
+      },
+      {
+        "id": "itunes:6817850231",
+        "media": "music",
+        "title": "Xyz",
+        "year": 2026,
+        "overview": "Album by Real Boss.",
+        "tags": [
+          "Pop",
+          "Real Boss"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/50/36/85/503685dc-4af5-503a-8a5c-aafbf82be115/823375498544_Cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/50/36/85/503685dc-4af5-503a-8a5c-aafbf82be115/823375498544_Cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6817850231"
+      },
+      {
+        "id": "itunes:6770745505",
+        "media": "music",
+        "title": "Bipolar",
+        "year": 2026,
+        "overview": "Album by Navaan Sandhu.",
+        "tags": [
+          "Pop",
+          "Navaan Sandhu"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/ae/b7/dcaeb77a-0d81-2ca6-941a-f6a9ac7b1197/26UMGIM64188.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/ae/b7/dcaeb77a-0d81-2ca6-941a-f6a9ac7b1197/26UMGIM64188.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6770745505"
+      },
+      {
+        "id": "itunes:1123241840",
+        "media": "music",
+        "title": "Rockstar (Original Motion Picture Soundtrack)",
+        "year": 2011,
+        "overview": "Album by A.R. Rahman.",
+        "tags": [
+          "Bollywood",
+          "A.R. Rahman"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/ac/41/56ac41f7-99f3-3eae-3b07-443167292c4e/8902894697408_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/ac/41/56ac41f7-99f3-3eae-3b07-443167292c4e/8902894697408_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1123241840"
+      },
+      {
+        "id": "itunes:6773013206",
+        "media": "music",
+        "title": "Karuppu (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Sai Abhyankkar.",
+        "tags": [
+          "Tamil",
+          "Sai Abhyankkar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d4/c4/38/d4c43885-7866-3ac4-e323-b9ca6a7621ec/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d4/c4/38/d4c43885-7866-3ac4-e323-b9ca6a7621ec/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6773013206"
+      },
+      {
+        "id": "itunes:1468448737",
+        "media": "music",
+        "title": "Kabir Singh (Original Motion Picture Soundtrack)",
+        "year": 2019,
+        "overview": "Album by Sachet-Parampara, Vishal Mishra, Mithoon, Akhil Sachdeva & Amaal Mallik.",
+        "tags": [
+          "Bollywood",
+          "Sachet-Parampara, Vishal Mishra, Mithoon, Akhil Sachdeva & Amaal Mallik"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f6/70/84/f6708434-0123-ff36-0ac3-7401e8cf0f94/8902894360807_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f6/70/84/f6708434-0123-ff36-0ac3-7401e8cf0f94/8902894360807_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1468448737"
+      },
+      {
+        "id": "itunes:1796165811",
+        "media": "music",
+        "title": "Young G.O.A.T",
+        "year": 2025,
+        "overview": "Album by Cheema Y & Gur Sidhu.",
+        "tags": [
+          "Hip-Hop/Rap",
+          "Cheema Y & Gur Sidhu"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/00/8c/3b/008c3b31-94b5-8a76-9c0e-52fb6cd35d80/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/00/8c/3b/008c3b31-94b5-8a76-9c0e-52fb6cd35d80/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1796165811"
+      },
+      {
+        "id": "itunes:1073359412",
+        "media": "music",
+        "title": "Aashiqui 2 (Original Motion Picture Soundtrack)",
+        "year": 2013,
+        "overview": "Album by Mithoon, Ankit Tiwari & Jeet Gannguli.",
+        "tags": [
+          "Bollywood",
+          "Mithoon, Ankit Tiwari & Jeet Gannguli"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bb/23/ee/bb23eeed-0c35-4f1d-2b11-485622777ae4/8902894353007_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bb/23/ee/bb23eeed-0c35-4f1d-2b11-485622777ae4/8902894353007_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1073359412"
+      }
+    ],
+    "explanation": null
+  },
+  {
+    "id": "music-new",
+    "title": "New releases",
+    "variant": "square",
+    "ranked": false,
+    "items": [
+      {
+        "id": "itunes:6793082425",
+        "media": "music",
+        "title": "Musafir Cafe (Songs from the Netflix Series) - EP",
+        "year": 2026,
+        "overview": "Album by Garvit - Priyansh, Raghav Kaushik, Neel Adhikari & Aniket Shukla.",
+        "tags": [
+          "Bollywood",
+          "Garvit - Priyansh, Raghav Kaushik, Neel Adhikari & Aniket Shukla"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0d/3d/37/0d3d37d5-a797-6d58-c0e4-020095732b1c/8903431206978_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0d/3d/37/0d3d37d5-a797-6d58-c0e4-020095732b1c/8903431206978_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6793082425"
+      },
+      {
+        "id": "itunes:6806832702",
+        "media": "music",
+        "title": "Mirzapur The Movie (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Anand Bhaskar, Parry G, Junaid Kumar, Ray, Dhanda Nyoliwala, Ginny Diwan, Kumaar, Nusrat Fateh Ali Khan & Tejpal.",
+        "tags": [
+          "Bollywood",
+          "Anand Bhaskar, Parry G, Junaid Kumar, Ray, Dhanda Nyoliwala, Ginny Diwan, Kumaar, Nusrat Fateh Ali Khan & Tejpal"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/18/09/59/18095965-918b-7b56-b033-5d65e294ee23/26UM1IM11924.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/18/09/59/18095965-918b-7b56-b033-5d65e294ee23/26UM1IM11924.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6806832702"
+      },
+      {
+        "id": "itunes:6825357149",
+        "media": "music",
+        "title": "Ramayana (Original Motion Picture Soundtrack) - Hindi",
+        "year": 2026,
+        "overview": "Album by A.R. Rahman & Kumar Vishwas.",
+        "tags": [
+          "Bollywood",
+          "A.R. Rahman & Kumar Vishwas"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/41/db/60/41db6064-cb62-134e-dbac-1a6efa6748ed/8902894363013_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/41/db/60/41db6064-cb62-134e-dbac-1a6efa6748ed/8902894363013_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6825357149"
+      },
+      {
+        "id": "itunes:6797860000",
+        "media": "music",
+        "title": "Inferno",
+        "year": 2026,
+        "overview": "Album by Jxggi.",
+        "tags": [
+          "Hip-Hop",
+          "Jxggi"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/84/d0/ea84d056-f0dc-d573-e9d9-69bda64ff1a4/885288237689.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/84/d0/ea84d056-f0dc-d573-e9d9-69bda64ff1a4/885288237689.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6797860000"
+      },
+      {
+        "id": "itunes:6771755371",
+        "media": "music",
+        "title": "Enigma",
+        "year": 2026,
+        "overview": "Album by Arjan Dhillon & MXRCI.",
+        "tags": [
+          "Rock",
+          "Arjan Dhillon & MXRCI"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4e/ee/c1/4eeec1af-3c5a-320d-40b2-00b9f04cc51b/8905285314991.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4e/ee/c1/4eeec1af-3c5a-320d-40b2-00b9f04cc51b/8905285314991.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6771755371"
+      },
+      {
+        "id": "itunes:6788414470",
+        "media": "music",
+        "title": "God’s Favorite",
+        "year": 2026,
+        "overview": "Album by Jordan Sandhu.",
+        "tags": [
+          "Hip-Hop/Rap",
+          "Jordan Sandhu"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f6/bb/3a/f6bb3a69-218f-4d3c-c099-5030ec68384d/1200214506148.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f6/bb/3a/f6bb3a69-218f-4d3c-c099-5030ec68384d/1200214506148.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6788414470"
+      },
+      {
+        "id": "itunes:6805903463",
+        "media": "music",
+        "title": "Bethlehem Kudumba Unit (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Vishnu Vijay, Vinayak Sasikumar & Suhail Koya.",
+        "tags": [
+          "Soundtrack",
+          "Vishnu Vijay, Vinayak Sasikumar & Suhail Koya"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/54/b5/ce/54b5ce53-c7c9-c758-4716-10a86c966ea4/1200214976569.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/54/b5/ce/54b5ce53-c7c9-c758-4716-10a86c966ea4/1200214976569.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6805903463"
+      },
+      {
+        "id": "itunes:6787140362",
+        "media": "music",
+        "title": "Victory Lap",
+        "year": 2026,
+        "overview": "Album by Parmish Verma.",
+        "tags": [
+          "Regional Indian",
+          "Parmish Verma"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a9/3b/d4/a93bd4a7-2127-92c9-2462-8fb6f6222927/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a9/3b/d4/a93bd4a7-2127-92c9-2462-8fb6f6222927/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6787140362"
+      },
+      {
+        "id": "itunes:6800224968",
+        "media": "music",
+        "title": "Awarapan 2 (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Mithoon, Akhil Sachdeva, Sachin Urmtosh, Wasif Ahmad, Sayeed Quadri, Pritam, Mustafa Zahid, Jeet Gannguli, Amaal Mallik & Rashmi Virag.",
+        "tags": [
+          "Bollywood",
+          "Mithoon, Akhil Sachdeva, Sachin Urmtosh, Wasif Ahmad, Sayeed Quadri, Pritam, Mustafa Zahid, Jeet Gannguli, Amaal Mallik & Rashmi Virag"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/39/55/ce/3955ce23-fcb2-b409-e3da-ac3e7de1ea99/196874692820.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/39/55/ce/3955ce23-fcb2-b409-e3da-ac3e7de1ea99/196874692820.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6800224968"
+      },
+      {
+        "id": "itunes:1889992111",
+        "media": "music",
+        "title": "you seem pretty sad for a girl so in love",
+        "year": 2026,
+        "overview": "Album by Olivia Rodrigo.",
+        "tags": [
+          "Pop",
+          "Olivia Rodrigo"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/1b/f9/1d1bf9b1-44c6-9a6c-6ffb-c158488c06ce/26UMGIM39303.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/1b/f9/1d1bf9b1-44c6-9a6c-6ffb-c158488c06ce/26UMGIM39303.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1889992111"
+      },
+      {
+        "id": "itunes:6769568449",
+        "media": "music",
+        "title": "ICEMAN",
+        "year": 2026,
+        "overview": "Album by Drake.",
+        "tags": [
+          "Hip-Hop/Rap",
+          "Drake"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/35/b9/06/35b90629-a873-14f8-4789-ffc324960038/26UMGIM63614.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/35/b9/06/35b90629-a873-14f8-4789-ffc324960038/26UMGIM63614.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6769568449"
+      },
+      {
+        "id": "itunes:6815624507",
+        "media": "music",
+        "title": "Dorothy (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Ilaiyaraaja.",
+        "tags": [
+          "Tamil",
+          "Ilaiyaraaja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/04/66/63/046663ca-0bd3-d659-b339-2f6dbc5bdc34/196874824566.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/04/66/63/046663ca-0bd3-d659-b339-2f6dbc5bdc34/196874824566.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6815624507"
+      },
+      {
+        "id": "itunes:1868862375",
+        "media": "music",
+        "title": "ARIRANG",
+        "year": 2026,
+        "overview": "Album by BTS.",
+        "tags": [
+          "Pop",
+          "BTS"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/83/cb/bc/83cbbc49-cfad-aeaf-3292-0dd428290d81/198704942365_Cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/83/cb/bc/83cbbc49-cfad-aeaf-3292-0dd428290d81/198704942365_Cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1868862375"
+      },
+      {
+        "id": "itunes:6816025137",
+        "media": "music",
+        "title": "The Paradise (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Anirudh Ravichander.",
+        "tags": [
+          "Telugu",
+          "Anirudh Ravichander"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c5/07/f0/c507f090-239d-86a2-59fa-c8dd9cff6f25/885288703719.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c5/07/f0/c507f090-239d-86a2-59fa-c8dd9cff6f25/885288703719.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6816025137"
+      },
+      {
+        "id": "itunes:6818209777",
+        "media": "music",
+        "title": "HABIBTI (FOMO)",
+        "year": 2026,
+        "overview": "Album by Drake.",
+        "tags": [
+          "R&B/Soul",
+          "Drake"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bb/45/62/bb4562a3-45a2-539c-b557-a18ea060a476/26UMGIM63616.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bb/45/62/bb4562a3-45a2-539c-b557-a18ea060a476/26UMGIM63616.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6818209777"
+      },
+      {
+        "id": "itunes:1871258329",
+        "media": "music",
+        "title": "OCTANE",
+        "year": 2026,
+        "overview": "Album by Don Toliver.",
+        "tags": [
+          "Hip-Hop/Rap",
+          "Don Toliver"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/e5/c6/e8e5c690-a958-622e-eb62-0dce6059300e/075679599360.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/e5/c6/e8e5c690-a958-622e-eb62-0dce6059300e/075679599360.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1871258329"
+      },
+      {
+        "id": "itunes:6781808946",
+        "media": "music",
+        "title": "Majhaestic",
+        "year": 2026,
+        "overview": "Album by Prem Dhillon.",
+        "tags": [
+          "New Age",
+          "Prem Dhillon"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b9/99/d3/b999d377-f5c3-c594-7ae4-ba7ba98b2f4c/5064020348219_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b9/99/d3/b999d377-f5c3-c594-7ae4-ba7ba98b2f4c/5064020348219_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6781808946"
+      },
+      {
+        "id": "itunes:6824387737",
+        "media": "music",
+        "title": "Once Upon a Time in Panjab",
+        "year": 2026,
+        "overview": "Album by a.s. kullar & Harry Pannu.",
+        "tags": [
+          "Worldwide",
+          "a.s. kullar & Harry Pannu"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f5/b6/73/f5b67301-fcba-1e46-bbe6-802805999cee/artwork.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f5/b6/73/f5b67301-fcba-1e46-bbe6-802805999cee/artwork.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6824387737"
+      },
+      {
+        "id": "itunes:6816001738",
+        "media": "music",
+        "title": "PERSONA",
+        "year": 2026,
+        "overview": "Album by Nirvair Pannu.",
+        "tags": [
+          "Regional Indian",
+          "Nirvair Pannu"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/30/8e/34/308e3474-7770-1263-0aa5-d8914484cd8b/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/30/8e/34/308e3474-7770-1263-0aa5-d8914484cd8b/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6816001738"
+      },
+      {
+        "id": "itunes:6814997249",
+        "media": "music",
+        "title": "The Life of a Showgirl: The Encore",
+        "year": 2026,
+        "overview": "Album by Taylor Swift.",
+        "tags": [
+          "Pop",
+          "Taylor Swift"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6814997249"
+      }
+    ],
+    "explanation": null
+  },
+  {
+    "id": "music-genre-Bollywood",
+    "title": "Bollywood",
+    "variant": "square",
+    "ranked": false,
+    "items": [
+      {
+        "id": "itunes:1070912669",
+        "media": "music",
+        "title": "Yeh Jawaani Hai Deewani (Original Motion Picture Soundtrack)",
+        "year": 2013,
+        "overview": "Album by Pritam.",
+        "tags": [
+          "Bollywood",
+          "Pritam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/62/d6/74/62d67432-0670-631f-db6a-d4bac3adae4b/8902894353328_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/62/d6/74/62d67432-0670-631f-db6a-d4bac3adae4b/8902894353328_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1070912669"
+      },
+      {
+        "id": "itunes:1174924228",
+        "media": "music",
+        "title": "Ae Dil Hai Mushkil (Deluxe Edition) [Original Motion Picture Soundtrack]",
+        "year": 2016,
+        "overview": "Album by Pritam.",
+        "tags": [
+          "Bollywood",
+          "Pritam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/43/3c/7a/433c7a84-116b-4001-115e-c8e34d57ebd0/886446235608.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/43/3c/7a/433c7a84-116b-4001-115e-c8e34d57ebd0/886446235608.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1174924228"
+      },
+      {
+        "id": "itunes:1727144163",
+        "media": "music",
+        "title": "ANIMAL (Deluxe Edition Album)",
+        "year": 2024,
+        "overview": "Album by Manan Bhardwaj, Vishal Mishra, Pritam, Shreyas Puranik, Harshavardhan Rameshwar, Jaani, Ashim Kemson, A.R. Rahman, Bhupinder Babbal, Siddharth-Garima, Manoj Muntashir, Raj Shekhar & Traditional.",
+        "tags": [
+          "Bollywood",
+          "Manan Bhardwaj, Vishal Mishra, Pritam, Shreyas Puranik, Harshavardhan Rameshwar, Jaani, Ashim Kemson, A.R. Rahman, Bhupinder Babbal, Siddharth-Garima, Manoj Muntashir, Raj Shekhar & Traditional"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/fc/50/b3/fc50b3ca-c94b-58eb-a10c-80287d82eba3/8903431981196_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/fc/50/b3/fc50b3ca-c94b-58eb-a10c-80287d82eba3/8903431981196_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1727144163"
+      },
+      {
+        "id": "itunes:1121194474",
+        "media": "music",
+        "title": "Desi Boyz (Original Motion Picture Soundtrack)",
+        "year": 2011,
+        "overview": "Album by Pritam.",
+        "tags": [
+          "Bollywood",
+          "Pritam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d0/44/05/d04405c9-20f8-f11a-fa14-8867e988a409/8902894697743_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d0/44/05/d04405c9-20f8-f11a-fa14-8867e988a409/8902894697743_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1121194474"
+      },
+      {
+        "id": "itunes:6784286314",
+        "media": "music",
+        "title": "Cocktail 2 (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by Pritam & Amitabh Bhattacharya.",
+        "tags": [
+          "Bollywood",
+          "Pritam & Amitabh Bhattacharya"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5a/b0/09/5ab0096a-45d7-96c2-468c-85bf83ebeaba/26UMGIM83397.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5a/b0/09/5ab0096a-45d7-96c2-468c-85bf83ebeaba/26UMGIM83397.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6784286314"
+      },
+      {
+        "id": "itunes:1842069630",
+        "media": "music",
+        "title": "Love Aaj Kal (Original Motion Picture Soundtrack)",
+        "year": 2009,
+        "overview": "Album by Pritam.",
+        "tags": [
+          "Bollywood",
+          "Pritam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/6c/c9/98/6cc9988b-b6ce-51e5-9396-fd11d65ad8a7/196871083010.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/6c/c9/98/6cc9988b-b6ce-51e5-9396-fd11d65ad8a7/196871083010.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1842069630"
+      },
+      {
+        "id": "itunes:660158566",
+        "media": "music",
+        "title": "Bhaag Milkha Bhaag (Original Motion Picture Soundtrack)",
+        "year": 2013,
+        "overview": "Album by Shankar Ehsaan Loy.",
+        "tags": [
+          "Bollywood",
+          "Shankar Ehsaan Loy"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fe/9e/54/fe9e54da-11a4-0c61-4adc-f2ac9d8d4416/886444045575.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fe/9e/54/fe9e54da-11a4-0c61-4adc-f2ac9d8d4416/886444045575.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "660158566"
+      },
+      {
+        "id": "itunes:1537029617",
+        "media": "music",
+        "title": "Ajab Prem Ki Ghazab Kahani (Original Motion Picture Soundtrack)",
+        "year": 2009,
+        "overview": "Album by Pritam.",
+        "tags": [
+          "Bollywood",
+          "Pritam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/43/fb/d8/43fbd870-9a3b-ccd9-8866-2a2c6dc48287/8901854003792.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/43/fb/d8/43fbd870-9a3b-ccd9-8866-2a2c6dc48287/8901854003792.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1537029617"
+      },
+      {
+        "id": "itunes:1134725343",
+        "media": "music",
+        "title": "Jab We Met (Original Motion Picture Soundtrack)",
+        "year": 2007,
+        "overview": "Album by Pritam & Sandesh Sandilya.",
+        "tags": [
+          "Bollywood",
+          "Pritam & Sandesh Sandilya"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3d/c7/43/3dc74387-e7f4-2342-397c-4cf2037c69a5/8902894623223_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3d/c7/43/3dc74387-e7f4-2342-397c-4cf2037c69a5/8902894623223_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1134725343"
+      },
+      {
+        "id": "itunes:1123224919",
+        "media": "music",
+        "title": "Ra-One (Original Motion Picture Soundtrack)",
+        "year": 2011,
+        "overview": "Album by Vishal & Shekhar.",
+        "tags": [
+          "Bollywood",
+          "Vishal & Shekhar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0c/f0/42/0cf042ce-94bf-0e40-1691-2aef999a5dbc/8902894697309_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0c/f0/42/0cf042ce-94bf-0e40-1691-2aef999a5dbc/8902894697309_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1123224919"
+      },
+      {
+        "id": "itunes:1138970371",
+        "media": "music",
+        "title": "Dil Chahta Hai (Original Motion Picture Soundtrack)",
+        "year": 2001,
+        "overview": "Album by Shankar Ehsaan Loy & Mike Harvey.",
+        "tags": [
+          "Bollywood",
+          "Shankar Ehsaan Loy & Mike Harvey"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/df/62/2bdf6213-3d11-5f01-cc5e-ddfcc15923b4/8902894114844_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/df/62/2bdf6213-3d11-5f01-cc5e-ddfcc15923b4/8902894114844_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1138970371"
+      },
+      {
+        "id": "itunes:1193069171",
+        "media": "music",
+        "title": "Best of Arijit Singh",
+        "year": 2016,
+        "overview": "Album by Arijit Singh.",
+        "tags": [
+          "Bollywood",
+          "Arijit Singh"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/2d/11/b9/2d11b994-b4fa-19eb-953d-70b472165e95/8903431566911_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/2d/11/b9/2d11b994-b4fa-19eb-953d-70b472165e95/8903431566911_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1193069171"
+      },
+      {
+        "id": "itunes:1348996807",
+        "media": "music",
+        "title": "Sonu Ke Titu Ki Sweety (Original Motion Picture Soundtrack)",
+        "year": 2018,
+        "overview": "Album by Yo Yo Honey Singh, Anand Raj Anand, Amaal Mallik, Zack Knight, Guru Randhawa, Rajat Nagpal, Rochak Kohli & Saurabh Vaibhav.",
+        "tags": [
+          "Bollywood",
+          "Yo Yo Honey Singh, Anand Raj Anand, Amaal Mallik, Zack Knight, Guru Randhawa, Rajat Nagpal, Rochak Kohli & Saurabh Vaibhav"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/81/a5/b0/81a5b084-89f7-7ed8-372e-aefd67504922/8902894360074_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/81/a5/b0/81a5b084-89f7-7ed8-372e-aefd67504922/8902894360074_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1348996807"
+      },
+      {
+        "id": "itunes:1433351550",
+        "media": "music",
+        "title": "Stree (Original Motion Picture Soundtrack)",
+        "year": 2018,
+        "overview": "Album by Sachin-Jigar.",
+        "tags": [
+          "Bollywood",
+          "Sachin-Jigar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/32/3d/c6/323dc616-818e-2a2e-08bd-367c03cd654f/8902894360388_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/32/3d/c6/323dc616-818e-2a2e-08bd-367c03cd654f/8902894360388_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1433351550"
+      },
+      {
+        "id": "itunes:1442219455",
+        "media": "music",
+        "title": "FM Hits - All Time Radio Hits",
+        "year": 2014,
+        "overview": "Album by Kishore Kumar.",
+        "tags": [
+          "Bollywood",
+          "Kishore Kumar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c4/88/e0/c488e07f-c149-873a-63ed-2e2e655a2717/14UMGIM30873.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c4/88/e0/c488e07f-c149-873a-63ed-2e2e655a2717/14UMGIM30873.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1442219455"
+      },
+      {
+        "id": "itunes:1739730621",
+        "media": "music",
+        "title": "Best of Shreya Ghoshal",
+        "year": 2024,
+        "overview": "Album by Shreya Ghoshal.",
+        "tags": [
+          "Bollywood",
+          "Shreya Ghoshal"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/33/73/63/337363a3-083c-6fef-59f8-6b33be5487af/8909024024585.png/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/33/73/63/337363a3-083c-6fef-59f8-6b33be5487af/8909024024585.png/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1739730621"
+      },
+      {
+        "id": "itunes:604815149",
+        "media": "music",
+        "title": "Best of Me: Sonu Nigam",
+        "year": 2013,
+        "overview": "Album by Sonu Nigam.",
+        "tags": [
+          "Bollywood",
+          "Sonu Nigam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/83/72/a9/8372a9dc-e16f-7071-5611-cfc661df0d10/886443873100.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/83/72/a9/8372a9dc-e16f-7071-5611-cfc661df0d10/886443873100.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "604815149"
+      },
+      {
+        "id": "itunes:6827852384",
+        "media": "music",
+        "title": "Velvet Strings",
+        "year": 2026,
+        "overview": "Album by Jyotica Tangri, Arijit Singh & Jubin Nautiyal.",
+        "tags": [
+          "Bollywood",
+          "Jyotica Tangri, Arijit Singh & Jubin Nautiyal"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/21/64/c6/2164c65b-f0f3-edaa-f716-a7dbc8454aa3/8909024125152.png/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/21/64/c6/2164c65b-f0f3-edaa-f716-a7dbc8454aa3/8909024125152.png/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6827852384"
+      },
+      {
+        "id": "itunes:6827934456",
+        "media": "music",
+        "title": "Lit up & Loud",
+        "year": 2026,
+        "overview": "Album by Badshah, Amit Trivedi & Tanishk Bagchi.",
+        "tags": [
+          "Bollywood",
+          "Badshah, Amit Trivedi & Tanishk Bagchi"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a4/49/51/a44951f6-aa6b-0d49-dea4-957b50eb958f/8909024125169.png/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a4/49/51/a44951f6-aa6b-0d49-dea4-957b50eb958f/8909024125169.png/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6827934456"
+      },
+      {
+        "id": "itunes:1536812013",
+        "media": "music",
+        "title": "Race 2 (Original Motion Picture Soundtrack)",
+        "year": 2012,
+        "overview": "Album by Pritam.",
+        "tags": [
+          "Bollywood",
+          "Pritam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/07/79/f6/0779f68f-462f-e8d5-7de1-84ca6be69888/8901854022311.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/07/79/f6/0779f68f-462f-e8d5-7de1-84ca6be69888/8901854022311.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1536812013"
+      }
+    ],
+    "explanation": null
+  },
+  {
+    "id": "music-genre-Telugu",
+    "title": "Telugu",
+    "variant": "square",
+    "ranked": false,
+    "items": [
+      {
+        "id": "itunes:6803802219",
+        "media": "music",
+        "title": "Irumudi (Original Motion Picture Soundtrack) - Telugu",
+        "year": 2026,
+        "overview": "Album by G.V. Prakash Kumar & Shiva Nirvana.",
+        "tags": [
+          "Telugu",
+          "G.V. Prakash Kumar & Shiva Nirvana"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/16/93/6e/16936e95-0ff1-18f4-f29a-0c31f765b2c2/8903431205919_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/16/93/6e/16936e95-0ff1-18f4-f29a-0c31f765b2c2/8903431205919_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6803802219"
+      },
+      {
+        "id": "itunes:1849410150",
+        "media": "music",
+        "title": "Dude (Telugu) [Original Motion Picture Soundtrack]",
+        "year": 2025,
+        "overview": "Album by Sai Abhyankkar.",
+        "tags": [
+          "Telugu",
+          "Sai Abhyankkar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/71/41/c7/7141c762-df8e-695f-20aa-dc68ee01ccf7/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/71/41/c7/7141c762-df8e-695f-20aa-dc68ee01ccf7/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1849410150"
+      },
+      {
+        "id": "itunes:1025734232",
+        "media": "music",
+        "title": "M. M. Keeravani - All Time Hits",
+        "year": 2015,
+        "overview": "Album by M.M. Keeravani.",
+        "tags": [
+          "Telugu",
+          "M.M. Keeravani"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/d5/2d/f6/d52df641-3524-a75a-3cf8-f74300d94d5f/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/d5/2d/f6/d52df641-3524-a75a-3cf8-f74300d94d5f/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1025734232"
+      },
+      {
+        "id": "itunes:1681042989",
+        "media": "music",
+        "title": "Sid Sriram - The All Rounder",
+        "year": 2023,
+        "overview": "Album by Chinmayi Sripada & Sid Sriram.",
+        "tags": [
+          "Telugu",
+          "Chinmayi Sripada & Sid Sriram"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/79/e3/d8/79e3d8bd-f95e-c7ee-953b-624ea4acffaf/197188603489.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/79/e3/d8/79e3d8bd-f95e-c7ee-953b-624ea4acffaf/197188603489.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1681042989"
+      },
+      {
+        "id": "itunes:1841853598",
+        "media": "music",
+        "title": "Aadavallu Meeku Joharlu (Original Motion Picture Soundtrack) - EP",
+        "year": 2022,
+        "overview": "Album by Devi Sri Prasad & Sri Mani.",
+        "tags": [
+          "Telugu",
+          "Devi Sri Prasad & Sri Mani"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8b/f5/0b/8bf50bfe-c3fc-ac3f-9312-e0a0e7f121b3/8905750008417.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8b/f5/0b/8bf50bfe-c3fc-ac3f-9312-e0a0e7f121b3/8905750008417.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1841853598"
+      },
+      {
+        "id": "itunes:6828690845",
+        "media": "music",
+        "title": "Aadarsha Kutumbam - AK47 (Original Motion Picture Soundtrack)",
+        "year": 2026,
+        "overview": "Album by S.S. Thaman, Saraswati Putra Ramajogayya Sastry & Adviteeya Vojjala.",
+        "tags": [
+          "Telugu",
+          "S.S. Thaman, Saraswati Putra Ramajogayya Sastry & Adviteeya Vojjala"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d7/b8/44/d7b8441b-96ce-95db-e24d-54d42480ccbb/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d7/b8/44/d7b8441b-96ce-95db-e24d-54d42480ccbb/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6828690845"
+      },
+      {
+        "id": "itunes:1440643284",
+        "media": "music",
+        "title": "Musical Magic of Sid Sriram",
+        "year": 2018,
+        "overview": "Album by Sid Sriram.",
+        "tags": [
+          "Telugu",
+          "Sid Sriram"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ed/20/6c/ed206c2f-ccac-3f51-a88c-7671e4dcfe40/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ed/20/6c/ed206c2f-ccac-3f51-a88c-7671e4dcfe40/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1440643284"
+      },
+      {
+        "id": "itunes:1478088592",
+        "media": "music",
+        "title": "Saaho (Original Motion Picture Soundtrack)",
+        "year": 2019,
+        "overview": "Album by Tanishk Bagchi, Guru Randhawa, Badshah & Shankar Ehsaan Loy.",
+        "tags": [
+          "Telugu",
+          "Tanishk Bagchi, Guru Randhawa, Badshah & Shankar Ehsaan Loy"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e7/11/85/e711852e-ca3f-b6b4-8182-4c53a1fe04e0/8903431739186_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e7/11/85/e711852e-ca3f-b6b4-8182-4c53a1fe04e0/8903431739186_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1478088592"
+      },
+      {
+        "id": "itunes:1619744666",
+        "media": "music",
+        "title": "RRR (Original Motion Picture Soundtrack)",
+        "year": 2022,
+        "overview": "Album by M.M. Keeravani.",
+        "tags": [
+          "Telugu",
+          "M.M. Keeravani"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/91/85/29/918529f8-5187-19c7-ac4f-983a9c7c5b78/8903431821683_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/91/85/29/918529f8-5187-19c7-ac4f-983a9c7c5b78/8903431821683_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1619744666"
+      },
+      {
+        "id": "itunes:1728026779",
+        "media": "music",
+        "title": "Guntur Kaaram - EP",
+        "year": 2024,
+        "overview": "Album by S.S. Thaman.",
+        "tags": [
+          "Telugu",
+          "S.S. Thaman"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a9/54/29/a9542906-08be-3e8d-a26c-635ef92ed5d3/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a9/54/29/a9542906-08be-3e8d-a26c-635ef92ed5d3/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1728026779"
+      },
+      {
+        "id": "itunes:927216154",
+        "media": "music",
+        "title": "Jalsa (Original Motion Picture Soundtrack)",
+        "year": 2014,
+        "overview": "Album by Devi Sri Prasad.",
+        "tags": [
+          "Telugu",
+          "Devi Sri Prasad"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/74/29/4d742965-80f1-a7e4-a3f3-09825ee37e28/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/74/29/4d742965-80f1-a7e4-a3f3-09825ee37e28/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "927216154"
+      },
+      {
+        "id": "itunes:1493907854",
+        "media": "music",
+        "title": "Ala Vaikunthapurramuloo (Original Motion Pictures Soundtrack)",
+        "year": 2020,
+        "overview": "Album by S.S. Thaman.",
+        "tags": [
+          "Telugu",
+          "S.S. Thaman"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/46/14/df/4614df1c-3f61-6bf5-5c3e-ee304895cfca/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/46/14/df/4614df1c-3f61-6bf5-5c3e-ee304895cfca/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1493907854"
+      },
+      {
+        "id": "itunes:925140373",
+        "media": "music",
+        "title": "Dhada (Original Motion Picture Soundtrack)",
+        "year": 2011,
+        "overview": "Album by Devi Sri Prasad.",
+        "tags": [
+          "Telugu",
+          "Devi Sri Prasad"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/a3/ff/ab/a3ffab4d-3997-de4d-439b-9a6fc21f416c/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/a3/ff/ab/a3ffab4d-3997-de4d-439b-9a6fc21f416c/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "925140373"
+      },
+      {
+        "id": "itunes:925489793",
+        "media": "music",
+        "title": "Magadheera (Original Motion Picture Soundtrack)",
+        "year": 2009,
+        "overview": "Album by M.M. Keeravani.",
+        "tags": [
+          "Telugu",
+          "M.M. Keeravani"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/f6/26/81/f6268128-40ec-9db1-83ca-24a2c0c51d92/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/f6/26/81/f6268128-40ec-9db1-83ca-24a2c0c51d92/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "925489793"
+      },
+      {
+        "id": "itunes:1533988829",
+        "media": "music",
+        "title": "Yamadonga (Original Motion Picture Soundtrack)",
+        "year": 2007,
+        "overview": "Album by M.M. Keeravani.",
+        "tags": [
+          "Telugu",
+          "M.M. Keeravani"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/db/f1/1d/dbf11dcf-015e-4d17-e308-a41acb38f28e/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/db/f1/1d/dbf11dcf-015e-4d17-e308-a41acb38f28e/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1533988829"
+      },
+      {
+        "id": "itunes:925488369",
+        "media": "music",
+        "title": "King (Original Motion Picture Soundtrack)",
+        "year": 2008,
+        "overview": "Album by Devi Sri Prasad.",
+        "tags": [
+          "Telugu",
+          "Devi Sri Prasad"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/32/98/d6/3298d62f-9026-b69f-2ece-35b9d7713470/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/32/98/d6/3298d62f-9026-b69f-2ece-35b9d7713470/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "925488369"
+      },
+      {
+        "id": "itunes:1602184415",
+        "media": "music",
+        "title": "Pushpa - The Rise, Part. 01 (Original Motion Picture Soundtrack)",
+        "year": 2021,
+        "overview": "Album by Devi Sri Prasad.",
+        "tags": [
+          "Telugu",
+          "Devi Sri Prasad"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/ec/34/7b/ec347b9b-0add-c529-4746-799277a5e1c0/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/ec/34/7b/ec347b9b-0add-c529-4746-799277a5e1c0/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1602184415"
+      },
+      {
+        "id": "itunes:1841845805",
+        "media": "music",
+        "title": "They Call Him OG (Original Motion Picture Soundtrack)",
+        "year": 2025,
+        "overview": "Album by S.S. Thaman.",
+        "tags": [
+          "Telugu",
+          "S.S. Thaman"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9e/71/95/9e719569-f8dd-a08b-3b64-c78f576f0e22/196873640532.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9e/71/95/9e719569-f8dd-a08b-3b64-c78f576f0e22/196873640532.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1841845805"
+      },
+      {
+        "id": "itunes:1847833805",
+        "media": "music",
+        "title": "Baahubali Ost - Volume 2 (Original Motion Picture Soundtrack)",
+        "year": 2015,
+        "overview": "Album by M.M. Keeravani & Traditional.",
+        "tags": [
+          "Telugu",
+          "M.M. Keeravani & Traditional"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b6/74/95/b67495fc-6987-dd4b-8e16-b2a09e6ccb59/8905750050409.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b6/74/95/b67495fc-6987-dd4b-8e16-b2a09e6ccb59/8905750050409.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1847833805"
+      },
+      {
+        "id": "itunes:928959764",
+        "media": "music",
+        "title": "Geetanjali (Original Motion Picture Soundtrack)",
+        "year": 1989,
+        "overview": "Album by Ilaiyaraaja.",
+        "tags": [
+          "Telugu",
+          "Ilaiyaraaja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bf/e0/5d/bfe05dd4-06d0-2c83-169d-af0f1b994776/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bf/e0/5d/bfe05dd4-06d0-2c83-169d-af0f1b994776/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "928959764"
+      }
+    ],
+    "explanation": null
+  },
+  {
+    "id": "music-genre-Tamil",
+    "title": "Tamil",
+    "variant": "square",
+    "ranked": false,
+    "items": [
+      {
+        "id": "itunes:1699735063",
+        "media": "music",
+        "title": "Jailer (Original Motion Picture Soundtrack)",
+        "year": 2023,
+        "overview": "Album by Anirudh Ravichander, Super Subu, Arunraja Kamaraj & Vignesh Shivan.",
+        "tags": [
+          "Tamil",
+          "Anirudh Ravichander, Super Subu, Arunraja Kamaraj & Vignesh Shivan"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2c/df/14/2cdf140e-6d11-a98d-bfbf-bc5e30c3c4a1/197189528187.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2c/df/14/2cdf140e-6d11-a98d-bfbf-bc5e30c3c4a1/197189528187.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1699735063"
+      },
+      {
+        "id": "itunes:1848715390",
+        "media": "music",
+        "title": "Dude (Original Motion Picture Soundtrack)",
+        "year": 2025,
+        "overview": "Album by Sai Abhyankkar.",
+        "tags": [
+          "Tamil",
+          "Sai Abhyankkar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/76/57/c3/7657c308-e37a-1925-8be2-186a479f90e9/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/76/57/c3/7657c308-e37a-1925-8be2-186a479f90e9/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1848715390"
+      },
+      {
+        "id": "itunes:6798768731",
+        "media": "music",
+        "title": "Karuppu - Side B (God Mode Begins) [Original Score]",
+        "year": 2026,
+        "overview": "Album by Sai Abhyankkar.",
+        "tags": [
+          "Tamil",
+          "Sai Abhyankkar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1c/68/9a/1c689a83-24ee-6edc-c929-4ed66b51c9a5/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1c/68/9a/1c689a83-24ee-6edc-c929-4ed66b51c9a5/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6798768731"
+      },
+      {
+        "id": "itunes:530856880",
+        "media": "music",
+        "title": "Paiya (Original Motion Picture Soundtrack)",
+        "year": 2009,
+        "overview": "Album by Yuvan Shankar Raja.",
+        "tags": [
+          "Tamil",
+          "Yuvan Shankar Raja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/18/7c/39/187c394c-95af-735f-82cf-16eca48a7290/886443235984.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/18/7c/39/187c394c-95af-735f-82cf-16eca48a7290/886443235984.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "530856880"
+      },
+      {
+        "id": "itunes:6775538055",
+        "media": "music",
+        "title": "Ilaiyaraaja's Symphony Number 1 - Valiant",
+        "year": 2026,
+        "overview": "Album by Ilaiyaraaja.",
+        "tags": [
+          "Tamil",
+          "Ilaiyaraaja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3e/62/cb/3e62cbd1-4672-7a25-e7ce-bd69a34df624/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3e/62/cb/3e62cbd1-4672-7a25-e7ce-bd69a34df624/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6775538055"
+      },
+      {
+        "id": "itunes:6816050465",
+        "media": "music",
+        "title": "Harris Jayaraj Love Beats",
+        "year": 2026,
+        "overview": "Album by Harris Jayaraj.",
+        "tags": [
+          "Tamil",
+          "Harris Jayaraj"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/91/c4/cd/91c4cd80-97d3-756e-0328-b31e200420db/196874828229.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/91/c4/cd/91c4cd80-97d3-756e-0328-b31e200420db/196874828229.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6816050465"
+      },
+      {
+        "id": "itunes:1580739884",
+        "media": "music",
+        "title": "Yejaman (Original Motion Picture Soundtrack)",
+        "year": 1995,
+        "overview": "Album by Ilaiyaraaja.",
+        "tags": [
+          "Tamil",
+          "Ilaiyaraaja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/90/3b/d2/903bd28f-a543-1db3-5057-cb75b9eae8bd/3614973198823.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/90/3b/d2/903bd28f-a543-1db3-5057-cb75b9eae8bd/3614973198823.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1580739884"
+      },
+      {
+        "id": "itunes:1619047213",
+        "media": "music",
+        "title": "Ayan (Original Motion Picture Soundtrack)",
+        "year": 2009,
+        "overview": "Album by Harris Jayaraj.",
+        "tags": [
+          "Tamil",
+          "Harris Jayaraj"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5c/1a/58/5c1a5859-e634-6e86-d63f-2940ff0b8243/8905574304658.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5c/1a/58/5c1a5859-e634-6e86-d63f-2940ff0b8243/8905574304658.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1619047213"
+      },
+      {
+        "id": "itunes:474459286",
+        "media": "music",
+        "title": "Yaaradi Nee Mohini",
+        "year": 2008,
+        "overview": "Album by Yuvan Shankar Raja.",
+        "tags": [
+          "Tamil",
+          "Yuvan Shankar Raja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0d/92/86/0d92863e-e74f-a129-d603-cc32f19132db/886443228894.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0d/92/86/0d92863e-e74f-a129-d603-cc32f19132db/886443228894.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "474459286"
+      },
+      {
+        "id": "itunes:1830672317",
+        "media": "music",
+        "title": "Coolie (Original Motion Picture Soundtrack)",
+        "year": 2025,
+        "overview": "Album by Anirudh Ravichander, Arivu, Heisenberg & Asal Kolaar.",
+        "tags": [
+          "Tamil",
+          "Anirudh Ravichander, Arivu, Heisenberg & Asal Kolaar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/83/90/ba/8390ba53-dadc-ac08-cebe-cd401f1a3400/199538468601.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/83/90/ba/8390ba53-dadc-ac08-cebe-cd401f1a3400/199538468601.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1830672317"
+      },
+      {
+        "id": "itunes:1409651383",
+        "media": "music",
+        "title": "Unnale Unnale (Original Motion Picture Soundtrack)",
+        "year": 2006,
+        "overview": "Album by Harris Jayaraj, Pa. Vijay & Vaalee.",
+        "tags": [
+          "Tamil",
+          "Harris Jayaraj, Pa. Vijay & Vaalee"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/74/7a/c0747a7f-d5c9-8624-17ce-0cf1a2039da2/191773237424.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/74/7a/c0747a7f-d5c9-8624-17ce-0cf1a2039da2/191773237424.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1409651383"
+      },
+      {
+        "id": "itunes:1496121502",
+        "media": "music",
+        "title": "Vaanam Kottattum (Original Motion Picture Soundtrack)",
+        "year": 2020,
+        "overview": "Album by Sid Sriram.",
+        "tags": [
+          "Tamil",
+          "Sid Sriram"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3f/ca/57/3fca5724-cba9-5403-e796-9e61024d00e3/886448265535.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3f/ca/57/3fca5724-cba9-5403-e796-9e61024d00e3/886448265535.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1496121502"
+      },
+      {
+        "id": "itunes:1836504872",
+        "media": "music",
+        "title": "Thalapathi (Original Motion Picture Soundtrack)",
+        "year": 1991,
+        "overview": "Album by Ilaiyaraaja & Valee.",
+        "tags": [
+          "Tamil",
+          "Ilaiyaraaja & Valee"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/72/c2/95/72c295f9-ccec-c74e-1ddb-083b649133dd/8905750030999.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/72/c2/95/72c295f9-ccec-c74e-1ddb-083b649133dd/8905750030999.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1836504872"
+      },
+      {
+        "id": "itunes:1578477135",
+        "media": "music",
+        "title": "Best Hits of Ilaiyaraja Vol-1",
+        "year": 1991,
+        "overview": "Album by Ilaiyaraaja.",
+        "tags": [
+          "Tamil",
+          "Ilaiyaraaja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d7/16/6d/d7166db1-332f-d1b1-0f32-9240e199299c/3614974141040.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d7/16/6d/d7166db1-332f-d1b1-0f32-9240e199299c/3614974141040.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1578477135"
+      },
+      {
+        "id": "itunes:1624359269",
+        "media": "music",
+        "title": "Vikram (Original Motion Picture Soundtrack)",
+        "year": 2022,
+        "overview": "Album by Anirudh Ravichander.",
+        "tags": [
+          "Tamil",
+          "Anirudh Ravichander"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/41/41/01/41410135-baa0-1aab-7417-f6746b0f3c25/196589186973.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/41/41/01/41410135-baa0-1aab-7417-f6746b0f3c25/196589186973.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1624359269"
+      },
+      {
+        "id": "itunes:472568130",
+        "media": "music",
+        "title": "Aadhavan (Original Motion Picture Soundtrack)",
+        "year": 2009,
+        "overview": "Album by Harris Jayaraj.",
+        "tags": [
+          "Tamil",
+          "Harris Jayaraj"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/09/3b/66/093b6615-7ccb-a206-6e37-2cb4d2f1f2e7/886443215467.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/09/3b/66/093b6615-7ccb-a206-6e37-2cb4d2f1f2e7/886443215467.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "472568130"
+      },
+      {
+        "id": "itunes:1502968254",
+        "media": "music",
+        "title": "Master (Original Motion Picture Soundtrack)",
+        "year": 2020,
+        "overview": "Album by Anirudh Ravichander.",
+        "tags": [
+          "Tamil",
+          "Anirudh Ravichander"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a3/f2/dc/a3f2dc29-fc54-07bb-8f9c-2a3936d21a5d/886448363347.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a3/f2/dc/a3f2dc29-fc54-07bb-8f9c-2a3936d21a5d/886448363347.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1502968254"
+      },
+      {
+        "id": "itunes:1661423849",
+        "media": "music",
+        "title": "Varisu (Original Motion Picture Soundtrack)",
+        "year": 2022,
+        "overview": "Album by S.S. Thaman & Vivek.",
+        "tags": [
+          "Tamil",
+          "S.S. Thaman & Vivek"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/43/1b/09/431b09fe-336a-8fcc-f9ca-641b1d2ac93f/8903431909145_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/43/1b/09/431b09fe-336a-8fcc-f9ca-641b1d2ac93f/8903431909145_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1661423849"
+      },
+      {
+        "id": "itunes:1700264490",
+        "media": "music",
+        "title": "Manmadhan (Original Motion Picture Soundtrack)",
+        "year": 2004,
+        "overview": "Album by Yuvan Shankar Raja.",
+        "tags": [
+          "Tamil",
+          "Yuvan Shankar Raja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/3f/77/0c/3f770c32-19f5-f8b6-ac02-a5306fd64d0c/cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/3f/77/0c/3f770c32-19f5-f8b6-ac02-a5306fd64d0c/cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1700264490"
+      },
+      {
+        "id": "itunes:1807757038",
+        "media": "music",
+        "title": "Good Bad Ugly (Original Motion Picture Soundtrack) - TAMIL",
+        "year": 2025,
+        "overview": "Album by G.V. Prakash Kumar, Vishnu Edavan, Rokesh & Darkkey.",
+        "tags": [
+          "Tamil",
+          "G.V. Prakash Kumar, Vishnu Edavan, Rokesh & Darkkey"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/09/46/6e/09466eda-6abe-a61b-4a20-5b2e74d81958/8903431050953_cover.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/09/46/6e/09466eda-6abe-a61b-4a20-5b2e74d81958/8903431050953_cover.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1807757038"
+      }
+    ],
+    "explanation": null
+  },
+  {
+    "id": "music-genre-Soundtrack",
+    "title": "Soundtrack",
+    "variant": "square",
+    "ranked": false,
+    "items": [
+      {
+        "id": "itunes:1696959967",
+        "media": "music",
+        "title": "Bollywood Party Hits Essentials",
+        "year": 2023,
+        "overview": "Album by Various Artists.",
+        "tags": [
+          "Soundtrack",
+          "Various Artists"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/47/67/5f/47675f29-6968-ab36-ced1-5a345a9a63ec/840214493263.png/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/47/67/5f/47675f29-6968-ab36-ced1-5a345a9a63ec/840214493263.png/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1696959967"
+      },
+      {
+        "id": "itunes:6812476961",
+        "media": "music",
+        "title": "Grand Theft Auto VI: The Album",
+        "year": 2026,
+        "overview": "Album by Various Artists.",
+        "tags": [
+          "Soundtrack",
+          "Various Artists"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5d/d3/1c/5dd31c9c-1e1c-0bbc-104f-4a42e2bb4c59/075679556424.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5d/d3/1c/5dd31c9c-1e1c-0bbc-104f-4a42e2bb4c59/075679556424.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "6812476961"
+      },
+      {
+        "id": "itunes:1533983552",
+        "media": "music",
+        "title": "Interstellar (Original Motion Picture Soundtrack) [Expanded Edition]",
+        "year": 2014,
+        "overview": "Album by Hans Zimmer.",
+        "tags": [
+          "Soundtrack",
+          "Hans Zimmer"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f4/5b/73/f45b735a-8d7a-9713-b217-0f8e1593c28b/794043201943.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f4/5b/73/f45b735a-8d7a-9713-b217-0f8e1593c28b/794043201943.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1533983552"
+      },
+      {
+        "id": "itunes:1473486502",
+        "media": "music",
+        "title": "The Lion King: The Gift",
+        "year": 2019,
+        "overview": "Album by Beyoncé.",
+        "tags": [
+          "Soundtrack",
+          "Beyoncé"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/20/73/aa207387-444f-b04d-9b7e-7ea6c687c15e/886447863329.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/20/73/aa207387-444f-b04d-9b7e-7ea6c687c15e/886447863329.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1473486502"
+      },
+      {
+        "id": "itunes:1732115750",
+        "media": "music",
+        "title": "Dune: Part Two (Original Motion Picture Soundtrack)",
+        "year": 2024,
+        "overview": "Album by Hans Zimmer.",
+        "tags": [
+          "Soundtrack",
+          "Hans Zimmer"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/fd/b2/76/fdb276e7-ac61-856a-3eeb-36007e9fba7c/794043220425.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/fd/b2/76/fdb276e7-ac61-856a-3eeb-36007e9fba7c/794043220425.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1732115750"
+      },
+      {
+        "id": "itunes:1874978256",
+        "media": "music",
+        "title": "Shreya Ghoshal - Sing For You",
+        "year": 2013,
+        "overview": "Album by Shreya Ghoshal.",
+        "tags": [
+          "Soundtrack",
+          "Shreya Ghoshal"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/de/3f/5f/de3f5f2a-ae44-0f60-a6a4-9c1b8e077238/26UMGIM10525.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/de/3f/5f/de3f5f2a-ae44-0f60-a6a4-9c1b8e077238/26UMGIM10525.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1874978256"
+      },
+      {
+        "id": "itunes:367939316",
+        "media": "music",
+        "title": "Darling (Original Motion Picture Soundtrack)",
+        "year": 2010,
+        "overview": "Album by G.V. Prakash Kumar.",
+        "tags": [
+          "Soundtrack",
+          "G.V. Prakash Kumar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/96/e1/de/96e1def3-edcf-d939-8c4e-637ec260c299/884977600216.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/96/e1/de/96e1def3-edcf-d939-8c4e-637ec260c299/884977600216.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "367939316"
+      },
+      {
+        "id": "itunes:1440903005",
+        "media": "music",
+        "title": "Black Panther: The Album",
+        "year": 2018,
+        "overview": "Album by Kendrick Lamar.",
+        "tags": [
+          "Soundtrack",
+          "Kendrick Lamar"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4d/16/55/4d165549-3d11-86dc-fcbf-be7fe0bcadfb/18UMGIM00002.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4d/16/55/4d165549-3d11-86dc-fcbf-be7fe0bcadfb/18UMGIM00002.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1440903005"
+      },
+      {
+        "id": "itunes:1621817793",
+        "media": "music",
+        "title": "Top Gun: Maverick (Music from the Motion Picture)",
+        "year": 2022,
+        "overview": "Album by Lady Gaga, Lorne Balfe, Harold Faltermeyer & Hans Zimmer.",
+        "tags": [
+          "Soundtrack",
+          "Lady Gaga, Lorne Balfe, Harold Faltermeyer & Hans Zimmer"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/e6/14/14/e6141444-6597-4c3a-7ad1-86304528acf4/22UMGIM45569.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/e6/14/14/e6141444-6597-4c3a-7ad1-86304528acf4/22UMGIM45569.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1621817793"
+      },
+      {
+        "id": "itunes:530944468",
+        "media": "music",
+        "title": "Awaara - EP",
+        "year": 2010,
+        "overview": "Album by Yuvan Shankar Raja.",
+        "tags": [
+          "Soundtrack",
+          "Yuvan Shankar Raja"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/b8/d3/f1/b8d3f1c3-8a88-d35b-9f4e-84b5e53f25e2/886443237612.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/b8/d3/f1/b8d3f1c3-8a88-d35b-9f4e-84b5e53f25e2/886443237612.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "530944468"
+      },
+      {
+        "id": "itunes:1714727603",
+        "media": "music",
+        "title": "The Hunger Games: The Ballad of Songbirds & Snakes (Music From & Inspired By)",
+        "year": 2023,
+        "overview": "Album by Olivia Rodrigo, Rachel Zegler & Flatland Cavalry.",
+        "tags": [
+          "Soundtrack",
+          "Olivia Rodrigo, Rachel Zegler & Flatland Cavalry"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/17/5c/8e/175c8ec4-a8fd-6a14-5a1e-ea5917a1e687/23UM1IM46888.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/17/5c/8e/175c8ec4-a8fd-6a14-5a1e-ea5917a1e687/23UM1IM46888.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1714727603"
+      },
+      {
+        "id": "itunes:1766435304",
+        "media": "music",
+        "title": "Lover (Original Motion Picture Soundtrack)",
+        "year": 2022,
+        "overview": "Album by Atif Aslam.",
+        "tags": [
+          "Soundtrack",
+          "Atif Aslam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/89/58/55/89585572-8087-e820-64e6-1fbbb9e06047/3616848769459.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/89/58/55/89585572-8087-e820-64e6-1fbbb9e06047/3616848769459.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1766435304"
+      },
+      {
+        "id": "itunes:1824045070",
+        "media": "music",
+        "title": "F1® The Movie (Original Score By Hans Zimmer)",
+        "year": 2025,
+        "overview": "Album by Hans Zimmer.",
+        "tags": [
+          "Soundtrack",
+          "Hans Zimmer"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c6/35/33/c6353341-30ab-16f9-84de-9ec481f1b04b/075679607966.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c6/35/33/c6353341-30ab-16f9-84de-9ec481f1b04b/075679607966.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1824045070"
+      },
+      {
+        "id": "itunes:1454398377",
+        "media": "music",
+        "title": "Man of Steel (Original Motion Picture Soundtrack) [Deluxe Edition]",
+        "year": 2013,
+        "overview": "Album by Hans Zimmer.",
+        "tags": [
+          "Soundtrack",
+          "Hans Zimmer"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/81/e4/f1/81e4f187-cfde-607d-a4f2-50985495456e/794043169724.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/81/e4/f1/81e4f187-cfde-607d-a4f2-50985495456e/794043169724.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1454398377"
+      },
+      {
+        "id": "itunes:1454323407",
+        "media": "music",
+        "title": "The Dark Knight Rises (Original Motion Picture Soundtrack) [Deluxe Edition]",
+        "year": 2012,
+        "overview": "Album by Hans Zimmer.",
+        "tags": [
+          "Soundtrack",
+          "Hans Zimmer"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9c/bf/76/9cbf768e-4968-ab71-5da1-50bc71fb3669/794043160493.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9c/bf/76/9cbf768e-4968-ab71-5da1-50bc71fb3669/794043160493.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1454323407"
+      },
+      {
+        "id": "itunes:1445308225",
+        "media": "music",
+        "title": "Bizaardvark (Music from the TV Series) - EP",
+        "year": 2016,
+        "overview": "Album by Olivia Rodrigo & Madison Hu.",
+        "tags": [
+          "Soundtrack",
+          "Olivia Rodrigo & Madison Hu"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/74/3c/b0/743cb0e1-8ad1-d673-5b3b-b82c1137c663/00050087352332.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/74/3c/b0/743cb0e1-8ad1-d673-5b3b-b82c1137c663/00050087352332.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1445308225"
+      },
+      {
+        "id": "itunes:1472083270",
+        "media": "music",
+        "title": "The Lion King (Original Motion Picture Soundtrack)",
+        "year": 2019,
+        "overview": "Album by Hans Zimmer.",
+        "tags": [
+          "Soundtrack",
+          "Hans Zimmer"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/82/f4/f2/82f4f221-8d4e-1243-8612-6fc4eff9e5c5/19UMGIM61863.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/82/f4/f2/82f4f221-8d4e-1243-8612-6fc4eff9e5c5/19UMGIM61863.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1472083270"
+      },
+      {
+        "id": "itunes:1702946199",
+        "media": "music",
+        "title": "Maradona (Original Motion Picture Soundtrack) - EP",
+        "year": 2018,
+        "overview": "Album by Sushin Shyam.",
+        "tags": [
+          "Soundtrack",
+          "Sushin Shyam"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a3/00/f0/a300f0b6-0aee-bcee-72a3-a605350de1f2/728620788787.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a3/00/f0/a300f0b6-0aee-bcee-72a3-a605350de1f2/728620788787.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1702946199"
+      },
+      {
+        "id": "itunes:1835361913",
+        "media": "music",
+        "title": "Param Sundari (Original Motion Picture Soundtrack) - EP",
+        "year": 2025,
+        "overview": "Album by Sachin-Jigar & Amitabh Bhattacharya.",
+        "tags": [
+          "Soundtrack",
+          "Sachin-Jigar & Amitabh Bhattacharya"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/75/0a/cc750acf-da24-46fe-4f2f-34168309e0ed/25UM1IM24232.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/75/0a/cc750acf-da24-46fe-4f2f-34168309e0ed/25UM1IM24232.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1835361913"
+      },
+      {
+        "id": "itunes:1720045950",
+        "media": "music",
+        "title": "One of the Girls - EP",
+        "year": 2023,
+        "overview": "Album by The Weeknd, JENNIE & Lily Rose Depp.",
+        "tags": [
+          "Soundtrack",
+          "The Weeknd, JENNIE & Lily Rose Depp"
+        ],
+        "images": {
+          "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2a/75/7c/2a757c4d-659e-dd5d-bcce-16800fa6b031/23UM1IM62083.rgb.jpg/600x600bb.jpg",
+          "backdrop": null,
+          "square": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2a/75/7c/2a757c4d-659e-dd5d-bcce-16800fa6b031/23UM1IM62083.rgb.jpg/600x600bb.jpg",
+          "capsule": null
+        },
+        "source": "itunes",
+        "source_id": "1720045950"
       }
     ],
     "explanation": null

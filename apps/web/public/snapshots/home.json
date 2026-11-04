@@ -1,367 +1,2523 @@
 {
   "hero": [
     {
-      "id": "m1",
+      "id": "tmdb:tv/456",
+      "media": "tv",
+      "title": "The Simpsons",
+      "year": 1989,
+      "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+      "tags": [
+        "Animation",
+        "Comedy",
+        "nuclear power plant",
+        "middle class",
+        "cartoon",
+        "satire",
+        "parody",
+        "dysfunctional family",
+        "school",
+        "adult humor",
+        "social satire",
+        "family",
+        "family conflict",
+        "adult animation",
+        "sitcom",
+        "kids",
+        "farce"
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/w500/tf0CUEynk6GfmrlHIQKQ5mfFP5P.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/w1280/jIArNHIekrCSVgdMbKPAXpPY03Y.jpg",
+        "square": null,
+        "capsule": null
+      },
+      "source": "tmdb",
+      "source_id": "tv/456"
+    },
+    {
+      "id": "tmdb:movie/155",
       "media": "movie",
-      "title": "Sample Film: Low Orbit",
-      "year": 2024,
-      "overview": "Placeholder entry for snapshot mode.",
+      "title": "The Dark Knight",
+      "year": 2008,
+      "overview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
       "tags": [
-        "sci-fi",
-        "slow-burn"
+        "Action",
+        "Thriller",
+        "Crime",
+        "sadism",
+        "chaos",
+        "secret identity",
+        "crime fighter",
+        "superhero",
+        "anti hero",
+        "scarecrow",
+        "based on comic",
+        "vigilante",
+        "organized crime",
+        "tragic hero",
+        "anti villain",
+        "criminal mastermind",
+        "district attorney",
+        "super power",
+        "super villain",
+        "neo-noir",
+        "bold"
       ],
-      "images": {},
-      "source": "sample",
-      "source_id": "m1"
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.jpg",
+        "square": null,
+        "capsule": null
+      },
+      "source": "tmdb",
+      "source_id": "movie/155"
     },
     {
-      "id": "a2",
+      "id": "tmdb:tv/1416",
+      "media": "tv",
+      "title": "Grey's Anatomy",
+      "year": 2005,
+      "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
+      "tags": [
+        "Drama",
+        "seattle, washington",
+        "trauma",
+        "workplace",
+        "hospital",
+        "doctor",
+        "medical student",
+        "surgical interns",
+        "medical drama"
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/w500/gO8Fo47KV1opiutRDdBS5jclTQB.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/w1280/A4NwkQXTXElE5iAsne5RpvS8R2Z.jpg",
+        "square": null,
+        "capsule": null
+      },
+      "source": "tmdb",
+      "source_id": "tv/1416"
+    },
+    {
+      "id": "tmdb:movie/791523",
+      "media": "movie",
+      "title": "Wildwood",
+      "year": 2026,
+      "overview": "After her baby brother is abducted by a murder of crows, headstrong teenager Prue McKeel launches a desperate rescue mission into the Impassable Wilderness, an enchanted forest hidden just beyond Portland, Oregon. Joined by her hapless but loyal classmate Curtis Mehlberg, Prue navigates a world of talking animals, bandits, and powerful figures driven by grief and ambition. As the pair is drawn into a conflict threatening the balance of the forest itself, Prue must discover the strength and belief she never knew she possessed.",
+      "tags": [
+        "Animation",
+        "Adventure",
+        "Fantasy",
+        "based on novel or book",
+        "portland, oregon",
+        "horse",
+        "rescue mission",
+        "forest",
+        "oregon, usa",
+        "stop motion",
+        "coyote",
+        "owl",
+        "3d animation",
+        "enchanted forest",
+        "fairytale",
+        "kidnapped baby",
+        "epic adventure"
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/w500/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/w1280/sl5NJ1vtyhP9Vr88bB4blULsJYp.jpg",
+        "square": null,
+        "capsule": null
+      },
+      "source": "tmdb",
+      "source_id": "movie/791523"
+    },
+    {
+      "id": "anilist:16498",
       "media": "anime",
-      "title": "Sample Anime: Iron Lantern",
-      "year": 2023,
-      "overview": null,
+      "title": "Attack on Titan",
+      "year": 2013,
+      "overview": "Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a titan in over 100 years. Teenage boy Eren and his foster sister Mikasa witness something horrific as the city walls are destroyed by a colossal titan that appears out of thin air. As the smaller titans flood the city, the two kids watch in horror as their mother is eaten alive. Eren vows that he will murder every single titan and take revenge for all of mankind.",
       "tags": [
-        "mecha",
-        "action"
+        "Action",
+        "Drama",
+        "Fantasy",
+        "Mystery",
+        "Kaiju",
+        "Revenge",
+        "Military",
+        "Primarily Teen Cast",
+        "Male Protagonist",
+        "Post-Apocalyptic",
+        "Survival",
+        "Gore",
+        "Dystopian",
+        "Steampunk",
+        "Ensemble Cast"
       ],
-      "images": {},
-      "source": "sample",
-      "source_id": "a2"
-    },
-    {
-      "id": "g1",
-      "media": "game",
-      "title": "Sample Game: Drift Ruins",
-      "year": 2023,
-      "overview": null,
-      "tags": [
-        "roguelike"
-      ],
-      "images": {},
-      "source": "sample",
-      "source_id": "g1"
+      "images": {
+        "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
+        "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498-8jpFCOcDmneX.jpg",
+        "square": null,
+        "capsule": null
+      },
+      "source": "anilist",
+      "source_id": "16498"
     }
   ],
   "rails": [
     {
-      "id": "top10",
-      "title": "Top 10 across the Rhorverse",
+      "id": "popular-movie",
+      "title": "Popular movies",
       "variant": "poster",
-      "ranked": true,
+      "ranked": false,
       "items": [
         {
-          "id": "m1",
+          "id": "tmdb:movie/155",
           "media": "movie",
-          "title": "Sample Film: Low Orbit",
-          "year": 2024,
-          "overview": "Placeholder entry for snapshot mode.",
+          "title": "The Dark Knight",
+          "year": 2008,
+          "overview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
           "tags": [
-            "sci-fi",
-            "slow-burn"
+            "Action",
+            "Thriller",
+            "Crime",
+            "sadism",
+            "chaos",
+            "secret identity",
+            "crime fighter",
+            "superhero",
+            "anti hero",
+            "scarecrow",
+            "based on comic",
+            "vigilante",
+            "organized crime",
+            "tragic hero",
+            "anti villain",
+            "criminal mastermind",
+            "district attorney",
+            "super power",
+            "super villain",
+            "neo-noir",
+            "bold"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "m1"
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/155"
         },
         {
-          "id": "t1",
+          "id": "tmdb:movie/791523",
+          "media": "movie",
+          "title": "Wildwood",
+          "year": 2026,
+          "overview": "After her baby brother is abducted by a murder of crows, headstrong teenager Prue McKeel launches a desperate rescue mission into the Impassable Wilderness, an enchanted forest hidden just beyond Portland, Oregon. Joined by her hapless but loyal classmate Curtis Mehlberg, Prue navigates a world of talking animals, bandits, and powerful figures driven by grief and ambition. As the pair is drawn into a conflict threatening the balance of the forest itself, Prue must discover the strength and belief she never knew she possessed.",
+          "tags": [
+            "Animation",
+            "Adventure",
+            "Fantasy",
+            "based on novel or book",
+            "portland, oregon",
+            "horse",
+            "rescue mission",
+            "forest",
+            "oregon, usa",
+            "stop motion",
+            "coyote",
+            "owl",
+            "3d animation",
+            "enchanted forest",
+            "fairytale",
+            "kidnapped baby",
+            "epic adventure"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/sl5NJ1vtyhP9Vr88bB4blULsJYp.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/791523"
+        },
+        {
+          "id": "tmdb:movie/1058424",
+          "media": "movie",
+          "title": "Hope",
+          "year": 2026,
+          "overview": "In the remote South Korean village of Hope Harbor, police chief Bum-seok and officer Sung-ae are called to investigate a mysterious creature wreaking havoc on the community. But all is not as it seems, and perceptions can be misleading. What begins as ignorance plants the seed of disaster, escalating through human conflict into a tragedy of cosmic proportions.",
+          "tags": [
+            "Science Fiction",
+            "Mystery",
+            "Action",
+            "supernatural",
+            "horse",
+            "shootout",
+            "police officer",
+            "hunted",
+            "police shootout",
+            "remote village",
+            "aliens",
+            "20th century",
+            "horror",
+            "fight for survival",
+            "chasing",
+            "unknown entity",
+            "dinosaurs"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/6VY1ZKgpsc8CfGsQcCGiYEgHdH0.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/j96rurZqmBjyY37Fncl3IB0qJNe.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1058424"
+        },
+        {
+          "id": "tmdb:movie/969681",
+          "media": "movie",
+          "title": "Spider-Man: Brand New Day",
+          "year": 2026,
+          "overview": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter Parker he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves - a powerful villain no one can even see.",
+          "tags": [
+            "Science Fiction",
+            "Action",
+            "Adventure",
+            "mind control",
+            "new york city",
+            "hero",
+            "mutation",
+            "secret identity",
+            "superhero",
+            "spider",
+            "villain",
+            "based on comic",
+            "sequel",
+            "transhumanism",
+            "super power",
+            "masked vigilante",
+            "spider web",
+            "aftercreditsstinger",
+            "marvel cinematic universe (mcu)",
+            "masked superhero",
+            "fight for justice",
+            "genetic mutation"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/4tjxYg2AbOzzG9G1YuiT2NzYhlH.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/969681"
+        },
+        {
+          "id": "tmdb:movie/1596275",
+          "media": "movie",
+          "title": "Drive - The Pretenders",
+          "year": 2026,
+          "overview": "A young race car mechanic fakes an engagement with racing's most scandalous star - officially for his reputation, secretly for her own shot behind the wheel. But soon the lie threatens to destroy everything - including what's already become so much more than just a deal.",
+          "tags": [
+            "Romance",
+            "Thriller",
+            "based on novel or book",
+            "racing",
+            "ulterior motive dating",
+            "fake relationship",
+            "female mechanic"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/s9syckECnUYhKePQ1A0DC0mFVZ9.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/hbz4aeVsjnKb2HRoFbbr46Egh8y.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1596275"
+        },
+        {
+          "id": "tmdb:movie/1507696",
+          "media": "movie",
+          "title": "Apocalypse Z: New World",
+          "year": 2026,
+          "overview": "The Canary Islands have become Europe’s last refuge following the outbreak of the TSJ virus. When a special mission sets out for the mainland in search of vital supplies, Roberto joins the team with questionable intentions. The dangerous operation turns into a desperate race for survival, and Roberto and his companions find themselves caught between hordes of infected and divided loyalties.",
+          "tags": [
+            "Action",
+            "Thriller",
+            "Horror",
+            "based on novel or book",
+            "sequel",
+            "zombie"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/wXln4DUrwcyjcFPwgQxFPYTlG1Z.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/o3XwuDUj0n8qnK91p6q8LKfr6rj.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1507696"
+        },
+        {
+          "id": "tmdb:movie/1101412",
+          "media": "movie",
+          "title": "Fall 2: Deadpoint",
+          "year": 2026,
+          "overview": "On a perilous climb across Thailand's Mount Kwan, two climbers become trapped thousands of feet above the ground, where vertigo-inducing heights, sheer exposure, and impossible odds turn every moment into a fight for survival.",
+          "tags": [
+            "Thriller",
+            "sequel",
+            "rock climbing",
+            "sport climbing",
+            "climb",
+            "cautionary",
+            "dramatic",
+            "mountain climber"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/nGau0KBOaRILSK5MqFcuTfv7GMl.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1101412"
+        },
+        {
+          "id": "tmdb:movie/1657630",
+          "media": "movie",
+          "title": "The Awakening",
+          "year": 2026,
+          "overview": "An elite military unit on a mission in the South American jungle encounters a deadly supernatural force revealing an ancient presence that continues to claim anyone who dares enter its domain.",
+          "tags": [
+            "Horror",
+            "Action",
+            "War",
+            "Fantasy",
+            "Thriller",
+            "jungle",
+            "military unit",
+            "presence"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/u8v2kjcb5AHARPh0ZHmCHczWPuZ.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/4pYKqctQvvdyhuGjiK4szH9jEv9.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1657630"
+        },
+        {
+          "id": "tmdb:movie/1283515",
+          "media": "movie",
+          "title": "Verity",
+          "year": 2026,
+          "overview": "Lowen Ashleigh, hired to ghostwrite for best-selling author Verity Crawford, uncovers Verity's autobiographical notes, and becomes involved in what may prove to be a lethal conspiracy.",
+          "tags": [
+            "Mystery",
+            "Thriller",
+            "based on novel or book",
+            "psychological thriller",
+            "novelist",
+            "hidden truth",
+            "erotic thriller",
+            "ghost writer"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/cKetrF2dAnQ0AMV5i4BMOs41I5P.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1283515"
+        },
+        {
+          "id": "tmdb:movie/1368337",
+          "media": "movie",
+          "title": "The Odyssey",
+          "year": 2026,
+          "overview": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
+          "tags": [
+            "Adventure",
+            "Action",
+            "Fantasy",
+            "ship",
+            "trojan war",
+            "greek mythology",
+            "historical fiction",
+            "ancient world",
+            "period drama",
+            "based on song, poem or rhyme",
+            "greek history",
+            "voyage",
+            "peplum",
+            "ancient",
+            "trojan horse",
+            "mediterranean sea",
+            "bronze age",
+            "mythical",
+            "odyssey",
+            "sword and sandal",
+            "epic fantasy"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/9EJDqzAQ0HoNvMDkOQuirXt1RCg.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/iDiTY1wA35YWzTmXLTtqaxtN6tc.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1368337"
+        },
+        {
+          "id": "tmdb:movie/1384216",
+          "media": "movie",
+          "title": "The Dog Stars",
+          "year": 2026,
+          "overview": "After the world's population has been ravaged by a pandemic, a man lives a lonesome existence in a Colorado airplane hangar with his dog and a dour gunman he has befriended. When a mysterious transmission comes through on the radio while he’s flying his old Cessna, it sparks a hunt for the provenance of the sound.",
+          "tags": [
+            "Action",
+            "Thriller",
+            "Science Fiction",
+            "based on novel or book",
+            "dystopia",
+            "denver, colorado",
+            "pilot",
+            "colorado",
+            "grief",
+            "pandemic",
+            "detached",
+            "lonely man",
+            "death of wife",
+            "wonder",
+            "scavengers",
+            "loving",
+            "joyful",
+            "group",
+            "dogs",
+            "post-apocalyptic"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/5O616X9vmRzQdB68PHzBewPittd.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/3k7GzxOdLZkN3eZsuhLi2eRzkXO.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1384216"
+        },
+        {
+          "id": "tmdb:movie/1291595",
+          "media": "movie",
+          "title": "Insidious: Out of the Further",
+          "year": 2026,
+          "overview": "Gemma, a young mother raising her daughter in the house she grew up in, discovers she can travel into The Further, where she possesses an ability to bring what lives there back to the real world.",
+          "tags": [
+            "Horror",
+            "Thriller",
+            "supernatural",
+            "trauma",
+            "cult",
+            "sequel",
+            "evil spirit",
+            "demon",
+            "dentist",
+            "macabre",
+            "frantic",
+            "other dimension",
+            "mother daughter relationship",
+            "insidious",
+            "supernatural horror",
+            "horror",
+            "awestruck",
+            "frightened"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/4tTrW9dXCByS5wt2pXVWb58zNjz.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/p40lmrdI4blcAPZQMTPaiy5v5Ym.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1291595"
+        },
+        {
+          "id": "tmdb:movie/1400940",
+          "media": "movie",
+          "title": "Clayface",
+          "year": 2026,
+          "overview": "Matt Hagen's meteoric rise from Gotham street kid to Hollywood leading man is tragically cut short when a local crime boss's actions leave him horribly disfigured. Abandoned by his team and with nothing left, Matt seeks out a cutting edge treatment that miraculously returns him to his former self… but also unexpectedly affects his grip on reality, spiraling him down a destructive path of all-consuming revenge.",
+          "tags": [
+            "Horror",
+            "Thriller",
+            "Science Fiction",
+            "monster",
+            "shapeshifting",
+            "based on comic",
+            "revenge",
+            "tragedy",
+            "aspiring actor",
+            "female scientist",
+            "scientific experiment",
+            "body horror",
+            "dc universe (dcu)",
+            "hollywood actor",
+            "comic monster"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/xSDoxv4pHvs4xZjvTb0Iqg1A6ro.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1400940"
+        },
+        {
+          "id": "tmdb:movie/1813355",
+          "media": "movie",
+          "title": "A Story of Derry",
+          "year": 2026,
+          "overview": "Hundreds of years before Pennywise, three youngsters venture into the Western Wood...where they encounter a terrifying ancient spirit.",
+          "tags": [
+            "Drama",
+            "Horror",
+            "Mystery",
+            "monster",
+            "based on novel or book",
+            "tribe",
+            "forest",
+            "prequel",
+            "cannibal",
+            "hunting"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/q2XCoT6AqBANz0mKmkgVeo4PyRQ.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/z26LxXDMmAIzKr06FPDudCJyvsM.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1813355"
+        },
+        {
+          "id": "tmdb:movie/1571955",
+          "media": "movie",
+          "title": "Collision Course",
+          "year": 2026,
+          "overview": "Spain, 2013. After robbing a bank, a getaway crash reveals the hidden side of each thief, exposing betrayals and lies that began long before the heist.",
+          "tags": [
+            "Thriller",
+            "Drama",
+            "Crime",
+            "robbery",
+            "madrid, spain",
+            "deception",
+            "heist",
+            "survival",
+            "gang",
+            "fear",
+            "bank robbery",
+            "economic crisis",
+            "bank heist",
+            "suspenseful",
+            "exciting"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/s2eAK0uiODjlNUSIiOBwdp3at2u.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/uI3kWI7kGW5E0F8WduewgQYPt34.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1571955"
+        },
+        {
+          "id": "tmdb:movie/1376400",
+          "media": "movie",
+          "title": "Crawlers",
+          "year": 2026,
+          "overview": "Tenants at Paradiso Palms apartments fight a deadly spider invasion while the cunning building manager might be their only hope for survival.",
+          "tags": [
+            "Horror",
+            "Thriller",
+            "manager",
+            "spider",
+            "outbreak",
+            "survival",
+            "macabre",
+            "infestation",
+            "paranoid",
+            "overwork",
+            "apartment",
+            "arachnid"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/lNXeEpg4yLSRwXwOeR5lbPgwbqL.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/ayJsUQ4bEG6yY0UB6lMboiaDfYE.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1376400"
+        },
+        {
+          "id": "tmdb:movie/1148365",
+          "media": "movie",
+          "title": "Matchbox the Movie",
+          "year": 2026,
+          "overview": "When a group of former childhood friends reconnect, their reunion takes a wild turn as they stumble upon a dangerous international plot—and must save the world.",
+          "tags": [
+            "Action",
+            "Comedy",
+            "Adventure",
+            "friendship",
+            "undercover agent",
+            "reunion",
+            "based on toy",
+            "childhood friends",
+            "friends reunion",
+            "cars",
+            "save the world",
+            "arrogant",
+            "assertive",
+            "cheerful",
+            "cia agent"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/aHhHRz6nOpwkqJs5ASeRGAdK2dt.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/jdJsnhHfkIi3J7jwfiCFT4gXNx5.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1148365"
+        },
+        {
+          "id": "tmdb:movie/1465063",
+          "media": "movie",
+          "title": "Forgotten Island",
+          "year": 2026,
+          "overview": "While celebrating their last night together, high school graduates and best friends Jo and Raissa stumble upon a mysterious portal that transports them to the fantastical island of Nakali. When they discover that the memories of their entire friendship are the price for returning home, Jo and Raissa must race to find a way to leave the island before they forget each other forever.",
+          "tags": [
+            "Animation",
+            "Adventure",
+            "Fantasy",
+            "Comedy",
+            "Family",
+            "friendship",
+            "island",
+            "regret",
+            "amnesia",
+            "self sacrifice",
+            "mythology",
+            "female friendship",
+            "mythical creature",
+            "philippines",
+            "coming of age",
+            "memory loss",
+            "memory",
+            "best friend",
+            "demon",
+            "1990s",
+            "found family",
+            "grandmother granddaughter relationship",
+            "3d animation",
+            "filipino",
+            "memory manipulation",
+            "filipino mythology",
+            "filipino culture",
+            "friendship under pressure",
+            "magic portal",
+            "art shift",
+            "animesque"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/cNICUho5uiAGkfCAQq1ihyaMla4.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1465063"
+        },
+        {
+          "id": "tmdb:movie/1780005",
+          "media": "movie",
+          "title": "Surviving Hurricane Otis",
+          "year": 2026,
+          "overview": "Two estranged brothers struggle to survive Hurricane Otis in Acapulco, where their bond and courage turn adversity into hope.",
+          "tags": [
+            "Drama",
+            "survival",
+            "inspiring",
+            "social issues",
+            "survivor",
+            "emotional",
+            "inspired by true events",
+            "overcoming the odds"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/chZa8Jd9kSDj11bekGjwwotFPEw.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/cpNMIRCrDl0sxDL1tHBzfWi0UZC.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1780005"
+        },
+        {
+          "id": "tmdb:movie/1204680",
+          "media": "movie",
+          "title": "Coyote vs. Acme",
+          "year": 2026,
+          "overview": "After Acme products fail him one too many times in his dogged pursuit of the Roadrunner, Wile E. Coyote decides to hire a billboard lawyer to sue the Acme Corporation.",
+          "tags": [
+            "Comedy",
+            "Adventure",
+            "Family",
+            "Animation",
+            "judge",
+            "lawsuit",
+            "lawyer",
+            "courtroom",
+            "unlikely friendship",
+            "coyote",
+            "live action and animation",
+            "based on magazine, newspaper or article",
+            "cartoon characters",
+            "cgi-live action hybrid",
+            "absurd",
+            "dramatic",
+            "celebratory"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/kYDCl2y0VPvhT5eYWbMRInPoB03.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/rueyXwlewVPAP5NkqCUJx4RjhqB.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1204680"
+        }
+      ],
+      "explanation": null
+    },
+    {
+      "id": "popular-tv",
+      "title": "Popular TV",
+      "variant": "poster",
+      "ranked": false,
+      "items": [
+        {
+          "id": "tmdb:tv/456",
           "media": "tv",
-          "title": "Sample Series: The Relay",
+          "title": "The Simpsons",
+          "year": 1989,
+          "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+          "tags": [
+            "Animation",
+            "Comedy",
+            "nuclear power plant",
+            "middle class",
+            "cartoon",
+            "satire",
+            "parody",
+            "dysfunctional family",
+            "school",
+            "adult humor",
+            "social satire",
+            "family",
+            "family conflict",
+            "adult animation",
+            "sitcom",
+            "kids",
+            "farce"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/tf0CUEynk6GfmrlHIQKQ5mfFP5P.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/jIArNHIekrCSVgdMbKPAXpPY03Y.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/456"
+        },
+        {
+          "id": "tmdb:tv/1416",
+          "media": "tv",
+          "title": "Grey's Anatomy",
+          "year": 2005,
+          "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
+          "tags": [
+            "Drama",
+            "seattle, washington",
+            "trauma",
+            "workplace",
+            "hospital",
+            "doctor",
+            "medical student",
+            "surgical interns",
+            "medical drama"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/gO8Fo47KV1opiutRDdBS5jclTQB.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/A4NwkQXTXElE5iAsne5RpvS8R2Z.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/1416"
+        },
+        {
+          "id": "tmdb:tv/247718",
+          "media": "tv",
+          "title": "MobLand",
+          "year": 2025,
+          "overview": "Two mob families clash in a war that threatens to topple empires and lives.",
+          "tags": [
+            "Crime",
+            "Drama",
+            "london, england",
+            "drug trafficking",
+            "gang war",
+            "gangster",
+            "family business ",
+            "murder",
+            "betrayal",
+            "crime family",
+            "fixer",
+            "corrupt cop",
+            "bold",
+            "brutal violence"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/5Xc7WpWsgflfgEMoBlf9TmWhfbH.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/h0OC7ouop8YLwbAVfS3UUE2Lw4T.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/247718"
+        },
+        {
+          "id": "tmdb:tv/4614",
+          "media": "tv",
+          "title": "NCIS",
+          "year": 2003,
+          "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
+          "tags": [
+            "Crime",
+            "Drama",
+            "Action & Adventure",
+            "navy",
+            "marine corps",
+            "u.s. navy",
+            "naval officer",
+            "medical examiner",
+            "interrogation",
+            "ex-marine",
+            "criminal investigation",
+            "veteran",
+            "virginia",
+            "crime investigation",
+            "special agent",
+            "police procedural",
+            "dramatic"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/y4fGncqELtnvRQuwSpuH8LncZqU.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/c1aBrG5s5xFa6Tbnihu2Hhj4t2q.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/4614"
+        },
+        {
+          "id": "tmdb:tv/213375",
+          "media": "tv",
+          "title": "VisionQuest",
+          "year": 2026,
+          "overview": "With a bounty on his head, Vision must confront his nature and resist Ultron's influence to survive.",
+          "tags": [
+            "Sci-Fi & Fantasy",
+            "Drama",
+            "android",
+            "identity crisis",
+            "based on comic",
+            "on the run",
+            "miniseries",
+            "spin off",
+            "self identity",
+            "marvel cinematic universe (mcu)",
+            "father son relationship",
+            "adoring",
+            "synthezoid"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/WGyAyBPncfuu8MZhLY9RtfZPM0.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/58v1KFe3rxvHrYM1hLH5ScpwqNR.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/213375"
+        },
+        {
+          "id": "tmdb:tv/153312",
+          "media": "tv",
+          "title": "Tulsa King",
           "year": 2022,
-          "overview": null,
+          "overview": "New York mafia capo Dwight \"The General\" Manfredi is released from prison after 25 years and exiled by his boss to set up shop in Tulsa, Oklahoma. Realizing that his mob family may not have his best interests in mind, Dwight slowly builds a crew.",
           "tags": [
-            "mystery"
+            "Crime",
+            "Drama",
+            "Comedy",
+            "betrayal",
+            "fish out of water",
+            "sicilian mafia",
+            "protection racket",
+            "neo-western",
+            "tulsa, oklahoma",
+            "dramedy",
+            "self made man",
+            "mob family",
+            "american midwest",
+            "racketeering",
+            "criminal empire",
+            "repairing family connections",
+            "nepotism",
+            "comforting",
+            "aging man"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "t1"
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/rOYLWCdAifpUtPlTf1WHxyaxeMt.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/mNHRGO1gFpR2CYZdANe72kcKq7G.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/153312"
         },
         {
-          "id": "a1",
-          "media": "anime",
-          "title": "Sample Anime: Skyward Club",
+          "id": "tmdb:tv/30984",
+          "media": "tv",
+          "title": "Bleach",
+          "year": 2004,
+          "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
+          "tags": [
+            "Action & Adventure",
+            "Animation",
+            "Sci-Fi & Fantasy",
+            "swordplay",
+            "katana",
+            "sword",
+            "training",
+            "friendship",
+            "supernatural",
+            "high school",
+            "based on manga",
+            "high school student",
+            "death",
+            "blade",
+            "fantasy world",
+            "shounen",
+            "anime",
+            "japanese high school",
+            "shinigami",
+            "parallel universe",
+            "supernatural ability",
+            "multiple realms",
+            "urban fantasy",
+            "exciting",
+            "adventure",
+            "adoring",
+            "ghosts",
+            "teen fantasy"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/30984"
+        },
+        {
+          "id": "tmdb:tv/120911",
+          "media": "tv",
+          "title": "The Terminal List",
+          "year": 2022,
+          "overview": "Navy SEAL Commander James Reece turns to vengeance as he investigates the mysterious forces behind the murder of his entire platoon. Free from the military's command structure, Reece applies the lessons he's learned from nearly two decades of warfare to hunt down the people responsible.",
+          "tags": [
+            "Action & Adventure",
+            "Drama",
+            "central intelligence agency (cia)",
+            "based on novel or book",
+            "war veteran",
+            "u.s. navy seal",
+            "government conspiracy",
+            "spy thriller",
+            "vengeance",
+            "direct"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/xyFAzP7RKK8cARCSalIZ9A9T0jV.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/2qS2LGqsAyT1NEDeIj24Hp2IR10.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/120911"
+        },
+        {
+          "id": "tmdb:tv/95480",
+          "media": "tv",
+          "title": "Slow Horses",
+          "year": 2022,
+          "overview": "Follow a dysfunctional team of MI5 agents—and their obnoxious boss, the notorious Jackson Lamb—as they navigate the espionage world's smoke and mirrors to defend England from sinister forces.",
+          "tags": [
+            "Crime",
+            "Drama",
+            "Mystery",
+            "london, england",
+            "spy",
+            "based on novel or book",
+            "secret agent",
+            "terrorism",
+            "british spy",
+            "mi5",
+            "british intelligence",
+            "adoring",
+            "disrespectful"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/AdYr4DjOgXvDUMwu6vEhZy1Rnxk.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/gPQppUnLx9vqPDLz3WwZ2HJsNbt.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/95480"
+        },
+        {
+          "id": "tmdb:tv/96677",
+          "media": "tv",
+          "title": "Lupin",
           "year": 2021,
-          "overview": null,
+          "overview": "Inspired by the adventures of Arsène Lupin, gentleman thief Assane Diop sets out to avenge his father for an injustice inflicted by a wealthy family.",
           "tags": [
-            "slice-of-life"
+            "Crime",
+            "Drama",
+            "Mystery",
+            "paris, france",
+            "based on novel or book",
+            "investigation",
+            "police",
+            "thief",
+            "revenge",
+            "heist",
+            "criminal",
+            "disguise",
+            "dramedy",
+            "arsene lupin",
+            "thriller",
+            "exciting",
+            "action"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "a1"
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/h6Z2oogE4mJk2uffdtIlLhb0EHx.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/aY7zv2pfk9H0QxaaL3PBjvalbKQ.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/96677"
         },
         {
-          "id": "g1",
-          "media": "game",
-          "title": "Sample Game: Drift Ruins",
-          "year": 2023,
-          "overview": null,
+          "id": "tmdb:tv/124364",
+          "media": "tv",
+          "title": "FROM",
+          "year": 2022,
+          "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
           "tags": [
-            "roguelike"
+            "Mystery",
+            "Drama",
+            "Sci-Fi & Fantasy",
+            "sheriff",
+            "small town",
+            "gore",
+            "trapped",
+            "folk horror",
+            "supernatural horror",
+            "lovecraftian",
+            "suspense",
+            "violence",
+            "horror"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "g1"
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/m7eiSGHFzr584zFmetGqkqaU6BN.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/124364"
         },
         {
-          "id": "u1",
-          "media": "music",
-          "title": "Sample Album: Tidal Hours",
+          "id": "tmdb:tv/1413",
+          "media": "tv",
+          "title": "American Horror Story",
+          "year": 2011,
+          "overview": "An anthology horror drama series centering on different characters and locations, including a house with a murderous past, an asylum, a witch coven, a freak show, a hotel, a farmhouse in Roanoke, a cult, the apocalypse and a summer camp.",
+          "tags": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi & Fantasy",
+            "hotel",
+            "nun",
+            "based on novel or book",
+            "asylum",
+            "presidential election",
+            "halloween",
+            "haunted house",
+            "carnival",
+            "school of witchcraft",
+            "summer camp",
+            "supernatural",
+            "cult",
+            "anti-christ",
+            "anthology",
+            "serial killer",
+            "apocalypse",
+            "slasher",
+            "witchcraft",
+            "lgbt",
+            "coven (akelarre)",
+            "paranormal activity",
+            "virus",
+            "freak show",
+            "erotic thriller",
+            "1980s",
+            "horror anthology",
+            "supernatural horror",
+            "period piece",
+            "psychological horror",
+            "horror",
+            "witches"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/yCkPLQ10qKIUgRBXmQVVMF1h96d.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/5G4Bnc4Q0YUK1bwLEUYmIsmm2Ib.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/1413"
+        },
+        {
+          "id": "tmdb:tv/200875",
+          "media": "tv",
+          "title": "IT: Welcome to Derry",
+          "year": 2025,
+          "overview": "In 1962, amid a spate of unexplained disappearances of local children, a group of misfit friends begin to suspect a long-buried ancient evil lurking. As the kids set out to determine what's really going on, a rising unease prompts several townspeople to work together to restore peace – all while a U.S. military operation seeks to exploit Derry for its own objectives.",
+          "tags": [
+            "Drama",
+            "Mystery",
+            "based on novel or book",
+            "small town",
+            "clown",
+            "haunted house",
+            "great depression",
+            "prequel",
+            "disappearance",
+            "psychotic",
+            "dead children",
+            "questioning",
+            "1960s",
+            "grim",
+            "1930s",
+            "1900s",
+            "creepy house",
+            "supernatural horror",
+            "children in danger",
+            "psychological horror",
+            "joyous",
+            "dramatic",
+            "suspenseful",
+            "horror",
+            "amused"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/2fOKVDoc2O3eZmBZesWPuE5kgPN.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/200875"
+        },
+        {
+          "id": "tmdb:tv/58841",
+          "media": "tv",
+          "title": "Chicago P.D.",
+          "year": 2014,
+          "overview": "A riveting police drama about the men and women of the Chicago Police Department's District 21 who put it all on the line to serve and protect their community. District 21 is made up of two distinctly different groups: the uniformed cops who patrol the beat and go head-to-head with the city's street crimes and the Intelligence Unit that combats the city's major offenses - organized crime, drug trafficking, high profile murders and beyond.",
+          "tags": [
+            "Crime",
+            "Drama",
+            "chicago, illinois",
+            "police",
+            "spin off",
+            "crime investigation"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/w7R4ooo2IbOfBKOoMDwaiMGsNQf.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/18KSsDgcGQds7yOMC6MVRTbVJwt.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/58841"
+        },
+        {
+          "id": "tmdb:tv/312359",
+          "media": "tv",
+          "title": "Dragon Ball Super: Beerus",
+          "year": 2026,
+          "overview": "When Beerus, the God of Destruction, awakens in search of a worthy rival, Goku and his friends face an epic battle to stop him from destroying Earth.\n\nRemastered and re-edited version of Dragon Ball Super.",
+          "tags": [
+            "Animation",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy",
+            "martial arts",
+            "god",
+            "remake",
+            "dragon",
+            "based on manga",
+            "battle",
+            "universe",
+            "super power",
+            "edited from tv series",
+            "shounen",
+            "anime"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/AojgldgsOlzZV8ahyOzaiAjJWvV.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/8phLVFEXOe02JgFmH9ldn3j4tXW.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/312359"
+        },
+        {
+          "id": "tmdb:tv/60625",
+          "media": "tv",
+          "title": "Rick and Morty",
+          "year": 2013,
+          "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
+          "tags": [
+            "Animation",
+            "Comedy",
+            "Sci-Fi & Fantasy",
+            "Action & Adventure",
+            "time travel",
+            "grandfather",
+            "alcoholism",
+            "alien",
+            "dysfunctional family",
+            "mad scientist",
+            "scientist",
+            "adult animation",
+            "father figure",
+            "machinist",
+            "multiple dimensions",
+            "spaceship"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/5BDNWWHweQL0q1fmTv7gmRXfnl4.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/60625"
+        },
+        {
+          "id": "tmdb:tv/289517",
+          "media": "tv",
+          "title": "Dead-End Job",
+          "year": 2026,
+          "overview": "Drowning in debt, a young man takes lucrative part-time jobs from a mysterious agency — only to find his hustle for more money turning nightmarish.",
+          "tags": [
+            "Mystery",
+            "supernatural",
+            "dark comedy",
+            "debt",
+            "miniseries",
+            "investigator",
+            "ghost",
+            "brother sister relationship",
+            "part-time worker",
+            "horror",
+            "thriller"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/vrDDqk9PAkIs0PQAbW5G0yhPVS3.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/cyH2fZUjIJjLmgpF3tgA5CSGz4L.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/289517"
+        },
+        {
+          "id": "tmdb:tv/284833",
+          "media": "tv",
+          "title": "Avatar: Seven Havens",
+          "year": 2026,
+          "overview": "In a world shattered by a devastating cataclysm, a young Earthbender discovers she's the new Avatar after Korra. But in this dangerous era, that title marks her as humanity's destroyer, not its savior. Hunted by both human and spirit enemies, she and her long-lost twin must uncover their mysterious origins and save the Seven Havens before civilization's last strongholds collapse.",
+          "tags": [
+            "Animation",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy",
+            "Family",
+            "martial arts",
+            "cataclysm",
+            "twins",
+            "hunted",
+            "anime inspired"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/u62d0BPqsdv2TUDifcMmoePbHPL.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/t2KFGH07Al4XuIZLHRlF1Hj9IJB.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/284833"
+        },
+        {
+          "id": "tmdb:tv/259909",
+          "media": "tv",
+          "title": "Dexter: Resurrection",
+          "year": 2025,
+          "overview": "Set 10 weeks after Dexter: New Blood, Dexter Morgan chases a missing Harrison to New York City, where Captain Angel Batista is hot on their trail from way down in Miami.",
+          "tags": [
+            "Crime",
+            "Drama",
+            "Mystery",
+            "new york city",
+            "miami, florida",
+            "based on novel or book",
+            "secret society",
+            "collector",
+            "police",
+            "vigilante",
+            "sequel",
+            "murder",
+            "serial killer",
+            "billionaire",
+            "stolen identity",
+            "father son relationship",
+            "blood",
+            "infiltrator",
+            "suspenseful",
+            "venture capitalist",
+            "relentless cop",
+            "false identity",
+            "urban vigilante",
+            "collection",
+            "nyc"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/o2Oyi3boT100bY5kCP4MBiTeetO.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/vcpj6rRDS93ImHCLPY8bwBuFGjR.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/259909"
+        },
+        {
+          "id": "tmdb:tv/97546",
+          "media": "tv",
+          "title": "Ted Lasso",
           "year": 2020,
-          "overview": null,
+          "overview": "Ted Lasso, an American football coach, moves to England when he's hired to manage a soccer team—despite having no experience. With cynical players and a doubtful town, will he get them to see the Ted Lasso Way?",
           "tags": [
-            "ambient"
+            "Drama",
+            "Comedy",
+            "england",
+            "male friendship",
+            "friendship",
+            "fish out of water",
+            "football (soccer)",
+            "american abroad",
+            "teammate",
+            "professional sports",
+            "football (soccer) team",
+            "workplace comedy",
+            "team owner",
+            "football (soccer) coach",
+            "optimist",
+            "coaching",
+            "nice guy",
+            "premier league",
+            "ambivalent"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "u1"
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/4bG49jVR7NrCNQjahDUsDqvIwle.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/97546"
         }
       ],
       "explanation": null
     },
     {
-      "id": "because-m1",
-      "title": "More like Low Orbit",
-      "variant": "landscape",
+      "id": "popular-anime",
+      "title": "Popular anime",
+      "variant": "poster",
       "ranked": false,
       "items": [
         {
-          "id": "m3",
-          "media": "movie",
-          "title": "Sample Film: Night Market",
-          "year": 2025,
-          "overview": null,
-          "tags": [
-            "thriller",
-            "neon"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "m3"
-        },
-        {
-          "id": "t1",
-          "media": "tv",
-          "title": "Sample Series: The Relay",
-          "year": 2022,
-          "overview": null,
-          "tags": [
-            "mystery"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "t1"
-        },
-        {
-          "id": "a2",
+          "id": "anilist:16498",
           "media": "anime",
-          "title": "Sample Anime: Iron Lantern",
-          "year": 2023,
-          "overview": null,
+          "title": "Attack on Titan",
+          "year": 2013,
+          "overview": "Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a titan in over 100 years. Teenage boy Eren and his foster sister Mikasa witness something horrific as the city walls are destroyed by a colossal titan that appears out of thin air. As the smaller titans flood the city, the two kids watch in horror as their mother is eaten alive. Eren vows that he will murder every single titan and take revenge for all of mankind.",
           "tags": [
-            "mecha",
-            "action"
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery",
+            "Kaiju",
+            "Revenge",
+            "Military",
+            "Primarily Teen Cast",
+            "Male Protagonist",
+            "Post-Apocalyptic",
+            "Survival",
+            "Gore",
+            "Dystopian",
+            "Steampunk",
+            "Ensemble Cast"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "a2"
-        }
-      ],
-      "explanation": {
-        "because_id": "m1",
-        "because_title": "Sample Film: Low Orbit",
-        "reason": "Shares sci-fi and slow-burn moods."
-      }
-    },
-    {
-      "id": "movies",
-      "title": "Movies",
-      "variant": "poster",
-      "ranked": false,
-      "items": [
-        {
-          "id": "m1",
-          "media": "movie",
-          "title": "Sample Film: Low Orbit",
-          "year": 2024,
-          "overview": "Placeholder entry for snapshot mode.",
-          "tags": [
-            "sci-fi",
-            "slow-burn"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "m1"
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498-8jpFCOcDmneX.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "16498"
         },
         {
-          "id": "m2",
-          "media": "movie",
-          "title": "Sample Film: Monsoon Signal",
-          "year": 2023,
-          "overview": null,
-          "tags": [
-            "drama",
-            "india"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "m2"
-        },
-        {
-          "id": "m3",
-          "media": "movie",
-          "title": "Sample Film: Night Market",
-          "year": 2025,
-          "overview": null,
-          "tags": [
-            "thriller",
-            "neon"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "m3"
-        }
-      ],
-      "explanation": null
-    },
-    {
-      "id": "shows",
-      "title": "TV",
-      "variant": "poster",
-      "ranked": false,
-      "items": [
-        {
-          "id": "t1",
-          "media": "tv",
-          "title": "Sample Series: The Relay",
-          "year": 2022,
-          "overview": null,
-          "tags": [
-            "mystery"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "t1"
-        },
-        {
-          "id": "t2",
-          "media": "tv",
-          "title": "Sample Series: Second Draft",
-          "year": 2024,
-          "overview": null,
-          "tags": [
-            "comedy"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "t2"
-        }
-      ],
-      "explanation": null
-    },
-    {
-      "id": "anime",
-      "title": "Anime",
-      "variant": "poster",
-      "ranked": false,
-      "items": [
-        {
-          "id": "a1",
+          "id": "anilist:101922",
           "media": "anime",
-          "title": "Sample Anime: Skyward Club",
+          "title": "Demon Slayer: Kimetsu no Yaiba",
+          "year": 2019,
+          "overview": "It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family.",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Supernatural",
+            "Demons",
+            "Shounen",
+            "Vampire",
+            "Swordplay",
+            "Male Protagonist",
+            "Primarily Teen Cast",
+            "Travel",
+            "Monster Girl",
+            "Revenge",
+            "Orphan"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-WBsBl0ClmgYL.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/101922-33MtJGsUSxga.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "101922"
+        },
+        {
+          "id": "anilist:113415",
+          "media": "anime",
+          "title": "JUJUTSU KAISEN",
+          "year": 2020,
+          "overview": "A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to save a friend who has been attacked by Curses, he eats the finger of the Double-Faced Specter, taking the Curse into his own soul. From then on, he shares one body with the Double-Faced Specter. Guided by the most powerful of sorcerers, Gojou Satoru, Itadori is admitted to the Tokyo Metropolitan Technical High School of Sorcery, an organization that fights the Curses... and thus begins the heroic tale of a boy who became a Curse to exorcise a Curse, a life from which he could never turn back. (Source: Crunchyroll) Note: The first episode received an early web premiere on September 19th, 2020. The regular TV broadcast started on October 3rd, 2020.",
+          "tags": [
+            "Action",
+            "Drama",
+            "Supernatural",
+            "Urban Fantasy",
+            "Shounen",
+            "Curses",
+            "Super Power",
+            "Youkai",
+            "Male Protagonist",
+            "Exorcism",
+            "Primarily Teen Cast",
+            "Dissociative Identities",
+            "Demons",
+            "Orphan",
+            "Urban"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113415-LHBAeoZDIsnF.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/113415-jQBSkxWAAk83.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "113415"
+        },
+        {
+          "id": "anilist:1535",
+          "media": "anime",
+          "title": "Death Note",
+          "year": 2006,
+          "overview": "Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note , Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of Light’s actions will set the world ablaze.",
+          "tags": [
+            "Mystery",
+            "Psychological",
+            "Supernatural",
+            "Thriller",
+            "Crime",
+            "Detective",
+            "Anti-Hero",
+            "Male Protagonist",
+            "Fugitive",
+            "Police",
+            "Philosophy",
+            "Primarily Adult Cast",
+            "Noir",
+            "Gods",
+            "Urban Fantasy"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-kUgkcrfOrkUM.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/1535.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "1535"
+        },
+        {
+          "id": "anilist:21459",
+          "media": "anime",
+          "title": "My Hero Academia",
+          "year": 2016,
+          "overview": "What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more than anything, but he hasn't got an ounce of power in him. With no chance of ever getting into the prestigious U.A. High School for budding heroes, his life is looking more and more like a dead end. Then an encounter with All Might, the greatest hero of them all gives him a chance to change his destiny…",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Super Power",
+            "Superhero",
+            "Shounen",
+            "Primarily Teen Cast",
+            "Male Protagonist",
+            "Crime",
+            "School",
+            "Rescue",
+            "Urban Fantasy",
+            "Ensemble Cast",
+            "Bullying",
+            "Primarily Male Cast"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21459-nYh85uj2Fuwr.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21459-yeVkolGKdGUV.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "21459"
+        },
+        {
+          "id": "anilist:11061",
+          "media": "anime",
+          "title": "Hunter x Hunter (2011)",
+          "year": 2011,
+          "overview": "A Hunter is one who travels the world doing all sorts of dangerous tasks. From capturing criminals to searching deep within uncharted lands for any lost treasures. Gon is a young boy whose father disappeared long ago, being a Hunter. He believes if he could also follow his father's path, he could one day reunite with him. After becoming 12, Gon leaves his home and takes on the task of entering the Hunter exam, notorious for its low success rate and high probability of death to become an official Hunter. He befriends the revenge-driven Kurapika, the doctor-to-be Leorio and the rebellious ex-assassin Killua in the exam, with their friendship prevailing throughout the many trials and threats they come upon taking on the dangerous career of a Hunter.",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Fantasy",
+            "Shounen",
+            "Super Power",
+            "Male Protagonist",
+            "Travel",
+            "Ensemble Cast",
+            "Martial Arts",
+            "Philosophy",
+            "Primarily Male Cast",
+            "Anthropomorphism",
+            "Primarily Teen Cast",
+            "Coming of Age",
+            "Criminal Organization"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11061-y5gsT1hoHuHw.png",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/11061-8WkkTZ6duKpq.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "11061"
+        },
+        {
+          "id": "anilist:21087",
+          "media": "anime",
+          "title": "One-Punch Man",
+          "year": 2015,
+          "overview": "Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and revenge-driven Genos.",
+          "tags": [
+            "Action",
+            "Comedy",
+            "Sci-Fi",
+            "Supernatural",
+            "Superhero",
+            "Super Power",
+            "Parody",
+            "Male Protagonist",
+            "Satire",
+            "Surreal Comedy",
+            "Urban Fantasy",
+            "Urban",
+            "Cyborg",
+            "Primarily Adult Cast",
+            "Kaiju"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-B5DHjqZ3kW4b.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21087-sHb9zUZFsHe1.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "21087"
+        },
+        {
+          "id": "anilist:21",
+          "media": "anime",
+          "title": "ONE PIECE",
+          "year": 1999,
+          "overview": "Gold Roger was known as the Pirate King, the strongest and most infamous being to have sailed the Grand Line. The capture and death of Roger by the World Government brought a change throughout the world. His last words before his death revealed the location of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece (which promises an unlimited amount of riches and fame), and quite possibly the most coveted of titles for the person who found it, the title of the Pirate King. Enter Monkey D. Luffy, a 17-year-old boy that defies your standard definition of a pirate. Rather than the popular persona of a wicked, hardened, toothless pirate who ransacks villages for fun, Luffy’s reason for being a pirate is one of pure wonder; the thought of an exciting adventure and meeting new and intriguing people, along with finding One Piece, are his reasons of becoming a pirate. Following in the footsteps of his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy adventures, unveiling dark mysteries and battling strong enemies, all in order to reach One Piece. *This includes the following special episodes: - Chopperman to the Rescue! Protect the TV Station by the Shore! (Episode 336) - The Strongest Tag-Team! Luffy and Toriko's Hard Struggle! (Episode 492) - Team Formation! Save Chopper (Episode 542) - History's Strongest Collaboration vs. Glutton of the Sea (Episode 590) - 20th Anniversary! Special Romance Dawn (Episode 907)",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Drama",
+            "Fantasy",
+            "Pirates",
+            "Travel",
+            "Shounen",
+            "Ensemble Cast",
+            "Super Power",
+            "Found Family",
+            "Male Protagonist",
+            "Ships",
+            "Conspiracy",
+            "Slapstick"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21-ELSYx3yMPcKM.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21-wf37VakJmZqs.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "21"
+        },
+        {
+          "id": "anilist:20605",
+          "media": "anime",
+          "title": "Tokyo Ghoul",
+          "year": 2014,
+          "overview": "The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight.",
+          "tags": [
+            "Action",
+            "Drama",
+            "Horror",
+            "Mystery",
+            "Psychological",
+            "Supernatural",
+            "Gore",
+            "Urban Fantasy",
+            "Survival",
+            "Body Horror",
+            "Male Protagonist",
+            "Henshin",
+            "Seinen",
+            "Anti-Hero",
+            "Coming of Age"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b20605-k665mVkSug8D.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20605-RCJ7M71zLmrh.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "20605"
+        },
+        {
+          "id": "anilist:20958",
+          "media": "anime",
+          "title": "Attack on Titan Season 2",
+          "year": 2017,
+          "overview": "Eren Jaeger swore to wipe out every last Titan, but in a battle for his life he wound up becoming the thing he hates most. With his new powers, he fights for humanity's freedom facing the monsters that threaten his home. After a bittersweet victory against the Female Titan, Eren finds no time to rest—a horde of Titans is approaching Wall Rose and the battle for humanity continues!",
+          "tags": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery",
+            "Survival",
+            "Shapeshifting",
+            "Post-Apocalyptic",
+            "Military",
+            "Primarily Teen Cast",
+            "Kaiju",
+            "Dystopian",
+            "Gore",
+            "Ensemble Cast",
+            "Revenge",
+            "Politics"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20958-HuFJyr54Mmir.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20958-Y7eQdz9VENBD.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "20958"
+        },
+        {
+          "id": "anilist:5114",
+          "media": "anime",
+          "title": "Fullmetal Alchemist: Brotherhood",
+          "year": 2009,
+          "overview": "\"In order for something to be obtained, something of equal value must be lost.\" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is able to affix Alphonse's soul to a suit of armor. Devastated and alone, it is the hope that they would both eventually return to their original bodies that gives Edward the inspiration to obtain metal limbs called \"automail\" and become a state alchemist, the Fullmetal Alchemist. Three years of searching later, the brothers seek the Philosopher's Stone, a mythical relic that allows an alchemist to overcome the Law of Equivalent Exchange. Even with military allies Colonel Roy Mustang, Lieutenant Riza Hawkeye, and Lieutenant Colonel Maes Hughes on their side, the brothers find themselves caught up in a nationwide conspiracy that leads them not only to the true nature of the elusive Philosopher's Stone, but their country's murky history as well. In between finding a serial killer and racing against time, Edward and Alphonse must ask themselves if what they are doing will make them human again... or take away their humanity.",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Drama",
+            "Fantasy",
+            "Alchemy",
+            "Military",
+            "War",
+            "Shounen",
+            "Politics",
+            "Male Protagonist",
+            "Philosophy",
+            "Ensemble Cast",
+            "Coming of Age",
+            "Super Power",
+            "Steampunk"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx5114-nSWCgQlmOMtj.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/5114-q0V5URebphSG.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "5114"
+        },
+        {
+          "id": "anilist:20",
+          "media": "anime",
+          "title": "Naruto",
+          "year": 2002,
+          "overview": "Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto. Shunned because of the presence of the Kyuubi inside him, Naruto struggles to find his place in the village. He strives to become the Hokage of Konohagakure, and he meets many friends and foes along the way.",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Drama",
+            "Fantasy",
+            "Supernatural",
+            "Ninja",
+            "Shounen",
+            "Coming of Age",
+            "Male Protagonist",
+            "Orphan",
+            "Super Power",
+            "Martial Arts",
+            "Found Family",
+            "Primarily Child Cast"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20-dE6UHbFFg1A5.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20-HHxhPj5JD13a.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "20"
+        },
+        {
+          "id": "anilist:11757",
+          "media": "anime",
+          "title": "Sword Art Online",
+          "year": 2012,
+          "overview": "In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. However, if they die in the game, they die in real life. Their struggle for survival starts now...",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Fantasy",
+            "Romance",
+            "Virtual World",
+            "Video Games",
+            "Male Protagonist",
+            "Swordplay",
+            "Heterosexual",
+            "Primarily Teen Cast",
+            "Urban Fantasy",
+            "Isekai",
+            "Primarily Female Cast",
+            "Fairy",
+            "Artificial Intelligence"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11757-SxYDUzdr9rh2.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "11757"
+        },
+        {
+          "id": "anilist:20954",
+          "media": "anime",
+          "title": "A Silent Voice",
+          "year": 2016,
+          "overview": "After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him. Shouko transfers and Shouya grows up as an outcast. Alone and depressed, the regretful Shouya finds Shouko to make amends.",
+          "tags": [
+            "Drama",
+            "Romance",
+            "Slice of Life",
+            "Disability",
+            "Bullying",
+            "Rehabilitation",
+            "Language Barrier",
+            "Coming of Age",
+            "Male Protagonist",
+            "Primarily Teen Cast",
+            "School",
+            "Heterosexual",
+            "Female Protagonist",
+            "POV",
+            "Photography"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20954-sYRfE5jQRtSB.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20954-f30bHMXa5Qoe.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "20954"
+        },
+        {
+          "id": "anilist:21519",
+          "media": "anime",
+          "title": "Your Name.",
+          "year": 2016,
+          "overview": "Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture. One day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but in Taki's body! Elsewhere, Taki finds himself living Mitsuha's life in the humble countryside. In pursuit of an answer to this strange phenomenon, they begin to search for one another. Kimi no Na wa. revolves around Mitsuha and Taki's actions, which begin to have a dramatic impact on each other's lives, weaving them into a fabric held together by fate and circumstance.",
+          "tags": [
+            "Drama",
+            "Romance",
+            "Supernatural",
+            "Urban Fantasy",
+            "Coming of Age",
+            "Memory Manipulation",
+            "Environmental",
+            "Urban",
+            "Rural",
+            "Gender Bending",
+            "Primarily Teen Cast",
+            "Mythology",
+            "Male Protagonist",
+            "Heterosexual"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-SUo3ZQuCbYhJ.png",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21519-1ayMXgNlmByb.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "21519"
+        },
+        {
+          "id": "anilist:99147",
+          "media": "anime",
+          "title": "Attack on Titan Season 3",
+          "year": 2018,
+          "overview": "Eren and his companions in the 104th are assigned to the newly-formed Levi Squad, whose assignment is to keep Eren and Historia safe given Eren's newly-discovered power and Historia's knowledge and pedigree. Levi and Erwin have good reason to be concerned, because the priest of the Church that Hanji had hidden away was found tortured to death, making it clear that the Military Police are involved with the cover-up. Things get more harrowing when the MPs make a move on Erwin and the Levi Squad narrowly avoids capture. Eren is also having problems with his Titan transformation, and a deadly killer has been hired to secure Eren and Historia, one Levi knows all too well from his youth.",
+          "tags": [
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery",
+            "Military",
+            "Shapeshifting",
+            "Dystopian",
+            "Male Protagonist",
+            "Revenge",
+            "Henshin",
+            "Medieval",
+            "Super Power",
+            "Kaiju",
+            "Gore",
+            "Survival"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99147-AiPDD8cwlCfi.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/99147-HACsFVrynFf5.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "99147"
+        },
+        {
+          "id": "anilist:21856",
+          "media": "anime",
+          "title": "My Hero Academia Season 2",
+          "year": 2017,
+          "overview": "Taking off right after the last episode of the first season. The school is temporarily closed due to security. When U.A. restarts, it is announced that the highly anticipated School Sports Festival will soon be taking place. All classes: Hero, Support, General and Business will be participating. Tournaments all round will decide who is the top Hero in training.",
+          "tags": [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Super Power",
+            "Superhero",
+            "Shounen",
+            "Primarily Teen Cast",
+            "School",
+            "Male Protagonist",
+            "Ensemble Cast",
+            "Urban Fantasy",
+            "Cultivation",
+            "Primarily Male Cast"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21856-gutauxhWAwn6.png",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21856-wtSHgeHFmzdG.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "21856"
+        },
+        {
+          "id": "anilist:110277",
+          "media": "anime",
+          "title": "Attack on Titan Final Season",
           "year": 2021,
-          "overview": null,
+          "overview": "It’s been four years since the Scout Regiment reached the shoreline, and the world looks different now. Things are heating up as the fate of the Scout Regiment—and the people of Paradis—are determined at last. However, Eren is missing. Will he reappear before age-old tensions between Marleyans and Eldians result in the war of all wars?",
           "tags": [
-            "slice-of-life"
+            "Action",
+            "Drama",
+            "Fantasy",
+            "Mystery",
+            "Military",
+            "Kaiju",
+            "Anti-Hero",
+            "Revenge",
+            "Politics",
+            "Dystopian",
+            "Survival",
+            "Ensemble Cast",
+            "Shapeshifting",
+            "Male Protagonist",
+            "Super Power"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "a1"
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx110277-sKUNXAsWMNFw.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/110277-iuGn6F5bK1U1.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "110277"
         },
         {
-          "id": "a2",
+          "id": "anilist:127230",
           "media": "anime",
-          "title": "Sample Anime: Iron Lantern",
-          "year": 2023,
-          "overview": null,
+          "title": "Chainsaw Man",
+          "year": 2022,
+          "overview": "Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as \"Chainsaw Man\" — a man with a devil's heart.",
           "tags": [
-            "mecha",
-            "action"
+            "Action",
+            "Drama",
+            "Horror",
+            "Supernatural",
+            "Demons",
+            "Monster Boy",
+            "Urban Fantasy",
+            "Male Protagonist",
+            "Gore",
+            "Shapeshifting",
+            "Body Horror",
+            "Psychosexual",
+            "Urban",
+            "Henshin",
+            "Shounen"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "a2"
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127230-DdP4vAdssLoz.png",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/127230-o8IRwCGVr9KW.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "127230"
+        },
+        {
+          "id": "anilist:101759",
+          "media": "anime",
+          "title": "The Promised Neverland",
+          "year": 2019,
+          "overview": "Emma, Norman and Ray are the brightest kids at the Grace Field House orphanage. And under the care of the woman they refer to as “Mom,” all the kids have enjoyed a comfortable life. Good food, clean clothes and the perfect environment to learn—what more could an orphan ask for? One day, though, Emma and Norman uncover the dark truth of the outside world they are forbidden from seeing.",
+          "tags": [
+            "Drama",
+            "Fantasy",
+            "Horror",
+            "Mystery",
+            "Psychological",
+            "Thriller",
+            "Primarily Child Cast",
+            "Orphan",
+            "Found Family",
+            "Female Protagonist",
+            "Coming of Age",
+            "Ensemble Cast",
+            "Gore"
+          ],
+          "images": {
+            "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101759-8UR7r9MNVpz2.jpg",
+            "backdrop": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/101759-MhlCoeqnODso.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "anilist",
+          "source_id": "101759"
         }
       ],
       "explanation": null
     },
     {
-      "id": "music",
-      "title": "Music",
+      "id": "popular-music",
+      "title": "Popular music",
       "variant": "square",
       "ranked": false,
       "items": [
         {
-          "id": "u1",
+          "id": "itunes:6817733404",
           "media": "music",
-          "title": "Sample Album: Tidal Hours",
-          "year": 2020,
-          "overview": null,
+          "title": "Jailer 2 (Original Motion Picture Soundtrack)",
+          "year": 2026,
+          "overview": "Album by Super Subu, Ritesh G Rao, HEISENBERG, Thamizh Aadhavan, Anirudh Ravichander, Vignesh Shivan & Arunraja Kamaraj.",
           "tags": [
-            "ambient"
+            "Tamil",
+            "Super Subu, Ritesh G Rao, HEISENBERG, Thamizh Aadhavan, Anirudh Ravichander, Vignesh Shivan & Arunraja Kamaraj"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "u1"
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/61/88/476188e2-5cd5-2320-8f0b-f9cd978560fd/885288695823.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/61/88/476188e2-5cd5-2320-8f0b-f9cd978560fd/885288695823.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6817733404"
         },
         {
-          "id": "u2",
+          "id": "itunes:6814002539",
           "media": "music",
-          "title": "Sample Album: Raga Circuit",
-          "year": 2024,
-          "overview": null,
+          "title": "AUJLA SZN 1 - EP",
+          "year": 2026,
+          "overview": "Album by Karan Aujla.",
           "tags": [
-            "electronic",
-            "indian-classical"
+            "Hip-Hop/Rap",
+            "Karan Aujla"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "u2"
-        }
-      ],
-      "explanation": null
-    },
-    {
-      "id": "games",
-      "title": "Games",
-      "variant": "capsule",
-      "ranked": false,
-      "items": [
-        {
-          "id": "g1",
-          "media": "game",
-          "title": "Sample Game: Drift Ruins",
-          "year": 2023,
-          "overview": null,
-          "tags": [
-            "roguelike"
-          ],
-          "images": {},
-          "source": "sample",
-          "source_id": "g1"
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f7/6d/78/f76d78c5-cc9c-f2d6-8603-ba690eaa5c7d/5064089826918_cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f7/6d/78/f76d78c5-cc9c-f2d6-8603-ba690eaa5c7d/5064089826918_cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6814002539"
         },
         {
-          "id": "g2",
-          "media": "game",
-          "title": "Sample Game: Quiet Harbor",
+          "id": "itunes:1858961207",
+          "media": "music",
+          "title": "Dhurandhar (Original Motion Picture Soundtrack)",
           "year": 2025,
-          "overview": null,
+          "overview": "Album by Various Artists.",
           "tags": [
-            "cozy",
-            "sim"
+            "Bollywood",
+            "Various Artists"
           ],
-          "images": {},
-          "source": "sample",
-          "source_id": "g2"
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/10/4d/4e/104d4e1d-49f1-b96d-2bb1-c7c9f94845fa/ticket.tgbrrfvz.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/10/4d/4e/104d4e1d-49f1-b96d-2bb1-c7c9f94845fa/ticket.tgbrrfvz.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1858961207"
+        },
+        {
+          "id": "itunes:1887523860",
+          "media": "music",
+          "title": "Dhurandhar The Revenge (Original Motion Picture Soundtrack)",
+          "year": 2026,
+          "overview": "Album by Shashwat Sachdev & Irshad Kamil.",
+          "tags": [
+            "Bollywood",
+            "Shashwat Sachdev & Irshad Kamil"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/dc/a4/dcdca4bf-0e75-d88b-d211-c8c3eca5bfb9/8903431190581_cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/dc/a4/dcdca4bf-0e75-d88b-d211-c8c3eca5bfb9/8903431190581_cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1887523860"
+        },
+        {
+          "id": "itunes:6815521455",
+          "media": "music",
+          "title": "Known Unknowns",
+          "year": 2026,
+          "overview": "Album by Gur Sidhu & Kaptaan.",
+          "tags": [
+            "Punjabi",
+            "Gur Sidhu & Kaptaan"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/56/ab/3b/56ab3b25-37c6-3da4-6547-4dd19b71657c/885288654424.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/56/ab/3b/56ab3b25-37c6-3da4-6547-4dd19b71657c/885288654424.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6815521455"
+        },
+        {
+          "id": "itunes:6790094079",
+          "media": "music",
+          "title": "Hanuman Ansh (Original Motion Picture Soundtrack)",
+          "year": 2026,
+          "overview": "Album by Shreyas Dharmadhikari, Sadhu Tiwari, Dhirendra Mulkalwar, Rishi Pathak, Suneel Lodhi, Shantanu Sudame, Guru Goraksh Nath, Sant Kavi Samarth Ramdas & Vishal Chaturvedi.",
+          "tags": [
+            "Bollywood",
+            "Shreyas Dharmadhikari, Sadhu Tiwari, Dhirendra Mulkalwar, Rishi Pathak, Suneel Lodhi, Shantanu Sudame, Guru Goraksh Nath, Sant Kavi Samarth Ramdas & Vishal Chaturvedi"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/20/98/472098ba-3557-4af7-42c2-55df4e874fe6/8902633457058.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/47/20/98/472098ba-3557-4af7-42c2-55df4e874fe6/8902633457058.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6790094079"
+        },
+        {
+          "id": "itunes:6818555484",
+          "media": "music",
+          "title": "Baththa (Original Motion Picture Soundtrack)",
+          "year": 2026,
+          "overview": "Album by Sai Abhyankkar, Karthik Netha, KK Nagar Gana Jeeva & Thamizh Aadhavan.",
+          "tags": [
+            "Tamil",
+            "Sai Abhyankkar, Karthik Netha, KK Nagar Gana Jeeva & Thamizh Aadhavan"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/41/fe/64/41fe6481-258a-3415-0267-460e522d78a7/cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/41/fe/64/41fe6481-258a-3415-0267-460e522d78a7/cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6818555484"
+        },
+        {
+          "id": "itunes:6794258483",
+          "media": "music",
+          "title": "DC (Original Motion Picture Soundtrack)",
+          "year": 2026,
+          "overview": "Album by Anirudh Ravichander, Heisenberg, Vedan & Ashwin Krishna.",
+          "tags": [
+            "Tamil",
+            "Anirudh Ravichander, Heisenberg, Vedan & Ashwin Krishna"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/25/b4/5525b4ec-5854-7526-a2c9-df9d78fc89ec/885288108606.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/25/b4/5525b4ec-5854-7526-a2c9-df9d78fc89ec/885288108606.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6794258483"
+        },
+        {
+          "id": "itunes:6822181956",
+          "media": "music",
+          "title": "Jailer 2 (Original Motion Picture Soundtrack)",
+          "year": 2026,
+          "overview": "Album by Rambabu Gosala, Srinivasa Mouli, Super Subu, Krishna Kanth, Asura, Heisenberg, Anirudh Ravichander & Bhaskara Bhatla.",
+          "tags": [
+            "Telugu",
+            "Rambabu Gosala, Srinivasa Mouli, Super Subu, Krishna Kanth, Asura, Heisenberg, Anirudh Ravichander & Bhaskara Bhatla"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/73/50/d6/7350d69a-46c6-a863-20c8-6e0b89d22d59/885288865097.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/73/50/d6/7350d69a-46c6-a863-20c8-6e0b89d22d59/885288865097.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6822181956"
+        },
+        {
+          "id": "itunes:1829591921",
+          "media": "music",
+          "title": "P-POP CULTURE",
+          "year": 2025,
+          "overview": "Album by Karan Aujla & Ikky.",
+          "tags": [
+            "Pop",
+            "Karan Aujla & Ikky"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/06/bd/e1/06bde161-335b-87fa-650a-f0d04bd9f55d/5021732889621.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/06/bd/e1/06bde161-335b-87fa-650a-f0d04bd9f55d/5021732889621.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1829591921"
+        },
+        {
+          "id": "itunes:1838877939",
+          "media": "music",
+          "title": "Saiyaara (Extended Album) [Original Motion Picture Soundtrack]",
+          "year": 2025,
+          "overview": "Album by Various Artists.",
+          "tags": [
+            "Bollywood",
+            "Various Artists"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/51/76/c8/5176c863-1b58-7835-5779-d8bbe64d3020/Saiyaara_Extended_Album.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/51/76/c8/5176c863-1b58-7835-5779-d8bbe64d3020/Saiyaara_Extended_Album.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1838877939"
+        },
+        {
+          "id": "itunes:6769093931",
+          "media": "music",
+          "title": "Bermuda Triangle",
+          "year": 2026,
+          "overview": "Album by Cheema Y & Gur Sidhu.",
+          "tags": [
+            "Hip-Hop/Rap",
+            "Cheema Y & Gur Sidhu"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/71/fa/df/71fadf2f-5ead-cca4-157e-91d324e39e2d/cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/71/fa/df/71fadf2f-5ead-cca4-157e-91d324e39e2d/cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6769093931"
+        },
+        {
+          "id": "itunes:6829129549",
+          "media": "music",
+          "title": "The Takeover - EP",
+          "year": 2026,
+          "overview": "Album by Jass Goraya & Prem Dhillon.",
+          "tags": [
+            "New Age",
+            "Jass Goraya & Prem Dhillon"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d6/4f/a8/d64fa805-62d7-bb81-e5c8-b61bb439f1aa/5064158559730_cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d6/4f/a8/d64fa805-62d7-bb81-e5c8-b61bb439f1aa/5064158559730_cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6829129549"
+        },
+        {
+          "id": "itunes:6817850231",
+          "media": "music",
+          "title": "Xyz",
+          "year": 2026,
+          "overview": "Album by Real Boss.",
+          "tags": [
+            "Pop",
+            "Real Boss"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/50/36/85/503685dc-4af5-503a-8a5c-aafbf82be115/823375498544_Cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/50/36/85/503685dc-4af5-503a-8a5c-aafbf82be115/823375498544_Cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6817850231"
+        },
+        {
+          "id": "itunes:6770745505",
+          "media": "music",
+          "title": "Bipolar",
+          "year": 2026,
+          "overview": "Album by Navaan Sandhu.",
+          "tags": [
+            "Pop",
+            "Navaan Sandhu"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/ae/b7/dcaeb77a-0d81-2ca6-941a-f6a9ac7b1197/26UMGIM64188.rgb.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/ae/b7/dcaeb77a-0d81-2ca6-941a-f6a9ac7b1197/26UMGIM64188.rgb.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6770745505"
+        },
+        {
+          "id": "itunes:1123241840",
+          "media": "music",
+          "title": "Rockstar (Original Motion Picture Soundtrack)",
+          "year": 2011,
+          "overview": "Album by A.R. Rahman.",
+          "tags": [
+            "Bollywood",
+            "A.R. Rahman"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/ac/41/56ac41f7-99f3-3eae-3b07-443167292c4e/8902894697408_cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/ac/41/56ac41f7-99f3-3eae-3b07-443167292c4e/8902894697408_cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1123241840"
+        },
+        {
+          "id": "itunes:6773013206",
+          "media": "music",
+          "title": "Karuppu (Original Motion Picture Soundtrack)",
+          "year": 2026,
+          "overview": "Album by Sai Abhyankkar.",
+          "tags": [
+            "Tamil",
+            "Sai Abhyankkar"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d4/c4/38/d4c43885-7866-3ac4-e323-b9ca6a7621ec/cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d4/c4/38/d4c43885-7866-3ac4-e323-b9ca6a7621ec/cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "6773013206"
+        },
+        {
+          "id": "itunes:1468448737",
+          "media": "music",
+          "title": "Kabir Singh (Original Motion Picture Soundtrack)",
+          "year": 2019,
+          "overview": "Album by Sachet-Parampara, Vishal Mishra, Mithoon, Akhil Sachdeva & Amaal Mallik.",
+          "tags": [
+            "Bollywood",
+            "Sachet-Parampara, Vishal Mishra, Mithoon, Akhil Sachdeva & Amaal Mallik"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f6/70/84/f6708434-0123-ff36-0ac3-7401e8cf0f94/8902894360807_cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f6/70/84/f6708434-0123-ff36-0ac3-7401e8cf0f94/8902894360807_cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1468448737"
+        },
+        {
+          "id": "itunes:1796165811",
+          "media": "music",
+          "title": "Young G.O.A.T",
+          "year": 2025,
+          "overview": "Album by Cheema Y & Gur Sidhu.",
+          "tags": [
+            "Hip-Hop/Rap",
+            "Cheema Y & Gur Sidhu"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/00/8c/3b/008c3b31-94b5-8a76-9c0e-52fb6cd35d80/cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/00/8c/3b/008c3b31-94b5-8a76-9c0e-52fb6cd35d80/cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1796165811"
+        },
+        {
+          "id": "itunes:1073359412",
+          "media": "music",
+          "title": "Aashiqui 2 (Original Motion Picture Soundtrack)",
+          "year": 2013,
+          "overview": "Album by Mithoon, Ankit Tiwari & Jeet Gannguli.",
+          "tags": [
+            "Bollywood",
+            "Mithoon, Ankit Tiwari & Jeet Gannguli"
+          ],
+          "images": {
+            "poster": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bb/23/ee/bb23eeed-0c35-4f1d-2b11-485622777ae4/8902894353007_cover.jpg/600x600bb.jpg",
+            "backdrop": null,
+            "square": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bb/23/ee/bb23eeed-0c35-4f1d-2b11-485622777ae4/8902894353007_cover.jpg/600x600bb.jpg",
+            "capsule": null
+          },
+          "source": "itunes",
+          "source_id": "1073359412"
         }
       ],
       "explanation": null

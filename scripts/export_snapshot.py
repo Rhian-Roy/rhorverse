@@ -1,6 +1,7 @@
 """Writes apps/web/public/snapshots/*.json from the local database for API_MODE=snapshot.
 
-Run with: just snapshot
+Uses the same feed builders as the live API (cold start, no profile), so snapshot mode and the
+live site's fallback show exactly what a first-time visitor would see. Run with: just snapshot
 """
 
 from __future__ import annotations
@@ -9,53 +10,30 @@ import json
 from pathlib import Path
 
 from rhorverse.db import connection
+from rhorverse.rec.feed import build_home
+from rhorverse.rec.tabs import build_media
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "apps" / "web" / "public" / "snapshots"
 
 TABS = {"movies": "movie", "shows": "tv", "anime": "anime", "music": "music", "games": "game"}
-VARIANT = {"music": "square", "game": "capsule"}
 
 
-def fetch(media: str, limit: int = 20) -> list[dict]:
-    with connection() as conn:
-        rows = conn.execute(
-            """
-            select id, media::text, title, year, overview, tags, images, source, source_id
-            from works where media = %s::media_type order by popularity desc limit %s
-            """,
-            (media, limit),
-        ).fetchall()
-    return [dict(r) for r in rows]
-
-
-def rail(rail_id: str, title: str, media: str, items: list[dict]) -> dict:
-    return {
-        "id": rail_id,
-        "title": title,
-        "variant": VARIANT.get(media, "poster"),
-        "ranked": False,
-        "items": items,
-        "explanation": None,
-    }
+def write(name: str, data: object) -> None:
+    (OUT / f"{name}.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    home_rails, hero = [], []
-    for tab, media in TABS.items():
-        items = fetch(media)
-        if not items:
-            print(f"skip {tab}: no works yet (run `just ingest <source>` first)")
-            continue
-        (OUT / f"{tab}.json").write_text(
-            json.dumps([rail(f"{tab}-trending", f"Trending {tab}", media, items)], indent=2, default=str)
-        )
-        home_rails.append(rail(tab, tab.capitalize(), media, items[:12]))
-        hero.extend(items[:1])
-    if home_rails:
-        (OUT / "home.json").write_text(json.dumps({"hero": hero, "rails": home_rails}, indent=2, default=str))
-    print(f"snapshots → {OUT}")
+    with connection() as conn:
+        home = build_home(conn, None)
+        write("home", home.model_dump(mode="json"))
+        for tab, media in TABS.items():
+            rails = build_media(conn, media, None)  # type: ignore[arg-type]
+            write(tab, [r.model_dump(mode="json") for r in rails])
+            print(f"{tab}: {len(rails)} rails")
+        conn.rollback()
+    print(f"home: {len(home.rails)} rails, {len(home.hero)} hero → {OUT}")
 
 
 if __name__ == "__main__":
