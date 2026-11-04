@@ -28,7 +28,6 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 ## 5. Anime (AniList): done
 - **Left:** dedupe TMDB TV entries that are also AniList anime (needs an id map); search on romaji/native titles; per-media popularity percentile instead of the ÷1000 scale.
 
-## 6. Games (RAWG first, IGDB later)
-- **Context:** `ingest/rawg.py` and `ingest/igdb.py` are stubs. Needs `RAWG_API_KEY` in `.env`.
-- **Do:** follow the Day 3 RAWG-only fallback in the build plan: ~1000 games via `/api/games?ordering=-added&page_size=40`, a rawg_url for the mandatory backlink, `just embed`, a Popular games rail.
+## 6. Games (RAWG first, IGDB later): code done, real run pending
+- **Left:** add `RAWG_API_KEY`, run `just ingest rawg --cap 1000` + `just embed`, then check search ("hollow knight", "witcher") and a game page live. Later: IGDB (Twitch keys) for time-to-beat.
 - **Accept:** ≥1000 games with a cover; game page shows platforms, tags, avg playtime and an active RAWG link.
