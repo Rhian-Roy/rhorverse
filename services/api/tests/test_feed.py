@@ -74,6 +74,13 @@ def test_cold_start_has_popular_rails(conn: psycopg.Connection, pid: str) -> Non
     assert feed.hero
 
 
+def test_cold_start_has_popular_anime_when_anime_exists(conn: psycopg.Connection, pid: str) -> None:
+    upsert_works(conn, [WorkRow(media="anime", source="test", source_id="anime/x1", title="T x1")])  # type: ignore[arg-type]
+    rails = {r.id: r for r in build_home(conn, None).rails}
+    assert "popular-anime" in rails
+    assert all(w.media == "anime" for w in rails["popular-anime"].items)
+
+
 def test_three_likes_give_personal_rails_without_consumed_or_liked(
     conn: psycopg.Connection, pid: str
 ) -> None:

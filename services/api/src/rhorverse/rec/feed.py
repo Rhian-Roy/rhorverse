@@ -183,7 +183,7 @@ def build_home(conn: Connection, profile_id: str | None) -> HomeFeed:
             rails.append(rail)
             shown |= {c.id for c in items}
 
-    for media, title in (("movie", "Popular movies"), ("tv", "Popular TV")):
+    for media, title in (("movie", "Popular movies"), ("tv", "Popular TV"), ("anime", "Popular anime")):
         items = popular(conn, media, exclude | shown)
         if items:
             rails.append(Rail(id=f"popular-{media}", title=title, items=items))
