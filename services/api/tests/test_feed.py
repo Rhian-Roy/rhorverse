@@ -16,7 +16,15 @@ from rhorverse.ingest.normalize import WorkRow
 from rhorverse.ingest.store import upsert_works
 from rhorverse.main import create_app
 from rhorverse.rec.embed import DIM
-from rhorverse.rec.feed import Candidate, build_home, candidates, rank_rail
+from rhorverse.rec.feed import (
+    MEDIA_LABEL,
+    Candidate,
+    build_home,
+    candidates,
+    popular,
+    rank_rail,
+    top_in_india,
+)
 from rhorverse.rec.vec import to_pgvector
 
 LIKED = ["test:movie/a0", "test:movie/a1", "test:tv/b0"]
@@ -100,7 +108,7 @@ def test_three_likes_give_personal_rails_without_consumed_or_liked(
 ) -> None:
     feed = build_home(conn, pid)
     assert len(feed.rails) >= 3
-    assert feed.rails[0].id == "for-you"
+    assert feed.rails[0].id == "for-you-movie"
     assert any(r.explanation for r in feed.rails)
     assert not all_ids(feed) & {*LIKED, CONSUMED}
 
@@ -111,7 +119,7 @@ def test_rails_do_not_repeat_items(conn: psycopg.Connection, pid: str) -> None:
 
 
 def test_malformed_profile_is_cold_start(conn: psycopg.Connection, pid: str) -> None:
-    assert build_home(conn, "not-a-uuid").rails[0].id == "popular-movie"
+    assert not any(r.id.startswith("for-you") for r in build_home(conn, "not-a-uuid").rails)
 
 
 def test_routes(conn: psycopg.Connection, pid: str) -> None:
@@ -149,3 +157,59 @@ def test_candidates_media_filter(conn: psycopg.Connection, pid: str) -> None:
     got = candidates(conn, unit(0, 0), set(), media="tv")
     assert got
     assert all(c.row["media"] == "tv" for c in got)
+
+
+def test_personal_hero_says_why_with_the_nearest_like(conn: psycopg.Connection, pid: str) -> None:
+    hero = build_home(conn, pid).hero
+    assert hero
+    # Space movies (axis 0) are nearest the liked space movies; cosy TV is nearest the liked TV show.
+    for w in hero:
+        expected = "T b0" if w.media == "tv" else None
+        assert w.why is not None and w.why.startswith("Because you liked T ")
+        if expected:
+            assert w.why.endswith(expected)
+
+
+def test_cold_hero_shows_true_ranks_per_medium(conn: psycopg.Connection, pid: str) -> None:
+    hero = build_home(conn, None).hero
+    assert hero
+    assert all(w.why and w.why.startswith("#") for w in hero)
+    works = popular(conn, None, set(), limit=20)
+    first = works[0]
+    shown_as = next((w.why for w in hero if w.id == first.id), None)
+    assert shown_as in (None, f"#1 most popular in {MEDIA_LABEL[first.media]}")
+
+
+def test_saved_works_lead_the_feed_and_arent_repeated(conn: psycopg.Connection, pid: str) -> None:
+    saved = "test:movie/a10"
+    conn.execute("insert into events (profile_id, work_id, kind) values (%s, %s, 'save')", (pid, saved))
+    rails = build_home(conn, pid).rails
+    assert rails[0].id == "saved"
+    assert [w.id for w in rails[0].items] == [saved]
+    assert sum(w.id == saved for r in rails for w in r.items) == 1
+
+
+def test_consumed_work_is_never_saved_rail(conn: psycopg.Connection, pid: str) -> None:
+    conn.execute("insert into events (profile_id, work_id, kind) values (%s, %s, 'save')", (pid, CONSUMED))
+    assert "saved" not in {r.id for r in build_home(conn, pid).rails}
+
+
+def test_rails_follow_the_plan_order_for_a_profile(conn: psycopg.Connection, pid: str) -> None:
+    ids = [r.id for r in build_home(conn, pid).rails]
+    positions = [ids.index(i) for i in ("for-you-movie", "popular-movie") if i in ids]
+    assert positions == sorted(positions)
+    assert any(i.startswith("because-") for i in ids)
+
+
+def test_top_10_only_has_titles_available_in_india(conn: psycopg.Connection, pid: str) -> None:
+    conn.execute(
+        "insert into availability (work_id, region, provider, kind) "
+        "values ('test:movie/a5', 'IN', 'P', 'flatrate')"
+    )
+    conn.execute("update works set popularity = 99999 where id in ('test:movie/a5', 'test:movie/a6')")
+    top = top_in_india(conn, set())
+    assert top[0].id == "test:movie/a5"
+    assert "test:movie/a6" not in {w.id for w in top}
+    assert len(top) <= 10
+    rail = next(r for r in build_home(conn, None).rails if r.id == "top-india")
+    assert rail.ranked

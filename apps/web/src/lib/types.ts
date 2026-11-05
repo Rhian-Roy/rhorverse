@@ -2,7 +2,8 @@
 
 export type MediaType = "movie" | "tv" | "anime" | "music" | "game";
 
-export type TileVariant = "poster" | "landscape" | "square" | "capsule";
+/** `auto` picks the shape from each work's medium, for rails that mix media. */
+export type TileVariant = "poster" | "landscape" | "square" | "capsule" | "auto";
 
 export interface ImageSet {
   poster?: string | null;
@@ -21,6 +22,8 @@ export interface Work {
   images: ImageSet;
   source: string;
   source_id: string;
+  /** Data-derived reason this work is featured, e.g. "Because you liked X". */
+  why?: string | null;
 }
 
 export interface Provider {

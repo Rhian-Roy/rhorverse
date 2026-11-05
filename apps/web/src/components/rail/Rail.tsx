@@ -59,7 +59,7 @@ export function Rail({ rail }: { rail: RailData }) {
         </div>
       </div>
       <div ref={viewportRef} className="-mx-3 -my-6 overflow-hidden px-3 py-6" onKeyDown={onKeyDown}>
-        <ul data-rail className="flex snap-x gap-4">
+        <ul data-rail className="flex snap-x items-end gap-4">
           {rail.items.map((work, i) => (
             <li key={work.id}>
               {rail.ranked ? <Top10Tile work={work} rank={i + 1} /> : <Tile work={work} variant={rail.variant} />}

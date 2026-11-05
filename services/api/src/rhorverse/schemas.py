@@ -5,7 +5,7 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 MediaType = Literal["movie", "tv", "anime", "music", "game"]
-TileVariant = Literal["poster", "landscape", "square", "capsule"]
+TileVariant = Literal["poster", "landscape", "square", "capsule", "auto"]  # auto: shape follows media
 ImportSource = Literal["netflix", "letterboxd", "anilist", "steam"]
 EventKind = Literal["view", "like", "dislike", "save", "consumed", "skip"]
 
@@ -27,6 +27,7 @@ class Work(BaseModel):
     images: ImageSet = Field(default_factory=ImageSet)
     source: str
     source_id: str
+    why: str | None = None  # data-derived reason this work is featured, e.g. "Because you liked X"
 
 
 class Provider(BaseModel):

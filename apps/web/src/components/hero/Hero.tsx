@@ -66,7 +66,7 @@ export function Hero({ items }: { items: Work[] }) {
             </li>
           ))}
         </ul>
-        {work.overview ? <p className="line-clamp-2 max-w-2xl text-ink">{work.overview}</p> : null}
+        {work.why ? <p className="max-w-2xl text-lg text-ink">{work.why}</p> : null}
         <div className="flex flex-wrap gap-2">
           <Link
             href={hrefFor(work)}

@@ -24,6 +24,7 @@ RAIL_SIZE = 20
 MIN_RAIL = 4
 MAX_ANCHORS = 3
 HERO_SIZE = 5
+TOP_N = 10
 LAMBDA = 0.7
 
 # Tile shape per medium: album art is square, RAWG only has landscape art.
@@ -46,6 +47,9 @@ POPULAR_RAILS: tuple[tuple[str, str, TileVariant], ...] = tuple(
     )
 )
 
+MEDIA_LABEL = {"movie": "film", "tv": "TV", "anime": "anime", "music": "music", "game": "games"}
+REASON = {"like": "Because you liked", "save": "Because you saved", "consumed": "Because you watched"}
+
 _COLUMNS = "id, media, source, source_id, title, year, overview, tags, images, popularity"
 
 
@@ -56,6 +60,7 @@ class Signal:
     weight: float
     ts: datetime
     title: str
+    media: str
     tags: list[str]
     embedding: np.ndarray | None
 
@@ -87,7 +92,7 @@ def load_signals(conn: Connection, profile_id: str | None) -> list[Signal]:
     if pid is None:
         return []
     rows = conn.execute(
-        "select distinct on (e.work_id, e.kind) e.work_id, e.kind, e.weight, e.ts, w.title, w.tags, "
+        "select distinct on (e.work_id, e.kind) e.work_id, e.kind, e.weight, e.ts, w.title, w.media, w.tags, "
         "w.embedding::text as embedding "
         "from events e join works w on w.id = e.work_id where e.profile_id = %s "
         "order by e.work_id, e.kind, e.ts desc",
@@ -100,6 +105,7 @@ def load_signals(conn: Connection, profile_id: str | None) -> list[Signal]:
             weight=r["weight"],
             ts=r["ts"],
             title=r["title"],
+            media=r["media"],
             tags=list(r["tags"] or []),
             embedding=parse_pgvector(r["embedding"]) if r["embedding"] else None,
         )
@@ -167,7 +173,7 @@ def because_rail(
     rail = Rail(
         id=f"because-{anchor.work_id}",
         title=f"More like {anchor.title}",
-        variant="landscape",
+        variant="auto",
         items=[row_to_work(c.row) for c in items],
         explanation=explain.because(anchor.work_id, anchor.title, shared_tags(anchor.tags, items)),
     )
@@ -188,33 +194,128 @@ def _hero(works: list[Work]) -> list[Work]:
     return [w for w in works if w.images.backdrop][:HERO_SIZE]
 
 
+def nearest_signal(embedding: np.ndarray, signals: list[Signal]) -> Signal | None:
+    """The positive signal most similar to `embedding`, preferring likes over saves and watches."""
+    for kind in ("like", "save", "consumed"):
+        pool = [s for s in signals if s.kind == kind and s.embedding is not None]
+        if pool:
+            return max(pool, key=lambda s: float(np.dot(embedding, s.embedding)))  # type: ignore[arg-type]
+    return None
+
+
+def personal_hero(picks: list[Candidate], signals: list[Signal]) -> list[Work]:
+    hero = []
+    for c in picks:
+        anchor = nearest_signal(c.embedding, signals)
+        why = f"{REASON[anchor.kind]} {anchor.title}" if anchor else "Picked for your taste"
+        hero.append(row_to_work(c.row).model_copy(update={"why": why}))
+    return _hero(hero)
+
+
+def cold_hero(works: list[Work]) -> list[Work]:
+    """`works` must be in popularity order: the rank shown is true within each medium."""
+    seen: Counter[str] = Counter()
+    hero = []
+    for w in works:
+        seen[w.media] += 1
+        hero.append(w.model_copy(update={"why": f"#{seen[w.media]} most popular in {MEDIA_LABEL[w.media]}"}))
+    return _hero(hero)
+
+
+def saved_for_later(conn: Connection, signals: list[Signal], exclude: set[str]) -> list[Work]:
+    ids = [s.work_id for s in signals if s.kind == "save" and s.work_id not in exclude][:RAIL_SIZE]
+    if not ids:
+        return []
+    rows = conn.execute(f"select {_COLUMNS} from works where id = any(%s)", (ids,)).fetchall()
+    by_id = {r["id"]: r for r in rows}
+    return [row_to_work(by_id[i]) for i in ids if i in by_id]
+
+
+def top_in_india(conn: Connection, exclude: set[str], limit: int = TOP_N) -> list[Work]:
+    """Most popular films and shows that have an India provider. A popularity list, not a weekly chart."""
+    rows = conn.execute(
+        f"select {_COLUMNS} from works w where media in ('movie', 'tv') and not (id = any(%(ex)s)) "
+        "and exists (select 1 from availability a where a.work_id = w.id and a.region = 'IN') "
+        "order by popularity desc, id limit %(limit)s",
+        {"ex": list(exclude), "limit": limit},
+    ).fetchall()
+    return [row_to_work(r) for r in rows]
+
+
 def build_home(conn: Connection, profile_id: str | None) -> HomeFeed:
+    """Rails in the plan's order. A rail skips what earlier rails showed; consumed work never appears."""
     signals = load_signals(conn, profile_id)
     exclude = excluded_ids(((s.work_id, s.kind) for s in signals), HOME_EXCLUDING)
     shown: set[str] = set()
     rails: list[Rail] = []
-    hero: list[Work] = []
+
+    def add(rail: Rail, min_items: int = MIN_RAIL) -> None:
+        if len(rail.items) >= min_items:
+            rails.append(rail)
+            shown.update(w.id for w in rail.items)
+
+    def for_you(vec: np.ndarray, media: str) -> list[Work]:
+        return [row_to_work(c.row) for c in rank_rail(candidates(conn, vec, exclude | shown, media=media))]
+
+    add(
+        Rail(
+            id="saved",
+            title="Saved for later",
+            variant="auto",
+            items=saved_for_later(conn, signals, exclude),
+        ),
+        min_items=1,
+    )
 
     taste = taste_from(signals)
+    hero: list[Work] = []
     if taste is not None:
-        picked = [row_to_work(c.row) for c in rank_rail(candidates(conn, taste, exclude))]
-        hero = _hero(picked)
-        if len(picked) >= MIN_RAIL:
-            rails.append(Rail(id="for-you", title="Picked for you", items=picked))
-            shown |= {w.id for w in picked}
+        hero = personal_hero(rank_rail(candidates(conn, taste, exclude)), signals)
+        add(Rail(id="for-you-movie", title="For you · Movies", items=for_you(taste, "movie")))
+        add(Rail(id="for-you-anime", title="For you · Anime", items=for_you(taste, "anime")))
 
-    likes = [s for s in signals if s.kind == "like" and s.embedding is not None][:MAX_ANCHORS]
-    for s in likes:
-        rail, items = because_rail(conn, Anchor(s.work_id, s.title, s.tags, s.embedding), exclude | shown)  # type: ignore[arg-type]
-        if len(items) >= MIN_RAIL:
-            rails.append(rail)
-            shown |= {c.id for c in items}
+    likes = [s for s in signals if s.kind == "like" and s.embedding is not None]
+    for s in likes[:MAX_ANCHORS]:
+        rail, _ = because_rail(conn, Anchor(s.work_id, s.title, s.tags, s.embedding), exclude | shown)  # type: ignore[arg-type]
+        add(rail)
+
+    add(
+        Rail(
+            id="top-india",
+            title="Top 10 available in India",
+            ranked=True,
+            items=top_in_india(conn, exclude | shown),
+        )
+    )
+
+    if taste is not None:
+        add(
+            Rail(
+                id="for-you-music",
+                title="Albums for your taste",
+                variant="square",
+                items=for_you(taste, "music"),
+            )
+        )
+    show = next((s for s in likes if s.media in ("tv", "anime")), None)
+    if show is not None:
+        games = [
+            row_to_work(c.row)
+            for c in rank_rail(candidates(conn, show.embedding, exclude | shown, media="game"))
+        ]  # type: ignore[arg-type]
+        add(Rail(id="games-like", title=f"Games like {show.title}", variant="capsule", items=games))
 
     for media, title, variant in POPULAR_RAILS:
-        items = popular(conn, media, exclude | shown)
-        if items:
-            rails.append(Rail(id=f"popular-{media}", title=title, variant=variant, items=items))
+        add(
+            Rail(
+                id=f"popular-{media}",
+                title=title,
+                variant=variant,
+                items=popular(conn, media, exclude | shown),
+            ),
+            1,
+        )
 
     if not hero:
-        hero = _hero(popular(conn, None, exclude, limit=HERO_SIZE * 4))
+        hero = cold_hero(popular(conn, None, exclude, limit=HERO_SIZE * 4))
     return HomeFeed(hero=hero, rails=rails)

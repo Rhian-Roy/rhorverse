@@ -2,7 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import type { TileVariant, Work } from "@/lib/types";
 
-export const ASPECT: Record<TileVariant, string> = {
+type Shape = Exclude<TileVariant, "auto">;
+
+const MEDIA_SHAPE: Record<Work["media"], Shape> = {
+  movie: "poster",
+  tv: "poster",
+  anime: "poster",
+  music: "square",
+  game: "capsule",
+};
+
+export const ASPECT: Record<Shape, string> = {
   poster: "aspect-[2/3] w-40",
   landscape: "aspect-video w-72",
   square: "aspect-square w-44",
@@ -21,7 +31,7 @@ export function hrefFor(work: Pick<Work, "id" | "media">): string {
   }
 }
 
-function imageFor(work: Work, variant: TileVariant): string | null | undefined {
+function imageFor(work: Work, variant: Shape): string | null | undefined {
   const i = work.images;
   // Fall back across shapes (games only have landscape art); object-cover crops the centre.
   if (variant === "landscape") return i.backdrop ?? i.capsule ?? i.poster;
@@ -31,7 +41,8 @@ function imageFor(work: Work, variant: TileVariant): string | null | undefined {
 }
 
 export function Tile({ work, variant = "poster" }: { work: Work; variant?: TileVariant }) {
-  const src = imageFor(work, variant);
+  const shape = variant === "auto" ? MEDIA_SHAPE[work.media] : variant;
+  const src = imageFor(work, shape);
   return (
     <Link
       href={hrefFor(work)}
@@ -41,7 +52,7 @@ export function Tile({ work, variant = "poster" }: { work: Work; variant?: TileV
     >
       <div
         data-tile-art
-        className={`${ASPECT[variant]} relative origin-bottom overflow-hidden rounded-tile bg-surface-overlay transition-[scale,box-shadow] duration-quick ease-enter group-hover:scale-[1.03] group-focus-visible:scale-[1.06] group-focus-visible:shadow-focus group-focus-visible:outline-2 group-focus-visible:outline-offset-3 group-focus-visible:outline-focus`}
+        className={`${ASPECT[shape]} relative origin-bottom overflow-hidden rounded-tile bg-surface-overlay transition-[scale,box-shadow] duration-quick ease-enter group-hover:scale-[1.03] group-focus-visible:scale-[1.06] group-focus-visible:shadow-focus group-focus-visible:outline-2 group-focus-visible:outline-offset-3 group-focus-visible:outline-focus`}
       >
         {src ? (
           <Image src={src} alt="" fill sizes="(min-width: 768px) 20vw, 40vw" className="object-cover" />

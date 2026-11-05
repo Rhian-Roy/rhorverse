@@ -5,7 +5,13 @@ export function Skeleton({ className = "" }: { className?: string }) {
   return <div aria-hidden className={`animate-pulse rounded-tile bg-surface-overlay ${className}`} />;
 }
 
-export function RailSkeleton({ variant = "poster", count = 6 }: { variant?: TileVariant; count?: number }) {
+export function RailSkeleton({
+  variant = "poster",
+  count = 6,
+}: {
+  variant?: Exclude<TileVariant, "auto">;
+  count?: number;
+}) {
   return (
     <div role="status" aria-label="Loading" className="flex flex-col gap-3">
       <Skeleton className="h-6 w-48" />
