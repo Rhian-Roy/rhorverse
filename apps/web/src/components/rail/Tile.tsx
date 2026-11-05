@@ -36,11 +36,11 @@ export function Tile({ work, variant = "poster" }: { work: Work; variant?: TileV
     <Link
       href={hrefFor(work)}
       data-tile
-      className="group block shrink-0 snap-start rounded-md outline-offset-4"
+      className="group block shrink-0 snap-start rounded-tile outline-offset-4"
       aria-label={work.year ? `${work.title} (${work.year})` : work.title}
     >
       <div
-        className={`${ASPECT[variant]} relative overflow-hidden rounded-md bg-linear-to-br from-night-700 to-night-900 transition-transform duration-base ease-out group-hover:scale-[1.03] group-focus-visible:scale-[1.03]`}
+        className={`${ASPECT[variant]} relative overflow-hidden rounded-tile bg-surface-overlay transition-transform duration-base ease-enter group-hover:scale-[1.03] group-focus-visible:scale-[1.03]`}
       >
         {src ? (
           <Image src={src} alt="" fill sizes="(min-width: 768px) 20vw, 40vw" className="object-cover" />
@@ -51,7 +51,7 @@ export function Tile({ work, variant = "poster" }: { work: Work; variant?: TileV
         )}
       </div>
       <p className="mt-2 line-clamp-1 text-sm text-ink">{work.title}</p>
-      {work.year ? <p className="text-xs text-ink-faint">{work.year}</p> : null}
+      {work.year ? <p className="font-mono text-meta text-ink-faint">{work.year}</p> : null}
     </Link>
   );
 }

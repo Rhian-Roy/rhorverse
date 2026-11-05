@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   icons: { icon: "/brand/rhorverse-mark.svg" },
 };
 
-export const viewport: Viewport = { themeColor: "#08090f", colorScheme: "dark" };
+export const viewport: Viewport = { themeColor: "#0B110E", colorScheme: "dark" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

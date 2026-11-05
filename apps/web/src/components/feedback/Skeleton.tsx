@@ -2,7 +2,7 @@ import { ASPECT } from "@/components/rail/Tile";
 import type { TileVariant } from "@/lib/types";
 
 export function Skeleton({ className = "" }: { className?: string }) {
-  return <div aria-hidden className={`animate-pulse rounded-md bg-surface-overlay ${className}`} />;
+  return <div aria-hidden className={`animate-pulse rounded-tile bg-surface-overlay ${className}`} />;
 }
 
 export function RailSkeleton({ variant = "poster", count = 6 }: { variant?: TileVariant; count?: number }) {

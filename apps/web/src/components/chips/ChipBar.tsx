@@ -26,7 +26,7 @@ export function ChipBar<T extends string>({
           type="button"
           aria-pressed={chip.value === value}
           onClick={() => onChange(chip.value)}
-          className="shrink-0 rounded-pill border border-line px-4 py-1.5 text-sm text-ink-muted transition-colors duration-fast hover:text-ink aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-accent-ink"
+          className="shrink-0 rounded-pill border border-line px-4 py-1.5 text-sm text-ink-muted transition-colors duration-quick hover:text-ink aria-pressed:border-chip-selected aria-pressed:bg-chip-selected aria-pressed:text-chip-selected-ink"
         >
           {chip.label}
         </button>

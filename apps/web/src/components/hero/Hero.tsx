@@ -15,7 +15,7 @@ export function Hero({ items }: { items: Work[] }) {
 
   useEffect(() => {
     if (paused || items.length < 2) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % items.length), duration.hero);
+    const t = setInterval(() => setIndex((i) => (i + 1) % items.length), duration.rotate);
     return () => clearInterval(t);
   }, [paused, items.length]);
 
@@ -26,7 +26,7 @@ export function Hero({ items }: { items: Work[] }) {
     <section
       aria-roledescription="carousel"
       aria-label="Featured"
-      className="relative isolate overflow-hidden rounded-xl bg-linear-to-br from-orbit-900 via-surface-raised to-nebula-950"
+      className="relative isolate overflow-hidden rounded-sheet bg-brand"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -38,15 +38,15 @@ export function Hero({ items }: { items: Work[] }) {
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
-          transition={{ duration: duration.slow / 1000, ease: [...ease.out] }}
+          transition={{ duration: duration.slow / 1000, ease: [...ease.enter] }}
           className="flex min-h-80 flex-col justify-end gap-3 p-10"
         >
-          <p className="text-xs font-medium uppercase tracking-widest text-accent">{work.media}</p>
-          <h1 className="font-display text-4xl font-bold text-ink md:text-hero">{work.title}</h1>
+          <p className="text-xs font-medium uppercase tracking-widest text-link">{work.media}</p>
+          <h1 className="font-display text-4xl font-bold text-ink md:text-display-xl">{work.title}</h1>
           {work.overview ? <p className="max-w-xl text-ink-muted">{work.overview}</p> : null}
           <Link
             href={hrefFor(work)}
-            className="mt-2 w-fit rounded-pill bg-accent px-5 py-2 text-sm font-semibold text-accent-ink transition-colors duration-fast hover:bg-accent-strong"
+            className="mt-2 w-fit rounded-pill bg-accent px-5 py-2 text-sm font-semibold text-accent-ink transition-colors duration-quick hover:bg-accent-strong"
           >
             View details
           </Link>

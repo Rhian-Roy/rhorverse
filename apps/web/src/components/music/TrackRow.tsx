@@ -8,14 +8,14 @@ const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).p
 
 export function TrackRow({ track, index }: { track: Track; index: number }) {
   return (
-    <li className="group flex items-center gap-4 rounded-md px-3 py-2 hover:bg-surface-raised">
+    <li className="group flex items-center gap-4 rounded-tile px-3 py-2 hover:bg-surface-hover">
       <span className="w-6 text-right text-sm text-ink-faint tabular-nums">{index}</span>
       <button
         type="button"
         disabled={!track.preview_url}
         aria-label={`Play preview of ${track.title}`}
         onClick={() => playPreview(track)}
-        className="grid size-8 place-items-center rounded-pill text-ink-muted hover:text-accent disabled:opacity-40"
+        className="grid size-8 place-items-center rounded-pill text-ink-muted hover:text-link disabled:opacity-40"
       >
         <Play />
       </button>
@@ -23,7 +23,7 @@ export function TrackRow({ track, index }: { track: Track; index: number }) {
         <p className="truncate text-sm text-ink">{track.title}</p>
         <p className="truncate text-xs text-ink-muted">{track.artist}</p>
       </div>
-      <span className="text-xs text-ink-faint tabular-nums">{fmt(track.duration_s)}</span>
+      <span className="font-mono text-meta text-ink-faint tabular-nums">{fmt(track.duration_s)}</span>
     </li>
   );
 }

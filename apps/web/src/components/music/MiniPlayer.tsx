@@ -34,7 +34,7 @@ export function MiniPlayer() {
       role="region"
       aria-label="Preview player"
       hidden={!track}
-      className="fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-xl items-center gap-3 rounded-lg border border-line bg-surface-overlay/95 p-3 shadow-xl backdrop-blur"
+      className="fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-xl items-center gap-3 rounded-card border border-line bg-surface-overlay p-3"
     >
       <audio
         ref={audioRef}

@@ -41,7 +41,7 @@ export function FeedbackActions({ workId }: { workId: string }) {
           type="button"
           aria-pressed={pressed[kind] ?? false}
           onClick={() => void toggle(kind)}
-          className="flex items-center gap-2 rounded-pill bg-surface-overlay px-4 py-2 text-sm text-ink hover:bg-line aria-pressed:bg-accent aria-pressed:text-accent-ink"
+          className="flex items-center gap-2 rounded-pill bg-surface-overlay px-4 py-2 text-sm text-ink hover:bg-surface-hover aria-pressed:bg-chip-selected aria-pressed:text-chip-selected-ink"
         >
           <Icon weight="regular" size={20} />
           {label}

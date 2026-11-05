@@ -13,7 +13,7 @@ const KIND_LABEL: Record<Provider["kind"], string> = {
 export function Availability({ providers }: { providers: Provider[] }) {
   return (
     <section aria-labelledby="where-to-watch" className="flex flex-col gap-3">
-      <h2 id="where-to-watch" className="font-display text-xl font-semibold text-ink">
+      <h2 id="where-to-watch" className="font-display text-title text-ink">
         Where to watch in India
       </h2>
       {providers.length === 0 ? (
@@ -21,7 +21,7 @@ export function Availability({ providers }: { providers: Provider[] }) {
       ) : (
         <ul className="flex flex-wrap gap-2">
           {providers.map((p) => (
-            <li key={`${p.kind}-${p.name}`} className="rounded-md bg-surface-raised px-3 py-2 text-sm text-ink">
+            <li key={`${p.kind}-${p.name}`} className="rounded-tile bg-surface-raised px-3 py-2 text-sm text-ink">
               {p.name} <span className="text-ink-faint">· {KIND_LABEL[p.kind]}</span>
             </li>
           ))}

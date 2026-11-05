@@ -14,7 +14,7 @@ export function BecauseYouLiked({ explanation, compact = false }: { explanation:
     );
   }
   return (
-    <aside className="rounded-lg border border-line bg-surface-raised p-4">
+    <aside className="rounded-card border border-line bg-surface-raised p-4">
       <p className="text-sm text-ink">
         Because you liked <strong className="text-highlight">{explanation.because_title}</strong>
       </p>

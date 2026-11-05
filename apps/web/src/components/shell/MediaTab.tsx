@@ -10,7 +10,7 @@ export async function MediaTab({ media, title }: { media: MediaType; title: stri
   const rails = await api.media(media, pid);
   return (
     <>
-      <h1 className="font-display text-3xl font-bold text-ink">{title}</h1>
+      <h1 className="font-display text-display-l text-ink">{title}</h1>
       {rails.length === 0 ? (
         <p className="max-w-xl text-ink-muted">
           Nothing here yet. The {title.toLowerCase()} catalogue hasn&apos;t been loaded.

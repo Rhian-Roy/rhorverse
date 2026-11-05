@@ -34,7 +34,7 @@ export function Rail({ rail }: { rail: RailData }) {
     <section aria-labelledby={headingId} className="flex flex-col gap-3">
       <div className="flex items-end justify-between gap-4">
         <div>
-          <h2 id={headingId} className="font-display text-xl font-semibold text-ink">
+          <h2 id={headingId} className="font-display text-title text-ink">
             {rail.title}
           </h2>
           {rail.explanation ? <BecauseYouLiked explanation={rail.explanation} compact /> : null}

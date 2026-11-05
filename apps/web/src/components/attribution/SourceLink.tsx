@@ -10,7 +10,7 @@ export function SourceLink({ source, href }: { source: string; href?: string | n
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="flex w-fit items-center gap-1 text-sm text-accent hover:underline"
+      className="flex w-fit items-center gap-1 text-sm text-link hover:underline"
     >
       View on {PROVIDER[source] ?? source}
       <ArrowSquareOut weight="regular" size={16} aria-hidden />

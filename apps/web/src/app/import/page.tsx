@@ -9,7 +9,7 @@ const SOURCES: ImportSource[] = ["netflix", "letterboxd", "anilist", "steam"];
 export default function ImportPage() {
   return (
     <>
-      <h1 className="font-display text-3xl font-bold text-ink">Bring your history</h1>
+      <h1 className="font-display text-display-l text-ink">Bring your history</h1>
       <p className="max-w-xl text-ink-muted">
         Imports never leave this app. Items you&apos;ve already seen are excluded from recommendations.
       </p>

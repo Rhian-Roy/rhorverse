@@ -4,70 +4,52 @@
 @theme {
   --color-*: initial;
   --font-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --ease-*: initial;
 
-  --color-night-50: #eef0f6;
-  --color-night-100: #d9dce8;
-  --color-night-200: #b3b8cc;
-  --color-night-300: #8a90a8;
-  --color-night-400: #646a83;
-  --color-night-500: #474c63;
-  --color-night-600: #33374b;
-  --color-night-700: #24273a;
-  --color-night-800: #181a2a;
-  --color-night-900: #10111d;
-  --color-night-950: #08090f;
-  --color-orbit-50: #e6fbfb;
-  --color-orbit-100: #c0f4f3;
-  --color-orbit-200: #8beae8;
-  --color-orbit-300: #4fdbd8;
-  --color-orbit-400: #22c7c4;
-  --color-orbit-500: #0fa9a8;
-  --color-orbit-600: #0b8788;
-  --color-orbit-700: #0d6a6c;
-  --color-orbit-800: #0f5456;
-  --color-orbit-900: #0e4547;
-  --color-orbit-950: #032a2c;
-  --color-nebula-50: #fdeefa;
-  --color-nebula-100: #fbd6f3;
-  --color-nebula-200: #f7ade6;
-  --color-nebula-300: #f17bd4;
-  --color-nebula-400: #e64ebf;
-  --color-nebula-500: #d02ea6;
-  --color-nebula-600: #ae2088;
-  --color-nebula-700: #8b1c6d;
-  --color-nebula-800: #6e1a58;
-  --color-nebula-900: #5a1849;
-  --color-nebula-950: #390729;
-  --color-ember-300: #ffbe7a;
-  --color-ember-400: #ff9f45;
-  --color-ember-500: #f97f1c;
-  --color-ember-600: #d96210;
-  --color-moss-300: #9be3a4;
-  --color-moss-400: #6fd27c;
-  --color-moss-500: #43b653;
-  --color-moss-600: #2f9140;
-  --color-flare-400: #ff6b6b;
-  --color-flare-500: #ef4444;
+  --color-ink-50: #ECF3EE;
+  --color-ink-200: #A9B8AE;
+  --color-ink-400: #7E8F84;
+  --color-ink-700: #2A3B31;
+  --color-ink-800: #1E2D24;
+  --color-ink-850: #17231C;
+  --color-ink-900: #111A15;
+  --color-ink-950: #0B110E;
+  --color-ink-1000: #06110B;
+  --color-forest-700: #1B4D33;
+  --color-forest-900: #0F2A1D;
+  --color-emerald-500: #1FAE6E;
+  --color-emerald-700: #146C45;
+  --color-mint-300: #7BE0B0;
+  --color-signal-400: #3DFF9A;
+  --color-amber-400: #E8B04B;
+  --color-danger-400: #F0716A;
 
-  --color-surface: #08090f;
-  --color-surface-raised: #10111d;
-  --color-surface-overlay: #181a2a;
-  --color-line: #24273a;
-  --color-ink: #eef0f6;
-  --color-ink-muted: #8a90a8;
-  --color-ink-faint: #646a83;
-  --color-accent: #22c7c4;
-  --color-accent-strong: #4fdbd8;
-  --color-accent-ink: #08090f;
-  --color-highlight: #e64ebf;
-  --color-rank: #ff9f45;
-  --color-success: #6fd27c;
-  --color-danger: #ff6b6b;
-  --color-focus: #4fdbd8;
+  --color-surface: #0B110E;
+  --color-surface-raised: #111A15;
+  --color-surface-overlay: #17231C;
+  --color-surface-hover: #1E2D24;
+  --color-line: #2A3B31;
+  --color-ink: #ECF3EE;
+  --color-ink-muted: #A9B8AE;
+  --color-ink-faint: #7E8F84;
+  --color-accent: #1FAE6E;
+  --color-accent-strong: #7BE0B0;
+  --color-accent-ink: #06110B;
+  --color-link: #7BE0B0;
+  --color-highlight: #7BE0B0;
+  --color-chip-selected: #1B4D33;
+  --color-chip-selected-ink: #FFFFFF;
+  --color-brand: #0F2A1D;
+  --color-rank: #E8B04B;
+  --color-success: #7BE0B0;
+  --color-danger: #F0716A;
+  --color-focus: #3DFF9A;
 
-  --font-display: var(--font-display-face), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: var(--font-display-face), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-sans-face), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -77,23 +59,71 @@
   --text-2xl: 1.75rem;
   --text-3xl: 2.25rem;
   --text-4xl: 3rem;
-  --text-hero: 4.5rem;
+  --text-display-xl: clamp(2.5rem, 1.6rem + 3.2vw, 4.5rem);
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--font-weight: 750;
+  --text-display-l: clamp(2rem, 1.4rem + 2.2vw, 3.5rem);
+  --text-display-l--line-height: 1.05;
+  --text-display-l--font-weight: 700;
+  --text-title: 1.25rem;
+  --text-title--line-height: 1.2;
+  --text-title--font-weight: 600;
+  --text-body: 1rem;
+  --text-body--line-height: 1.55;
+  --text-body--font-weight: 400;
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.4;
+  --text-meta--font-weight: 450;
 
   --spacing: 0.25rem;
 
-  --radius-sm: 0.375rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --radius-tile: 0.375rem;
+  --radius-card: 0.625rem;
+  --radius-sheet: 1rem;
   --radius-pill: 9999px;
 
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast: 120ms;
-  --duration-base: 220ms;
-  --duration-slow: 420ms;
-  --duration-hero: 6000ms;
+  --shadow-focus: 0 16px 40px rgb(0 0 0 / 0.55);
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --transition-duration-instant: 90ms;
+  --transition-duration-quick: 160ms;
+  --transition-duration-base: 240ms;
+  --transition-duration-slow: 420ms;
+  --transition-duration-cinematic: 640ms;
+  --transition-duration-rotate: 8000ms;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-surface: #F6F8F5;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-overlay: #EDF2EC;
+  --color-surface-hover: #E3EAE4;
+  --color-line: #CBD6CD;
+  --color-ink: #0E1A13;
+  --color-ink-muted: #3E4F44;
+  --color-ink-faint: #566A5D;
+  --color-accent: #146C45;
+  --color-accent-strong: #0F5A39;
+  --color-accent-ink: #FFFFFF;
+  --color-link: #146C45;
+  --color-highlight: #146C45;
+  --color-chip-selected: #1B4D33;
+  --color-chip-selected-ink: #FFFFFF;
+  --color-brand: #DCE7DE;
+  --color-rank: #8A5A00;
+  --color-success: #146C45;
+  --color-danger: #B3261E;
+  --color-focus: #1B4D33;
+}
+
+@utility bg-scrim {
+  background-image: linear-gradient(to top, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 72%, transparent) 38%, transparent 78%);
+}
+@utility bg-canopy-glow {
+  background-image: radial-gradient(70% 90% at 15% 0%, color-mix(in srgb, var(--color-chip-selected) 45%, transparent), transparent 70%);
 }
 /* @tokens:end */
 

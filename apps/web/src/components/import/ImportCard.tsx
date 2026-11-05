@@ -60,7 +60,7 @@ export function ImportCard({ source }: { source: ImportSource }) {
         if (!next) setPhase({ kind: "idle" });
       }}
     >
-      <div className="flex flex-col gap-3 rounded-lg border border-line bg-surface-raised p-5">
+      <div className="flex flex-col gap-3 rounded-card border border-line bg-surface-raised p-5">
         <h2 className="font-display text-lg font-semibold text-ink">{meta.title}</h2>
         <p className="text-sm text-ink-muted">{meta.hint}</p>
         <Dialog.Trigger asChild>
@@ -74,9 +74,9 @@ export function ImportCard({ source }: { source: ImportSource }) {
         </Dialog.Trigger>
       </div>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-surface/70 backdrop-blur-sm" />
-        <Dialog.Content className="fixed inset-0 z-50 m-auto h-fit w-[min(28rem,90vw)] rounded-xl border border-line bg-surface-overlay p-6">
-          <Dialog.Title className="font-display text-xl font-semibold text-ink">Import from {meta.title}</Dialog.Title>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-surface/70" />
+        <Dialog.Content className="fixed inset-0 z-50 m-auto h-fit w-[min(28rem,90vw)] rounded-sheet border border-line bg-surface-overlay p-6">
+          <Dialog.Title className="font-display text-title text-ink">Import from {meta.title}</Dialog.Title>
           <Dialog.Description className="mt-1 text-sm text-ink-muted">{meta.hint}</Dialog.Description>
           <form className="mt-5 flex flex-col gap-4" onSubmit={(e) => void onSubmit(e)}>
             {meta.input === "file" ? (
@@ -94,7 +94,7 @@ export function ImportCard({ source }: { source: ImportSource }) {
                 required
                 name="username"
                 placeholder="username"
-                className="rounded-md border border-line bg-surface px-3 py-2 text-sm text-ink placeholder:text-ink-faint"
+                className="rounded-tile border border-line bg-surface px-3 py-2 text-sm text-ink placeholder:text-ink-faint"
               />
             )}
             <button
