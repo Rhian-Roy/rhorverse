@@ -6,7 +6,7 @@ from fastapi.testclient import TestClient
 
 from rhorverse.db import get_conn
 from rhorverse.ingest.normalize import WorkRow
-from rhorverse.ingest.store import upsert_works
+from rhorverse.ingest.store import AvailabilityItem, replace_availability, upsert_works
 from rhorverse.main import create_app
 
 
@@ -102,3 +102,56 @@ def test_album_matches_on_artist_name(client: TestClient):
 
 def test_whole_title_match_beats_longer_more_popular_title(client: TestClient):
     assert ids(client, q="zzstellar")[:2] == ["test:movie/9", "test:album/8"]
+
+
+@pytest.fixture
+def filtered(conn: psycopg.Connection) -> TestClient:
+    def work(sid: str, title: str, media: str = "movie", runtime: str | None = None) -> WorkRow:
+        row = WorkRow(media=media, source="test", source_id=sid, title=title, popularity=999999)  # type: ignore[arg-type]
+        row.extra = {"runtime_min": [runtime]} if runtime else {}
+        return row
+
+    upsert_works(
+        conn,
+        [
+            work("movie/s1", "Yyfilter Short", runtime="95"),
+            work("movie/s2", "Yyfilter Long", runtime="170"),
+            work("movie/s3", "Yyfilter Unknown"),
+            work("tv/s4", "Yyfilter Series", "tv", runtime="45"),
+        ],
+    )
+    replace_availability(conn, "test:movie/s1", "IN", [AvailabilityItem("Free Co", "free")])
+    replace_availability(conn, "test:movie/s2", "IN", [AvailabilityItem("Paid Co", "rent")])
+    replace_availability(conn, "test:tv/s4", "US", [AvailabilityItem("Abroad Co", "free")])
+    app = create_app()
+    app.dependency_overrides[get_conn] = lambda: conn
+    return TestClient(app)
+
+
+def ours(client: TestClient, **params: object) -> list[str]:
+    """Only this test's works: real titles can fuzzy-match the query too."""
+    return [t for t in titles(client, q="yyfilter", **params) if t.startswith("Yyfilter")]
+
+
+def test_in_india_means_an_india_provider(filtered: TestClient):
+    assert sorted(ours(filtered, in_india=True)) == ["Yyfilter Long", "Yyfilter Short"]
+
+
+def test_free_needs_a_free_option_in_india(filtered: TestClient):
+    assert ours(filtered, free=True) == ["Yyfilter Short"]
+
+
+def test_under_2h_is_films_with_a_known_short_runtime(filtered: TestClient):
+    assert ours(filtered, under_2h=True) == ["Yyfilter Short"]
+
+
+def test_filters_combine(filtered: TestClient):
+    assert ours(filtered, in_india=True, under_2h=True) == ["Yyfilter Short"]
+    assert ours(filtered, free=True, media="tv") == []
+
+
+def test_filter_without_text_browses_matches(filtered: TestClient):
+    got = titles(filtered, q="", free=True, limit=60)
+    assert "Yyfilter Short" in got
+    assert "Yyfilter Long" not in got
+    assert titles(filtered, q="") == []
