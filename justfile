@@ -49,9 +49,9 @@ ingest source *args:
 embed:
     scripts/embed_all.sh
 
-# Copy local data into Supabase (migrations + all app tables); needs SUPABASE_DB_URL in .env
-push-supabase:
-    scripts/push_to_supabase.sh
+# Merge the local catalogue into Supabase, keeping hosted user data (--everything replaces it too)
+push-supabase *args:
+    scripts/push_to_supabase.sh {{args}}
 
 # Export precomputed JSON into apps/web/public/snapshots
 snapshot:
