@@ -3,6 +3,7 @@
 from collections import Counter
 from dataclasses import dataclass
 from datetime import UTC, datetime
+from itertools import zip_longest
 from typing import Any
 
 import numpy as np
@@ -25,6 +26,7 @@ MIN_RAIL = 4
 MAX_ANCHORS = 3
 HERO_SIZE = 5
 TOP_N = 10
+MIN_WHY_SIMILARITY = 0.45
 LAMBDA = 0.7
 
 # Tile shape per medium: album art is square, RAWG only has landscape art.
@@ -244,6 +246,16 @@ def cold_hero(works: list[Work]) -> list[Work]:
     return _hero(hero)
 
 
+def mixed_cold_hero(conn: Connection, exclude: set[str]) -> list[Work]:
+    """Take turns across media, so the first slides aren't all one medium's most popular titles."""
+    per_medium = [
+        cold_hero(popular(conn, media, exclude, limit=HERO_SIZE * 4))
+        for media in ("movie", "tv", "anime", "game")
+    ]
+    turns = [w for round_ in zip_longest(*per_medium) for w in round_ if w is not None]
+    return turns[:HERO_SIZE]
+
+
 def saved_for_later(conn: Connection, signals: list[Signal], exclude: set[str]) -> list[Work]:
     ids = [s.work_id for s in signals if s.kind == "save" and s.work_id not in exclude][:RAIL_SIZE]
     if not ids:
@@ -269,11 +281,16 @@ def why_here(conn: Connection, work: dict[str, Any], signals: list[Signal]) -> E
     if not work["embedding"]:
         return None
     others = [s for s in signals if s.work_id != work["id"]]
-    anchor = nearest_signal(parse_pgvector(work["embedding"]), others)
-    if anchor is None:
+    vec = parse_pgvector(work["embedding"])
+    anchor = nearest_signal(vec, others)
+    if anchor is None or anchor.embedding is None:
         return None
     mine = set(work["tags"] or [])
-    return explain.because(anchor.work_id, anchor.title, [t for t in anchor.tags if t in mine])
+    shared = [t for t in anchor.tags if t in mine]
+    # With no tag in common, only claim a connection if the two are actually close.
+    if not shared and float(np.dot(vec, anchor.embedding)) < MIN_WHY_SIMILARITY:
+        return None
+    return explain.because(anchor.work_id, anchor.title, shared)
 
 
 def across_media(conn: Connection, work: dict[str, Any], exclude: set[str], per_medium: int = 2) -> Rail:
@@ -316,7 +333,9 @@ def build_home(conn: Connection, profile_id: str | None) -> HomeFeed:
     taste = taste_from(signals)
     hero: list[Work] = []
     if taste is not None:
-        hero = personal_hero(rank_rail(candidates(conn, taste, exclude)), signals)
+        # Rank only what can fill a hero: albums have no backdrop, so a music fan would otherwise get none.
+        pool = [c for c in candidates(conn, taste, exclude) if (c.row["images"] or {}).get("backdrop")]
+        hero = personal_hero(rank_rail(pool), signals)
         add(Rail(id="for-you-movie", title="For you · Movies", items=for_you(taste, "movie")))
         add(Rail(id="for-you-anime", title="For you · Anime", items=for_you(taste, "anime")))
 
@@ -363,5 +382,5 @@ def build_home(conn: Connection, profile_id: str | None) -> HomeFeed:
         )
 
     if not hero:
-        hero = cold_hero(popular(conn, None, exclude, limit=HERO_SIZE * 4))
+        hero = mixed_cold_hero(conn, exclude)
     return HomeFeed(hero=hero, rails=rails)

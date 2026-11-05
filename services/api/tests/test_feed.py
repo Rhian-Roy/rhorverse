@@ -251,3 +251,30 @@ def test_across_media_only_has_other_media(conn: psycopg.Connection, pid: str) -
 def test_across_media_skips_what_the_profile_consumed(conn: psycopg.Connection, pid: str) -> None:
     rail = api_client(conn).get("/recs/across/test:tv/b9", params={"profile_id": pid}).json()
     assert not {w["id"] for w in rail["items"]} & {*LIKED, CONSUMED}
+
+
+def test_no_why_when_nothing_truly_connects_them(conn: psycopg.Connection, pid: str) -> None:
+    # Orthogonal to every liked vector, and no shared tags: there's nothing true to say.
+    upsert_works(
+        conn, [WorkRow(media="movie", source="test", source_id="movie/far", title="Far", tags=["x"])]
+    )  # type: ignore[arg-type]
+    v = np.zeros(DIM, dtype=np.float32)
+    v[300] = 1.0
+    conn.execute("update works set embedding = %s::vector where id = 'test:movie/far'", (to_pgvector(v),))
+    assert api_client(conn).get("/recs/why/test:movie/far", params={"profile_id": pid}).json() is None
+
+
+def test_album_fan_still_gets_a_personal_hero(conn: psycopg.Connection, pid: str) -> None:
+    # Backdrop-less works near the taste must not push the hero back to the generic list.
+    conn.execute(
+        "update works set images = '{}'::jsonb "
+        "where source = 'test' and id not in ('test:movie/a20', 'test:tv/b20')"
+    )
+    hero = build_home(conn, pid).hero
+    assert hero
+    assert all(w.why and w.why.startswith("Because you") for w in hero)
+
+
+def test_cold_hero_takes_turns_across_media(conn: psycopg.Connection, pid: str) -> None:
+    media = [w.media for w in build_home(conn, None).hero]
+    assert len(set(media[:2])) == 2
