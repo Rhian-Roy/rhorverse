@@ -52,6 +52,15 @@ Poster 2:3 · landscape 16:9 · square 1:1 · capsule 460:215. Titles below the 
 - The detail header holds the title, meta chips and actions. Overview is its own section below, so text never sits on the bright part of a photo.
 - Albums have no backdrop, so their header shows the square art on `bg-canopy-glow`.
 
+## Screens
+- **Home rails, in order:** Saved for later, For you · Movies, For you · Anime, More like X (mixed tile shapes), Top 10 available in India, Albums for your taste, Games like X, then Popular per medium. Rail titles must be true: "Continue" and "this week" aren't used because we have no watch progress or weekly chart.
+- **Hero line:** always data-derived, "Because you liked X" or "#2 most popular in TV".
+- **Title page order:** overview, why it's here for you, where to watch, tags, cast, across media; up-next column at ≥1280 px.
+- **Tabs:** medium hero plus link-based chips (languages, formats, genres, platforms).
+- **Search:** grouped by medium with See all; filter chips need live data, so snapshot mode hides them.
+- **Profile:** ranked bars, never a radar.
+- **TV mode** (`?tv=1`, Profile toggle or a TV user agent): 1.4x type, 5% overscan, ↑/↓/←/→ between tiles and rails.
+
 ## Banned (the plan's "looks AI-made" list)
 Purple/indigo gradients, Inter/Geist/system fonts, `rounded-2xl` with `shadow-md`, three-equal-card grids, emoji and sparkles, "AI" in UI copy, glass cards, a badge above the headline, fade-in on every section, marketing filler.
 

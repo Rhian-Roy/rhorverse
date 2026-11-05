@@ -41,6 +41,5 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 ## 9. Deploy (Day 8): done
 - **Left:** connect the GitHub repo to both Vercel projects for auto-deploys on push; re-push data after new ingests (`just push-supabase`); Day 9 polish (Lighthouse, keyboard/TV pass on the deployed URL).
 
-## 10. Understory look: done. Next, the UX pieces from section 7.4
-- **Do:** hero "why" line from the API ("Because you liked X"); "Top 10 in India" and "Continue" rails; detail sections "Why it's here for you" and "Across media", cast row, up-next column; language and "Available in India / Free / Under 2 h" chips; Profile page (ranked taste bars, consumed counts, "Not interested", export, TV toggle); spatial-nav walkthrough e2e; TV type scale and overscan.
-
+## 10. Understory look and section 7.4 screens: done
+- **Left:** "Seen it" / "Not interested" on tiles; music Mixes and "Short games under 10 h" (need games); import flow steps and progress; Lighthouse pass (Day 9); more India-specific data once a real chart source exists.
