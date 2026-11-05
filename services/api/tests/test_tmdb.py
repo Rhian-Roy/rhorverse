@@ -107,3 +107,24 @@ def test_fetch_movies_respects_lookup_cap(tmp_path: Path, conn):
         conn, route_http(tmp_path, seen), [("A", None), ("B", None), ("C", None)], max_lookups=2
     )
     assert len(seen) == 2
+
+
+def test_candidates_ask_for_indian_languages_first(tmp_path: Path):
+    seen: list[httpx.Request] = []
+    tmdb.candidates(make_http(tmp_path, seen), "movie", 50)
+    langs = [r.url.params.get("with_original_language") for r in seen if "/discover/" in r.url.path]
+    assert langs == list(tmdb.INDIAN_LANGUAGES)
+    assert seen[0].url.params["watch_region"] == "IN"
+
+
+def test_small_caps_skip_the_india_share(tmp_path: Path):
+    seen: list[httpx.Request] = []
+    tmdb.candidates(make_http(tmp_path, seen), "movie", 5)
+    assert not any("/discover/" in r.url.path for r in seen)
+
+
+def test_cast_comes_from_credits_and_is_capped():
+    payload = {**load("movie_603.json"), "credits": {"cast": [{"name": f"Actor {i}"} for i in range(12)]}}
+    cast = tmdb.to_work_row("movie", payload).extra["cast"]
+    assert cast == [f"Actor {i}" for i in range(tmdb.MAX_CAST)]
+    assert tmdb.to_work_row("movie", load("movie_603.json")).extra["cast"] == []

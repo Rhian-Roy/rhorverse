@@ -22,6 +22,9 @@ BATCH = 50
 Kind = Literal["movie", "tv"]
 KINDS: tuple[Kind, ...] = ("movie", "tv")
 LISTS = ("trending", "popular", "top_rated")
+INDIAN_LANGUAGES = ("hi", "ta", "te", "ml", "pa")
+INDIA_SHARE = 0.4  # of each kind's cap, split across INDIAN_LANGUAGES
+MAX_CAST = 8
 
 
 def client() -> Http:
@@ -35,27 +38,37 @@ def _list_url(kind: Kind, name: str) -> str:
     return f"{BASE}/trending/{kind}/week" if name == "trending" else f"{BASE}/{kind}/{name}"
 
 
-def candidates(http: Http, kind: Kind, n: int) -> list[int]:
-    """Up to `n` distinct TMDB ids for `kind`, from trending, popular and top_rated lists."""
-    seen: dict[int, None] = {}
-    for name in LISTS:
-        page = 1
-        while len(seen) < n:
-            data = http.get_json(_list_url(kind, name), params={"page": page})
-            for item in data.get("results", []):
-                seen.setdefault(int(item["id"]), None)
-            if page >= min(int(data.get("total_pages", 1)), 500):
-                break
-            page += 1
-        if len(seen) >= n:
+def _collect(http: Http, url: str, params: dict[str, Any], seen: dict[int, None], until: int) -> None:
+    """Page through one TMDB list, adding ids to `seen` until it holds `until` or the list ends."""
+    page = 1
+    while len(seen) < until:
+        data = http.get_json(url, params={**params, "page": page})
+        for item in data.get("results", []):
+            seen.setdefault(int(item["id"]), None)
+        if page >= min(int(data.get("total_pages", 1)), 500):
             break
+        page += 1
+
+
+def candidates(http: Http, kind: Kind, n: int) -> list[int]:
+    """Up to `n` distinct TMDB ids: a share of Indian-language titles, then trending/popular/top rated."""
+    seen: dict[int, None] = {}
+    per_language = int(n * INDIA_SHARE) // len(INDIAN_LANGUAGES)
+    if per_language:
+        for lang in INDIAN_LANGUAGES:
+            params = {"with_original_language": lang, "sort_by": "popularity.desc", "watch_region": REGION}
+            _collect(http, f"{BASE}/discover/{kind}", params, seen, len(seen) + per_language)
+    for i, name in enumerate(LISTS):
+        # Split what's left evenly, so trending alone can't fill the quota.
+        until = len(seen) + (n - len(seen)) // (len(LISTS) - i)
+        _collect(http, _list_url(kind, name), {}, seen, until)
     return list(seen)[:n]
 
 
 def details(http: Http, kind: Kind, tmdb_id: int) -> dict[str, Any]:
     return http.get_json(
         f"{BASE}/{kind}/{tmdb_id}",
-        params={"append_to_response": "keywords,watch/providers,external_ids"},
+        params={"append_to_response": "keywords,watch/providers,external_ids,credits"},
     )
 
 
@@ -96,6 +109,7 @@ def to_work_row(kind: Kind, p: dict[str, Any]) -> WorkRow:
             "keywords": keywords,
             "language": [p["original_language"]] if p.get("original_language") else [],
             "runtime_min": [str(runtime)] if runtime else [],
+            "cast": [c["name"] for c in (p.get("credits") or {}).get("cast", [])[:MAX_CAST] if c.get("name")],
         },
     )
 
