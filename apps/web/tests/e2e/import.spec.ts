@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 // Runs in API_MODE=snapshot: the dialog works, but submitting explains the live API is needed.
 test("letterboxd import dialog explains it needs the live API", async ({ page }) => {

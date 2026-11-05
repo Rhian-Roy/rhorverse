@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test("home loads and shows the TopNav", async ({ page }) => {
   await page.goto("/");
@@ -15,4 +15,10 @@ test("every page carries active data-source credits", async ({ page }) => {
     await expect(footer.getByRole("link", { name, exact: true })).toHaveAttribute("href", /^https:\/\//);
   }
   await expect(footer.getByRole("link", { name: "All credits" })).toHaveAttribute("href", "/about");
+});
+
+test("a new visitor's profile page offers real next steps", async ({ page }) => {
+  await page.goto("/profile");
+  await expect(page.getByRole("heading", { level: 1, name: "Your taste" })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole("link", { name: "Import Letterboxd" })).toHaveAttribute("href", "/import");
 });

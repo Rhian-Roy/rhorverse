@@ -166,3 +166,12 @@
 [data-tv="true"] [data-tile]:focus-visible [data-tile-art] {
   scale: 1.1;
 }
+
+/* TV mode: 1.4x type (everything is in rem) and a 5% overscan safe area. */
+html[data-tv="true"] {
+  font-size: 140%;
+}
+
+html[data-tv="true"] body {
+  padding: 5vh 5vw;
+}

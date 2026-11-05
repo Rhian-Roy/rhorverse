@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 // The Understory spec from the build plan (section 7.3), checked in the real browser.
 const INK_950 = "rgb(11, 17, 14)";
@@ -29,7 +29,7 @@ test("primary button is emerald with dark ink, active tab is forest", async ({ p
 test("hero is a tall backdrop photo", async ({ page }) => {
   await page.goto("/");
   const hero = page.getByRole("region", { name: "Featured" });
-  await expect(hero.locator("img").first()).toBeVisible();
+  await expect(hero.locator("img").first()).toHaveAttribute("src", /image\.tmdb\.org/);
   const { height } = (await hero.boundingBox())!;
   expect(height).toBeGreaterThanOrEqual((page.viewportSize()!.height * 0.7) - 1);
 });

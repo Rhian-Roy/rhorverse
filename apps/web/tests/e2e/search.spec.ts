@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 import { distinctive } from "./snapshot-data";
 
 // Runs in API_MODE=snapshot (playwright.config), so no backend is needed.
