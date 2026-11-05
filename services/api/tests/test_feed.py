@@ -15,6 +15,7 @@ from rhorverse.db import get_conn
 from rhorverse.ingest.normalize import WorkRow
 from rhorverse.ingest.store import upsert_works
 from rhorverse.main import create_app
+from rhorverse.rec import explain
 from rhorverse.rec.embed import DIM
 from rhorverse.rec.feed import (
     MEDIA_LABEL,
@@ -213,3 +214,40 @@ def test_top_10_only_has_titles_available_in_india(conn: psycopg.Connection, pid
     assert len(top) <= 10
     rail = next(r for r in build_home(conn, None).rails if r.id == "top-india")
     assert rail.ranked
+
+
+def api_client(conn: psycopg.Connection) -> TestClient:
+    app = create_app()
+    app.dependency_overrides[get_conn] = lambda: conn
+    return TestClient(app)
+
+
+def test_why_names_the_nearest_like_and_shared_tags(conn: psycopg.Connection, pid: str) -> None:
+    body = api_client(conn).get("/recs/why/test:tv/b9", params={"profile_id": pid}).json()
+    assert body["because_title"] == "T b0"
+    assert body["shared_tags"] == ["cozy"]
+    assert body["reason"] == "Shares cozy with T b0."
+
+
+def test_why_is_null_without_taste_and_404_for_unknown(conn: psycopg.Connection, pid: str) -> None:
+    client = api_client(conn)
+    assert client.get("/recs/why/test:tv/b9").json() is None
+    assert client.get("/recs/why/test:nope").status_code == 404
+
+
+def test_explanations_never_claim_data_we_dont_have() -> None:
+    assert "often" not in explain.because("x", "X", []).reason
+
+
+def test_across_media_only_has_other_media(conn: psycopg.Connection, pid: str) -> None:
+    rail = api_client(conn).get("/recs/across/test:movie/a9").json()
+    assert rail["title"] == "Across media"
+    assert rail["items"]
+    assert all(w["media"] != "movie" for w in rail["items"])
+    assert len(rail["items"]) <= 2 * 4
+    assert api_client(conn).get("/recs/across/test:nope").status_code == 404
+
+
+def test_across_media_skips_what_the_profile_consumed(conn: psycopg.Connection, pid: str) -> None:
+    rail = api_client(conn).get("/recs/across/test:tv/b9", params={"profile_id": pid}).json()
+    assert not {w["id"] for w in rail["items"]} & {*LIKED, CONSUMED}

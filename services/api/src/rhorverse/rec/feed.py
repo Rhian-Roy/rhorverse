@@ -15,7 +15,7 @@ from rhorverse.rec.profile import EVENT_WEIGHTS, decay, taste_vector
 from rhorverse.rec.rank import score
 from rhorverse.rec.vec import parse_pgvector, to_pgvector
 from rhorverse.repo import parse_profile_id, row_to_work
-from rhorverse.schemas import HomeFeed, Rail, TileVariant, Work
+from rhorverse.schemas import Explanation, HomeFeed, Rail, TileVariant, Work
 
 # Re-showing what you just liked looks broken, so the home feed drops likes too.
 HOME_EXCLUDING = EXCLUDING_KINDS | {"like"}
@@ -240,6 +240,30 @@ def top_in_india(conn: Connection, exclude: set[str], limit: int = TOP_N) -> lis
         {"ex": list(exclude), "limit": limit},
     ).fetchall()
     return [row_to_work(r) for r in rows]
+
+
+def why_here(conn: Connection, work: dict[str, Any], signals: list[Signal]) -> Explanation | None:
+    """Why this work suits this profile: its nearest positive signal and the tags they share."""
+    if not work["embedding"]:
+        return None
+    others = [s for s in signals if s.work_id != work["id"]]
+    anchor = nearest_signal(parse_pgvector(work["embedding"]), others)
+    if anchor is None:
+        return None
+    mine = set(work["tags"] or [])
+    return explain.because(anchor.work_id, anchor.title, [t for t in anchor.tags if t in mine])
+
+
+def across_media(conn: Connection, work: dict[str, Any], exclude: set[str], per_medium: int = 2) -> Rail:
+    """The nearest works from every other medium."""
+    items: list[Work] = []
+    if work["embedding"]:
+        vec = parse_pgvector(work["embedding"])
+        for media in MEDIA_VARIANT:
+            if media != work["media"]:
+                nearest = candidates(conn, vec, exclude | {work["id"]}, k=per_medium, media=media)
+                items.extend(row_to_work(c.row) for c in nearest)
+    return Rail(id=f"across-{work['id']}", title="Across media", variant="auto", items=items)
 
 
 def build_home(conn: Connection, profile_id: str | None) -> HomeFeed:

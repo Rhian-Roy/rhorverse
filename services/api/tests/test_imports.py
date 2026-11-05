@@ -60,6 +60,8 @@ def fake_tmdb(tmp_path: Path, knows_student_film: bool) -> Http:
 
 
 def make_client(conn: psycopg.Connection, http: Http | None) -> TestClient:
+    # Rolled back afterwards. Real films like The Matrix would otherwise win over these fixtures.
+    conn.execute("delete from works where media = 'movie'")
     rows = [
         WorkRow(media="movie", source="test", source_id=f"movie/{sid}", title=t, year=y, popularity=50.0)  # type: ignore[arg-type]
         for sid, t, y in CATALOGUE

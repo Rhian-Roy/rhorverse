@@ -1,12 +1,22 @@
+from typing import Any
+
 from fastapi import APIRouter, Depends, HTTPException
 from psycopg import Connection
 
 from rhorverse.db import get_conn
 from rhorverse.rec.exclude import excluded_ids
-from rhorverse.rec.feed import HOME_EXCLUDING, Anchor, because_rail, build_home, load_signals
+from rhorverse.rec.feed import (
+    HOME_EXCLUDING,
+    Anchor,
+    across_media,
+    because_rail,
+    build_home,
+    load_signals,
+    why_here,
+)
 from rhorverse.rec.tabs import build_media
 from rhorverse.rec.vec import parse_pgvector
-from rhorverse.schemas import HomeFeed, MediaType, Rail
+from rhorverse.schemas import Explanation, HomeFeed, MediaType, Rail
 
 router = APIRouter(prefix="/recs", tags=["recs"])
 
@@ -45,3 +55,34 @@ def media_tab(
 ) -> list[Rail]:
     """Rails for one media tab: personal (with a profile), popular, new releases, top genres."""
     return build_media(conn, media, profile_id)
+
+
+def _work_or_404(conn: Connection, work_id: str) -> dict[str, Any]:
+    row = conn.execute(
+        "select id, media, title, tags, embedding::text as embedding from works where id = %s", (work_id,)
+    ).fetchone()
+    if row is None:
+        raise HTTPException(status_code=404, detail="work not found")
+    return row
+
+
+@router.get("/why/{work_id:path}", response_model=Explanation | None)
+def why(
+    work_id: str,
+    profile_id: str | None = None,
+    conn: Connection = Depends(get_conn),  # noqa: B008
+) -> Explanation | None:
+    """Why this work suits this profile, or null when the profile has no taste signal yet."""
+    return why_here(conn, _work_or_404(conn, work_id), load_signals(conn, profile_id))
+
+
+@router.get("/across/{work_id:path}", response_model=Rail)
+def across(
+    work_id: str,
+    profile_id: str | None = None,
+    conn: Connection = Depends(get_conn),  # noqa: B008
+) -> Rail:
+    """Nearest works from every other medium, minus what this profile has seen or rejected."""
+    signals = load_signals(conn, profile_id)
+    exclude = excluded_ids(((s.work_id, s.kind) for s in signals), HOME_EXCLUDING)
+    return across_media(conn, _work_or_404(conn, work_id), exclude)

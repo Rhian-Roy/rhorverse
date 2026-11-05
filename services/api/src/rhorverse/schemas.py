@@ -57,6 +57,7 @@ class Explanation(BaseModel):
     because_id: str
     because_title: str
     reason: str
+    shared_tags: list[str] = Field(default_factory=list)
 
 
 class Rail(BaseModel):
