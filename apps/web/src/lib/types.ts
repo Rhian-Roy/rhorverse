@@ -61,6 +61,23 @@ export interface HomeFeed {
   rails: Rail[];
 }
 
+export interface FacetChip {
+  value: string;
+  label: string;
+}
+
+export interface MediaFeed {
+  hero: Work[];
+  rails: Rail[];
+  chips: FacetChip[];
+}
+
+export interface SearchFilters {
+  in_india?: boolean;
+  free?: boolean;
+  under_2h?: boolean;
+}
+
 export interface SearchResult {
   query: string;
   media?: MediaType | null;

@@ -74,6 +74,19 @@ class HomeFeed(BaseModel):
     rails: list[Rail]
 
 
+class FacetChip(BaseModel):
+    value: str
+    label: str
+
+
+class MediaFeed(BaseModel):
+    """One media tab: its hero, rails, and the chips that filter them."""
+
+    hero: list[Work] = Field(default_factory=list)
+    rails: list[Rail] = Field(default_factory=list)
+    chips: list[FacetChip] = Field(default_factory=list)
+
+
 class SearchResult(BaseModel):
     query: str
     media: MediaType | None = None

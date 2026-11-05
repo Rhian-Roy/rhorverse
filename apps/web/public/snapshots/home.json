@@ -32,7 +32,35 @@
         "capsule": null
       },
       "source": "tmdb",
-      "source_id": "tv/456"
+      "source_id": "tv/456",
+      "why": "#1 most popular in TV"
+    },
+    {
+      "id": "tmdb:tv/1416",
+      "media": "tv",
+      "title": "Grey's Anatomy",
+      "year": 2005,
+      "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
+      "tags": [
+        "Drama",
+        "seattle, washington",
+        "trauma",
+        "workplace",
+        "hospital",
+        "doctor",
+        "medical student",
+        "surgical interns",
+        "medical drama"
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/w500/gO8Fo47KV1opiutRDdBS5jclTQB.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/w1280/A4NwkQXTXElE5iAsne5RpvS8R2Z.jpg",
+        "square": null,
+        "capsule": null
+      },
+      "source": "tmdb",
+      "source_id": "tv/1416",
+      "why": "#2 most popular in TV"
     },
     {
       "id": "tmdb:movie/155",
@@ -65,45 +93,20 @@
       ],
       "images": {
         "poster": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-        "backdrop": "https://image.tmdb.org/t/p/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/w1280/cfT29Im5VDvjE0RpyKOSdCKZal7.jpg",
         "square": null,
         "capsule": null
       },
       "source": "tmdb",
-      "source_id": "movie/155"
-    },
-    {
-      "id": "tmdb:tv/1416",
-      "media": "tv",
-      "title": "Grey's Anatomy",
-      "year": 2005,
-      "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
-      "tags": [
-        "Drama",
-        "seattle, washington",
-        "trauma",
-        "workplace",
-        "hospital",
-        "doctor",
-        "medical student",
-        "surgical interns",
-        "medical drama"
-      ],
-      "images": {
-        "poster": "https://image.tmdb.org/t/p/w500/gO8Fo47KV1opiutRDdBS5jclTQB.jpg",
-        "backdrop": "https://image.tmdb.org/t/p/w1280/A4NwkQXTXElE5iAsne5RpvS8R2Z.jpg",
-        "square": null,
-        "capsule": null
-      },
-      "source": "tmdb",
-      "source_id": "tv/1416"
+      "source_id": "movie/155",
+      "why": "#1 most popular in film"
     },
     {
       "id": "tmdb:movie/791523",
       "media": "movie",
       "title": "Wildwood",
       "year": 2026,
-      "overview": "After her baby brother is abducted by a murder of crows, headstrong teenager Prue McKeel launches a desperate rescue mission into the Impassable Wilderness, an enchanted forest hidden just beyond Portland, Oregon. Joined by her hapless but loyal classmate Curtis Mehlberg, Prue navigates a world of talking animals, bandits, and powerful figures driven by grief and ambition. As the pair is drawn into a conflict threatening the balance of the forest itself, Prue must discover the strength and belief she never knew she possessed.",
+      "overview": "Prue and her classmate Curtis are drawn into a magical forest filled with enchanted creatures, loyal allies, and formidable adversaries as they embark on a desperate quest to rescue Prue's abducted baby brother from a murder of crows led by a mysterious woman named Alexandra.",
       "tags": [
         "Animation",
         "Adventure",
@@ -130,7 +133,8 @@
         "capsule": null
       },
       "source": "tmdb",
-      "source_id": "movie/791523"
+      "source_id": "movie/791523",
+      "why": "#2 most popular in film"
     },
     {
       "id": "anilist:16498",
@@ -162,16 +166,79 @@
         "capsule": null
       },
       "source": "anilist",
-      "source_id": "16498"
+      "source_id": "16498",
+      "why": "#1 most popular in anime"
     }
   ],
   "rails": [
     {
-      "id": "popular-movie",
-      "title": "Popular movies",
+      "id": "top-india",
+      "title": "Top 10 available in India",
       "variant": "poster",
-      "ranked": false,
+      "ranked": true,
       "items": [
+        {
+          "id": "tmdb:tv/456",
+          "media": "tv",
+          "title": "The Simpsons",
+          "year": 1989,
+          "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+          "tags": [
+            "Animation",
+            "Comedy",
+            "nuclear power plant",
+            "middle class",
+            "cartoon",
+            "satire",
+            "parody",
+            "dysfunctional family",
+            "school",
+            "adult humor",
+            "social satire",
+            "family",
+            "family conflict",
+            "adult animation",
+            "sitcom",
+            "kids",
+            "farce"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/tf0CUEynk6GfmrlHIQKQ5mfFP5P.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/jIArNHIekrCSVgdMbKPAXpPY03Y.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/456",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/1416",
+          "media": "tv",
+          "title": "Grey's Anatomy",
+          "year": 2005,
+          "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
+          "tags": [
+            "Drama",
+            "seattle, washington",
+            "trauma",
+            "workplace",
+            "hospital",
+            "doctor",
+            "medical student",
+            "surgical interns",
+            "medical drama"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/gO8Fo47KV1opiutRDdBS5jclTQB.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/A4NwkQXTXElE5iAsne5RpvS8R2Z.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/1416",
+          "why": null
+        },
         {
           "id": "tmdb:movie/155",
           "media": "movie",
@@ -203,80 +270,102 @@
           ],
           "images": {
             "poster": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/cfT29Im5VDvjE0RpyKOSdCKZal7.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/155"
+          "source_id": "movie/155",
+          "why": null
         },
         {
-          "id": "tmdb:movie/791523",
+          "id": "tmdb:movie/1423191",
           "media": "movie",
-          "title": "Wildwood",
+          "title": "Resident Evil",
           "year": 2026,
-          "overview": "After her baby brother is abducted by a murder of crows, headstrong teenager Prue McKeel launches a desperate rescue mission into the Impassable Wilderness, an enchanted forest hidden just beyond Portland, Oregon. Joined by her hapless but loyal classmate Curtis Mehlberg, Prue navigates a world of talking animals, bandits, and powerful figures driven by grief and ambition. As the pair is drawn into a conflict threatening the balance of the forest itself, Prue must discover the strength and belief she never knew she possessed.",
+          "overview": "Medical courier Bryan unwittingly finds himself fighting for survival as one fateful, horrifying night collapses around him in chaos.",
           "tags": [
-            "Animation",
-            "Adventure",
-            "Fantasy",
-            "based on novel or book",
-            "portland, oregon",
-            "horse",
-            "rescue mission",
-            "forest",
-            "oregon, usa",
-            "stop motion",
-            "coyote",
-            "owl",
-            "3d animation",
-            "enchanted forest",
-            "fairytale",
-            "kidnapped baby",
-            "epic adventure"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/sl5NJ1vtyhP9Vr88bB4blULsJYp.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "movie/791523"
-        },
-        {
-          "id": "tmdb:movie/1058424",
-          "media": "movie",
-          "title": "Hope",
-          "year": 2026,
-          "overview": "In the remote South Korean village of Hope Harbor, police chief Bum-seok and officer Sung-ae are called to investigate a mysterious creature wreaking havoc on the community. But all is not as it seems, and perceptions can be misleading. What begins as ignorance plants the seed of disaster, escalating through human conflict into a tragedy of cosmic proportions.",
-          "tags": [
+            "Horror",
             "Science Fiction",
-            "Mystery",
-            "Action",
-            "supernatural",
-            "horse",
-            "shootout",
-            "police officer",
-            "hunted",
-            "police shootout",
-            "remote village",
-            "aliens",
-            "20th century",
-            "horror",
-            "fight for survival",
-            "chasing",
-            "unknown entity",
-            "dinosaurs"
+            "Adventure",
+            "outbreak",
+            "survival",
+            "decapitation",
+            "zombie",
+            "based on video game",
+            "survival horror",
+            "reboot",
+            "zombie apocalypse",
+            "courier service",
+            "clinical",
+            "body horror",
+            "zombie horror"
           ],
           "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/6VY1ZKgpsc8CfGsQcCGiYEgHdH0.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/j96rurZqmBjyY37Fncl3IB0qJNe.jpg",
+            "poster": "https://image.tmdb.org/t/p/w500/gAgWJhUSQWCgtKR8170nMkYlBda.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/3icyRAqgakNcQn6aDVz9libFmBA.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1058424"
+          "source_id": "movie/1423191",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1507696",
+          "media": "movie",
+          "title": "Apocalypse Z: New World",
+          "year": 2026,
+          "overview": "The Canary Islands have become Europe’s last refuge following the outbreak of the TSJ virus. When a special mission sets out for the mainland in search of vital supplies, Roberto joins the team with questionable intentions. The dangerous operation turns into a desperate race for survival, and Roberto and his companions find themselves caught between hordes of infected and divided loyalties.",
+          "tags": [
+            "Action",
+            "Thriller",
+            "Horror",
+            "based on novel or book",
+            "sequel",
+            "zombie"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/wXln4DUrwcyjcFPwgQxFPYTlG1Z.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/o3XwuDUj0n8qnK91p6q8LKfr6rj.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1507696",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/247718",
+          "media": "tv",
+          "title": "MobLand",
+          "year": 2025,
+          "overview": "Two mob families clash in a war that threatens to topple empires and lives.",
+          "tags": [
+            "Crime",
+            "Drama",
+            "london, england",
+            "drug trafficking",
+            "gang war",
+            "gangster",
+            "family business ",
+            "murder",
+            "betrayal",
+            "crime family",
+            "fixer",
+            "corrupt cop",
+            "bold",
+            "brutal violence"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/5Xc7WpWsgflfgEMoBlf9TmWhfbH.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/h0OC7ouop8YLwbAVfS3UUE2Lw4T.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/247718",
+          "why": null
         },
         {
           "id": "tmdb:movie/969681",
@@ -310,27 +399,219 @@
           ],
           "images": {
             "poster": "https://image.tmdb.org/t/p/w500/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/4tjxYg2AbOzzG9G1YuiT2NzYhlH.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/dzeCorl61ZdxbzfnciUkrc8JSZj.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/969681"
+          "source_id": "movie/969681",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/4614",
+          "media": "tv",
+          "title": "NCIS",
+          "year": 2003,
+          "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
+          "tags": [
+            "Crime",
+            "Drama",
+            "Action & Adventure",
+            "navy",
+            "marine corps",
+            "u.s. navy",
+            "naval officer",
+            "medical examiner",
+            "interrogation",
+            "ex-marine",
+            "criminal investigation",
+            "veteran",
+            "virginia",
+            "crime investigation",
+            "special agent",
+            "police procedural",
+            "dramatic"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/y4fGncqELtnvRQuwSpuH8LncZqU.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/c1aBrG5s5xFa6Tbnihu2Hhj4t2q.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/4614",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/354912",
+          "media": "movie",
+          "title": "Coco",
+          "year": 2017,
+          "overview": "Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.",
+          "tags": [
+            "Family",
+            "Animation",
+            "Music",
+            "Adventure",
+            "skeleton",
+            "mexico",
+            "guitar",
+            "afterlife",
+            "musician",
+            "holiday",
+            "villain",
+            "singer",
+            "murderer",
+            "life after death",
+            "kids",
+            "day of the dead",
+            "3d animation",
+            "music",
+            "boy",
+            "hilarious",
+            "hopeful",
+            "modest"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/6Ryitt95xrO8KXuqRGm1fUuNwqF.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/g7CHF8gTLGooTbP4GznIGwaqAGL.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/354912",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/213375",
+          "media": "tv",
+          "title": "VisionQuest",
+          "year": 2026,
+          "overview": "With a bounty on his head, Vision must confront his nature and resist Ultron's influence to survive.",
+          "tags": [
+            "Sci-Fi & Fantasy",
+            "Drama",
+            "android",
+            "identity crisis",
+            "based on comic",
+            "on the run",
+            "miniseries",
+            "spin off",
+            "self identity",
+            "marvel cinematic universe (mcu)",
+            "father son relationship",
+            "adoring",
+            "synthezoid"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/WGyAyBPncfuu8MZhLY9RtfZPM0.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/58v1KFe3rxvHrYM1hLH5ScpwqNR.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/213375",
+          "why": null
+        }
+      ],
+      "explanation": null
+    },
+    {
+      "id": "popular-movie",
+      "title": "Popular movies",
+      "variant": "poster",
+      "ranked": false,
+      "items": [
+        {
+          "id": "tmdb:movie/791523",
+          "media": "movie",
+          "title": "Wildwood",
+          "year": 2026,
+          "overview": "Prue and her classmate Curtis are drawn into a magical forest filled with enchanted creatures, loyal allies, and formidable adversaries as they embark on a desperate quest to rescue Prue's abducted baby brother from a murder of crows led by a mysterious woman named Alexandra.",
+          "tags": [
+            "Animation",
+            "Adventure",
+            "Fantasy",
+            "based on novel or book",
+            "portland, oregon",
+            "horse",
+            "rescue mission",
+            "forest",
+            "oregon, usa",
+            "stop motion",
+            "coyote",
+            "owl",
+            "3d animation",
+            "enchanted forest",
+            "fairytale",
+            "kidnapped baby",
+            "epic adventure"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/sl5NJ1vtyhP9Vr88bB4blULsJYp.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/791523",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1058424",
+          "media": "movie",
+          "title": "Hope",
+          "year": 2026,
+          "overview": "In the remote South Korean village of Hope Harbor, police chief Bum-seok and officer Sung-ae are called to investigate a mysterious creature wreaking havoc on the community. But all is not as it seems, and perceptions can be misleading. What begins as ignorance plants the seed of disaster, escalating through human conflict into a tragedy of cosmic proportions.",
+          "tags": [
+            "Science Fiction",
+            "Mystery",
+            "Action",
+            "supernatural",
+            "horse",
+            "shootout",
+            "police officer",
+            "hunted",
+            "police shootout",
+            "remote village",
+            "aliens",
+            "20th century",
+            "horror",
+            "fight for survival",
+            "chasing",
+            "unknown entity",
+            "dinosaurs"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/6VY1ZKgpsc8CfGsQcCGiYEgHdH0.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/j96rurZqmBjyY37Fncl3IB0qJNe.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1058424",
+          "why": null
         },
         {
           "id": "tmdb:movie/1596275",
           "media": "movie",
           "title": "Drive - The Pretenders",
           "year": 2026,
-          "overview": "A young race car mechanic fakes an engagement with racing's most scandalous star - officially for his reputation, secretly for her own shot behind the wheel. But soon the lie threatens to destroy everything - including what's already become so much more than just a deal.",
+          "overview": "A young mechanic fakes an engagement with racing's most scandalous star — officially for his reputation, secretly for her own shot behind the wheel. But soon the lie threatens to destroy everything — including what's already become so much more than just a deal.",
           "tags": [
             "Romance",
             "Thriller",
             "based on novel or book",
             "racing",
+            "debt",
+            "formula one (f1)",
             "ulterior motive dating",
+            "frankfurt, germany",
+            "mourning and healing",
+            "contract lovers",
             "fake relationship",
-            "female mechanic"
+            "female mechanic",
+            "amalfi coast"
           ],
           "images": {
             "poster": "https://image.tmdb.org/t/p/w500/s9syckECnUYhKePQ1A0DC0mFVZ9.jpg",
@@ -339,55 +620,38 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1596275"
+          "source_id": "movie/1596275",
+          "why": null
         },
         {
-          "id": "tmdb:movie/1507696",
+          "id": "tmdb:movie/1813355",
           "media": "movie",
-          "title": "Apocalypse Z: New World",
+          "title": "A Story of Derry",
           "year": 2026,
-          "overview": "The Canary Islands have become Europe’s last refuge following the outbreak of the TSJ virus. When a special mission sets out for the mainland in search of vital supplies, Roberto joins the team with questionable intentions. The dangerous operation turns into a desperate race for survival, and Roberto and his companions find themselves caught between hordes of infected and divided loyalties.",
+          "overview": "Hundreds of years before Pennywise, three youngsters venture into the Western Wood...where they encounter a terrifying ancient spirit.",
           "tags": [
-            "Action",
-            "Thriller",
+            "Drama",
             "Horror",
+            "Mystery",
+            "monster",
             "based on novel or book",
-            "sequel",
-            "zombie"
+            "tribe",
+            "forest",
+            "prequel",
+            "cannibal",
+            "hunting",
+            "excited",
+            "informative"
           ],
           "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/wXln4DUrwcyjcFPwgQxFPYTlG1Z.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/o3XwuDUj0n8qnK91p6q8LKfr6rj.jpg",
+            "poster": "https://image.tmdb.org/t/p/w500/4PtzGcegF5Po1NmDAW9IklyvAUh.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/z26LxXDMmAIzKr06FPDudCJyvsM.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1507696"
-        },
-        {
-          "id": "tmdb:movie/1101412",
-          "media": "movie",
-          "title": "Fall 2: Deadpoint",
-          "year": 2026,
-          "overview": "On a perilous climb across Thailand's Mount Kwan, two climbers become trapped thousands of feet above the ground, where vertigo-inducing heights, sheer exposure, and impossible odds turn every moment into a fight for survival.",
-          "tags": [
-            "Thriller",
-            "sequel",
-            "rock climbing",
-            "sport climbing",
-            "climb",
-            "cautionary",
-            "dramatic",
-            "mountain climber"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/nGau0KBOaRILSK5MqFcuTfv7GMl.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "movie/1101412"
+          "source_id": "movie/1813355",
+          "why": null
         },
         {
           "id": "tmdb:movie/1657630",
@@ -406,13 +670,14 @@
             "presence"
           ],
           "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/u8v2kjcb5AHARPh0ZHmCHczWPuZ.jpg",
+            "poster": "https://image.tmdb.org/t/p/w500/7pUGiRg9Gq1JqmmNSJLLSonOKum.jpg",
             "backdrop": "https://image.tmdb.org/t/p/w1280/4pYKqctQvvdyhuGjiK4szH9jEv9.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1657630"
+          "source_id": "movie/1657630",
+          "why": null
         },
         {
           "id": "tmdb:movie/1283515",
@@ -437,7 +702,57 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1283515"
+          "source_id": "movie/1283515",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1294189",
+          "media": "movie",
+          "title": "The Mongoose",
+          "year": 2026,
+          "overview": "A falsely accused war hero with nothing to lose leads police on an epic televised cross-country car chase, helped by members of his former Special Forces Army battalion and closely monitored by a fascinated public rooting for his safe getaway.",
+          "tags": [
+            "Action",
+            "Thriller",
+            "fugitive",
+            "police pursuit",
+            "car chase"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/eSS5mvSG84UUuvtbHel5Yu3Wik4.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/iRIhPqqoUHiFBxn8oYf3gCQnaKk.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1294189",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1101412",
+          "media": "movie",
+          "title": "Fall 2: Deadpoint",
+          "year": 2026,
+          "overview": "On a perilous climb across Thailand's Mount Kwan, two climbers become trapped thousands of feet above the ground, where vertigo-inducing heights, sheer exposure, and impossible odds turn every moment into a fight for survival.",
+          "tags": [
+            "Thriller",
+            "sequel",
+            "rock climbing",
+            "sport climbing",
+            "climb",
+            "cautionary",
+            "dramatic",
+            "mountain climber"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/nGau0KBOaRILSK5MqFcuTfv7GMl.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1101412",
+          "why": null
         },
         {
           "id": "tmdb:movie/1368337",
@@ -469,50 +784,146 @@
             "epic fantasy"
           ],
           "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/9EJDqzAQ0HoNvMDkOQuirXt1RCg.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/iDiTY1wA35YWzTmXLTtqaxtN6tc.jpg",
+            "poster": "https://image.tmdb.org/t/p/w500/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/nVBzWBqHTB3XD0iqWiJLfKLo5fq.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1368337"
+          "source_id": "movie/1368337",
+          "why": null
         },
         {
-          "id": "tmdb:movie/1384216",
+          "id": "tmdb:movie/1514026",
           "media": "movie",
-          "title": "The Dog Stars",
+          "title": "Buddy",
           "year": 2026,
-          "overview": "After the world's population has been ravaged by a pandemic, a man lives a lonesome existence in a Colorado airplane hangar with his dog and a dour gunman he has befriended. When a mysterious transmission comes through on the radio while he’s flying his old Cessna, it sparks a hunt for the provenance of the sound.",
+          "overview": "Inside the colorful world of \"It's Buddy!\", a group of children spend their days singing, dancing, and helping Buddy - bright orange unicorn - spread happiness. But when one child refuses to play along, Buddy is not pleased and cracks begin to appear in this seemingly perfect world.",
           "tags": [
-            "Action",
-            "Thriller",
-            "Science Fiction",
-            "based on novel or book",
-            "dystopia",
-            "denver, colorado",
-            "pilot",
-            "colorado",
-            "grief",
-            "pandemic",
-            "detached",
-            "lonely man",
-            "death of wife",
-            "wonder",
-            "scavengers",
-            "loving",
-            "joyful",
-            "group",
-            "dogs",
-            "post-apocalyptic"
+            "Horror",
+            "Comedy",
+            "Fantasy",
+            "supernatural",
+            "dark comedy",
+            "gore",
+            "slasher",
+            "madness",
+            "burlesque",
+            "unicorn",
+            "tv host",
+            "suburban",
+            "supernatural horror",
+            "independent film",
+            "missing children",
+            "kids show"
           ],
           "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/5O616X9vmRzQdB68PHzBewPittd.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/3k7GzxOdLZkN3eZsuhLi2eRzkXO.jpg",
+            "poster": "https://image.tmdb.org/t/p/w500/1BdZbNvl1SfrrX8J9X5tQzN6Ivu.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/sMmG82PtjK8A9rVc34gwKQtCm3A.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1384216"
+          "source_id": "movie/1514026",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1571955",
+          "media": "movie",
+          "title": "Collision Course",
+          "year": 2026,
+          "overview": "Spain, 2013. After robbing a bank, a getaway crash reveals the hidden side of each thief, exposing betrayals and lies that began long before the heist.",
+          "tags": [
+            "Thriller",
+            "Drama",
+            "Crime",
+            "robbery",
+            "madrid, spain",
+            "deception",
+            "heist",
+            "survival",
+            "gang",
+            "fear",
+            "bank robbery",
+            "economic crisis",
+            "bank heist",
+            "suspenseful",
+            "exciting"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/s2eAK0uiODjlNUSIiOBwdp3at2u.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/uI3kWI7kGW5E0F8WduewgQYPt34.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1571955",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1232569",
+          "media": "movie",
+          "title": "Pinocchio: Unstrung",
+          "year": 2026,
+          "overview": "Influenced by a sinister Cricket and created by Geppetto, Pinocchio launches a violent crusade to carve himself into a real boy like his brother James, one piece at a time.",
+          "tags": [
+            "Horror",
+            "Fantasy",
+            "Mystery",
+            "lie",
+            "puppet",
+            "killer doll",
+            "dark fantasy",
+            "aftercreditsstinger",
+            "evil puppet",
+            "toy comes to life",
+            "mysterious",
+            "aggressive",
+            "teamwork",
+            "absurd",
+            "slasher horror",
+            "the twisted childhood universe (tcu)"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/hJNdizFlxOW89edX3Rzr6OliSFI.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/7RsPdXLDNugDIlwXPVeeprNfMx.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1232569",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1422041",
+          "media": "movie",
+          "title": "LA BOLA NEGRA",
+          "year": 2026,
+          "overview": "The intertwined lives of three men in three different eras, three lives intimately linked by sexuality and desire, pain, and legacy.",
+          "tags": [
+            "Drama",
+            "War",
+            "based on novel or book",
+            "spanish civil war (1936-39)",
+            "lgbt",
+            "spanish second republic (1931-39)",
+            "philosophical",
+            "1930s",
+            "lyrical",
+            "2010s",
+            "gay theme",
+            "inspirational",
+            "romantic"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/jT5SR5qc9KvVg7HUEmjMWEUYMce.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/bDsmYvrzto7xrEwqDpLC3SPhn9A.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1422041",
+          "why": null
         },
         {
           "id": "tmdb:movie/1291595",
@@ -547,7 +958,44 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1291595"
+          "source_id": "movie/1291595",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1375441",
+          "media": "movie",
+          "title": "Primetime",
+          "year": 2026,
+          "overview": "In 2006, To Catch a Predator host Chris Hansen sets out to make television history. When a high stakes operation goes fatally wrong, his veneered dream of fame curdles into a nightmare of performative justice.",
+          "tags": [
+            "Thriller",
+            "Drama",
+            "pedophilia",
+            "florida",
+            "new york city",
+            "california",
+            "husband wife relationship",
+            "based on true story",
+            "connecticut",
+            "psychological thriller",
+            "usa history",
+            "online predator",
+            "sexual predator",
+            "2000s",
+            "america",
+            "reality tv",
+            "television",
+            "psychological family drama"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/lmrulvLbmaejTix1YaMxo1oGhH1.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/sEsMwSDUWGIx9EfNxzM6KzVSsSQ.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1375441",
+          "why": null
         },
         {
           "id": "tmdb:movie/1400940",
@@ -564,13 +1012,16 @@
             "based on comic",
             "revenge",
             "tragedy",
+            "mobster",
+            "unrequited love",
+            "disfigured face",
             "aspiring actor",
             "female scientist",
             "scientific experiment",
             "body horror",
             "dc universe (dcu)",
-            "hollywood actor",
-            "comic monster"
+            "tragic",
+            "hollywood actor"
           ],
           "images": {
             "poster": "https://image.tmdb.org/t/p/w500/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
@@ -579,175 +1030,48 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1400940"
+          "source_id": "movie/1400940",
+          "why": null
         },
         {
-          "id": "tmdb:movie/1813355",
+          "id": "tmdb:movie/1384216",
           "media": "movie",
-          "title": "A Story of Derry",
+          "title": "The Dog Stars",
           "year": 2026,
-          "overview": "Hundreds of years before Pennywise, three youngsters venture into the Western Wood...where they encounter a terrifying ancient spirit.",
-          "tags": [
-            "Drama",
-            "Horror",
-            "Mystery",
-            "monster",
-            "based on novel or book",
-            "tribe",
-            "forest",
-            "prequel",
-            "cannibal",
-            "hunting"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/q2XCoT6AqBANz0mKmkgVeo4PyRQ.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/z26LxXDMmAIzKr06FPDudCJyvsM.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "movie/1813355"
-        },
-        {
-          "id": "tmdb:movie/1571955",
-          "media": "movie",
-          "title": "Collision Course",
-          "year": 2026,
-          "overview": "Spain, 2013. After robbing a bank, a getaway crash reveals the hidden side of each thief, exposing betrayals and lies that began long before the heist.",
-          "tags": [
-            "Thriller",
-            "Drama",
-            "Crime",
-            "robbery",
-            "madrid, spain",
-            "deception",
-            "heist",
-            "survival",
-            "gang",
-            "fear",
-            "bank robbery",
-            "economic crisis",
-            "bank heist",
-            "suspenseful",
-            "exciting"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/s2eAK0uiODjlNUSIiOBwdp3at2u.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/uI3kWI7kGW5E0F8WduewgQYPt34.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "movie/1571955"
-        },
-        {
-          "id": "tmdb:movie/1376400",
-          "media": "movie",
-          "title": "Crawlers",
-          "year": 2026,
-          "overview": "Tenants at Paradiso Palms apartments fight a deadly spider invasion while the cunning building manager might be their only hope for survival.",
-          "tags": [
-            "Horror",
-            "Thriller",
-            "manager",
-            "spider",
-            "outbreak",
-            "survival",
-            "macabre",
-            "infestation",
-            "paranoid",
-            "overwork",
-            "apartment",
-            "arachnid"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/lNXeEpg4yLSRwXwOeR5lbPgwbqL.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/ayJsUQ4bEG6yY0UB6lMboiaDfYE.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "movie/1376400"
-        },
-        {
-          "id": "tmdb:movie/1148365",
-          "media": "movie",
-          "title": "Matchbox the Movie",
-          "year": 2026,
-          "overview": "When a group of former childhood friends reconnect, their reunion takes a wild turn as they stumble upon a dangerous international plot—and must save the world.",
+          "overview": "After the world's population has been ravaged by a pandemic, a man lives a lonesome existence in a Colorado airplane hangar with his dog and a dour gunman he has befriended. When a mysterious transmission comes through on the radio while he’s flying his old Cessna, it sparks a hunt for the provenance of the sound.",
           "tags": [
             "Action",
-            "Comedy",
-            "Adventure",
-            "friendship",
-            "undercover agent",
-            "reunion",
-            "based on toy",
-            "childhood friends",
-            "friends reunion",
-            "cars",
-            "save the world",
-            "arrogant",
-            "assertive",
-            "cheerful",
-            "cia agent"
+            "Thriller",
+            "Science Fiction",
+            "based on novel or book",
+            "dystopia",
+            "denver, colorado",
+            "pilot",
+            "colorado",
+            "grief",
+            "pandemic",
+            "detached",
+            "lonely man",
+            "death of wife",
+            "wonder",
+            "scavengers",
+            "loving",
+            "depressing",
+            "derisive",
+            "joyful",
+            "group",
+            "dogs",
+            "post-apocalyptic"
           ],
           "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/aHhHRz6nOpwkqJs5ASeRGAdK2dt.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/jdJsnhHfkIi3J7jwfiCFT4gXNx5.jpg",
+            "poster": "https://image.tmdb.org/t/p/w500/5O616X9vmRzQdB68PHzBewPittd.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/3k7GzxOdLZkN3eZsuhLi2eRzkXO.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1148365"
-        },
-        {
-          "id": "tmdb:movie/1465063",
-          "media": "movie",
-          "title": "Forgotten Island",
-          "year": 2026,
-          "overview": "While celebrating their last night together, high school graduates and best friends Jo and Raissa stumble upon a mysterious portal that transports them to the fantastical island of Nakali. When they discover that the memories of their entire friendship are the price for returning home, Jo and Raissa must race to find a way to leave the island before they forget each other forever.",
-          "tags": [
-            "Animation",
-            "Adventure",
-            "Fantasy",
-            "Comedy",
-            "Family",
-            "friendship",
-            "island",
-            "regret",
-            "amnesia",
-            "self sacrifice",
-            "mythology",
-            "female friendship",
-            "mythical creature",
-            "philippines",
-            "coming of age",
-            "memory loss",
-            "memory",
-            "best friend",
-            "demon",
-            "1990s",
-            "found family",
-            "grandmother granddaughter relationship",
-            "3d animation",
-            "filipino",
-            "memory manipulation",
-            "filipino mythology",
-            "filipino culture",
-            "friendship under pressure",
-            "magic portal",
-            "art shift",
-            "animesque"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/cNICUho5uiAGkfCAQq1ihyaMla4.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "movie/1465063"
+          "source_id": "movie/1384216",
+          "why": null
         },
         {
           "id": "tmdb:movie/1780005",
@@ -772,41 +1096,62 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1780005"
+          "source_id": "movie/1780005",
+          "why": null
         },
         {
-          "id": "tmdb:movie/1204680",
+          "id": "tmdb:movie/1003596",
           "media": "movie",
-          "title": "Coyote vs. Acme",
+          "title": "Avengers: Doomsday",
           "year": 2026,
-          "overview": "After Acme products fail him one too many times in his dogged pursuit of the Roadrunner, Wile E. Coyote decides to hire a billboard lawyer to sue the Acme Corporation.",
+          "overview": "Beloved heroes from three distinct universes are set on a deadly collision course and face an existential threat unlike anything they've ever encountered.",
           "tags": [
-            "Comedy",
+            "Science Fiction",
+            "Action",
             "Adventure",
-            "Family",
-            "Animation",
-            "judge",
-            "lawsuit",
-            "lawyer",
-            "courtroom",
-            "unlikely friendship",
-            "coyote",
-            "live action and animation",
-            "based on magazine, newspaper or article",
-            "cartoon characters",
-            "cgi-live action hybrid",
-            "absurd",
-            "dramatic",
-            "celebratory"
+            "superhero",
+            "based on comic",
+            "sequel",
+            "superhero team",
+            "marvel cinematic universe (mcu)",
+            "team up",
+            "multiverse"
           ],
           "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/kYDCl2y0VPvhT5eYWbMRInPoB03.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/rueyXwlewVPAP5NkqCUJx4RjhqB.jpg",
+            "poster": "https://image.tmdb.org/t/p/w500/9jlZ59UALLLOE279HMT19rP9XQs.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/rObL4of4eFA8yWaN9pRFo9aOVNi.jpg",
             "square": null,
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "movie/1204680"
+          "source_id": "movie/1003596",
+          "why": null
+        },
+        {
+          "id": "tmdb:movie/1228834",
+          "media": "movie",
+          "title": "The Fix",
+          "year": 2026,
+          "overview": "Disillusioned by the end of the war in Afghanistan, a group of disgraced, war-torn ex-CIA operatives set out to Tehran to take down a life-changing score.",
+          "tags": [
+            "Action",
+            "Thriller",
+            "central intelligence agency (cia)",
+            "war veteran",
+            "afghanistan war (2001-2021)",
+            "afghanistan veteran",
+            "tehran",
+            "action thriller"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/jlP8XDjZN89GrpM3je5Uf8Grqx8.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/dJTWIecL2vxsCRl5G0lRhPsfrhc.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "movie/1228834",
+          "why": null
         }
       ],
       "explanation": null
@@ -817,161 +1162,6 @@
       "variant": "poster",
       "ranked": false,
       "items": [
-        {
-          "id": "tmdb:tv/456",
-          "media": "tv",
-          "title": "The Simpsons",
-          "year": 1989,
-          "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
-          "tags": [
-            "Animation",
-            "Comedy",
-            "nuclear power plant",
-            "middle class",
-            "cartoon",
-            "satire",
-            "parody",
-            "dysfunctional family",
-            "school",
-            "adult humor",
-            "social satire",
-            "family",
-            "family conflict",
-            "adult animation",
-            "sitcom",
-            "kids",
-            "farce"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/tf0CUEynk6GfmrlHIQKQ5mfFP5P.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/jIArNHIekrCSVgdMbKPAXpPY03Y.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "tv/456"
-        },
-        {
-          "id": "tmdb:tv/1416",
-          "media": "tv",
-          "title": "Grey's Anatomy",
-          "year": 2005,
-          "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
-          "tags": [
-            "Drama",
-            "seattle, washington",
-            "trauma",
-            "workplace",
-            "hospital",
-            "doctor",
-            "medical student",
-            "surgical interns",
-            "medical drama"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/gO8Fo47KV1opiutRDdBS5jclTQB.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/A4NwkQXTXElE5iAsne5RpvS8R2Z.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "tv/1416"
-        },
-        {
-          "id": "tmdb:tv/247718",
-          "media": "tv",
-          "title": "MobLand",
-          "year": 2025,
-          "overview": "Two mob families clash in a war that threatens to topple empires and lives.",
-          "tags": [
-            "Crime",
-            "Drama",
-            "london, england",
-            "drug trafficking",
-            "gang war",
-            "gangster",
-            "family business ",
-            "murder",
-            "betrayal",
-            "crime family",
-            "fixer",
-            "corrupt cop",
-            "bold",
-            "brutal violence"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/5Xc7WpWsgflfgEMoBlf9TmWhfbH.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/h0OC7ouop8YLwbAVfS3UUE2Lw4T.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "tv/247718"
-        },
-        {
-          "id": "tmdb:tv/4614",
-          "media": "tv",
-          "title": "NCIS",
-          "year": 2003,
-          "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
-          "tags": [
-            "Crime",
-            "Drama",
-            "Action & Adventure",
-            "navy",
-            "marine corps",
-            "u.s. navy",
-            "naval officer",
-            "medical examiner",
-            "interrogation",
-            "ex-marine",
-            "criminal investigation",
-            "veteran",
-            "virginia",
-            "crime investigation",
-            "special agent",
-            "police procedural",
-            "dramatic"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/y4fGncqELtnvRQuwSpuH8LncZqU.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/c1aBrG5s5xFa6Tbnihu2Hhj4t2q.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "tv/4614"
-        },
-        {
-          "id": "tmdb:tv/213375",
-          "media": "tv",
-          "title": "VisionQuest",
-          "year": 2026,
-          "overview": "With a bounty on his head, Vision must confront his nature and resist Ultron's influence to survive.",
-          "tags": [
-            "Sci-Fi & Fantasy",
-            "Drama",
-            "android",
-            "identity crisis",
-            "based on comic",
-            "on the run",
-            "miniseries",
-            "spin off",
-            "self identity",
-            "marvel cinematic universe (mcu)",
-            "father son relationship",
-            "adoring",
-            "synthezoid"
-          ],
-          "images": {
-            "poster": "https://image.tmdb.org/t/p/w500/WGyAyBPncfuu8MZhLY9RtfZPM0.jpg",
-            "backdrop": "https://image.tmdb.org/t/p/w1280/58v1KFe3rxvHrYM1hLH5ScpwqNR.jpg",
-            "square": null,
-            "capsule": null
-          },
-          "source": "tmdb",
-          "source_id": "tv/213375"
-        },
         {
           "id": "tmdb:tv/153312",
           "media": "tv",
@@ -1006,7 +1196,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/153312"
+          "source_id": "tv/153312",
+          "why": null
         },
         {
           "id": "tmdb:tv/30984",
@@ -1051,7 +1242,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/30984"
+          "source_id": "tv/30984",
+          "why": null
         },
         {
           "id": "tmdb:tv/120911",
@@ -1078,7 +1270,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/120911"
+          "source_id": "tv/120911",
+          "why": null
         },
         {
           "id": "tmdb:tv/95480",
@@ -1108,7 +1301,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/95480"
+          "source_id": "tv/95480",
+          "why": null
         },
         {
           "id": "tmdb:tv/96677",
@@ -1142,7 +1336,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/96677"
+          "source_id": "tv/96677",
+          "why": null
         },
         {
           "id": "tmdb:tv/124364",
@@ -1172,7 +1367,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/124364"
+          "source_id": "tv/124364",
+          "why": null
         },
         {
           "id": "tmdb:tv/1413",
@@ -1223,7 +1419,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/1413"
+          "source_id": "tv/1413",
+          "why": null
         },
         {
           "id": "tmdb:tv/200875",
@@ -1265,7 +1462,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/200875"
+          "source_id": "tv/200875",
+          "why": null
         },
         {
           "id": "tmdb:tv/58841",
@@ -1288,7 +1486,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/58841"
+          "source_id": "tv/58841",
+          "why": null
         },
         {
           "id": "tmdb:tv/312359",
@@ -1319,7 +1518,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/312359"
+          "source_id": "tv/312359",
+          "why": null
         },
         {
           "id": "tmdb:tv/60625",
@@ -1352,7 +1552,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/60625"
+          "source_id": "tv/60625",
+          "why": null
         },
         {
           "id": "tmdb:tv/289517",
@@ -1380,7 +1581,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/289517"
+          "source_id": "tv/289517",
+          "why": null
         },
         {
           "id": "tmdb:tv/284833",
@@ -1406,7 +1608,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/284833"
+          "source_id": "tv/284833",
+          "why": null
         },
         {
           "id": "tmdb:tv/259909",
@@ -1448,7 +1651,8 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/259909"
+          "source_id": "tv/259909",
+          "why": null
         },
         {
           "id": "tmdb:tv/97546",
@@ -1484,7 +1688,156 @@
             "capsule": null
           },
           "source": "tmdb",
-          "source_id": "tv/97546"
+          "source_id": "tv/97546",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/84773",
+          "media": "tv",
+          "title": "The Lord of the Rings: The Rings of Power",
+          "year": 2022,
+          "overview": "Beginning in a time of relative peace, we follow an ensemble cast of characters as they confront the re-emergence of evil to Middle-earth. From the darkest depths of the Misty Mountains, to the majestic forests of Lindon, to the breathtaking island kingdom of Númenor, to the furthest reaches of the map, these kingdoms and characters will carve out legacies that live on long after they are gone.",
+          "tags": [
+            "Action & Adventure",
+            "Sci-Fi & Fantasy",
+            "elves",
+            "dwarf",
+            "based on novel or book",
+            "prequel",
+            "troll",
+            "battle",
+            "fantasy world",
+            "mysterious stranger",
+            "high fantasy",
+            "sword and sorcery"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/bMXWXKM9ydUmMTNvDnYo9QtCBRt.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/achmETPRJZc9QVXsMPgHwYEyNar.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/84773",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/113962",
+          "media": "tv",
+          "title": "Lioness",
+          "year": 2023,
+          "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
+          "tags": [
+            "Drama",
+            "War & Politics",
+            "central intelligence agency (cia)",
+            "undercover agent",
+            "us military",
+            "special ops",
+            "thoughtful",
+            "spy thriller"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/mU7l9UaEItxHbg2YBNs0sHjoFVY.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/113962",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/213562",
+          "media": "tv",
+          "title": "Crystal Lake",
+          "year": 2026,
+          "overview": "Single mother Pam Voorhees has been unable to shake her grief after her young, sickly son Jason tragically drowned in the town lake almost a year before. When two strangers arrive at Pam's door digging into her past, a disturbing chain of events is set into motion, leaving the townspeople of Crystal Lake wondering: just who is Pam Voorhees?",
+          "tags": [
+            "Drama",
+            "Mystery",
+            "mother",
+            "summer camp",
+            "prequel",
+            "camp",
+            "slasher",
+            "based on movie",
+            "mother son relationship",
+            "horror"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/3ENhExiD2fcjk5FX0AcAXcvLu9N.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/wxiBsKFEOOFK8eQStWOykNORlXY.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/213562",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/45790",
+          "media": "tv",
+          "title": "JoJo's Bizarre Adventure",
+          "year": 2012,
+          "overview": "Follow the intergenerational feud between the Joestar Family and various forces of evil, the most prominent of which is Dio Brando and his followers.",
+          "tags": [
+            "Animation",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy",
+            "magic",
+            "vampire",
+            "based on manga",
+            "adventurer",
+            "globetrotting",
+            "shounen",
+            "anime",
+            "muscles",
+            "supernatural power",
+            "horror",
+            "adventure"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/ogAWwbh3frWtiTyyXrZaVFtqCgp.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/l2gc2dPRUPe3bAfYCRTjc6uAMmB.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/45790",
+          "why": null
+        },
+        {
+          "id": "tmdb:tv/75219",
+          "media": "tv",
+          "title": "9-1-1",
+          "year": 2018,
+          "overview": "Explore the high-pressure experiences of police officers, paramedics and firefighters who are thrust into the most frightening, shocking and heart-stopping situations. These emergency responders must try to balance saving those who are at their most vulnerable with solving the problems in their own lives.",
+          "tags": [
+            "Drama",
+            "Crime",
+            "Action & Adventure",
+            "california",
+            "police",
+            "los angeles, california",
+            "police officer",
+            "firefighter",
+            "emergency",
+            "procedural",
+            "frantic",
+            "first responders",
+            "emergency services",
+            "amused"
+          ],
+          "images": {
+            "poster": "https://image.tmdb.org/t/p/w500/u6HuWWohheyzAj5PUn4rBd0eH92.jpg",
+            "backdrop": "https://image.tmdb.org/t/p/w1280/5QJtEzMR7NxRxBBEdB7JfM1l7Oj.jpg",
+            "square": null,
+            "capsule": null
+          },
+          "source": "tmdb",
+          "source_id": "tv/75219",
+          "why": null
         }
       ],
       "explanation": null
@@ -1525,7 +1878,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "16498"
+          "source_id": "16498",
+          "why": null
         },
         {
           "id": "anilist:101922",
@@ -1557,7 +1911,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "101922"
+          "source_id": "101922",
+          "why": null
         },
         {
           "id": "anilist:113415",
@@ -1589,7 +1944,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "113415"
+          "source_id": "113415",
+          "why": null
         },
         {
           "id": "anilist:1535",
@@ -1621,7 +1977,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "1535"
+          "source_id": "1535",
+          "why": null
         },
         {
           "id": "anilist:21459",
@@ -1653,7 +2010,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "21459"
+          "source_id": "21459",
+          "why": null
         },
         {
           "id": "anilist:11061",
@@ -1685,7 +2043,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "11061"
+          "source_id": "11061",
+          "why": null
         },
         {
           "id": "anilist:21087",
@@ -1717,7 +2076,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "21087"
+          "source_id": "21087",
+          "why": null
         },
         {
           "id": "anilist:21",
@@ -1749,7 +2109,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "21"
+          "source_id": "21",
+          "why": null
         },
         {
           "id": "anilist:20605",
@@ -1781,7 +2142,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "20605"
+          "source_id": "20605",
+          "why": null
         },
         {
           "id": "anilist:20958",
@@ -1813,7 +2175,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "20958"
+          "source_id": "20958",
+          "why": null
         },
         {
           "id": "anilist:5114",
@@ -1845,7 +2208,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "5114"
+          "source_id": "5114",
+          "why": null
         },
         {
           "id": "anilist:20",
@@ -1877,7 +2241,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "20"
+          "source_id": "20",
+          "why": null
         },
         {
           "id": "anilist:11757",
@@ -1909,7 +2274,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "11757"
+          "source_id": "11757",
+          "why": null
         },
         {
           "id": "anilist:20954",
@@ -1941,7 +2307,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "20954"
+          "source_id": "20954",
+          "why": null
         },
         {
           "id": "anilist:21519",
@@ -1972,7 +2339,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "21519"
+          "source_id": "21519",
+          "why": null
         },
         {
           "id": "anilist:99147",
@@ -2004,7 +2372,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "99147"
+          "source_id": "99147",
+          "why": null
         },
         {
           "id": "anilist:21856",
@@ -2034,7 +2403,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "21856"
+          "source_id": "21856",
+          "why": null
         },
         {
           "id": "anilist:110277",
@@ -2066,7 +2436,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "110277"
+          "source_id": "110277",
+          "why": null
         },
         {
           "id": "anilist:127230",
@@ -2098,7 +2469,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "127230"
+          "source_id": "127230",
+          "why": null
         },
         {
           "id": "anilist:101759",
@@ -2128,7 +2500,8 @@
             "capsule": null
           },
           "source": "anilist",
-          "source_id": "101759"
+          "source_id": "101759",
+          "why": null
         }
       ],
       "explanation": null
@@ -2156,7 +2529,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6817733404"
+          "source_id": "6817733404",
+          "why": null
         },
         {
           "id": "itunes:6814002539",
@@ -2175,7 +2549,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6814002539"
+          "source_id": "6814002539",
+          "why": null
         },
         {
           "id": "itunes:1858961207",
@@ -2194,7 +2569,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1858961207"
+          "source_id": "1858961207",
+          "why": null
         },
         {
           "id": "itunes:1887523860",
@@ -2213,7 +2589,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1887523860"
+          "source_id": "1887523860",
+          "why": null
         },
         {
           "id": "itunes:6815521455",
@@ -2232,7 +2609,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6815521455"
+          "source_id": "6815521455",
+          "why": null
         },
         {
           "id": "itunes:6790094079",
@@ -2251,7 +2629,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6790094079"
+          "source_id": "6790094079",
+          "why": null
         },
         {
           "id": "itunes:6818555484",
@@ -2270,7 +2649,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6818555484"
+          "source_id": "6818555484",
+          "why": null
         },
         {
           "id": "itunes:6794258483",
@@ -2289,7 +2669,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6794258483"
+          "source_id": "6794258483",
+          "why": null
         },
         {
           "id": "itunes:6822181956",
@@ -2308,7 +2689,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6822181956"
+          "source_id": "6822181956",
+          "why": null
         },
         {
           "id": "itunes:1829591921",
@@ -2327,7 +2709,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1829591921"
+          "source_id": "1829591921",
+          "why": null
         },
         {
           "id": "itunes:1838877939",
@@ -2346,7 +2729,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1838877939"
+          "source_id": "1838877939",
+          "why": null
         },
         {
           "id": "itunes:6769093931",
@@ -2365,7 +2749,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6769093931"
+          "source_id": "6769093931",
+          "why": null
         },
         {
           "id": "itunes:6829129549",
@@ -2384,7 +2769,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6829129549"
+          "source_id": "6829129549",
+          "why": null
         },
         {
           "id": "itunes:6817850231",
@@ -2403,7 +2789,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6817850231"
+          "source_id": "6817850231",
+          "why": null
         },
         {
           "id": "itunes:6770745505",
@@ -2422,7 +2809,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6770745505"
+          "source_id": "6770745505",
+          "why": null
         },
         {
           "id": "itunes:1123241840",
@@ -2441,7 +2829,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1123241840"
+          "source_id": "1123241840",
+          "why": null
         },
         {
           "id": "itunes:6773013206",
@@ -2460,7 +2849,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "6773013206"
+          "source_id": "6773013206",
+          "why": null
         },
         {
           "id": "itunes:1468448737",
@@ -2479,7 +2869,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1468448737"
+          "source_id": "1468448737",
+          "why": null
         },
         {
           "id": "itunes:1796165811",
@@ -2498,7 +2889,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1796165811"
+          "source_id": "1796165811",
+          "why": null
         },
         {
           "id": "itunes:1073359412",
@@ -2517,7 +2909,8 @@
             "capsule": null
           },
           "source": "itunes",
-          "source_id": "1073359412"
+          "source_id": "1073359412",
+          "why": null
         }
       ],
       "explanation": null

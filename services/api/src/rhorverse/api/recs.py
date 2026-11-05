@@ -16,7 +16,7 @@ from rhorverse.rec.feed import (
 )
 from rhorverse.rec.tabs import build_media
 from rhorverse.rec.vec import parse_pgvector
-from rhorverse.schemas import Explanation, HomeFeed, MediaType, Rail
+from rhorverse.schemas import Explanation, HomeFeed, MediaFeed, MediaType, Rail
 
 router = APIRouter(prefix="/recs", tags=["recs"])
 
@@ -47,14 +47,15 @@ def because(
     return because_rail(conn, anchor, exclude)[0]
 
 
-@router.get("/media/{media}", response_model=list[Rail])
+@router.get("/media/{media}", response_model=MediaFeed)
 def media_tab(
     media: MediaType,
     profile_id: str | None = None,
+    chip: str | None = None,
     conn: Connection = Depends(get_conn),  # noqa: B008
-) -> list[Rail]:
-    """Rails for one media tab: personal (with a profile), popular, new releases, top genres."""
-    return build_media(conn, media, profile_id)
+) -> MediaFeed:
+    """One media tab: hero, chips, and rails (personal with a profile), optionally filtered by a chip."""
+    return build_media(conn, media, profile_id, chip)
 
 
 def _work_or_404(conn: Connection, work_id: str) -> dict[str, Any]:

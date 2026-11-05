@@ -13,7 +13,7 @@ import type { MediaType, Work } from "@/lib/types";
 const MEDIA_LABEL: Record<MediaType, string> = { movie: "Film", tv: "TV", anime: "Anime", music: "Music", game: "Game" };
 
 /** Featured rotator: cross-fades backdrops through `items`, pausing on hover/focus. */
-export function Hero({ items }: { items: Work[] }) {
+export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?: "h1" | "h2" }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -55,7 +55,7 @@ export function Hero({ items }: { items: Work[] }) {
         </motion.div>
       </AnimatePresence>
       <div className="flex flex-col gap-4 p-6 pb-10 md:p-10 md:pb-12">
-        <h1 className="max-w-4xl font-display text-display-xl text-ink">{work.title}</h1>
+        <Title className="max-w-4xl font-display text-display-xl text-ink">{work.title}</Title>
         <ul className="flex flex-wrap gap-2" aria-label="Details">
           {chips.map((chip) => (
             <li

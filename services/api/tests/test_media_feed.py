@@ -64,7 +64,7 @@ def profile(conn: psycopg.Connection) -> str:
 
 
 def test_cold_tab_has_popular_new_and_genre_rails(games: psycopg.Connection) -> None:
-    rails = build_media(games, "game", None)
+    rails = build_media(games, "game", None).rails
     assert [r.id for r in rails][:2] == ["game-popular", "game-new"]
     assert {r.title for r in rails} >= {"Popular games", "New releases", "Action", "Puzzle"}
     assert all(r.variant == "capsule" for r in rails)
@@ -72,24 +72,24 @@ def test_cold_tab_has_popular_new_and_genre_rails(games: psycopg.Connection) -> 
 
 
 def test_new_releases_are_newest_first(games: psycopg.Connection) -> None:
-    new = next(r for r in build_media(games, "game", None) if r.id == "game-new")
+    new = next(r for r in build_media(games, "game", None).rails if r.id == "game-new")
     years = [w.year for w in new.items]
     assert years == sorted(years, reverse=True)
 
 
 def test_genre_rails_only_hold_that_genre(games: psycopg.Connection) -> None:
-    rails = {r.title: r for r in build_media(games, "game", None)}
+    rails = {r.title: r for r in build_media(games, "game", None).rails}
     puzzle_ids = {f"test:game/g{i}" for i in range(50, 80)}
     assert {w.id for w in rails["Puzzle"].items} <= puzzle_ids
 
 
 def test_no_item_repeats_across_rails(games: psycopg.Connection) -> None:
-    ids = [w.id for r in build_media(games, "game", profile(games)) for w in r.items]
+    ids = [w.id for r in build_media(games, "game", profile(games)).rails for w in r.items]
     assert len(ids) == len(set(ids))
 
 
 def test_profile_gets_personal_rail_without_liked_or_consumed(games: psycopg.Connection) -> None:
-    rails = build_media(games, "game", profile(games))
+    rails = build_media(games, "game", profile(games)).rails
     assert rails[0].id == "game-for-you"
     shown = {w.id for r in rails for w in r.items}
     assert not shown & {*LIKED, CONSUMED}
@@ -97,7 +97,8 @@ def test_profile_gets_personal_rail_without_liked_or_consumed(games: psycopg.Con
 
 def test_empty_medium_has_no_rails(conn: psycopg.Connection) -> None:
     conn.execute("delete from works where media = 'game'")
-    assert build_media(conn, "game", None) == []
+    feed = build_media(conn, "game", None)
+    assert (feed.hero, feed.rails, feed.chips) == ([], [], [])
 
 
 def test_route_and_unknown_media(games: psycopg.Connection) -> None:
@@ -105,5 +106,50 @@ def test_route_and_unknown_media(games: psycopg.Connection) -> None:
     app.dependency_overrides[get_conn] = lambda: games
     client = TestClient(app)
     body = client.get("/recs/media/game").json()
-    assert body[0]["id"] == "game-popular"
+    assert body["rails"][0]["id"] == "game-popular"
     assert client.get("/recs/media/podcast").status_code == 422
+
+
+@pytest.fixture
+def languages(conn: psycopg.Connection) -> psycopg.Connection:
+    conn.execute("delete from works where media = 'tv'")
+    rows = [
+        WorkRow(
+            media="tv",  # type: ignore[arg-type]
+            source="test",
+            source_id=f"tv/l{i}",
+            title=f"Show {i}",
+            popularity=float(100 - i),
+            images={"backdrop": f"https://example.test/{i}.jpg"},
+            extra={"language": ["hi"] if i < 6 else ["en"] if i < 12 else ["xx"]},
+        )
+        for i in range(13)
+    ]
+    upsert_works(conn, rows)
+    return conn
+
+
+def test_chips_list_named_languages_with_enough_works(languages: psycopg.Connection) -> None:
+    chips = build_media(languages, "tv", None).chips
+    assert {(c.value, c.label) for c in chips} == {("hi", "Hindi"), ("en", "English")}  # xx has only 1
+
+
+def test_chip_filters_every_rail_and_the_hero(languages: psycopg.Connection) -> None:
+    feed = build_media(languages, "tv", None, chip="hi")
+    ids = {w.id for r in feed.rails for w in r.items} | {w.id for w in feed.hero}
+    assert ids == {f"test:tv/l{i}" for i in range(6)}
+    assert len(feed.chips) == 2  # the bar still offers the other chips
+
+
+def test_tab_hero_has_true_ranks(languages: psycopg.Connection) -> None:
+    hero = build_media(languages, "tv", None).hero
+    assert hero[0].why == "#1 most popular in TV"
+    assert hero[1].why == "#2 most popular in TV"
+
+
+def test_chip_route_and_unknown_chip(languages: psycopg.Connection) -> None:
+    app = create_app()
+    app.dependency_overrides[get_conn] = lambda: languages
+    client = TestClient(app)
+    assert len(client.get("/recs/media/tv", params={"chip": "hi"}).json()["hero"]) == 5
+    assert client.get("/recs/media/tv", params={"chip": "nope"}).json()["rails"] == []

@@ -7,8 +7,10 @@ import type {
   HomeFeed,
   ImportResult,
   ImportSource,
+  MediaFeed,
   MediaType,
   Rail,
+  SearchFilters,
   SearchResult,
   Track,
   Work,
@@ -132,13 +134,16 @@ export const api = {
     );
   },
 
-  /** A media tab's rails. With a profile id they're personal, so never cached. */
-  async media(media: MediaType, profileId?: string | null): Promise<Rail[]> {
-    const fromSnapshot = () => snapshot<Rail[]>(MEDIA_SNAPSHOT[media]);
+  /** A media tab: hero, chips and rails. With a profile id it's personal, so never cached. */
+  async media(media: MediaType, profileId?: string | null, chip?: string | null): Promise<MediaFeed> {
+    const fromSnapshot = () => snapshot<MediaFeed>(MEDIA_SNAPSHOT[media]);
     if (API_MODE !== "live") return fromSnapshot();
-    const query = profileId ? `?${new URLSearchParams({ profile_id: profileId })}` : "";
-    const init: RequestInit = profileId ? { cache: "no-store" } : { next: { revalidate: 300 } };
-    return liveOr(() => live<Rail[]>(`/recs/media/${media}${query}`, init, PAGE_TIMEOUT_MS), fromSnapshot);
+    const params = new URLSearchParams();
+    if (profileId) params.set("profile_id", profileId);
+    if (chip) params.set("chip", chip);
+    const query = params.size ? `?${params}` : "";
+    const init: RequestInit = profileId ? NO_STORE : { next: { revalidate: 300 } };
+    return liveOr(() => live<MediaFeed>(`/recs/media/${media}${query}`, init, PAGE_TIMEOUT_MS), fromSnapshot);
   },
 
   async work(id: string): Promise<WorkDetail | null> {
@@ -154,10 +159,11 @@ export const api = {
     }
   },
 
-  async search(q: string, media?: MediaType): Promise<SearchResult> {
+  async search(q: string, media?: MediaType, filters: SearchFilters = {}): Promise<SearchResult> {
     if (API_MODE !== "live") return snapshotSearch(q, media);
-    const params = new URLSearchParams({ q });
+    const params = new URLSearchParams({ q, limit: "60" });
     if (media) params.set("media", media);
+    for (const [key, on] of Object.entries(filters)) if (on) params.set(key, "true");
     return liveOr(
       () => live<SearchResult>(`/search?${params}`, undefined, PAGE_TIMEOUT_MS),
       () => snapshotSearch(q, media),

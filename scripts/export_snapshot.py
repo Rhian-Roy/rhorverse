@@ -29,9 +29,10 @@ def main() -> None:
         home = build_home(conn, None)
         write("home", home.model_dump(mode="json"))
         for tab, media in TABS.items():
-            rails = build_media(conn, media, None)  # type: ignore[arg-type]
-            write(tab, [r.model_dump(mode="json") for r in rails])
-            print(f"{tab}: {len(rails)} rails")
+            feed = build_media(conn, media, None)  # type: ignore[arg-type]
+            # Chips filter through the API, which snapshot mode doesn't have.
+            write(tab, feed.model_copy(update={"chips": []}).model_dump(mode="json"))
+            print(f"{tab}: {len(feed.rails)} rails")
         conn.rollback()
     print(f"home: {len(home.rails)} rails, {len(home.hero)} hero → {OUT}")
 

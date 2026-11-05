@@ -125,22 +125,42 @@ def taste_from(signals: list[Signal], now: datetime | None = None) -> np.ndarray
     return taste_vector(np.stack([s.embedding for s in usable]), weights)  # type: ignore[misc]
 
 
+Facet = tuple[str, str] | None  # e.g. ("language", "hi")
+
+_FACET_SQL = "(%(fk)s::text is null or facets->%(fk)s::text ? %(fv)s::text)"
+
+
+def _facet_params(facet: Facet) -> dict[str, str | None]:
+    return {"fk": facet[0] if facet else None, "fv": facet[1] if facet else None}
+
+
 def candidates(
-    conn: Connection, vec: np.ndarray, exclude: set[str], k: int = CANDIDATES, media: str | None = None
+    conn: Connection,
+    vec: np.ndarray,
+    exclude: set[str],
+    k: int = CANDIDATES,
+    media: str | None = None,
+    facet: Facet = None,
 ) -> list[Candidate]:
     """Nearest works by cosine distance (HNSW), minus `exclude`, optionally of one `media`."""
     # HNSW returns at most ef_search rows (default 40) before filters apply, which silently capped
     # k=200 at 40. Widen it to k for this transaction, and keep scanning past filtered-out rows.
     conn.execute("select set_config('hnsw.ef_search', %s, true)", (str(max(k, 40)),))
     conn.execute("select set_config('hnsw.iterative_scan', 'relaxed_order', true)")
-    rows = conn.execute(
+    sql = (
         f"select {_COLUMNS}, embedding::text as embedding, "
         "1 - (embedding <=> %(v)s::vector) as similarity "
         "from works where embedding is not null and not (id = any(%(ex)s)) "
-        "and (%(media)s::media_type is null or media = %(media)s::media_type) "
-        "order by embedding <=> %(v)s::vector limit %(k)s",
-        {"v": to_pgvector(vec), "ex": list(exclude), "k": k, "media": media},
-    ).fetchall()
+        f"and (%(media)s::media_type is null or media = %(media)s::media_type) and {_FACET_SQL} "
+        "order by embedding <=> %(v)s::vector limit %(k)s"
+    )
+    params = {"v": to_pgvector(vec), "ex": list(exclude), "k": k, "media": media, **_facet_params(facet)}
+    rows = conn.execute(sql, params).fetchall()
+    if len(rows) < k and (media or facet):
+        # The approximate index can fail to reach a distant cluster when filtering. Exact is cheap here.
+        conn.execute("select set_config('enable_indexscan', 'off', true)")
+        rows = conn.execute(sql, params).fetchall()
+        conn.execute("select set_config('enable_indexscan', 'on', true)")
     return [Candidate(r, parse_pgvector(r["embedding"]), float(r["similarity"])) for r in rows]
 
 
@@ -180,12 +200,14 @@ def because_rail(
     return rail, items
 
 
-def popular(conn: Connection, media: str | None, exclude: set[str], limit: int = RAIL_SIZE) -> list[Work]:
+def popular(
+    conn: Connection, media: str | None, exclude: set[str], limit: int = RAIL_SIZE, facet: Facet = None
+) -> list[Work]:
     rows = conn.execute(
         f"select {_COLUMNS} from works "
         "where (%(media)s::media_type is null or media = %(media)s::media_type) "
-        "and not (id = any(%(ex)s)) order by popularity desc, id limit %(limit)s",
-        {"media": media, "ex": list(exclude), "limit": limit},
+        f"and {_FACET_SQL} and not (id = any(%(ex)s)) order by popularity desc, id limit %(limit)s",
+        {"media": media, "ex": list(exclude), "limit": limit, **_facet_params(facet)},
     ).fetchall()
     return [row_to_work(r) for r in rows]
 

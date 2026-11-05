@@ -24,3 +24,15 @@ test("search filters by text and by media chip", async ({ page }) => {
   await expect(results.filter({ hasText: movie.title })).toHaveCount(1);
   await expect(results.filter({ hasText: show.title })).toHaveCount(0);
 });
+
+test("results group by medium, and down-arrow moves from the box into them", async ({ page }) => {
+  const movie = distinctive("movie");
+  await page.goto("/search");
+  const box = page.getByRole("searchbox", { name: "Search" });
+  await expect(page.getByRole("region", { name: "Movies" })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole("region", { name: "Anime" })).toBeVisible();
+  await box.fill(movie.title);
+  await expect(page.locator("main ul li")).toHaveCount(1);
+  await box.press("ArrowDown");
+  await expect(page.locator("main [data-tile]").first()).toBeFocused();
+});

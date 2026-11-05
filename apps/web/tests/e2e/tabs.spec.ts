@@ -19,3 +19,10 @@ for (const { path, heading } of TABS) {
     await expect(tile.or(empty)).toBeVisible();
   });
 }
+
+test("a tab with backdrops shows its own hero, with a data-derived line", async ({ page }) => {
+  await page.goto("/movies");
+  const hero = page.getByRole("region", { name: "Featured" });
+  await expect(hero).toBeVisible({ timeout: 20_000 });
+  await expect(hero).toContainText(/#\d+ most popular in film/);
+});
