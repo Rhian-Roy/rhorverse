@@ -3,6 +3,7 @@
 import type {
   EventAck,
   EventIn,
+  Explanation,
   HomeFeed,
   ImportResult,
   ImportSource,
@@ -40,6 +41,16 @@ async function live<T>(
   const res = await fetch(`${API_BASE}${path}`, { ...init, signal });
   if (!res.ok) throw new ApiError(res.status, `${path} → ${res.status}`);
   return (await res.json()) as T;
+}
+
+const NO_STORE: RequestInit = { cache: "no-store" };
+
+async function optional<T>(read: () => Promise<T>, fallback: T): Promise<T> {
+  try {
+    return await read();
+  } catch {
+    return fallback;
+  }
 }
 
 /** Live data, or the snapshot when the API times out, is unreachable or errors (404 still counts). */
@@ -163,8 +174,26 @@ export const api = {
     }
   },
 
-  because(id: string): Promise<Rail> {
-    return live(`/recs/because/${pathId(id)}`);
+  /** Why this work suits this profile; null with no taste signal, in snapshot mode, or on any error. */
+  async why(id: string, profileId?: string | null): Promise<Explanation | null> {
+    if (API_MODE !== "live" || !profileId) return null;
+    const query = new URLSearchParams({ profile_id: profileId });
+    return optional(() => live<Explanation | null>(`/recs/why/${pathId(id)}?${query}`, NO_STORE, PAGE_TIMEOUT_MS), null);
+  },
+
+  /** Nearest works from every other medium. An extra section, so errors just hide it. */
+  async across(id: string, profileId?: string | null): Promise<Rail | null> {
+    if (API_MODE !== "live") return null;
+    const query = profileId ? `?${new URLSearchParams({ profile_id: profileId })}` : "";
+    const init = profileId ? NO_STORE : undefined;
+    return optional(() => live<Rail>(`/recs/across/${pathId(id)}${query}`, init, PAGE_TIMEOUT_MS), null);
+  },
+
+  /** Neighbours of a work, for the up-next column. */
+  async upNext(id: string): Promise<Work[]> {
+    if (API_MODE !== "live") return [];
+    const rail = await optional(() => live<Rail>(`/recs/because/${pathId(id)}`, undefined, PAGE_TIMEOUT_MS), null);
+    return rail?.items ?? [];
   },
 
   /** Browser only (live mode). The CSV goes as the raw body; matching may take a while. */

@@ -11,6 +11,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ id: str
   return (
     <>
       <DetailHeader work={artist} />
+      {artist.overview ? <p className="max-w-3xl text-ink-muted">{artist.overview}</p> : null}
       <TagCloud tags={artist.tags} />
       <Credit source="lastfm" />
     </>

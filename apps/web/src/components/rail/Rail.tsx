@@ -37,7 +37,7 @@ export function Rail({ rail }: { rail: RailData }) {
           <h2 id={headingId} className="font-display text-title text-ink">
             {rail.title}
           </h2>
-          {rail.explanation ? <BecauseYouLiked explanation={rail.explanation} compact /> : null}
+          {rail.explanation ? <BecauseYouLiked explanation={rail.explanation} /> : null}
         </div>
         <div className="hidden gap-1 md:flex">
           <button

@@ -44,6 +44,7 @@ export interface Explanation {
   because_id: string;
   because_title: string;
   reason: string;
+  shared_tags?: string[];
 }
 
 export interface Rail {
