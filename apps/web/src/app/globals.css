@@ -120,7 +120,7 @@
 }
 
 @utility bg-scrim {
-  background-image: linear-gradient(to top, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 72%, transparent) 38%, transparent 78%);
+  background-image: linear-gradient(to top, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 82%, transparent) 42%, transparent 85%);
 }
 @utility bg-canopy-glow {
   background-image: radial-gradient(70% 90% at 15% 0%, color-mix(in srgb, var(--color-chip-selected) 45%, transparent), transparent 70%);
@@ -133,11 +133,11 @@
   }
 
   body {
-    @apply bg-surface text-ink font-sans antialiased;
+    @apply bg-surface text-ink font-sans text-body antialiased;
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-focus;
+    @apply outline-2 outline-offset-3 outline-focus;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -156,4 +156,13 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Focus spec: the rest of the rail dims while a tile has keyboard focus; TV mode scales further. */
+[data-rail]:has([data-tile]:focus-visible) [data-tile]:not(:focus-visible) {
+  opacity: 0.85;
+}
+
+[data-tv="true"] [data-tile]:focus-visible [data-tile-art] {
+  scale: 1.1;
 }

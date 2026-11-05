@@ -25,7 +25,7 @@ export function Rail({ rail }: { rail: RailData }) {
       const next = Math.min(tiles.length - 1, Math.max(0, current + (e.key === "ArrowRight" ? 1 : -1)));
       e.preventDefault();
       tiles[next]?.focus();
-      embla?.scrollTo(next);
+      embla?.scrollTo(Math.max(0, next - 1));
     },
     [embla],
   );
@@ -58,8 +58,8 @@ export function Rail({ rail }: { rail: RailData }) {
           </button>
         </div>
       </div>
-      <div ref={viewportRef} className="overflow-hidden" onKeyDown={onKeyDown}>
-        <ul className="flex snap-x gap-4">
+      <div ref={viewportRef} className="-mx-3 -my-6 overflow-hidden px-3 py-6" onKeyDown={onKeyDown}>
+        <ul data-rail className="flex snap-x gap-4">
           {rail.items.map((work, i) => (
             <li key={work.id}>
               {rail.ranked ? <Top10Tile work={work} rank={i + 1} /> : <Tile work={work} variant={rail.variant} />}

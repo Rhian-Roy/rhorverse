@@ -36,11 +36,12 @@ export function Tile({ work, variant = "poster" }: { work: Work; variant?: TileV
     <Link
       href={hrefFor(work)}
       data-tile
-      className="group block shrink-0 snap-start rounded-tile outline-offset-4"
+      className="group block shrink-0 snap-start rounded-tile transition-opacity duration-quick outline-none"
       aria-label={work.year ? `${work.title} (${work.year})` : work.title}
     >
       <div
-        className={`${ASPECT[variant]} relative overflow-hidden rounded-tile bg-surface-overlay transition-transform duration-base ease-enter group-hover:scale-[1.03] group-focus-visible:scale-[1.03]`}
+        data-tile-art
+        className={`${ASPECT[variant]} relative origin-bottom overflow-hidden rounded-tile bg-surface-overlay transition-[scale,box-shadow] duration-quick ease-enter group-hover:scale-[1.03] group-focus-visible:scale-[1.06] group-focus-visible:shadow-focus group-focus-visible:outline-2 group-focus-visible:outline-offset-3 group-focus-visible:outline-focus`}
       >
         {src ? (
           <Image src={src} alt="" fill sizes="(min-width: 768px) 20vw, 40vw" className="object-cover" />

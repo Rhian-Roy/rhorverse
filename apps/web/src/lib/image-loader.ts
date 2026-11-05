@@ -28,7 +28,7 @@ export function rawgWidth(width: number): number {
 
 export function tmdbSize(width: number): string {
   const hit = TMDB_SIZES.find((s) => s >= width);
-  return hit ? `w${hit}` : "original";
+  return hit ? `w${hit}` : "w1280"; // never "original": it can be many MB
 }
 
 export function igdbSize(width: number): string {

@@ -15,5 +15,7 @@ The single source of truth for Rhorverse's **Understory** design tokens: colour,
 
 ## Rules
 - Never hand-edit the generated region of `globals.css`.
-- Ramp names must not collide with Tailwind's defaults (`indigo`, `violet`, `purple`, `slate`, `gray`…), so a grep for them stays empty.
+- Ramp names avoid Tailwind's defaults, except `emerald` and `amber`, which are the build plan's names. Use them through semantic tokens; ESLint rejects them in `className`.
+- `check` also runs `contrast.mjs`, which fails if a colour pair drops below its WCAG target in either theme.
+- Light-theme values live in `color.semanticLight` and apply under `:root[data-theme="light"]`.
 - Prefer semantic names (`accent`, `ink-muted`) in components. Use raw ramps only for one-offs like gradients.
