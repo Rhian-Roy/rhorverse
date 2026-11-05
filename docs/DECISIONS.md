@@ -42,3 +42,8 @@ Format: context → decision → consequences. Add new ADRs at the bottom. Never
 - **Decision:** Push to a public repo `rhorverse` after a clean gitleaks scan of the full history. Agents may push only when the owner has said so for that piece of work. The AGENTS.md wording is the owner's to update (agents can't edit their own rules file).
 - **Consequences:** CI, the Supabase keepalive and the Antigravity/Jules handover all work. Commit history, including author emails, is public. The snapshot JSON publishes a small, credited sample of TMDB, AniList and Apple data.
 
+## ADR-010: The plan's green Understory palette replaces the scaffold's "cosmic" one
+- **Context:** The scaffold shipped an invented look (navy, teal, magenta gradients, Space Grotesk, Inter) while calling it Understory. The build plan's section 7 specifies a dark-green palette with exact hex values and Bricolage Grotesque, Instrument Sans and IBM Plex Mono, and names Inter and purple gradients as "looks AI-made" tells. The owner spotted the mismatch on the live site.
+- **Decision:** Adopt the plan's values as written (its contrast table checks out within 0.1:1). Add the light theme it specifies. Tailwind's default radii, shadows and easings are removed as well, so only tokens exist.
+- **Consequences:** `tokens.json` is the single source and a contrast check guards it in CI. Light-theme values beyond the plan's three (bg, text, accent) are our own choices, picked to pass the same contrast targets.
+

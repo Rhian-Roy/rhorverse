@@ -16,6 +16,8 @@
 
 - **Deployed (2026-11-04):** web https://rhorverse-web.vercel.app, API https://rhorverse-api.vercel.app (Vercel, Mumbai), DB Supabase `rhorverse` (ap-south-1, a full copy of the local data, 28 MB). Code is public at https://github.com/Rhian-Roy/rhorverse with CI (lint, tests, gitleaks) green and a daily keepalive. See `docs/DEPLOY.md`.
 
+- **Design:** the plan's green Understory look is in (ADR-010, `docs/DESIGN.md`): palette, fonts, shapes, focus spec, hero with backdrop, editorial detail header, light theme with toggle. `/dev/tokens` shows every colour (dev only).
+
 ## How to run
 See README → "Run it". In short: `.env` → `docker compose up -d db` → `just setup` → `just migrate` → `just dev`.
 
@@ -25,7 +27,6 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - Provider logos in `apps/web/public/attribution/` must be downloaded manually (see its README).
 - **Games aren't in the DB yet.** Add `RAWG_API_KEY` to `.env`, then `just ingest rawg --cap 1000` (about 1,025 requests, ~9 min at 2/s; cached after) and `just embed`. The Popular games rail appears once rows exist.
 - Music seed list (`services/api/src/rhorverse/ingest/seeds/music_artists.txt`) is consumed in order until the cap; at 1,500 the last few global artists (Pink Floyd, Queen, The Beatles) don't make it. Raise `--cap` or reorder the list.
-- Album detail headers have no artwork (DetailHeader uses backdrop/capsule; albums only have square art).
 - The first web deployment uploaded the root `.env` and `.env.rtf` as (owner-only) source because `.vercelignore` didn't list them yet. Fixed for every later deployment, and that first deployment was deleted on 2026-11-04. Rotating the DB password and TMDB token is optional extra caution.
 - Supabase `mildred-job-search` was paused to free a free-tier slot; restore it from the dashboard within 90 days if needed.
 - Ingesters still stubbed: IGDB, Deezer (unavailable from India, ADR-007), iTunes, Last.fm, MusicBrainz. Importers still stubbed: Netflix, AniList user lists, Steam.
@@ -58,3 +59,4 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - **2026-11-04**: Music via Apple iTunes (ADR-007): 1,500 albums, album tracks with live 30-s previews, artist-aware search, whole-title search bonus, karaoke/tribute records skipped, Popular music rail, Apple credits.
 - **2026-11-04**: Live media tabs (per-media rails, shared MediaTab, tab e2e). Fixed HNSW capping candidates at 40.
 - **2026-11-04**: Deployed: Supabase (all tables, row counts match), API and web on Vercel in Mumbai, public GitHub repo with CI and keepalive green. Snapshot fallback on API timeout/errors, real snapshots, pooler-safe DB connections, fixed the invalid refresh workflow.
+- **2026-11-05**: Understory look replaces the scaffold's palette: green tokens with a contrast check, three plan fonts, hero/nav/focus per spec, light theme, phone nav on its own row, detail Overview below the header, album art in the header, TMDB images capped at w1280.
