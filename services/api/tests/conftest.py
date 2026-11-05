@@ -3,9 +3,9 @@ from collections.abc import Iterator
 import psycopg
 import pytest
 from fastapi.testclient import TestClient
-from psycopg.rows import dict_row
 
 from rhorverse.config import get_settings
+from rhorverse.db import CONNECTION_KWARGS
 from rhorverse.main import create_app
 
 
@@ -21,7 +21,7 @@ def conn() -> Iterator[psycopg.Connection]:
     if not url:
         pytest.skip("DATABASE_URL not set")
     try:
-        c = psycopg.connect(url, row_factory=dict_row, connect_timeout=3)
+        c = psycopg.connect(url, **CONNECTION_KWARGS)  # same settings as production
     except psycopg.OperationalError:
         pytest.skip("database not reachable")
     try:

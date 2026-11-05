@@ -156,8 +156,8 @@ def candidates(
     )
     params = {"v": to_pgvector(vec), "ex": list(exclude), "k": k, "media": media, **_facet_params(facet)}
     rows = conn.execute(sql, params).fetchall()
-    if len(rows) < k and (media or facet):
-        # The approximate index can fail to reach a distant cluster when filtering. Exact is cheap here.
+    if len(rows) < k:
+        # The approximate index can come back short, especially when filtering. Exact is cheap here.
         conn.execute("select set_config('enable_indexscan', 'off', true)")
         rows = conn.execute(sql, params).fetchall()
         conn.execute("select set_config('enable_indexscan', 'on', true)")
