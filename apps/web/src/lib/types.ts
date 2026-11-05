@@ -105,10 +105,19 @@ export interface EventAck {
   accepted: number;
 }
 
+export interface TasteTag {
+  tag: string;
+  /** 0-1, relative to the profile's strongest tag. */
+  weight: number;
+  examples: Partial<Record<MediaType, string>>;
+}
+
 export interface TasteProfile {
   profile_id: string;
-  top_tags: string[];
+  top_tags: TasteTag[];
   counts: Partial<Record<MediaType, number>>;
+  sources: Record<string, number>;
+  not_interested: Work[];
 }
 
 export type ImportSource = "netflix" | "letterboxd" | "anilist" | "steam";

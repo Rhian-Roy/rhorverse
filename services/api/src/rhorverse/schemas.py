@@ -104,10 +104,18 @@ class EventAck(BaseModel):
     accepted: int
 
 
+class TasteTag(BaseModel):
+    tag: str
+    weight: float  # 0-1, relative to the profile's strongest tag
+    examples: dict[MediaType, str] = Field(default_factory=dict)  # strongest title per medium
+
+
 class TasteProfile(BaseModel):
     profile_id: str
-    top_tags: list[str] = Field(default_factory=list)
-    counts: dict[MediaType, int] = Field(default_factory=dict)
+    top_tags: list[TasteTag] = Field(default_factory=list)
+    counts: dict[MediaType, int] = Field(default_factory=dict)  # seen, per medium
+    sources: dict[str, int] = Field(default_factory=dict)  # works per event source (app, letterboxd…)
+    not_interested: list[Work] = Field(default_factory=list)
 
 
 class ImportResult(BaseModel):

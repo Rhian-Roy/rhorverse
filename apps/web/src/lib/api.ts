@@ -12,6 +12,7 @@ import type {
   Rail,
   SearchFilters,
   SearchResult,
+  TasteProfile,
   Track,
   Work,
   WorkDetail,
@@ -200,6 +201,17 @@ export const api = {
     if (API_MODE !== "live") return [];
     const rail = await optional(() => live<Rail>(`/recs/because/${pathId(id)}`, undefined, PAGE_TIMEOUT_MS), null);
     return rail?.items ?? [];
+  },
+
+  /** The taste summary for a profile; null in snapshot mode, with no profile, or on any error. */
+  async profile(profileId?: string | null): Promise<TasteProfile | null> {
+    if (API_MODE !== "live" || !profileId) return null;
+    const query = new URLSearchParams({ profile_id: profileId });
+    return optional(() => live<TasteProfile>(`/profile?${query}`, NO_STORE, PAGE_TIMEOUT_MS), null);
+  },
+
+  exportUrl(profileId: string): string {
+    return `${API_BASE}/profile/export?${new URLSearchParams({ profile_id: profileId })}`;
   },
 
   /** Browser only (live mode). The CSV goes as the raw body; matching may take a while. */

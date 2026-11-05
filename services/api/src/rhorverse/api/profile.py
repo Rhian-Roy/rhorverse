@@ -1,9 +1,11 @@
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import JSONResponse
 from psycopg import Connection
 
 from rhorverse.db import get_conn
+from rhorverse.rec.taste import build_profile, export_events
 from rhorverse.repo import ensure_profile, parse_profile_id
 from rhorverse.schemas import EventAck, EventIn, TasteProfile
 
@@ -36,5 +38,15 @@ def post_events(events: list[EventIn], conn: Connection = Depends(get_conn)) -> 
 
 
 @router.get("/profile", response_model=TasteProfile)
-def get_profile(profile_id: str) -> TasteProfile:
-    return TasteProfile(profile_id=profile_id)
+def get_profile(profile_id: str, conn: Connection = Depends(get_conn)) -> TasteProfile:  # noqa: B008
+    """Ranked taste tags, seen counts, sources and the not-interested list. Empty for a new profile."""
+    return build_profile(conn, profile_id)
+
+
+@router.get("/profile/export")
+def export_profile(profile_id: str, conn: Connection = Depends(get_conn)) -> JSONResponse:  # noqa: B008
+    """Every event stored for this profile, as a downloadable file."""
+    return JSONResponse(
+        {"profile_id": profile_id, "events": export_events(conn, profile_id)},
+        headers={"Content-Disposition": 'attachment; filename="rhorverse-profile.json"'},
+    )
