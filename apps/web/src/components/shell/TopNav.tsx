@@ -4,7 +4,8 @@ import { MagnifyingGlass, UserCircle } from "@phosphor-icons/react";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 import { Wordmark } from "./Wordmark";
 
 const TABS = [
@@ -43,27 +44,40 @@ function IconLink({ href, label, children }: { href: string; label: string; chil
 export function TopNav() {
   const pathname = usePathname();
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const [scrolled, setScrolled] = useState(false);
+
+  // The one blur in the app, and only once content is moving under the bar.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/60 bg-surface/80 backdrop-blur">
-      <nav aria-label="Primary" className="mx-auto flex h-16 max-w-screen-2xl items-center gap-6 px-6">
+    <header
+      data-scrolled={scrolled}
+      className="sticky top-0 z-40 border-b border-transparent bg-surface transition-colors duration-quick data-[scrolled=true]:border-line data-[scrolled=true]:bg-surface/80 data-[scrolled=true]:backdrop-blur"
+    >
+      <nav aria-label="Primary" className="mx-auto flex max-w-screen-2xl flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2 md:h-16 md:flex-nowrap md:px-6 md:py-0">
         <Link href="/" aria-label="Rhorverse home" className="shrink-0">
           <Wordmark />
         </Link>
-        <ul className="scrollbar-none flex flex-1 items-center gap-1 overflow-x-auto">
+        <ul className="scrollbar-none order-last flex w-full items-center gap-1 overflow-x-auto md:order-none md:w-auto md:flex-1">
           {TABS.map((tab) => (
             <li key={tab.href}>
               <Link
                 href={tab.href}
                 aria-current={isActive(tab.href) ? "page" : undefined}
-                className="block rounded-pill px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors duration-quick hover:text-ink aria-[current=page]:bg-ink aria-[current=page]:text-surface"
+                className="block rounded-pill px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors duration-quick hover:text-ink aria-[current=page]:bg-chip-selected aria-[current=page]:text-chip-selected-ink"
               >
                 {tab.label}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-1">
+        <div className="ml-auto flex items-center gap-1">
+          <ThemeToggle />
           <IconLink href="/search" label="Search">
             <MagnifyingGlass />
           </IconLink>
