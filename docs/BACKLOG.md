@@ -50,3 +50,7 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
   - Smaller AniList covers without Vercel's optimizer (e.g. proxy and re-encode at ingest time).
   - Connect the GitHub repo to both Vercel projects (`vercel git connect`) for deploy-on-push.
   - Fill in "Rhian's calls" in `docs/DESIGN.md` (yours to write).
+
+## 9. Accounts: follow-ups
+- **Left:** apply 0004 to Supabase and set the env vars (docs/DEPLOY.md › Accounts); custom SMTP before sharing the link; a Playwright run against a Supabase test branch in CI; connect/disconnect actions for imports in `/account`; profile photo upload (needs a storage bucket); a real "devices" list if Supabase adds one; `catalogue` tables (`works`, …) RLS read-only for `anon` so the Supabase advisor is clean.
+- **Accept:** a new person signs up from a phone, confirms by email on another device, finishes set-up, and their Seen it taps appear on every device.

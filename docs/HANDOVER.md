@@ -1,6 +1,9 @@
 # Handover
 
-## Current state (2026-11-02)
+## Current state (2026-11-06)
+- **Accounts (2026-11-06):** Supabase Auth with email + password and Google (`/sign-in`, `/sign-up`, `/forgot-password`, `/reset-password`, `/auth/callback`, `/onboarding`, `/account`, `/privacy`), built from the Accounts page of the design canvas. Migration 0004 adds `profiles.user_id`, `age_confirmed`, `consent_at` and RLS. The API verifies Supabase tokens (`auth.py`, PyJWT, cached JWKS) and maps `sub` to a profile; a token always wins over a client-sent `profile_id`; guests still work via the cookie. After sign-in the guest profile is merged into the account and a toast says so. Export (JSON), password change, sign out everywhere and delete account (server action + secret key) are on `/account`. Env var names are in `.env.example`; the manual dashboard steps are in `docs/DEPLOY.md` › Accounts.
+- Not applied to Supabase yet: run `just push-supabase`, then `db/checks/rls.sql`, then set the env vars (see DEPLOY).
+
 - Monorepo skeleton in place: web (Next.js 16.4), api (FastAPI, uv), tokens, db migrations, scripts, docs, CI.
 - Web runs fully in `API_MODE=snapshot` from placeholder JSON in `apps/web/public/snapshots/`.
 - `/search`, `/works`, `/works/{id}` (with IN availability), `POST /events`, `/recs/home` and `/recs/because/{id}` are real. `POST /imports/letterboxd` is real. `GET /profile` and the other importers still return stub data with correct shapes. Search tile → detail page works in `API_MODE=live`. `/health` is real (`?deep=true` pings the DB).
@@ -28,6 +31,11 @@ See README → "Run it". In short: `.env` → `docker compose up -d db` → `jus
 After an ingest or a Letterboxd import, run `just embed` (installs the local-only `ml` group the first time, then embeds only works whose `embedding` is null). Recs need it; without embeddings the home feed is popular rails only.
 
 ## Known issues
+- **Accounts e2e needs a Supabase project.** `tests/e2e/accounts.spec.ts` skips unless `E2E_ACCOUNTS=1` and the Supabase URL, public key and secret key are in the environment (it creates and deletes throwaway users). The Seen it → sign out → other browser path was checked by hand against a local stand-in for Supabase Auth plus the real API and Postgres, not in CI.
+- Sign-up reveals whether an email already has an account (the design asks for that message). Supabase's own default is to hide it.
+- Access tokens last an hour, so a signed-out or deleted user's old token still verifies until it expires (a deleted user can no longer create a profile: the API answers 401).
+- Account page: no photo upload (initials only), no device list (Supabase has no session list API), imports are listed read-only. Netflix, AniList and Steam importers are still stubs.
+- The local `auth` schema is a stub created by migration 0004 on plain Postgres; Supabase's real one is used there.
 - Provider logos in `apps/web/public/attribution/` must be downloaded manually (see its README).
 - **Games aren't in the DB yet.** Add `RAWG_API_KEY` to `.env`, then `just ingest rawg --cap 1000` (about 1,025 requests, ~9 min at 2/s; cached after) and `just embed`. The Popular games rail appears once rows exist.
 - Music seed list (`services/api/src/rhorverse/ingest/seeds/music_artists.txt`) is consumed in order until the cap; at 1,500 the last few global artists (Pink Floyd, Queen, The Beatles) don't make it. Raise `--cap` or reorder the list.
@@ -66,3 +74,4 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - **2026-11-05**: Understory look replaces the scaffold's palette: green tokens with a contrast check, three plan fonts, hero/nav/focus per spec, light theme, phone nav on its own row, detail Overview below the header, album art in the header, TMDB images capped at w1280.
 - **2026-11-05**: Section 7.4: hero why-lines, planned home rails, /recs/why and /recs/across, detail sections, search filters and grouping, tab chips and hero, Profile page with export, TV mode. `just push-supabase` now merges the catalogue instead of wiping hosted events. TMDB ingest is India-aware, with cast.
 - **2026-11-06**: Seen it / Not interested on tiles (hover/focus buttons, S/X keys, fade-out), media() validates payload shape and falls back to snapshots, image loader right-sizes AniList and Apple art, LCP image prioritised, branded error page, skip link, Lighthouse and live keyboard/TV checks.
+- **2026-11-06**: Accounts: migration 0004 (RLS), API token verification and guest merge, `/sign-in` … `/account` pages, account menu in the TopNav, pytest for tokens/identity/merge/delete, Playwright account flow (opt-in).

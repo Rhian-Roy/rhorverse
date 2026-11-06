@@ -11,6 +11,12 @@
 -- there; on Supabase `auth` already exists and this block does nothing.
 do $$
 begin
+    if not exists (select 1 from pg_roles where rolname = 'anon') then
+        create role anon nologin;
+    end if;
+    if not exists (select 1 from pg_roles where rolname = 'authenticated') then
+        create role authenticated nologin;
+    end if;
     if to_regnamespace('auth') is null then
         create schema auth;
         create table auth.users (
@@ -25,12 +31,8 @@ begin
                     nullif(current_setting('request.jwt.claims', true), '')::jsonb ->> 'sub'
                 )::uuid
             $f$;
-    end if;
-    if not exists (select 1 from pg_roles where rolname = 'anon') then
-        create role anon nologin;
-    end if;
-    if not exists (select 1 from pg_roles where rolname = 'authenticated') then
-        create role authenticated nologin;
+        -- Supabase already grants these; only the stub needs them spelled out.
+        grant usage on schema auth to anon, authenticated;
     end if;
 end
 $$;
@@ -46,7 +48,6 @@ alter table imports  enable row level security;
 
 -- The public (anon) key must never see user data. Signed-in users get only what the policies allow.
 revoke all on profiles, events, imports from anon;
-grant usage on schema auth to anon, authenticated;
 grant select, insert, update, delete on profiles, events, imports to authenticated;
 
 create policy profiles_own on profiles
