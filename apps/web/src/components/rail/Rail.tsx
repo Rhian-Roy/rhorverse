@@ -2,7 +2,7 @@
 
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback, useEffect, useId, useRef, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { BecauseYouLiked } from "@/components/detail/BecauseYouLiked";
 import type { Rail as RailData } from "@/lib/types";
 import { Tile } from "./Tile";
@@ -18,6 +18,24 @@ export function Rail({ rail }: { rail: RailData }) {
   const headingId = useId();
   const listRef = useRef<HTMLUListElement>(null);
   const [viewportRef, embla] = useEmblaCarousel({ align: "start", dragFree: true, containScroll: "trimSnaps" });
+  const [leaving, setLeaving] = useState<ReadonlySet<string>>(new Set());
+  const [gone, setGone] = useState<ReadonlySet<string>>(new Set());
+  const items = rail.items.filter((w) => !gone.has(w.id));
+
+  // A tile that was marked seen / not interested fades out over 160 ms, then the rail closes the gap.
+  const drop = useCallback((id: string) => {
+    setLeaving((s) => new Set(s).add(id));
+    window.setTimeout(() => {
+      setGone((s) => new Set(s).add(id));
+      setLeaving((s) => {
+        const next = new Set(s);
+        next.delete(id);
+        return next;
+      });
+    }, 160);
+  }, []);
+
+  useEffect(() => embla?.reInit(), [embla, gone]);
 
   // The rail a focus move lands on scrolls itself, keeping the focused tile 2nd from the left.
   const scrollNear = useCallback((index: number) => embla?.scrollTo(Math.max(0, index - 1)), [embla]);
@@ -32,6 +50,18 @@ export function Rail({ rail }: { rail: RailData }) {
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
+      // S / X on a focused tile: Seen it / Not interested (live mode only: the buttons don't exist otherwise).
+      const shortcut = { s: "seen", x: "not-interested" }[e.key.toLowerCase()];
+      if (shortcut && !e.metaKey && !e.ctrlKey && !e.altKey && document.activeElement?.matches("[data-tile]")) {
+        const button = document.activeElement.closest("[data-tile-wrap]")?.querySelector<HTMLElement>(
+          `[data-action="${shortcut}"]`,
+        );
+        if (button) {
+          e.preventDefault();
+          button.click();
+          return;
+        }
+      }
       const horizontal = e.key === "ArrowRight" || e.key === "ArrowLeft";
       const vertical = e.key === "ArrowUp" || e.key === "ArrowDown";
       if (!horizontal && !vertical) return;
@@ -88,9 +118,16 @@ export function Rail({ rail }: { rail: RailData }) {
       </div>
       <div ref={viewportRef} className="-mx-3 -my-6 overflow-hidden px-3 py-6" onKeyDown={onKeyDown}>
         <ul ref={listRef} data-rail className="flex snap-x items-end gap-4">
-          {rail.items.map((work, i) => (
-            <li key={work.id}>
-              {rail.ranked ? <Top10Tile work={work} rank={i + 1} /> : <Tile work={work} variant={rail.variant} />}
+          {items.map((work, i) => (
+            <li
+              key={work.id}
+              className={`transition-[opacity,scale] duration-quick ease-exit ${leaving.has(work.id) ? "scale-95 opacity-0" : ""}`}
+            >
+              {rail.ranked ? (
+                <Top10Tile work={work} rank={i + 1} onDone={drop} />
+              ) : (
+                <Tile work={work} variant={rail.variant} onDone={drop} />
+              )}
             </li>
           ))}
         </ul>

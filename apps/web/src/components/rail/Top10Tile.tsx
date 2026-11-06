@@ -2,7 +2,7 @@ import type { Work } from "@/lib/types";
 import { Tile } from "./Tile";
 
 /** Ranked tile: oversized outline numeral behind a poster. */
-export function Top10Tile({ work, rank }: { work: Work; rank: number }) {
+export function Top10Tile({ work, rank, onDone }: { work: Work; rank: number; onDone?: (id: string) => void }) {
   return (
     <div className="relative flex shrink-0 snap-start items-end">
       <span
@@ -13,7 +13,7 @@ export function Top10Tile({ work, rank }: { work: Work; rank: number }) {
       </span>
       <div className="relative">
         <span className="sr-only">Number {rank}: </span>
-        <Tile work={work} variant="poster" />
+        <Tile work={work} variant="poster" onDone={onDone} />
       </div>
     </div>
   );

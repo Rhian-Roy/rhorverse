@@ -23,12 +23,12 @@ const FILTER_CHIPS: { key: keyof SearchFilters; label: string }[] = [
 
 const GROUP_SIZE = 6;
 
-function ResultGrid({ items }: { items: Work[] }) {
+function ResultGrid({ items, onDone }: { items: Work[]; onDone: (id: string) => void }) {
   return (
     <ul className="grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6">
       {items.map((w) => (
         <li key={w.id}>
-          <Tile work={w} />
+          <Tile work={w} onDone={onDone} />
         </li>
       ))}
     </ul>
@@ -41,6 +41,8 @@ export default function SearchPage() {
   const [filters, setFilters] = useState<SearchFilters>({});
   const [items, setItems] = useState<Work[]>([]);
   const results = useRef<HTMLDivElement>(null);
+  // Seen it / Not interested: the work leaves the results immediately.
+  const dropWork = (id: string) => setItems((list) => list.filter((w) => w.id !== id));
 
   useEffect(() => {
     let cancelled = false;
@@ -103,7 +105,7 @@ export default function SearchPage() {
       </div>
       <div ref={results} className="flex flex-col gap-10">
         {media ? (
-          <ResultGrid items={items} />
+          <ResultGrid items={items} onDone={dropWork} />
         ) : (
           groups.map((g) => (
             <section key={g.value} aria-label={g.label} className="flex flex-col gap-3">
@@ -115,7 +117,7 @@ export default function SearchPage() {
                   </button>
                 ) : null}
               </div>
-              <ResultGrid items={g.works.slice(0, GROUP_SIZE)} />
+              <ResultGrid items={g.works.slice(0, GROUP_SIZE)} onDone={dropWork} />
             </section>
           ))
         )}

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { api } from "@/lib/api";
 import type { TileVariant, Work } from "@/lib/types";
+import { TileActions } from "./TileActions";
 
 type Shape = Exclude<TileVariant, "auto">;
 
@@ -40,30 +42,43 @@ function imageFor(work: Work, variant: Shape): string | null | undefined {
   return i.poster ?? i.capsule ?? i.backdrop;
 }
 
-export function Tile({ work, variant = "poster" }: { work: Work; variant?: TileVariant }) {
+export function Tile({
+  work,
+  variant = "poster",
+  onDone,
+}: {
+  work: Work;
+  variant?: TileVariant;
+  /** Called after Seen it / Not interested is saved, so the list can drop the tile. */
+  onDone?: (id: string) => void;
+}) {
   const shape = variant === "auto" ? MEDIA_SHAPE[work.media] : variant;
   const src = imageFor(work, shape);
   return (
-    <Link
-      href={hrefFor(work)}
-      data-tile
-      className="group block shrink-0 snap-start rounded-tile transition-opacity duration-quick outline-none"
-      aria-label={work.year ? `${work.title} (${work.year})` : work.title}
-    >
-      <div
-        data-tile-art
-        className={`${ASPECT[shape]} relative origin-bottom overflow-hidden rounded-tile bg-surface-overlay transition-[scale,box-shadow] duration-quick ease-enter group-hover:scale-[1.03] group-focus-visible:scale-[1.06] group-focus-visible:shadow-focus group-focus-visible:outline-2 group-focus-visible:outline-offset-3 group-focus-visible:outline-focus`}
+    <div data-tile-wrap className="group/tile relative shrink-0 snap-start">
+      <Link
+        href={hrefFor(work)}
+        data-tile
+        className="group block rounded-tile transition-opacity duration-quick outline-none"
+        aria-label={work.year ? `${work.title} (${work.year})` : work.title}
       >
-        {src ? (
-          <Image src={src} alt="" fill sizes="(min-width: 768px) 20vw, 40vw" className="object-cover" />
-        ) : (
-          <span className="absolute inset-0 flex items-end p-3 font-display text-sm font-semibold text-ink-muted">
-            {work.title}
-          </span>
-        )}
-      </div>
-      <p className="mt-2 line-clamp-1 text-sm text-ink">{work.title}</p>
-      {work.year ? <p className="font-mono text-meta text-ink-faint">{work.year}</p> : null}
-    </Link>
+        <div
+          data-tile-art
+          className={`${ASPECT[shape]} relative origin-bottom overflow-hidden rounded-tile bg-surface-overlay transition-[scale,box-shadow] duration-quick ease-enter group-hover:scale-[1.03] group-focus-visible:scale-[1.06] group-focus-visible:shadow-focus group-focus-visible:outline-2 group-focus-visible:outline-offset-3 group-focus-visible:outline-focus`}
+        >
+          {src ? (
+            <Image src={src} alt="" fill sizes="(min-width: 768px) 20vw, 40vw" className="object-cover" />
+          ) : (
+            <span className="absolute inset-0 flex items-end p-3 font-display text-sm font-semibold text-ink-muted">
+              {work.title}
+            </span>
+          )}
+        </div>
+        <p className="mt-2 line-clamp-1 text-sm text-ink">{work.title}</p>
+        {work.year ? <p className="font-mono text-meta text-ink-faint">{work.year}</p> : null}
+      </Link>
+      {/* Both actions need the API; the snapshot build has nowhere to send them. */}
+      {api.mode === "live" ? <TileActions work={work} onDone={onDone} /> : null}
+    </div>
   );
 }

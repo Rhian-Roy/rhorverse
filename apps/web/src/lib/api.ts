@@ -56,6 +56,16 @@ async function optional<T>(read: () => Promise<T>, fallback: T): Promise<T> {
   }
 }
 
+/** Accepts a media-tab payload (also the older plain list of rails); anything else counts as a failure. */
+function asMediaFeed(data: unknown): MediaFeed {
+  if (Array.isArray(data)) return { hero: [], rails: data as Rail[], chips: [] };
+  const feed = data as Partial<MediaFeed> | null;
+  if (feed && Array.isArray(feed.rails)) {
+    return { hero: feed.hero ?? [], rails: feed.rails, chips: feed.chips ?? [] };
+  }
+  throw new Error(`unexpected media payload: ${JSON.stringify(data)?.slice(0, 120)}`);
+}
+
 /** Live data, or the snapshot when the API times out, is unreachable or errors (404 still counts). */
 async function liveOr<T>(read: () => Promise<T>, fallback: () => Promise<T>): Promise<T> {
   try {
@@ -144,7 +154,10 @@ export const api = {
     if (chip) params.set("chip", chip);
     const query = params.size ? `?${params}` : "";
     const init: RequestInit = profileId ? NO_STORE : { next: { revalidate: 300 } };
-    return liveOr(() => live<MediaFeed>(`/recs/media/${media}${query}`, init, PAGE_TIMEOUT_MS), fromSnapshot);
+    return liveOr(
+      async () => asMediaFeed(await live<unknown>(`/recs/media/${media}${query}`, init, PAGE_TIMEOUT_MS)),
+      async () => asMediaFeed(await fromSnapshot()),
+    );
   },
 
   async work(id: string): Promise<WorkDetail | null> {

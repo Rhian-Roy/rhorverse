@@ -22,3 +22,9 @@ test("a new visitor's profile page offers real next steps", async ({ page }) => 
   await expect(page.getByRole("heading", { level: 1, name: "Your taste" })).toBeVisible({ timeout: 20_000 });
   await expect(page.getByRole("link", { name: "Import Letterboxd" })).toHaveAttribute("href", "/import");
 });
+
+test("tile actions are hidden in snapshot mode, where there's no API to tell", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("main [data-tile]").first()).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator("[data-action]")).toHaveCount(0);
+});
