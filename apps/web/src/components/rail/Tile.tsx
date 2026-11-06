@@ -6,7 +6,7 @@ import { TileActions } from "./TileActions";
 
 type Shape = Exclude<TileVariant, "auto">;
 
-const MEDIA_SHAPE: Record<Work["media"], Shape> = {
+export const MEDIA_SHAPE: Record<Work["media"], Shape> = {
   movie: "poster",
   tv: "poster",
   anime: "poster",
@@ -36,7 +36,7 @@ export function hrefFor(work: Pick<Work, "id" | "media">): string {
   }
 }
 
-function imageFor(work: Work, variant: Shape): string | null | undefined {
+export function imageFor(work: Work, variant: Shape): string | null | undefined {
   const i = work.images;
   // Fall back across shapes (games only have landscape art); object-cover crops the centre.
   if (variant === "landscape") return i.backdrop ?? i.capsule ?? i.poster;
