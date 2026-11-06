@@ -9,6 +9,9 @@ import type { Work } from "@/lib/types";
 
 export const metadata: Metadata = { title: "Set up your Home" };
 
+// Depends on who is signed in, so it is rendered per request.
+export const dynamic = "force-dynamic";
+
 export default async function OnboardingPage() {
   if (!accountsEnabled()) redirect("/");
   if (!(await serverUser())) redirect("/sign-in?next=/onboarding");

@@ -5,6 +5,9 @@ import { serverUser } from "@/lib/server-profile";
 
 export const metadata: Metadata = { title: "Choose a new password" };
 
+// Depends on who is signed in, so it is rendered per request.
+export const dynamic = "force-dynamic";
+
 export default async function ResetPasswordPage() {
   // The emailed link signs the person in (via /auth/callback); without that session there is nothing to reset.
   const user = await serverUser();
