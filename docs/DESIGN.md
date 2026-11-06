@@ -59,6 +59,8 @@ Poster 2:3 · landscape 16:9 · square 1:1 · capsule 460:215. Titles below the 
 - **Tabs:** medium hero plus link-based chips (languages, formats, genres, platforms).
 - **Search:** grouped by medium with See all; filter chips need live data, so snapshot mode hides them.
 - **Profile:** ranked bars, never a radar.
+- **Tile actions:** hover or focus a tile for Seen it / Not interested (always visible on touch); `S` and `X` do the same from the keyboard. Both stop the work being recommended; the tile fades out over 160 ms and ranks renumber. Hidden in snapshot mode.
+- **Keyboard:** the first Tab stop is a skip-to-content link.
 - **TV mode** (`?tv=1`, Profile toggle or a TV user agent): 1.4x type, 5% overscan, ↑/↓/←/→ between tiles and rails.
 
 ## Banned (the plan's "looks AI-made" list)

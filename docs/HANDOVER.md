@@ -20,6 +20,8 @@
 
 - **Screens (section 7.4):** data-derived hero lines, the plan's home rails, detail sections (why, cast, across media, up next), search filters and grouping, tab heroes and chips, a real Profile page, TV mode with rail-to-rail keys.
 
+- **Performance (2026-11-06, live, desktop):** Lighthouse accessibility, best practices and SEO are 100 on Home, a title page and the Anime tab. Observed (unthrottled) LCP is 0.4 to 0.6 s, CLS 0 to 0.02, TBT 0. Lighthouse's simulated-slow-network score is 68 / 77 / 72 because Home and tabs load many AniList PNG covers (~175 KB each even at the smaller size). Fixing that needs Vercel's image optimizer (1,000-source quota on Hobby), which the plan avoids.
+
 ## How to run
 See README → "Run it". In short: `.env` → `docker compose up -d db` → `just setup` → `just migrate` → `just dev`.
 
@@ -43,6 +45,7 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - Feedback v1 only records turning an action on. Un-liking resets the button but stores nothing, and the button state isn't loaded back on page visit.
 - Imported films count for exclusion at once but only join the taste vector after `just embed`. Imported events carry the old watch date, so with the 90-day half-life an app like from today outweighs a year of history.
 - Large Letterboxd exports: only 150 missing films are looked up per import (about 15 s). Upload again to continue; already-fetched films match locally.
+- Seen it / Not interested can't be undone from the UI (there's no delete-event endpoint). A mis-click needs a DB edit.
 - Taste is computed per request (`profiles.taste` is unused). Fine at 200 works.
 - With 200 works, rails can feel loosely related (MiniLM on short TMDB text). Checked live: 3 likes → "Picked for you", 3 × "More like X" and both popular rails, 20 items each, none liked.
 - Port 8000 may be taken by another local server; run uvicorn on another port and set `NEXT_PUBLIC_API_BASE` to match.
@@ -62,3 +65,4 @@ After an ingest or a Letterboxd import, run `just embed` (installs the local-onl
 - **2026-11-04**: Deployed: Supabase (all tables, row counts match), API and web on Vercel in Mumbai, public GitHub repo with CI and keepalive green. Snapshot fallback on API timeout/errors, real snapshots, pooler-safe DB connections, fixed the invalid refresh workflow.
 - **2026-11-05**: Understory look replaces the scaffold's palette: green tokens with a contrast check, three plan fonts, hero/nav/focus per spec, light theme, phone nav on its own row, detail Overview below the header, album art in the header, TMDB images capped at w1280.
 - **2026-11-05**: Section 7.4: hero why-lines, planned home rails, /recs/why and /recs/across, detail sections, search filters and grouping, tab chips and hero, Profile page with export, TV mode. `just push-supabase` now merges the catalogue instead of wiping hosted events. TMDB ingest is India-aware, with cast.
+- **2026-11-06**: Seen it / Not interested on tiles (hover/focus buttons, S/X keys, fade-out), media() validates payload shape and falls back to snapshots, image loader right-sizes AniList and Apple art, LCP image prioritised, branded error page, skip link, Lighthouse and live keyboard/TV checks.

@@ -41,5 +41,12 @@ Copy a block into `/plan-task`. Each one is scoped to a single commit series.
 ## 9. Deploy (Day 8): done
 - **Left:** connect the GitHub repo to both Vercel projects for auto-deploys on push; re-push data after new ingests (`just push-supabase`); Day 9 polish (Lighthouse, keyboard/TV pass on the deployed URL).
 
-## 10. Understory look and section 7.4 screens: done
-- **Left:** "Seen it" / "Not interested" on tiles; music Mixes and "Short games under 10 h" (need games); import flow steps and progress; Lighthouse pass (Day 9); more India-specific data once a real chart source exists.
+## 10. Understory look, section 7.4 screens, tile actions, Day 9 polish: done
+- **Left:**
+  - **RAWG games** (blocked on you): rawg.io/apidocs was returning 522 on 2026-11-06. Get a key, put `RAWG_API_KEY` in `.env`, then `just ingest rawg --cap 1000`, `just embed`, `just push-supabase`, `just snapshot`. The code, tests, rails and backlinks are ready.
+  - Undo for Seen it / Not interested (needs a delete-event endpoint and a toast).
+  - Import flow progress and the steps to get each export file.
+  - Music "Mixes", "Short games under 10 h" (need games).
+  - Smaller AniList covers without Vercel's optimizer (e.g. proxy and re-encode at ingest time).
+  - Connect the GitHub repo to both Vercel projects (`vercel git connect`) for deploy-on-push.
+  - Fill in "Rhian's calls" in `docs/DESIGN.md` (yours to write).
