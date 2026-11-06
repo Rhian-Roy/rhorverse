@@ -7,7 +7,7 @@ export function Capsule({ work }: { work: WorkDetail }) {
   return (
     <header className="grid gap-6 md:grid-cols-[minmax(0,28rem)_1fr]">
       <div className="relative aspect-[460/215] overflow-hidden rounded-card bg-brand">
-        {src ? <Image src={src} alt="" fill priority sizes="28rem" className="object-cover" /> : null}
+        {src ? <Image src={src} alt="" fill preload sizes="28rem" className="object-cover" /> : null}
       </div>
       <div className="flex flex-col justify-end gap-2">
         <h1 className="font-display text-display-l text-ink">{work.title}</h1>

@@ -28,14 +28,14 @@ export function DetailHeader({ work }: { work: WorkDetail }) {
     >
       {backdrop ? (
         <>
-          <Image src={backdrop} alt="" fill priority sizes="100vw" className="-z-10 object-cover" />
+          <Image src={backdrop} alt="" fill preload fetchPriority="high" sizes="100vw" className="-z-10 object-cover" />
           <div aria-hidden className="absolute inset-0 -z-10 bg-scrim" />
         </>
       ) : null}
       <div className="flex flex-col gap-6 p-6 md:flex-row md:items-end md:p-10">
         {art ? (
           <div className="relative aspect-square w-40 shrink-0 overflow-hidden rounded-tile md:w-56">
-            <Image src={art} alt="" fill priority sizes="14rem" className="object-cover" />
+            <Image src={art} alt="" fill preload sizes="14rem" className="object-cover" />
           </div>
         ) : null}
         <div className="flex flex-col gap-4">

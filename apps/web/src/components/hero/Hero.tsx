@@ -49,7 +49,15 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
           transition={{ duration: duration.cinematic / 1000, ease: [...ease.standard] }}
         >
           {work.images.backdrop ? (
-            <Image src={work.images.backdrop} alt="" fill priority={index === 0} sizes="100vw" className="object-cover" />
+            <Image
+              src={work.images.backdrop}
+              alt=""
+              fill
+              preload={index === 0}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              sizes="100vw"
+              className="object-cover"
+            />
           ) : null}
           <div className="absolute inset-0 bg-scrim" />
         </motion.div>
