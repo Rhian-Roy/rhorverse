@@ -25,8 +25,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="min-h-dvh">
         <FocusRoot>
+          <a
+            href="#main"
+            className="sr-only z-50 rounded-pill bg-accent px-4 py-2 text-sm font-semibold text-accent-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          >
+            Skip to content
+          </a>
           <TopNav />
-          <main className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-6 py-8">{children}</main>
+          <main id="main" tabIndex={-1} className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-6 py-8">{children}</main>
           <SiteFooter />
           <MiniPlayer />
         </FocusRoot>

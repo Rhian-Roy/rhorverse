@@ -99,3 +99,15 @@ test("the tokens review page is hidden in production", async ({ page }) => {
   const res = await page.goto("/dev/tokens");
   expect(res?.status()).toBe(404);
 });
+
+test("a keyboard user can skip the nav to the content", async ({ page }) => {
+  await page.goto("/");
+  const skip = page.getByRole("link", { name: "Skip to content" });
+  await expect(async () => {
+    await page.keyboard.press("Tab");
+    await expect(skip).toBeFocused({ timeout: 500 });
+  }).toPass({ timeout: 20_000 });
+  await expect(skip).toBeVisible();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("main")).toBeFocused();
+});
