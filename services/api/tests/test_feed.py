@@ -203,10 +203,13 @@ def test_rails_follow_the_plan_order_for_a_profile(conn: psycopg.Connection, pid
 
 
 def test_top_10_only_has_titles_available_in_india(conn: psycopg.Connection, pid: str) -> None:
-    conn.execute(
-        "insert into availability (work_id, region, provider, kind) "
-        "values ('test:movie/a5', 'IN', 'P', 'flatrate')"
-    )
+    # Enough India titles for the rail to show (4+), so this doesn't lean on whatever real data is loaded.
+    in_india = [f"test:movie/a{i}" for i in (5, 7, 8, 9)]
+    for wid in in_india:
+        conn.execute(
+            "insert into availability (work_id, region, provider, kind) values (%s, 'IN', 'P', 'flatrate')",
+            (wid,),
+        )
     conn.execute("update works set popularity = 99999 where id in ('test:movie/a5', 'test:movie/a6')")
     top = top_in_india(conn, set())
     assert top[0].id == "test:movie/a5"
@@ -214,6 +217,13 @@ def test_top_10_only_has_titles_available_in_india(conn: psycopg.Connection, pid
     assert len(top) <= 10
     rail = next(r for r in build_home(conn, None).rails if r.id == "top-india")
     assert rail.ranked
+    assert rail.items[0].id == "test:movie/a5"
+    ids = [w.id for w in rail.items]
+    on_india = conn.execute(
+        "select count(distinct work_id) as n from availability where region = 'IN' and work_id = any(%s)",
+        (ids,),
+    ).fetchone()["n"]
+    assert on_india == len(ids)
 
 
 def api_client(conn: psycopg.Connection) -> TestClient:
