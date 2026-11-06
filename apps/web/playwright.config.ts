@@ -20,6 +20,6 @@ export default defineConfig({
     url: `http://localhost:${PORT}/api/health`,
     reuseExistingServer: !process.env.CI,
     timeout: 300_000,
-    env: { API_MODE: "snapshot" },
+    env: { API_MODE: process.env.E2E_API_MODE ?? "snapshot" },
   },
 });

@@ -4,8 +4,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from psycopg import Connection
 
-from rhorverse.account import account_profile_id, account_summary, export_imports
-from rhorverse.api.identity import bearer_claims, effective_profile_id
+from rhorverse.account import account_summary, export_imports
+from rhorverse.api.identity import bearer_claims, effective_profile_id, own_profile_id
 from rhorverse.auth import Claims
 from rhorverse.db import get_conn
 from rhorverse.rec.taste import build_profile, export_events
@@ -36,7 +36,7 @@ def post_events(
 ) -> EventAck:
     """Store events. Signed in: always for the token's own profile. Guests: for the profile id they send
     (created on first sight). Unknown work ids are skipped."""
-    own = account_profile_id(conn, claims) if claims is not None else None
+    own = own_profile_id(conn, claims) if claims is not None else None
     rows = [(own or require_profile_id(e.profile_id), e.work_id, e.kind, e.weight) for e in events]
     accepted = 0
     with conn.transaction():

@@ -43,11 +43,14 @@ export function PrivacyActions() {
   async function remove() {
     setBusy(true);
     setError(null);
-    const result = await deleteAccount(); // redirects away on success
-    if (result && !result.ok) {
+    const result = await deleteAccount();
+    if (!result.ok) {
       setError(result.error);
       setBusy(false);
+      return;
     }
+    await browserClient()?.auth.signOut({ scope: "local" }); // forget the session this browser still holds
+    hardNavigate("/");
   }
 
   return (

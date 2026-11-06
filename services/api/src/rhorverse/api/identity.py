@@ -6,10 +6,12 @@ A bad or expired token is a 401 rather than a silent fall-back to guest: the web
 tokens, and a quiet downgrade would hide the user's own data.
 """
 
+from uuid import UUID
+
 from fastapi import Depends, Header, HTTPException
 from psycopg import Connection
 
-from rhorverse.account import account_profile_id
+from rhorverse.account import AccountGone, account_profile_id
 from rhorverse.auth import AuthNotConfigured, Claims, TokenError, verify_bearer
 from rhorverse.db import get_conn
 
@@ -43,5 +45,13 @@ def effective_profile_id(
 ) -> str | None:
     """The profile to act on: the account's when signed in, else the guest cookie id from the query."""
     if claims is not None:
-        return str(account_profile_id(conn, claims))
+        return str(own_profile_id(conn, claims))
     return profile_id
+
+
+def own_profile_id(conn: Connection, claims: Claims) -> UUID:
+    """The signed-in user's profile id; 401 if the account was deleted after the token was issued."""
+    try:
+        return account_profile_id(conn, claims)
+    except AccountGone as e:
+        raise HTTPException(status_code=401, detail="this account no longer exists", headers=_BEARER) from e

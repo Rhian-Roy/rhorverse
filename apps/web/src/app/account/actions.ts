@@ -6,12 +6,13 @@ import { serverToken, serverUser } from "@/lib/server-profile";
 import { adminClient } from "@/lib/supabase/admin";
 import { serverClient } from "@/lib/supabase/server";
 
-export type DeleteResult = { ok: false; error: string };
+export type DeleteResult = { ok: true } | { ok: false; error: string };
 
 /**
  * Deletes the signed-in user: their profile, events and imports through the API, then the sign-in
  * itself through the admin API. The secret key lives only here, on the server. Who is asking comes
- * from the verified session, never from the request.
+ * from the verified session, never from the request. It returns instead of redirecting so the browser
+ * can drop its own copy of the session and do a full page load.
  */
 export async function deleteAccount(): Promise<DeleteResult> {
   const user = await serverUser();
@@ -32,5 +33,5 @@ export async function deleteAccount(): Promise<DeleteResult> {
   } catch {
     // The user is already gone, so the call may 401; the cookies were cleared either way.
   }
-  redirect("/");
+  return { ok: true };
 }

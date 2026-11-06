@@ -4,9 +4,13 @@ from dataclasses import dataclass
 from typing import Any
 from uuid import UUID
 
-from psycopg import Connection
+from psycopg import Connection, errors
 
 from rhorverse.auth import Claims
+
+
+class AccountGone(Exception):
+    """The token is valid but its user no longer exists (deleted since the token was issued)."""
 
 
 def account_profile_id(conn: Connection, claims: Claims) -> UUID:
@@ -19,12 +23,18 @@ def account_profile_id(conn: Connection, claims: Claims) -> UUID:
         return row["id"]  # type: ignore[no-any-return]
     meta = claims.user_metadata
     consented = meta.get("age_confirmed") is True and meta.get("privacy_consent") is True
-    row = conn.execute(
-        "insert into profiles (id, user_id, age_confirmed, consent_at) "
-        "values (gen_random_uuid(), %s, %s, case when %s then now() end) "
-        "on conflict (user_id) do update set user_id = excluded.user_id returning id",
-        (claims.sub, consented, consented),
-    ).fetchone()
+    try:
+        with conn.transaction():  # a savepoint: a refused insert must not poison the request's transaction
+            row = conn.execute(
+                "insert into profiles (id, user_id, age_confirmed, consent_at) "
+                "values (gen_random_uuid(), %s, %s, case when %s then now() end) "
+                "on conflict (user_id) do update set user_id = excluded.user_id returning id",
+                (claims.sub, consented, consented),
+            ).fetchone()
+    except errors.ForeignKeyViolation as e:
+        # An access token stays valid for up to an hour after the account is deleted; it must not
+        # bring a profile back to life.
+        raise AccountGone(str(claims.sub)) from e
     assert row is not None
     return row["id"]  # type: ignore[no-any-return]
 
