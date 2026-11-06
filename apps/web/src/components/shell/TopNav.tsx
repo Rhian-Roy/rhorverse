@@ -1,10 +1,11 @@
 "use client";
 
-import { MagnifyingGlass, UserCircle } from "@phosphor-icons/react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import { AccountMenu } from "./AccountMenu";
 import { ThemeToggle } from "./ThemeToggle";
 import { Wordmark } from "./Wordmark";
 
@@ -81,9 +82,7 @@ export function TopNav() {
           <IconLink href="/search" label="Search">
             <MagnifyingGlass />
           </IconLink>
-          <IconLink href="/profile" label="Your taste profile">
-            <UserCircle />
-          </IconLink>
+          <AccountMenu />
         </div>
       </nav>
     </header>

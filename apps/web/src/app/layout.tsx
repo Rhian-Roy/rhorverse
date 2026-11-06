@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { MiniPlayer } from "@/components/music/MiniPlayer";
+import { FlashToast } from "@/components/shell/FlashToast";
 import { FocusRoot } from "@/components/shell/FocusRoot";
+import { ShellFrame } from "@/components/shell/ShellFrame";
 import { SiteFooter } from "@/components/shell/SiteFooter";
 import { TopNav } from "@/components/shell/TopNav";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
@@ -31,10 +33,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           >
             Skip to content
           </a>
-          <TopNav />
-          <main id="main" tabIndex={-1} className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-6 py-8">{children}</main>
-          <SiteFooter />
-          <MiniPlayer />
+          <ShellFrame
+            top={<TopNav />}
+            bottom={
+              <>
+                <SiteFooter />
+                <MiniPlayer />
+              </>
+            }
+          >
+            {children}
+          </ShellFrame>
+          <FlashToast />
         </FocusRoot>
       </body>
     </html>

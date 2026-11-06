@@ -151,6 +151,30 @@
   }
 }
 
+/* Sign-in wall: the columns drift slowly, in opposite directions. Still when motion is reduced. */
+@keyframes wall-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.wall-col {
+  animation: wall-drift 120s linear infinite;
+}
+
+.wall-col-reverse {
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wall-col {
+    animation: none !important;
+  }
+}
+
 @utility scrollbar-none {
   scrollbar-width: none;
   &::-webkit-scrollbar {
