@@ -148,7 +148,7 @@ function Picks({
                     className="group flex w-full flex-col gap-2 rounded-tile text-left outline-none"
                   >
                     <span
-                      className={`relative block ${SHAPE_CLASS[shape]} overflow-hidden rounded-tile bg-surface-overlay outline-2 outline-offset-3 outline-transparent transition-[scale,outline-color] duration-quick ease-enter group-hover:scale-[1.03] group-focus-visible:outline-focus ${on ? "outline-highlight group-focus-visible:outline-focus" : ""}`}
+                      className={`relative block ${SHAPE_CLASS[shape]} overflow-hidden rounded-tile bg-surface-overlay outline-2 outline-offset-3 transition-[scale,outline-color] duration-quick ease-enter group-hover:scale-[1.03] group-focus-visible:outline-focus ${on ? "outline-highlight" : "outline-transparent"}`}
                     >
                       {src ? (
                         <Image src={src} alt="" fill sizes="150px" className="object-cover" />
