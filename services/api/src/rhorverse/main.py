@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from rhorverse import __version__, db
-from rhorverse.api import imports, profile, recs, search, works
+from rhorverse.api import account, imports, profile, recs, search, works
 from rhorverse.config import get_settings
 from rhorverse.schemas import Health
 
@@ -25,7 +25,7 @@ def create_app() -> FastAPI:
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origins,
-        allow_methods=["GET", "POST"],
+        allow_methods=["GET", "POST", "DELETE"],
         allow_headers=["*"],
     )
 
@@ -41,7 +41,7 @@ def create_app() -> FastAPI:
         ok = db.ping()
         return Health(status="ok" if ok else "degraded", version=__version__, db="ok" if ok else "down")
 
-    for module in (works, search, recs, profile, imports):
+    for module in (works, search, recs, profile, imports, account):
         app.include_router(module.router)
     return app
 

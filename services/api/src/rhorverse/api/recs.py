@@ -3,6 +3,7 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException
 from psycopg import Connection
 
+from rhorverse.api.identity import effective_profile_id
 from rhorverse.db import get_conn
 from rhorverse.rec.exclude import excluded_ids
 from rhorverse.rec.feed import (
@@ -22,7 +23,10 @@ router = APIRouter(prefix="/recs", tags=["recs"])
 
 
 @router.get("/home", response_model=HomeFeed)
-def home(profile_id: str | None = None, conn: Connection = Depends(get_conn)) -> HomeFeed:  # noqa: B008
+def home(
+    profile_id: str | None = Depends(effective_profile_id),
+    conn: Connection = Depends(get_conn),  # noqa: B008
+) -> HomeFeed:
     """Personal rails when the profile has signal; popular rails otherwise (cold start)."""
     return build_home(conn, profile_id)
 
@@ -31,7 +35,7 @@ def home(profile_id: str | None = None, conn: Connection = Depends(get_conn)) ->
 @router.get("/because/{work_id:path}", response_model=Rail)
 def because(
     work_id: str,
-    profile_id: str | None = None,
+    profile_id: str | None = Depends(effective_profile_id),
     conn: Connection = Depends(get_conn),  # noqa: B008
 ) -> Rail:
     row = conn.execute(
@@ -50,7 +54,7 @@ def because(
 @router.get("/media/{media}", response_model=MediaFeed)
 def media_tab(
     media: MediaType,
-    profile_id: str | None = None,
+    profile_id: str | None = Depends(effective_profile_id),
     chip: str | None = None,
     conn: Connection = Depends(get_conn),  # noqa: B008
 ) -> MediaFeed:
@@ -70,7 +74,7 @@ def _work_or_404(conn: Connection, work_id: str) -> dict[str, Any]:
 @router.get("/why/{work_id:path}", response_model=Explanation | None)
 def why(
     work_id: str,
-    profile_id: str | None = None,
+    profile_id: str | None = Depends(effective_profile_id),
     conn: Connection = Depends(get_conn),  # noqa: B008
 ) -> Explanation | None:
     """Why this work suits this profile, or null when the profile has no taste signal yet."""
@@ -80,7 +84,7 @@ def why(
 @router.get("/across/{work_id:path}", response_model=Rail)
 def across(
     work_id: str,
-    profile_id: str | None = None,
+    profile_id: str | None = Depends(effective_profile_id),
     conn: Connection = Depends(get_conn),  # noqa: B008
 ) -> Rail:
     """Nearest works from every other medium, minus what this profile has seen or rejected."""

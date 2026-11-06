@@ -94,7 +94,7 @@ class SearchResult(BaseModel):
 
 
 class EventIn(BaseModel):
-    profile_id: str
+    profile_id: str | None = None  # guests only; ignored when a valid Bearer token is sent
     work_id: str
     kind: EventKind
     weight: float = 1.0
@@ -132,3 +132,21 @@ class Health(BaseModel):
     service: str = "api"
     version: str
     db: Literal["ok", "down", "skipped"] = "skipped"
+
+
+class AccountInfo(BaseModel):
+    profile_id: str
+    email: str | None = None
+    age_confirmed: bool = False
+    consent_at: str | None = None
+    created_at: str | None = None
+
+
+class MergeIn(BaseModel):
+    guest_profile_id: str
+
+
+class MergeOut(BaseModel):
+    events: int  # moved into the account
+    saved: int  # of those, saves
+    imports: int

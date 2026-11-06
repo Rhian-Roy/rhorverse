@@ -23,6 +23,9 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=REPO_ROOT / ".env", extra="ignore")
 
     database_url: str | None = None
+    # https://<project-ref>.supabase.co. Sign-in tokens are verified against its JWKS; unset means
+    # token auth is off and every caller is a cookie guest.
+    supabase_url: str | None = None
     tmdb_read_token: str | None = None
     twitch_client_id: str | None = None
     twitch_client_secret: str | None = None

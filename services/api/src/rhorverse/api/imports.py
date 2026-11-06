@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Body, Depends, HTTPException
 from psycopg import Connection
 
+from rhorverse.api.identity import effective_profile_id
 from rhorverse.api.profile import require_profile_id
 from rhorverse.config import get_settings
 from rhorverse.db import get_conn
@@ -22,10 +23,10 @@ def tmdb_http() -> Http | None:
 # Raw CSV body rather than a multipart upload, so no python-multipart dependency.
 @router.post("/letterboxd", response_model=ImportResult, status_code=202)
 def letterboxd(
-    profile_id: str,
     body: bytes = Body(..., media_type="text/csv"),
     conn: Connection = Depends(get_conn),  # noqa: B008
     http: Http | None = Depends(tmdb_http),  # noqa: B008
+    profile_id: str | None = Depends(effective_profile_id),
 ) -> ImportResult:
     pid = require_profile_id(profile_id)
     if len(body) > MAX_BYTES:
