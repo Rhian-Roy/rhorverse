@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ExportButton } from "@/components/account/ExportButton";
 import { hrefFor } from "@/components/rail/Tile";
 import { TvToggle } from "@/components/shell/TvToggle";
 import { api } from "@/lib/api";
-import { serverProfileId } from "@/lib/server-profile";
+import { serverWho } from "@/lib/server-profile";
 import type { MediaType, TasteTag } from "@/lib/types";
 
 export const metadata: Metadata = { title: "Your taste" };
@@ -36,8 +37,8 @@ function Stat({ label, value }: { label: string; value: number }) {
 }
 
 export default async function ProfilePage() {
-  const pid = await serverProfileId();
-  const profile = await api.profile(pid);
+  const who = await serverWho();
+  const profile = await api.profile(who);
   const hasTaste = !!profile && profile.top_tags.length > 0;
   return (
     <>
@@ -86,10 +87,8 @@ export default async function ProfilePage() {
               </ul>
             </section>
           ) : null}
-          {pid ? (
-            <a href={api.exportUrl(pid)} className="w-fit text-sm text-link hover:underline">
-              Export my data as JSON
-            </a>
+          {who ? (
+            <ExportButton className="w-fit text-sm text-link hover:underline">Export my data as JSON</ExportButton>
           ) : null}
         </>
       ) : (

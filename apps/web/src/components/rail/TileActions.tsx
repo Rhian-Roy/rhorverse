@@ -3,7 +3,7 @@
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 import { useState } from "react";
 import { api } from "@/lib/api";
-import { ensureProfileId } from "@/lib/profile";
+import { currentWho } from "@/lib/client-who";
 import type { EventKind, Work } from "@/lib/types";
 
 const ACTIONS = [
@@ -24,7 +24,7 @@ export function TileActions({ work, onDone }: { work: Work; onDone?: (id: string
     setBusy(true);
     setFailed(false);
     try {
-      await api.sendEvents([{ profile_id: ensureProfileId(), work_id: work.id, kind, weight: 1 }]);
+      await api.sendEvents([{ work_id: work.id, kind, weight: 1 }], await currentWho());
       onDone?.(work.id);
     } catch {
       setFailed(true);

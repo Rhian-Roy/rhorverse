@@ -1,6 +1,8 @@
 // Typed client. API_MODE=live calls the FastAPI service; API_MODE=snapshot reads
 // precomputed JSON from /snapshots/*.json so the web app runs with no backend.
+import { isPersonal, type Who } from "./who";
 import type {
+  AccountInfo,
   EventAck,
   EventIn,
   Explanation,
@@ -8,6 +10,7 @@ import type {
   ImportResult,
   ImportSource,
   MediaFeed,
+  MergeResult,
   MediaType,
   Rail,
   SearchFilters,
@@ -47,6 +50,21 @@ async function live<T>(
 }
 
 const NO_STORE: RequestInit = { cache: "no-store" };
+
+/**
+ * How to identify the caller. A token goes in the Authorization header (and no profile id is sent, the
+ * API ignores one anyway); a guest sends the cookie id as `profile_id`. Personal reads are never cached.
+ */
+function asCaller(who?: Who | null) {
+  const params = new URLSearchParams();
+  const headers: Record<string, string> = {};
+  if (who?.token) headers.Authorization = `Bearer ${who.token}`;
+  else if (who?.guestId) params.set("profile_id", who.guestId);
+  const personal = isPersonal(who);
+  return { params, headers, personal, init: personal ? { cache: "no-store" as const, headers } : undefined };
+}
+
+const withQuery = (path: string, params: URLSearchParams) => (params.size ? `${path}?${params}` : path);
 
 async function optional<T>(read: () => Promise<T>, fallback: T): Promise<T> {
   try {
@@ -134,28 +152,31 @@ async function snapshotSearch(q: string, media?: MediaType): Promise<SearchResul
 export const api = {
   mode: API_MODE,
 
-  /** With a profile id the feed is personal, so it is never cached. */
-  home(profileId?: string | null): Promise<HomeFeed> {
+  /** For a known caller the feed is personal, so it is never cached. */
+  home(who?: Who | null): Promise<HomeFeed> {
     if (API_MODE !== "live") return snapshot("home");
-    const path = profileId ? `/recs/home?${new URLSearchParams({ profile_id: profileId })}` : "/recs/home";
-    const init: RequestInit = profileId ? { cache: "no-store" } : { next: { revalidate: 300 } };
+    const c = asCaller(who);
     return liveOr(
-      () => live<HomeFeed>(path, init, PAGE_TIMEOUT_MS),
+      () => live<HomeFeed>(withQuery("/recs/home", c.params), c.init ?? { next: { revalidate: 300 } }, PAGE_TIMEOUT_MS),
       () => snapshot("home"),
     );
   },
 
-  /** A media tab: hero, chips and rails. With a profile id it's personal, so never cached. */
-  async media(media: MediaType, profileId?: string | null, chip?: string | null): Promise<MediaFeed> {
+  /** A media tab: hero, chips and rails. For a known caller it's personal, so never cached. */
+  async media(media: MediaType, who?: Who | null, chip?: string | null): Promise<MediaFeed> {
     const fromSnapshot = () => snapshot<MediaFeed>(MEDIA_SNAPSHOT[media]);
     if (API_MODE !== "live") return fromSnapshot();
-    const params = new URLSearchParams();
-    if (profileId) params.set("profile_id", profileId);
-    if (chip) params.set("chip", chip);
-    const query = params.size ? `?${params}` : "";
-    const init: RequestInit = profileId ? NO_STORE : { next: { revalidate: 300 } };
+    const c = asCaller(who);
+    if (chip) c.params.set("chip", chip);
     return liveOr(
-      async () => asMediaFeed(await live<unknown>(`/recs/media/${media}${query}`, init, PAGE_TIMEOUT_MS)),
+      async () =>
+        asMediaFeed(
+          await live<unknown>(
+            withQuery(`/recs/media/${media}`, c.params),
+            c.init ?? { next: { revalidate: 300 } },
+            PAGE_TIMEOUT_MS,
+          ),
+        ),
       async () => asMediaFeed(await fromSnapshot()),
     );
   },
@@ -194,19 +215,21 @@ export const api = {
     }
   },
 
-  /** Why this work suits this profile; null with no taste signal, in snapshot mode, or on any error. */
-  async why(id: string, profileId?: string | null): Promise<Explanation | null> {
-    if (API_MODE !== "live" || !profileId) return null;
-    const query = new URLSearchParams({ profile_id: profileId });
-    return optional(() => live<Explanation | null>(`/recs/why/${pathId(id)}?${query}`, NO_STORE, PAGE_TIMEOUT_MS), null);
+  /** Why this work suits this caller; null with no taste signal, in snapshot mode, or on any error. */
+  async why(id: string, who?: Who | null): Promise<Explanation | null> {
+    const c = asCaller(who);
+    if (API_MODE !== "live" || !c.personal) return null;
+    return optional(
+      () => live<Explanation | null>(withQuery(`/recs/why/${pathId(id)}`, c.params), c.init, PAGE_TIMEOUT_MS),
+      null,
+    );
   },
 
   /** Nearest works from every other medium. An extra section, so errors just hide it. */
-  async across(id: string, profileId?: string | null): Promise<Rail | null> {
+  async across(id: string, who?: Who | null): Promise<Rail | null> {
     if (API_MODE !== "live") return null;
-    const query = profileId ? `?${new URLSearchParams({ profile_id: profileId })}` : "";
-    const init = profileId ? NO_STORE : undefined;
-    return optional(() => live<Rail>(`/recs/across/${pathId(id)}${query}`, init, PAGE_TIMEOUT_MS), null);
+    const c = asCaller(who);
+    return optional(() => live<Rail>(withQuery(`/recs/across/${pathId(id)}`, c.params), c.init, PAGE_TIMEOUT_MS), null);
   },
 
   /** Neighbours of a work, for the up-next column. */
@@ -216,32 +239,62 @@ export const api = {
     return rail?.items ?? [];
   },
 
-  /** The taste summary for a profile; null in snapshot mode, with no profile, or on any error. */
-  async profile(profileId?: string | null): Promise<TasteProfile | null> {
-    if (API_MODE !== "live" || !profileId) return null;
-    const query = new URLSearchParams({ profile_id: profileId });
-    return optional(() => live<TasteProfile>(`/profile?${query}`, NO_STORE, PAGE_TIMEOUT_MS), null);
+  /** The taste summary for the caller; null in snapshot mode, with no profile, or on any error. */
+  async profile(who?: Who | null): Promise<TasteProfile | null> {
+    const c = asCaller(who);
+    if (API_MODE !== "live" || !c.personal) return null;
+    return optional(() => live<TasteProfile>(withQuery("/profile", c.params), c.init ?? NO_STORE, PAGE_TIMEOUT_MS), null);
   },
 
-  exportUrl(profileId: string): string {
-    return `${API_BASE}/profile/export?${new URLSearchParams({ profile_id: profileId })}`;
+  /** Browser only (live mode). Everything stored for the caller, parsed. */
+  exportData(who: Who): Promise<unknown> {
+    const c = asCaller(who);
+    return live(withQuery("/profile/export", c.params), c.init ?? NO_STORE);
   },
 
   /** Browser only (live mode). The CSV goes as the raw body; matching may take a while. */
-  importCsv(source: ImportSource, profileId: string, csv: string): Promise<ImportResult> {
-    return live(`/imports/${source}?${new URLSearchParams({ profile_id: profileId })}`, {
+  importCsv(source: ImportSource, who: Who, csv: string): Promise<ImportResult> {
+    const c = asCaller(who);
+    return live(withQuery(`/imports/${source}`, c.params), {
       method: "POST",
-      headers: { "Content-Type": "text/csv" },
+      headers: { ...c.headers, "Content-Type": "text/csv" },
       body: csv,
     });
   },
 
   /** Browser only (live mode). */
-  sendEvents(events: EventIn[]): Promise<EventAck> {
+  sendEvents(events: Omit<EventIn, "profile_id">[], who: Who): Promise<EventAck> {
+    const c = asCaller(who);
     return live("/events", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(events),
+      headers: { ...c.headers, "Content-Type": "application/json" },
+      body: JSON.stringify(events.map((e) => ({ ...e, profile_id: who.guestId }))),
     });
+  },
+
+  /** Server side only. Folds the guest profile into the signed-in account. */
+  mergeGuest(token: string, guestProfileId: string): Promise<MergeResult> {
+    return live("/account/merge", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ guest_profile_id: guestProfileId }),
+      cache: "no-store",
+    }, PAGE_TIMEOUT_MS);
+  },
+
+  /** Server side only. */
+  account(token: string): Promise<AccountInfo> {
+    return live("/account/me", { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }, PAGE_TIMEOUT_MS);
+  },
+
+  /** Server side only. Records the 18+ and privacy confirmation (Google sign-ups). */
+  recordConsent(token: string): Promise<AccountInfo> {
+    return live("/account/consent", { method: "POST", headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }, PAGE_TIMEOUT_MS);
+  },
+
+  /** Server side only. Removes the account's profile, events and imports. */
+  async deleteAccountData(token: string): Promise<void> {
+    const res = await fetch(`${API_BASE}/account`, { method: "DELETE", headers: { Authorization: `Bearer ${token}` } });
+    if (!res.ok) throw new ApiError(res.status, `/account → ${res.status}`);
   },
 };

@@ -95,7 +95,8 @@ export interface Track {
 export type EventKind = "view" | "like" | "dislike" | "save" | "consumed" | "skip";
 
 export interface EventIn {
-  profile_id: string;
+  /** Guests only. Ignored by the API when a signed-in token is sent. */
+  profile_id?: string;
   work_id: string;
   kind: EventKind;
   weight: number;
@@ -129,4 +130,20 @@ export interface ImportResult {
   unmatched: number;
   fetched: number;
   unmatched_titles: string[];
+}
+
+export interface AccountInfo {
+  profile_id: string;
+  email: string | null;
+  age_confirmed: boolean;
+  consent_at: string | null;
+  created_at: string | null;
+}
+
+export interface MergeResult {
+  /** Moved into the account. */
+  events: number;
+  /** Of those, how many are saves. */
+  saved: number;
+  imports: number;
 }

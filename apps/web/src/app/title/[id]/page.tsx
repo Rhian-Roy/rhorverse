@@ -9,14 +9,14 @@ import { UpNext } from "@/components/detail/UpNext";
 import { WhyHere } from "@/components/detail/WhyHere";
 import { Rail } from "@/components/rail/Rail";
 import { api } from "@/lib/api";
-import { serverProfileId } from "@/lib/server-profile";
+import { serverWho } from "@/lib/server-profile";
 
 export default async function TitlePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const work = await api.work(id);
   if (!work) notFound();
-  const pid = await serverProfileId();
-  const [why, across, upNext] = await Promise.all([api.why(id, pid), api.across(id, pid), api.upNext(id)]);
+  const who = await serverWho();
+  const [why, across, upNext] = await Promise.all([api.why(id, who), api.across(id, who), api.upNext(id)]);
   return (
     <>
       <DetailHeader work={work} />

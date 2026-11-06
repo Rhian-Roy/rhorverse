@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { api } from "@/lib/api";
-import { ensureProfileId } from "@/lib/profile";
+import { currentWho } from "@/lib/client-who";
 
 /** Marks a work as seen (a `consumed` event), which removes it from recommendations. */
 export function SeenItButton({ workId }: { workId: string }) {
@@ -12,7 +12,7 @@ export function SeenItButton({ workId }: { workId: string }) {
     if (seen) return;
     setSeen(true);
     try {
-      await api.sendEvents([{ profile_id: ensureProfileId(), work_id: workId, kind: "consumed", weight: 1 }]);
+      await api.sendEvents([{ work_id: workId, kind: "consumed", weight: 1 }], await currentWho());
     } catch {
       setSeen(false);
     }

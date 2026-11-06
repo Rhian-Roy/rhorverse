@@ -3,7 +3,7 @@
 import { BookmarkSimple, ThumbsDown, ThumbsUp } from "@phosphor-icons/react";
 import { useState } from "react";
 import { api } from "@/lib/api";
-import { ensureProfileId } from "@/lib/profile";
+import { currentWho } from "@/lib/client-who";
 import type { EventKind } from "@/lib/types";
 
 const ACTIONS = [
@@ -25,7 +25,7 @@ export function FeedbackActions({ workId }: { workId: string }) {
     setPressed((p) => ({ ...p, [kind]: on }));
     if (!on) return;
     try {
-      await api.sendEvents([{ profile_id: ensureProfileId(), work_id: workId, kind, weight: 1 }]);
+      await api.sendEvents([{ work_id: workId, kind, weight: 1 }], await currentWho());
       setFailed(false);
     } catch {
       setPressed((p) => ({ ...p, [kind]: false }));

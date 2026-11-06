@@ -5,13 +5,13 @@ import { DetailHeader } from "@/components/detail/DetailHeader";
 import { TrackRow } from "@/components/music/TrackRow";
 import { Rail } from "@/components/rail/Rail";
 import { api } from "@/lib/api";
-import { serverProfileId } from "@/lib/server-profile";
+import { serverWho } from "@/lib/server-profile";
 
 export default async function AlbumPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const album = await api.work(id);
   if (!album) notFound();
-  const [tracks, across] = await Promise.all([api.tracks(id), api.across(id, await serverProfileId())]);
+  const [tracks, across] = await Promise.all([api.tracks(id), api.across(id, await serverWho())]);
   return (
     <>
       <DetailHeader work={album} />

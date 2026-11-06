@@ -4,7 +4,7 @@ import { UploadSimple, X } from "@phosphor-icons/react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState, type FormEvent } from "react";
 import { api } from "@/lib/api";
-import { ensureProfileId } from "@/lib/profile";
+import { currentWho } from "@/lib/client-who";
 import type { ImportResult, ImportSource } from "@/lib/types";
 
 const SOURCES: Record<ImportSource, { title: string; hint: string; input: "file" | "username" }> = {
@@ -42,7 +42,7 @@ export function ImportCard({ source }: { source: ImportSource }) {
     if (!(file instanceof File)) return;
     setPhase({ kind: "busy" });
     try {
-      const result = await api.importCsv(source, ensureProfileId(), await file.text());
+      const result = await api.importCsv(source, await currentWho(), await file.text());
       setPhase(
         result.status === "done"
           ? { kind: "done", result }

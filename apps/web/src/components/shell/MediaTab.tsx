@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Hero } from "@/components/hero/Hero";
 import { Rail } from "@/components/rail/Rail";
 import { api } from "@/lib/api";
-import { serverProfileId } from "@/lib/server-profile";
+import { serverWho } from "@/lib/server-profile";
 import type { FacetChip, MediaType } from "@/lib/types";
 
 function ChipLinks({ chips, active }: { chips: FacetChip[]; active?: string }) {
@@ -26,7 +26,7 @@ function ChipLinks({ chips, active }: { chips: FacetChip[]; active?: string }) {
 
 /** One media tab (Movies, TV, Anime, Music, Games): hero, chips and rails, personal when there's a profile. */
 export async function MediaTab({ media, title, chip }: { media: MediaType; title: string; chip?: string }) {
-  const feed = await api.media(media, await serverProfileId(), chip);
+  const feed = await api.media(media, await serverWho(), chip);
   const empty = feed.rails.length === 0;
   return (
     <>
