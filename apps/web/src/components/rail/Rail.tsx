@@ -14,7 +14,17 @@ const FOCUS_TILE = "rhorverse:focus-tile";
  * Horizontal rail. Embla handles drag/scroll-snap; ←/→ move focus between tiles, ↑/↓ between rails,
  * and Embla scrolls the focused tile into view.
  */
-export function Rail({ rail }: { rail: RailData }) {
+export function Rail({
+  rail,
+  subtitle,
+  action,
+}: {
+  rail: RailData;
+  /** A line under the title when the rail has no "because you liked" explanation (a result count, say). */
+  subtitle?: string;
+  /** Sits by the arrows: a "See all" link or button. */
+  action?: React.ReactNode;
+}) {
   const headingId = useId();
   const listRef = useRef<HTMLUListElement>(null);
   const [viewportRef, embla] = useEmblaCarousel({ align: "start", dragFree: true, containScroll: "trimSnaps" });
@@ -95,9 +105,11 @@ export function Rail({ rail }: { rail: RailData }) {
           <h2 id={headingId} className="font-display text-title text-ink">
             {rail.title}
           </h2>
-          {rail.explanation ? <BecauseYouLiked explanation={rail.explanation} /> : null}
+          {rail.explanation ? <BecauseYouLiked explanation={rail.explanation} /> : subtitle ? <p className="mt-1 text-meta text-ink-faint">{subtitle}</p> : null}
         </div>
-        <div className="hidden gap-1 md:flex">
+        <div className="flex items-center gap-1">
+          {action}
+          <div className="hidden gap-1 md:flex">
           <button
             type="button"
             aria-label={`Scroll ${rail.title} left`}
@@ -114,6 +126,7 @@ export function Rail({ rail }: { rail: RailData }) {
           >
             <CaretRight />
           </button>
+          </div>
         </div>
       </div>
       <div ref={viewportRef} className="-mx-3 -my-6 overflow-hidden px-3 py-6" onKeyDown={onKeyDown}>

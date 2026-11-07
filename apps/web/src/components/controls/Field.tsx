@@ -9,10 +9,12 @@ type Props = Omit<InputHTMLAttributes<HTMLInputElement>, "id"> & {
   error?: string;
   /** Sits inside the right edge of the control (the password reveal button). */
   trailing?: ReactNode;
+  /** The search box: taller, with bigger type. */
+  large?: boolean;
 };
 
 /** A labelled text input. The error replaces the hint and is announced with the field. */
-export function Field({ label, hint, error, trailing, disabled, className, ...input }: Props) {
+export function Field({ label, hint, error, trailing, disabled, className, large = false, ...input }: Props) {
   const id = useId();
   const msgId = `${id}-msg`;
   return (
@@ -21,7 +23,7 @@ export function Field({ label, hint, error, trailing, disabled, className, ...in
         {label}
       </label>
       <div
-        className={`flex h-12 items-center rounded-card border bg-surface-raised transition-colors duration-quick focus-within:outline-2 focus-within:outline-offset-3 focus-within:outline-focus ${
+        className={`flex ${large ? "h-16" : "h-12"} items-center rounded-card border bg-surface-raised transition-colors duration-quick focus-within:outline-2 focus-within:outline-offset-3 focus-within:outline-focus ${
           error ? "border-danger" : "border-ink-faint hover:border-ink-muted focus-within:border-ink-muted"
         }`}
       >
@@ -30,7 +32,7 @@ export function Field({ label, hint, error, trailing, disabled, className, ...in
           disabled={disabled}
           aria-invalid={error ? true : undefined}
           aria-describedby={error || hint ? msgId : undefined}
-          className="h-full min-w-0 flex-1 bg-transparent px-3.5 text-base text-ink outline-none placeholder:text-ink-faint disabled:cursor-not-allowed"
+          className={`h-full min-w-0 flex-1 bg-transparent ${large ? "px-5 text-xl" : "px-3.5 text-base"} text-ink outline-none placeholder:text-ink-faint disabled:cursor-not-allowed`}
           {...input}
         />
         {trailing ? <span className="flex items-center pr-1.5">{trailing}</span> : null}

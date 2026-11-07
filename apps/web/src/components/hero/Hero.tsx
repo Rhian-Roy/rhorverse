@@ -18,7 +18,18 @@ const MEDIA_LABEL: Record<MediaType, string> = { movie: "Film", tv: "TV", anime:
  * cross-fades backdrops through `items` every 8 s and pauses while hovered or focused. The selected
  * dot fills over the rotation.
  */
-export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?: "h1" | "h2" }) {
+export function Hero({
+  items,
+  titleAs: Title = "h1",
+  compact = false,
+  label = "Featured",
+}: {
+  items: Work[];
+  titleAs?: "h1" | "h2";
+  /** Tab heroes are shorter and use the page-title size. */
+  compact?: boolean;
+  label?: string;
+}) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -37,8 +48,8 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
     <section
       data-hero
       aria-roledescription="carousel"
-      aria-label="Featured"
-      className="relative isolate -mx-[calc(var(--gutter)+var(--safe-x))] -mt-[calc(var(--nav-h)+var(--safe-y))] flex min-h-150 flex-col justify-end overflow-hidden bg-brand md:min-h-170"
+      aria-label={label}
+      className={`relative isolate -mx-[calc(var(--gutter)+var(--safe-x))] -mt-[calc(var(--nav-h)+var(--safe-y))] flex flex-col justify-end overflow-hidden bg-brand ${compact ? "min-h-120 md:min-h-115" : "min-h-150 md:min-h-170"}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -69,7 +80,11 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
         </motion.div>
       </AnimatePresence>
       <div className="flex max-w-4xl flex-col gap-4 px-[calc(var(--gutter)+var(--safe-x))] pt-6 pb-16 md:pt-10 md:pb-18">
-        <Title className="font-display text-display-xl tracking-[-0.03em] text-balance text-ink">{work.title}</Title>
+        <Title
+          className={`font-display tracking-[-0.03em] text-balance text-ink ${compact ? "text-display-l" : "text-display-xl"}`}
+        >
+          {work.title}
+        </Title>
         {work.why ? <p className="max-w-2xl text-lg leading-snug text-ink max-sm:text-base">{work.why}</p> : null}
         <ul className="flex flex-wrap gap-2" aria-label="Details">
           {chips.map((chip) => (
@@ -90,7 +105,7 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
         </div>
       </div>
       {items.length > 1 ? (
-        <div className="absolute right-[calc(var(--gutter)+var(--safe-x))] bottom-5 flex gap-2 md:bottom-8" role="tablist" aria-label="Featured titles">
+        <div className="absolute right-[calc(var(--gutter)+var(--safe-x))] bottom-5 flex gap-2 md:bottom-8" role="tablist" aria-label={`${label} titles`}>
           {items.map((w, i) => (
             <button
               key={w.id}
