@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ChipLink } from "@/components/controls/Chip";
 import { Hero } from "@/components/hero/Hero";
 import { Rail } from "@/components/rail/Rail";
 import { api } from "@/lib/api";
@@ -9,16 +9,15 @@ function ChipLinks({ chips, active }: { chips: FacetChip[]; active?: string }) {
   if (chips.length === 0) return null;
   const all = [{ value: "", label: "All" }, ...chips];
   return (
-    <nav aria-label="Filter" className="scrollbar-none flex gap-2 overflow-x-auto">
+    <nav aria-label="Filter" className="scrollbar-none -m-1 flex gap-2 overflow-x-auto p-1">
       {all.map((chip) => (
-        <Link
+        <ChipLink
           key={chip.value}
           href={chip.value ? `?chip=${encodeURIComponent(chip.value)}` : "?"}
-          aria-current={chip.value === (active ?? "") ? "true" : undefined}
-          className="shrink-0 rounded-pill border border-line px-4 py-1.5 text-sm text-ink-muted transition-colors duration-quick hover:text-ink aria-[current=true]:border-chip-selected aria-[current=true]:bg-chip-selected aria-[current=true]:text-chip-selected-ink"
+          selected={chip.value === (active ?? "")}
         >
           {chip.label}
-        </Link>
+        </ChipLink>
       ))}
     </nav>
   );

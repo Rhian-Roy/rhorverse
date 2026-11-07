@@ -89,7 +89,7 @@ export function Rail({ rail }: { rail: RailData }) {
   );
 
   return (
-    <section aria-labelledby={headingId} className="flex flex-col gap-3">
+    <section aria-labelledby={headingId} className="flex flex-col gap-2">
       <div className="flex items-end justify-between gap-4">
         <div>
           <h2 id={headingId} className="font-display text-title text-ink">

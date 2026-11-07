@@ -1,11 +1,13 @@
 "use client";
 
+import { Eye } from "@phosphor-icons/react";
 import { useState } from "react";
+import { Button } from "@/components/controls/Button";
 import { api } from "@/lib/api";
 import { currentWho } from "@/lib/client-who";
 
 /** Marks a work as seen (a `consumed` event), which removes it from recommendations. */
-export function SeenItButton({ workId }: { workId: string }) {
+export function SeenItButton({ workId, className }: { workId: string; className?: string }) {
   const [seen, setSeen] = useState(false);
 
   async function markSeen() {
@@ -19,13 +21,9 @@ export function SeenItButton({ workId }: { workId: string }) {
   }
 
   return (
-    <button
-      type="button"
-      aria-pressed={seen}
-      onClick={() => void markSeen()}
-      className="rounded-pill bg-surface-overlay px-5 py-2 text-sm font-semibold text-ink transition-colors duration-quick hover:bg-surface-hover aria-pressed:bg-chip-selected aria-pressed:text-chip-selected-ink"
-    >
+    <Button variant="secondary" size="lg" aria-pressed={seen} onClick={() => void markSeen()} className={className}>
+      <Eye aria-hidden className="size-5" />
       {seen ? "Seen" : "Seen it"}
-    </button>
+    </Button>
   );
 }

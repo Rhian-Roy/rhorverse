@@ -1,6 +1,6 @@
 "use client";
 
-import { Gear, SignOut, UserCircle, User as UserIcon } from "@phosphor-icons/react";
+import { Gear, SignOut, Tray, User as UserIcon } from "@phosphor-icons/react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -40,18 +40,9 @@ export function AccountMenu() {
   if (!user) {
     const next = pathname && pathname !== "/" ? `?${new URLSearchParams({ next: pathname })}` : "";
     return (
-      <>
-        <Link
-          href="/profile"
-          aria-label="Your taste profile"
-          className="grid size-10 place-items-center rounded-pill text-ink-muted transition-colors duration-quick hover:bg-surface-overlay hover:text-ink"
-        >
-          <UserCircle />
-        </Link>
-        <Link href={`/sign-in${next}`} className={buttonClass({ variant: "secondary" })}>
-          Sign in
-        </Link>
-      </>
+      <Link href={`/sign-in${next}`} className={buttonClass({ variant: "secondary", size: "sm" })}>
+        Sign in
+      </Link>
     );
   }
 
@@ -81,7 +72,13 @@ export function AccountMenu() {
           <DropdownMenu.Item asChild>
             <Link href="/profile" className={ITEM}>
               <UserIcon aria-hidden className="size-5 text-ink-muted" />
-              Profile
+              Your taste profile
+            </Link>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item asChild>
+            <Link href="/import" className={ITEM}>
+              <Tray aria-hidden className="size-5 text-ink-muted" />
+              Imports
             </Link>
           </DropdownMenu.Item>
           <DropdownMenu.Item asChild>

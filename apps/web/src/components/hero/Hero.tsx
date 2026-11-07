@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { buttonClass } from "@/components/controls/Button";
 import { SeenItButton } from "@/components/detail/SeenItButton";
 import { hrefFor } from "@/components/rail/Tile";
 import { api } from "@/lib/api";
@@ -12,7 +13,11 @@ import type { MediaType, Work } from "@/lib/types";
 
 const MEDIA_LABEL: Record<MediaType, string> = { movie: "Film", tv: "TV", anime: "Anime", music: "Music", game: "Game" };
 
-/** Featured rotator: cross-fades backdrops through `items`, pausing on hover/focus. */
+/**
+ * Featured rotator. It runs full-bleed up under the nav (the nav is clear until the page scrolls),
+ * cross-fades backdrops through `items` every 8 s and pauses while hovered or focused. The selected
+ * dot fills over the rotation.
+ */
 export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?: "h1" | "h2" }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -30,9 +35,10 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
 
   return (
     <section
+      data-hero
       aria-roledescription="carousel"
       aria-label="Featured"
-      className="relative isolate flex min-h-[56svh] flex-col justify-end overflow-hidden rounded-sheet bg-brand md:min-h-[70svh]"
+      className="relative isolate -mx-4 -mt-(--nav-h) flex min-h-150 flex-col justify-end overflow-hidden bg-brand md:-mx-10 md:min-h-170"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -62,42 +68,51 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
           <div className="absolute inset-0 bg-scrim" />
         </motion.div>
       </AnimatePresence>
-      <div className="flex flex-col gap-4 p-6 pb-10 md:p-10 md:pb-12">
-        <Title className="max-w-4xl font-display text-display-xl text-ink">{work.title}</Title>
+      <div className="flex max-w-4xl flex-col gap-4 px-5 pt-6 pb-16 md:px-10 md:pt-10 md:pb-18">
+        <Title className="font-display text-display-xl tracking-[-0.03em] text-balance text-ink">{work.title}</Title>
+        {work.why ? <p className="max-w-2xl text-lg leading-snug text-ink max-sm:text-base">{work.why}</p> : null}
         <ul className="flex flex-wrap gap-2" aria-label="Details">
           {chips.map((chip) => (
             <li
               key={String(chip)}
-              className="rounded-pill border border-line bg-surface/70 px-3 py-1 font-mono text-meta text-ink"
+              className="rounded-pill border border-line bg-surface/70 px-3 py-1.5 font-mono text-meta leading-none text-ink"
             >
               {chip}
             </li>
           ))}
         </ul>
-        {work.why ? <p className="max-w-2xl text-lg text-ink">{work.why}</p> : null}
-        <div className="flex flex-wrap gap-2">
-          <Link
-            href={hrefFor(work)}
-            className="rounded-pill bg-accent px-5 py-2 text-sm font-semibold text-accent-ink transition-colors duration-quick hover:bg-accent-strong"
-          >
+        <div className="mt-1 flex flex-wrap gap-2 md:gap-3">
+          <Link href={hrefFor(work)} className={`${buttonClass({ size: "lg" })} max-sm:w-full`}>
             Details
           </Link>
           {/* Seen it needs the API; the snapshot build has nowhere to send it. */}
           {api.mode === "live" ? <SeenItButton key={work.id} workId={work.id} /> : null}
         </div>
       </div>
-      <div className="absolute right-6 bottom-4 flex gap-2" role="tablist" aria-label="Choose featured item">
-        {items.map((w, i) => (
-          <button
-            key={w.id}
-            role="tab"
-            aria-selected={i === index}
-            aria-label={`Show ${w.title}`}
-            onClick={() => setIndex(i)}
-            className="h-1.5 w-6 rounded-pill bg-ink/25 transition-colors duration-base aria-selected:bg-ink"
-          />
-        ))}
-      </div>
+      {items.length > 1 ? (
+        <div className="absolute right-5 bottom-5 flex gap-2 md:right-10 md:bottom-8" role="tablist" aria-label="Featured titles">
+          {items.map((w, i) => (
+            <button
+              key={w.id}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`${i + 1} of ${items.length}: ${w.title}`}
+              onClick={() => setIndex(i)}
+              className="group rounded-pill py-2"
+            >
+              <span className="relative block h-1 w-7 overflow-hidden rounded-pill bg-ink/30 transition-[width,background-color] duration-base ease-standard group-hover:bg-ink/50 group-aria-selected:w-12">
+                {i === index ? (
+                  <span
+                    key={paused ? "paused" : "running"}
+                    className={`absolute inset-0 bg-ink ${paused ? "" : "hero-fill"}`}
+                  />
+                ) : null}
+              </span>
+            </button>
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }

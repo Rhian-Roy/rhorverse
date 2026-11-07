@@ -13,7 +13,7 @@ export function ShellFrame({ top, bottom, children }: { top: ReactNode; bottom: 
   return (
     <>
       {top}
-      <main id="main" tabIndex={-1} className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-6 py-8">
+      <main id="main" tabIndex={-1} className="flex flex-col gap-10 px-4 py-8 outline-none md:px-10">
         {children}
       </main>
       {bottom}

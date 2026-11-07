@@ -15,12 +15,12 @@ export const MEDIA_SHAPE: Record<Work["media"], Shape> = {
 };
 
 /** Rendered width in CSS px, so the browser asks for the right image rather than a viewport-sized one. */
-const WIDTH_PX: Record<Shape, number> = { poster: 160, landscape: 288, square: 176, capsule: 320 };
+const WIDTH_PX: Record<Shape, number> = { poster: 168, landscape: 296, square: 184, capsule: 320 };
 
 export const ASPECT: Record<Shape, string> = {
-  poster: "aspect-[2/3] w-40",
-  landscape: "aspect-video w-72",
-  square: "aspect-square w-44",
+  poster: "aspect-[2/3] w-42",
+  landscape: "aspect-video w-74",
+  square: "aspect-square w-46",
   capsule: "aspect-[460/215] w-80",
 };
 
@@ -76,7 +76,7 @@ export function Tile({
             </span>
           )}
         </div>
-        <p className="mt-2 line-clamp-1 text-sm text-ink">{work.title}</p>
+        <p className="mt-2.5 line-clamp-1 text-sm text-ink">{work.title}</p>
         {work.year ? <p className="font-mono text-meta text-ink-faint">{work.year}</p> : null}
       </Link>
       {/* Both actions need the API; the snapshot build has nowhere to send them. */}

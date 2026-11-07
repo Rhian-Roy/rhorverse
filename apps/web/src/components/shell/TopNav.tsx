@@ -4,7 +4,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { AccountMenu } from "./AccountMenu";
 import { ThemeToggle } from "./ThemeToggle";
 import { Wordmark } from "./Wordmark";
@@ -46,6 +46,18 @@ export function TopNav() {
   const pathname = usePathname();
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Heroes slide under the nav by exactly its height, which changes when the tabs wrap on a phone.
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const publish = () => document.documentElement.style.setProperty("--nav-h", `${el.offsetHeight}px`);
+    publish();
+    const observer = new ResizeObserver(publish);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // The one blur in the app, and only once content is moving under the bar.
   useEffect(() => {
@@ -57,10 +69,12 @@ export function TopNav() {
 
   return (
     <header
+      ref={headerRef}
+      data-topnav
       data-scrolled={scrolled}
       className="sticky top-0 z-40 border-b border-transparent bg-surface transition-colors duration-quick data-[scrolled=true]:border-line data-[scrolled=true]:bg-surface/80 data-[scrolled=true]:backdrop-blur"
     >
-      <nav aria-label="Primary" className="mx-auto flex max-w-screen-2xl flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2 md:h-16 md:flex-nowrap md:px-6 md:py-0">
+      <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2 md:h-16 md:flex-nowrap md:px-10 md:py-0">
         <Link href="/" aria-label="Rhorverse home" className="shrink-0">
           <Wordmark />
         </Link>

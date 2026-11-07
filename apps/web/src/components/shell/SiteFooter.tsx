@@ -13,7 +13,7 @@ const SITE_WIDE: { source: CreditSource; label: string }[] = [
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto max-w-screen-2xl px-6 pt-4 pb-28 text-xs text-ink-faint">
+    <footer className="mt-12 border-t border-line px-4 pt-8 pb-28 text-xs text-ink-faint md:px-10">
       <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <span>Data from</span>
         {SITE_WIDE.map(({ source, label }) => (
@@ -30,6 +30,17 @@ export function SiteFooter() {
         <span aria-hidden>·</span>
         <Link href="/about" className="hover:text-ink-muted hover:underline">
           All credits
+        </Link>
+      </p>
+      <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <Link href="/profile" className="hover:text-ink-muted hover:underline">
+          Your taste profile
+        </Link>
+        <Link href="/import" className="hover:text-ink-muted hover:underline">
+          Import history
+        </Link>
+        <Link href="/privacy" className="hover:text-ink-muted hover:underline">
+          Privacy notice
         </Link>
       </p>
     </footer>

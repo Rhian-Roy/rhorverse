@@ -1,5 +1,7 @@
 "use client";
 
+import { Chip as ChipButton } from "@/components/controls/Chip";
+
 export interface Chip<T extends string> {
   value: T;
   label: string;
@@ -19,17 +21,11 @@ export function ChipBar<T extends string>({
 }) {
   const all: Array<Chip<T> | { value: null; label: string }> = [{ value: null, label: "All" }, ...chips];
   return (
-    <div role="group" aria-label={label} className="scrollbar-none flex gap-2 overflow-x-auto">
+    <div role="group" aria-label={label} className="scrollbar-none -m-1 flex gap-2 overflow-x-auto p-1">
       {all.map((chip) => (
-        <button
-          key={chip.value ?? "all"}
-          type="button"
-          aria-pressed={chip.value === value}
-          onClick={() => onChange(chip.value)}
-          className="shrink-0 rounded-pill border border-line px-4 py-1.5 text-sm text-ink-muted transition-colors duration-quick hover:text-ink aria-pressed:border-chip-selected aria-pressed:bg-chip-selected aria-pressed:text-chip-selected-ink"
-        >
+        <ChipButton key={chip.value ?? "all"} selected={chip.value === value} onClick={() => onChange(chip.value)}>
           {chip.label}
-        </button>
+        </ChipButton>
       ))}
     </div>
   );

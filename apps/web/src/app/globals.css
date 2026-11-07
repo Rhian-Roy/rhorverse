@@ -120,7 +120,7 @@
 }
 
 @utility bg-scrim {
-  background-image: linear-gradient(to top, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 82%, transparent) 42%, transparent 85%);
+  background-image: linear-gradient(to top, var(--color-surface) 0%, color-mix(in srgb, var(--color-surface) 82%, transparent) 30%, transparent 70%), linear-gradient(to right, color-mix(in srgb, var(--color-surface) 70%, transparent) 0%, transparent 55%);
 }
 @utility bg-canopy-glow {
   background-image: radial-gradient(70% 90% at 15% 0%, color-mix(in srgb, var(--color-chip-selected) 45%, transparent), transparent 70%);
@@ -175,6 +175,70 @@
   }
 }
 
+/* The nav sits over a page's hero. --nav-h is the nav's real height (TopNav keeps it current); the
+   fallbacks match one row on desktop and the wrapped two rows on a phone. */
+:root {
+  --nav-h: 6.75rem;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --nav-h: 4rem;
+  }
+}
+
+/* A page whose first block is a hero starts at the very top, and the nav is clear until it's scrolled. */
+main:has(> [data-hero]:first-child) {
+  padding-top: 0;
+}
+
+body:has([data-hero]) [data-topnav][data-scrolled="false"] {
+  background-color: transparent;
+}
+
+/* Hero rotation: the selected dot fills over one rotation. */
+@keyframes hero-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.hero-fill {
+  transform-origin: left;
+  animation: hero-progress var(--hero-interval, 8000ms) linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fill {
+    animation: none !important;
+    transform: scaleX(1);
+  }
+}
+
+/* The dot beside a playing track: a soft pulse, still when motion is reduced. */
+@keyframes live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-signal-400) 60%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+}
+
+.live-dot {
+  animation: live-pulse 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot {
+    animation: none !important;
+  }
+}
+
 @utility scrollbar-none {
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -189,6 +253,12 @@
 
 [data-tv="true"] [data-tile]:focus-visible [data-tile-art] {
   scale: 1.1;
+  outline-width: 4px;
+  outline-offset: 6px;
+}
+
+html[data-tv="true"] [data-rail]:has([data-tile]:focus-visible) [data-tile]:not(:focus-visible) {
+  opacity: 0.55;
 }
 
 /* TV mode: 1.4x type (everything is in rem) and a 5% overscan safe area. */

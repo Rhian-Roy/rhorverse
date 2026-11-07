@@ -3,10 +3,12 @@ import type { ButtonHTMLAttributes } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md" | "lg";
 
+// A toggled button (aria-pressed) reads as selected, the same green as a selected chip.
+const PRESSED = "aria-pressed:bg-chip-selected aria-pressed:text-chip-selected-ink";
 const VARIANT: Record<Variant, string> = {
   primary: "bg-accent text-accent-ink hover:bg-accent-strong",
-  secondary: "bg-surface-overlay text-ink hover:bg-surface-hover",
-  ghost: "bg-transparent text-ink-muted hover:bg-surface-overlay hover:text-ink",
+  secondary: `bg-surface-overlay text-ink hover:bg-surface-hover ${PRESSED}`,
+  ghost: `bg-transparent text-ink-muted hover:bg-surface-overlay hover:text-ink ${PRESSED}`,
 };
 const SIZE: Record<Size, string> = {
   sm: "h-8 px-3.5 text-meta",
