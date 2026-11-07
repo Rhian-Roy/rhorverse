@@ -4,6 +4,7 @@ import { Eye, EyeSlash } from "@phosphor-icons/react";
 import { useState } from "react";
 import { api } from "@/lib/api";
 import { currentWho } from "@/lib/client-who";
+import { announce } from "@/lib/toast";
 import type { EventKind, Work } from "@/lib/types";
 
 const ACTIONS = [
@@ -26,6 +27,11 @@ export function TileActions({ work, onDone }: { work: Work; onDone?: (id: string
     try {
       await api.sendEvents([{ work_id: work.id, kind, weight: 1 }], await currentWho());
       onDone?.(work.id);
+      announce(
+        kind === "consumed"
+          ? { title: `Marked ${work.title} as seen`, body: "We’ll stop suggesting it. Rate it from its page to tune For you." }
+          : { title: `Hidden: ${work.title}`, body: "We’ll stop suggesting it." },
+      );
     } catch {
       setFailed(true);
       setBusy(false);

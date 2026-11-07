@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { MiniPlayer } from "@/components/music/MiniPlayer";
-import { FlashToast } from "@/components/shell/FlashToast";
+import { ToastHost } from "@/components/shell/FlashToast";
 import { FocusRoot } from "@/components/shell/FocusRoot";
 import { ShellFrame } from "@/components/shell/ShellFrame";
 import { SiteFooter } from "@/components/shell/SiteFooter";
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           >
             {children}
           </ShellFrame>
-          <FlashToast />
+          <ToastHost />
         </FocusRoot>
       </body>
     </html>

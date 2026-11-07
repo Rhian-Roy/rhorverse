@@ -1,7 +1,8 @@
 "use client";
 
 import { X } from "@phosphor-icons/react";
-import { useEffect, useRef, useState, useSyncExternalStore, type KeyboardEvent } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useRef, useState, useSyncExternalStore, type KeyboardEvent } from "react";
 import { ChipBar, type Chip as ChipDef } from "@/components/chips/ChipBar";
 import { Button } from "@/components/controls/Button";
 import { Chip } from "@/components/controls/Chip";
@@ -75,7 +76,16 @@ function subscribeRecent(listener: () => void) {
 }
 
 export default function SearchPage() {
-  const [q, setQ] = useState("");
+  // useSearchParams needs a Suspense boundary in a statically built page.
+  return (
+    <Suspense>
+      <Search />
+    </Suspense>
+  );
+}
+
+function Search() {
+  const [q, setQ] = useState(useSearchParams().get("q") ?? "");
   const [media, setMedia] = useState<MediaType | null>(null);
   const [filters, setFilters] = useState<SearchFilters>({});
   const [found, setFound] = useState<{ key: string; items: Work[] } | null>(null);

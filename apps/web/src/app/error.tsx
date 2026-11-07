@@ -1,31 +1,38 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { Button, buttonClass } from "@/components/controls/Button";
 
-/** Shown when a page throws while rendering. Same voice as the 404. */
-export default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
+/** Shown when a page throws while rendering. Says what is safe, and offers the two obvious ways on. */
+export default function ErrorPage({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  const [retrying, setRetrying] = useState(false);
   return (
-    <section className="flex flex-col items-start gap-4 py-24">
-      <p className="font-display text-display-xl text-link">Oops</p>
-      <h1 className="font-display text-display-l text-ink">Something went sideways on our end.</h1>
-      <p className="max-w-xl text-ink-muted">
-        The page didn&apos;t load. Your taste profile and everything you&apos;ve rated are safe.
+    <section role="alert" aria-labelledby="err-title" className="flex max-w-170 flex-col items-start gap-4 py-16 md:py-24">
+      <h1 id="err-title" className="font-display text-display-l tracking-[-0.03em] text-balance text-ink">
+        Couldn&apos;t load this page
+      </h1>
+      <p className="text-lg leading-relaxed text-ink-muted">
+        Something on our side didn&apos;t answer in time, so there&apos;s nothing to show yet. Your ratings and
+        list are safe. This usually clears on the next try.
       </p>
-      <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={reset}
-          className="rounded-pill bg-accent px-5 py-2 text-sm font-semibold text-accent-ink transition-colors duration-quick hover:bg-accent-strong"
+      <div className="flex flex-wrap gap-3">
+        <Button
+          size="lg"
+          disabled={retrying}
+          onClick={() => {
+            setRetrying(true);
+            reset();
+            setTimeout(() => setRetrying(false), 1500);
+          }}
         >
-          Try again
-        </button>
-        <Link
-          href="/"
-          className="rounded-pill bg-surface-overlay px-5 py-2 text-sm font-semibold text-ink transition-colors duration-quick hover:bg-surface-hover"
-        >
-          Back to home base
+          {retrying ? "Trying again" : "Retry"}
+        </Button>
+        <Link href="/" className={buttonClass({ variant: "ghost", size: "lg" })}>
+          Back to Home
         </Link>
       </div>
+      {error.digest ? <p className="font-mono text-meta text-ink-faint">Error {error.digest}</p> : null}
     </section>
   );
 }
