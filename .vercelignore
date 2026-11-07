@@ -5,7 +5,7 @@
 *.rtf
 .claude
 .agents
-supabase
+/supabase
 .ruff_cache
 .github
 data
