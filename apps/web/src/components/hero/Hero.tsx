@@ -38,7 +38,7 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
       data-hero
       aria-roledescription="carousel"
       aria-label="Featured"
-      className="relative isolate -mx-4 -mt-(--nav-h) flex min-h-150 flex-col justify-end overflow-hidden bg-brand md:-mx-10 md:min-h-170"
+      className="relative isolate -mx-[calc(var(--gutter)+var(--safe-x))] -mt-[calc(var(--nav-h)+var(--safe-y))] flex min-h-150 flex-col justify-end overflow-hidden bg-brand md:min-h-170"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -68,7 +68,7 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
           <div className="absolute inset-0 bg-scrim" />
         </motion.div>
       </AnimatePresence>
-      <div className="flex max-w-4xl flex-col gap-4 px-5 pt-6 pb-16 md:px-10 md:pt-10 md:pb-18">
+      <div className="flex max-w-4xl flex-col gap-4 px-[calc(var(--gutter)+var(--safe-x))] pt-6 pb-16 md:pt-10 md:pb-18">
         <Title className="font-display text-display-xl tracking-[-0.03em] text-balance text-ink">{work.title}</Title>
         {work.why ? <p className="max-w-2xl text-lg leading-snug text-ink max-sm:text-base">{work.why}</p> : null}
         <ul className="flex flex-wrap gap-2" aria-label="Details">
@@ -90,7 +90,7 @@ export function Hero({ items, titleAs: Title = "h1" }: { items: Work[]; titleAs?
         </div>
       </div>
       {items.length > 1 ? (
-        <div className="absolute right-5 bottom-5 flex gap-2 md:right-10 md:bottom-8" role="tablist" aria-label="Featured titles">
+        <div className="absolute right-[calc(var(--gutter)+var(--safe-x))] bottom-5 flex gap-2 md:bottom-8" role="tablist" aria-label="Featured titles">
           {items.map((w, i) => (
             <button
               key={w.id}

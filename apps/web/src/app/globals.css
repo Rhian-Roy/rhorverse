@@ -179,12 +179,22 @@
    fallbacks match one row on desktop and the wrapped two rows on a phone. */
 :root {
   --nav-h: 6.75rem;
+  /* Page gutter, plus the TV overscan on top of it (0 on every other screen). */
+  --gutter: 1.25rem;
+  --safe-x: 0px;
+  --safe-y: 0px;
 }
 
 @media (min-width: 48rem) {
   :root {
     --nav-h: 4rem;
+    --gutter: 2.5rem;
   }
+}
+
+html[data-tv="true"] {
+  --safe-x: 5vw;
+  --safe-y: 5vh;
 }
 
 /* A page whose first block is a hero starts at the very top, and the nav is clear until it's scrolled. */

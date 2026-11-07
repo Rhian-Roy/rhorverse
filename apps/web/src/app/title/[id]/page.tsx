@@ -20,12 +20,19 @@ export default async function TitlePage({ params }: { params: Promise<{ id: stri
   return (
     <>
       <DetailHeader work={work} />
-      <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_20rem]">
-        <div className="flex min-w-0 flex-col gap-10">
-          {work.overview ? <p className="max-w-3xl text-ink-muted">{work.overview}</p> : null}
+      <div className="flex flex-wrap items-start gap-x-16 gap-y-12 pt-6">
+        <div className="flex min-w-0 max-w-215 flex-[999_1_40rem] flex-col gap-16">
+          {work.overview ? (
+            <section aria-labelledby="overview">
+              <h2 id="overview" className="mb-4 font-display text-title text-ink">
+                Overview
+              </h2>
+              <p className="max-w-170 text-lg leading-relaxed text-ink">{work.overview}</p>
+            </section>
+          ) : null}
           {why ? <WhyHere explanation={why} /> : null}
           {work.media !== "anime" ? <Availability providers={work.availability} /> : null}
-          <TagCloud tags={work.tags} facets={work.facets} />
+          <TagCloud tags={work.tags} facets={work.facets} shared={why?.shared_tags} />
           <CastRow cast={work.facets.cast ?? []} />
           {across?.items.length ? <Rail rail={across} /> : null}
           <div className="flex flex-col gap-1">

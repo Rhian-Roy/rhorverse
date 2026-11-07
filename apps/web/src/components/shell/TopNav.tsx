@@ -74,7 +74,7 @@ export function TopNav() {
       data-scrolled={scrolled}
       className="sticky top-0 z-40 border-b border-transparent bg-surface transition-colors duration-quick data-[scrolled=true]:border-line data-[scrolled=true]:bg-surface/80 data-[scrolled=true]:backdrop-blur"
     >
-      <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2 md:h-16 md:flex-nowrap md:px-10 md:py-0">
+      <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-6 gap-y-1 px-(--gutter) py-2 md:h-16 md:flex-nowrap md:py-0">
         <Link href="/" aria-label="Rhorverse home" className="shrink-0">
           <Wordmark />
         </Link>

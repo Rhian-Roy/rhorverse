@@ -13,7 +13,7 @@ const SITE_WIDE: { source: CreditSource; label: string }[] = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 border-t border-line px-4 pt-8 pb-28 text-xs text-ink-faint md:px-10">
+    <footer className="mt-12 border-t border-line px-(--gutter) pt-8 pb-28 text-xs text-ink-faint">
       <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <span>Data from</span>
         {SITE_WIDE.map(({ source, label }) => (

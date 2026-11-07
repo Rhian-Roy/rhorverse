@@ -7,7 +7,16 @@ import { api } from "@/lib/api";
 import { currentWho } from "@/lib/client-who";
 
 /** Marks a work as seen (a `consumed` event), which removes it from recommendations. */
-export function SeenItButton({ workId, className }: { workId: string; className?: string }) {
+export function SeenItButton({
+  workId,
+  className,
+  labels = ["Seen it", "Seen"],
+}: {
+  workId: string;
+  className?: string;
+  /** [before, after]: games say "Played it" / "Played". */
+  labels?: readonly [string, string];
+}) {
   const [seen, setSeen] = useState(false);
 
   async function markSeen() {
@@ -23,7 +32,7 @@ export function SeenItButton({ workId, className }: { workId: string; className?
   return (
     <Button variant="secondary" size="lg" aria-pressed={seen} onClick={() => void markSeen()} className={className}>
       <Eye aria-hidden className="size-5" />
-      {seen ? "Seen" : "Seen it"}
+      {seen ? labels[1] : labels[0]}
     </Button>
   );
 }

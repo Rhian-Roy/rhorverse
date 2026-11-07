@@ -1,22 +1,30 @@
 "use client";
 
-import { BookmarkSimple, ThumbsDown, ThumbsUp } from "@phosphor-icons/react";
+import { BookmarkSimple, ThumbsUp } from "@phosphor-icons/react";
 import { useState } from "react";
+import { Button } from "@/components/controls/Button";
 import { api } from "@/lib/api";
 import { currentWho } from "@/lib/client-who";
 import type { EventKind } from "@/lib/types";
+import { SeenItButton } from "./SeenItButton";
 
 const ACTIONS = [
-  { kind: "like", label: "Loved it", Icon: ThumbsUp },
-  { kind: "dislike", label: "Not for me", Icon: ThumbsDown },
-  { kind: "save", label: "Save for later", Icon: BookmarkSimple },
-] as const satisfies readonly { kind: EventKind; label: string; Icon: unknown }[];
+  { kind: "like", label: "Loved it", Icon: ThumbsUp, variant: "secondary" },
+  { kind: "save", label: "Save for later", Icon: BookmarkSimple, variant: "secondary" },
+  { kind: "dislike", label: "Not interested", Icon: null, variant: "ghost" },
+] as const satisfies readonly { kind: EventKind; label: string; Icon: unknown; variant: "secondary" | "ghost" }[];
 
 /**
- * Sends like / dislike / save events for the anonymous cookie profile. v1 only records
- * turning an action on; turning it off just resets the button.
+ * Seen it, Loved it, Save for later and Not interested for the signed-in account or the guest cookie
+ * profile. v1 only records turning an action on; turning it off just resets the button.
  */
-export function FeedbackActions({ workId }: { workId: string }) {
+export function FeedbackActions({
+  workId,
+  seenLabels,
+}: {
+  workId: string;
+  seenLabels?: readonly [string, string];
+}) {
   const [pressed, setPressed] = useState<Partial<Record<EventKind, boolean>>>({});
   const [failed, setFailed] = useState(false);
 
@@ -34,23 +42,24 @@ export function FeedbackActions({ workId }: { workId: string }) {
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      {ACTIONS.map(({ kind, label, Icon }) => (
-        <button
+    <div className="flex flex-wrap items-center gap-2.5">
+      <SeenItButton workId={workId} labels={seenLabels} />
+      {ACTIONS.map(({ kind, label, Icon, variant }) => (
+        <Button
           key={kind}
-          type="button"
-          aria-pressed={pressed[kind] ?? false}
+          variant={variant}
+          size="lg"
+          aria-pressed={!!pressed[kind]}
           onClick={() => void toggle(kind)}
-          className="flex items-center gap-2 rounded-pill bg-surface-overlay px-4 py-2 text-sm text-ink hover:bg-surface-hover aria-pressed:bg-chip-selected aria-pressed:text-chip-selected-ink"
         >
-          <Icon weight="regular" size={20} />
+          {Icon ? <Icon aria-hidden className="size-5" /> : null}
           {label}
-        </button>
+        </Button>
       ))}
       {failed ? (
-        <p role="status" className="text-sm text-ink-muted">
-          Couldn&apos;t save that. Is the API running?
-        </p>
+        <span role="alert" className="text-sm text-danger">
+          Couldn&apos;t save that. Try again.
+        </span>
       ) : null}
     </div>
   );
