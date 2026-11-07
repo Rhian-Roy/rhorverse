@@ -47,6 +47,23 @@ A focused tile scales 1.06 (1.10 in TV mode) over 160 ms with `ease-enter`, gets
 ## Tiles
 Poster 2:3 · landscape 16:9 · square 1:1 · capsule 460:215. Titles below the art, never on top of it. A tile falls back across image shapes rather than showing a blank.
 
+## Page frame and heroes (design canvas, 2026-11-06)
+- **Gutters.** Pages have no max width: `--gutter` is 20 px on a phone and 40 px from `md` up. On TV it is also offset by the overscan (`--safe-x`, `--safe-y`), set on `html[data-tv]`.
+- **Hero.** A page whose first block is `[data-hero]` (Home, the medium tabs, title pages) runs full-bleed up under the nav: negative margin of `--nav-h` (TopNav keeps it current with a ResizeObserver), `main` loses its top padding (`main:has(> [data-hero]:first-child)`) and the nav is clear until the page scrolls 24 px (`body:has([data-hero]) [data-topnav][data-scrolled="false"]`). Tab heroes are `compact` (page-title size, shorter) and keep the tab name as a screen-reader-only `<h1>`.
+- **Scrim.** `bg-scrim` is two layers: bottom to top, and left to right. It is the one gradient over photos.
+- **Hero dots.** The selected dot is 48 px wide and fills over 8 s (`.hero-fill`, still when motion is reduced). Hovering or focusing the hero stops the rotation.
+- **TopNav end.** Theme toggle, Search, then Sign in (a small secondary pill) or the avatar menu (Your taste profile, Imports, Account, Sign out). "Your taste profile", "Import history" and "Privacy notice" are also in the footer, for guests.
+
+## Components added or changed for the canvas
+- `components/controls/`: Button (primary, secondary, ghost; `aria-pressed` reads as selected), Chip and ChipLink (filters), Field, PasswordField, Checkbox, Toast. This folder is not called `ui/` because ESLint bans that path (no shadcn).
+- Tiles are 168 (poster), 184 (square), 296 (landscape) and 320 px (capsule) wide, in rem so TV mode scales them. Top 10 numerals are 8.5rem mono, outlined in `rank`, filled while the tile is hovered or focused.
+- Detail pages: `Section` (title + body), `WhyHere` and `TagCloud` (a filled tag matches your taste), `Availability` (Stream / Rent / Buy rows with provider logos), `CastRow` (initial avatars), `UpNext` (a column beside the page, below it when narrow).
+- Music: `TrackRow` shows the number, a play arrow on hover or focus, and a live dot while it plays. `MiniPlayer` shows time and progress; `useIsPlaying(url)` tells a row whether it is the one playing.
+- States: `EmptyState`, `RailSkeleton` (tile-shaped blanks under the real heading), the error page (Retry, Back to Home, error digest), the 404 (failed address, search box), and `ToastHost` (`announce()` from `lib/toast.ts`).
+
+## Canvas content with no data behind it (not built)
+"Continue where you left off", "Top 10 this week", "On JioHotstar", Add to list, 1–5 star ratings, game Time to beat / Player ratings / Screenshots, Fans also like, Open in Apple Music, hover play buttons on album tiles, the Rails/Grid toggle on tabs, certificates like "UA 16+", seasons and episodes, and Undo on the Seen it toast (there is no delete-event endpoint). Build them when the data and endpoints exist.
+
 ## Layout decisions the plan leaves open
 - Pressed buttons use `chip-selected`, the same as selected chips. Hover moves one surface step up.
 - The detail header holds the title, meta chips and actions. Overview is its own section below, so text never sits on the bright part of a photo.

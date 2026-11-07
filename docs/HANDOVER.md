@@ -2,7 +2,8 @@
 
 ## Current state (2026-11-06)
 - **Accounts (2026-11-06):** Supabase Auth with email + password and Google (`/sign-in`, `/sign-up`, `/forgot-password`, `/reset-password`, `/auth/callback`, `/onboarding`, `/account`, `/privacy`), built from the Accounts page of the design canvas. Migration 0004 adds `profiles.user_id`, `age_confirmed`, `consent_at` and RLS. The API verifies Supabase tokens (`auth.py`, PyJWT, cached JWKS) and maps `sub` to a profile; a token always wins over a client-sent `profile_id`; guests still work via the cookie. After sign-in the guest profile is merged into the account and a toast says so. Export (JSON), password change, sign out everywhere and delete account (server action + secret key) are on `/account`. Env var names are in `.env.example`; the manual dashboard steps are in `docs/DEPLOY.md` › Accounts.
-- Not applied to Supabase yet: run `just push-supabase`, then `db/checks/rls.sql`, then set the env vars (see DEPLOY).
+- Migration 0004 is applied to Supabase (2026-11-06) and recorded in `schema_migrations`. Still to do by hand: run `db/checks/rls.sql` in the SQL editor, set the Supabase dashboard and Vercel env vars, then redeploy (see DEPLOY › Accounts).
+- **Design canvas (2026-11-06):** the shared components, Home, title, game, album, artist, browse tabs, search and the states pages follow the Rhorverse design canvas (docs/DESIGN.md › "Page frame and heroes"). Lighthouse accessibility is 100 on Home, Movies, a title, an album, Search and Sign in. Canvas content with no data is not built (listed in DESIGN.md).
 
 - Monorepo skeleton in place: web (Next.js 16.4), api (FastAPI, uv), tokens, db migrations, scripts, docs, CI.
 - Web runs fully in `API_MODE=snapshot` from placeholder JSON in `apps/web/public/snapshots/`.

@@ -35,6 +35,9 @@ Run `just test` and `just lint` before every commit. Both must pass.
 7. **Schema changes** only as a new numbered file in `db/migrations/`. Never edit an applied migration.
 8. **Tests.** New logic in `rec/`, `imports/` or `ingest/` gets a pytest. New user-facing routes get a Playwright check when practical.
 
+## Design rules (short)
+Full rules: `docs/DESIGN.md` and `.agents/rules/design.md`. In brief: tokens only; pages use `--gutter` and a first-child `[data-hero]` slides under the nav; shared controls are in `components/controls/` (never `components/ui/`); never render content the data doesn't have.
+
 ## Conventions
 - TS: strict, no `any`, shared types in `apps/web/src/lib/types.ts` mirror `services/api/src/rhorverse/schemas.py`.
 - Python: ruff (lint + format), type hints everywhere, pydantic models for every response.

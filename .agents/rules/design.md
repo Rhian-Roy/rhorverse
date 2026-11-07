@@ -8,3 +8,6 @@
 6. Everything focusable must show a visible `focus-visible` ring (`ring-focus`) and work with keyboard and TV remote (norigin).
 7. Tiles keep their aspect per variant: poster 2:3, landscape 16:9, square 1:1, capsule 460:215.
 8. Credit data sources inline with `<Credit>` wherever their data appears.
+9. Page frame: use `--gutter` for horizontal page padding, never a fixed `px-*` on `main` content. A hero is the first child of `main`, carries `data-hero`, and slides under the nav with `-mt-[calc(var(--nav-h)+var(--safe-y))]`.
+10. Shared controls live in `components/controls/` (Button, Chip, Field, Checkbox, Toast). Do not create `components/ui/` (ESLint bans it).
+11. Do not build canvas content that has no data (see docs/DESIGN.md › "Canvas content with no data"): no mock rails, ratings or counts.
